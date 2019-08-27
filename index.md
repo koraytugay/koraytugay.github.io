@@ -4,7 +4,12 @@ title:  "My Homepage"
 ---
 
 # Koray Tugay 's Personal Home Page
+{:.no_toc}
+
 1. [About](content/about.md)
+
+* TOC
+{:toc}
 
 ## Literature
 1. [1984](content/1984.md)
@@ -15,5 +20,5 @@ title:  "My Homepage"
 1. [Raising Cain](content/raising-cain.md)
 1. [The Phoenix Project](content/the-phoenix-project.md)
 
-## Java
+## Cryptography
 1. [Sharing a Signed Message (Example in Java)](content/sharing-a-signed-message.md)
