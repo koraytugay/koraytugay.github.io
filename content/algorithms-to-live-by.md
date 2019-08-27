@@ -66,7 +66,13 @@ numOfSecretaries = 100
 numOfTries = 1000000
 optimal_stopping_location = int(numOfSecretaries * 0.37)
 
-secretaries = pd.DataFrame(rng.choice(np.arange(0, 100000), size=[numOfSecretaries, numOfTries]))
+secretaries = pd.DataFrame(
+    rng.choice(
+        np.arange(0, 100000), 
+        size=[numOfSecretaries, numOfTries]
+    )
+)
+
 training = secretaries[0:optimal_stopping_location]
 threshold = training.max()
 
@@ -90,7 +96,13 @@ numOfSecretaries = 15
 numOfTries = 5
 optimal_stopping_location = int(numOfSecretaries * 0.37)
 
-secretaries = pd.DataFrame(rng.choice(np.arange(0, 100), size=[numOfSecretaries, numOfTries]))
+secretaries = pd.DataFrame(
+    rng.choice(
+        np.arange(0, 100), 
+        size=[numOfSecretaries, numOfTries]
+    )
+)
+
 # Initial DataFrame representing secretary points.
 print(secretaries)
 #      0   1   2   3   4
@@ -121,6 +133,7 @@ print(training)
 # 4   1  63  59  20  32
 
 threshold = training.max()
+
 # Our threshold value for each run.
 print(threshold)
 # 0    87
@@ -131,7 +144,9 @@ print(threshold)
 # dtype: int64
 
 decision = secretaries[optimal_stopping_location:].reset_index(drop=True)
-# DataFrame where we will be picking from. Remember: Pick the first value greater than threshold.
+
+# DataFrame where we will be picking from. 
+# Remember: Pick the first value greater than threshold.
 print(decision)
 #     0   1   2   3   4
 # 0  75  57  21  88  48
@@ -145,7 +160,7 @@ print(decision)
 # 8  46  34  77  80  35
 # 9  49   3   1   5  53
 
-# Anything below here is simply me trying to figure out the first value greater than threshold.
+# Figure out the first value > threshold.
 # masked is a DataFrame where values lower than threshold are NaN
 masked = decision[decision > threshold] # type: pd.DataFrame
 print(masked)
@@ -162,7 +177,8 @@ print(masked)
 # 9   NaN NaN   NaN   NaN   NaN
 
 # Now that we have `masked`, we will actually be picking the first !NaN value.
-# For example for 0th run we will be picking 90, since that is the first value greater than our threshold.
+# For example for 0th run we will be picking 90, since that is the first value 
+# greater than our threshold.
 # However, in this case, we are not actually picking the best candidate we can..
 # There is a better candidate at index 7 with a value of 91! Tough luck..
 
@@ -190,7 +206,7 @@ print(have_me_made_the_right_choice)
 # 3    False
 # 4     True
 
-# Finding the number of times we made the best choice possible at this point is very easy..
+# Finding the number of times we made the best choice at this point is easy.
 number_of_right_choices = np.sum(have_me_made_the_right_choice)
 print(number_of_right_choices)
 # 2
@@ -230,8 +246,9 @@ def attempt_counts_matching_socks(num_of_socks_to_consider):
     attempt_counts = []
 
     # Generate pairs of random socks.
-    socks = get_pair_of_socks(num_of_socks_to_consider) + get_pair_of_socks(num_of_socks_to_consider)
-
+    socks = get_pair_of_socks(num_of_socks_to_consider)
+    socks = socks + get_pair_of_socks(num_of_socks_to_consider)
+    
     while len(socks) != 0:
         # Pick one pair from the bag..
         first_pair = socks.pop(index_to_pull_sock_from(socks))
@@ -264,17 +281,17 @@ num_of_iterations = 1000
 pair_of_socks = 10
 
 # Initalise a list full of zeros of length `pair_of_socks`
-attempt_counts_so_far = [0] * pair_of_socks
+attempt_counts = [0] * pair_of_socks
 
 for _ in range(num_of_iterations):
     # Get attempt counts for 1 iteration..
-    attempt_counts_single_iteration = attempt_counts_matching_socks(pair_of_socks)
+    attempt_counts_single_iter = attempt_counts_matching_socks(pair_of_socks)
 
     # Add the attempt counts aligned by index. 
     # We will be dividing by the total number of iterations later for averages.
-    attempt_counts_so_far = list(map(add, attempt_counts_so_far, attempt_counts_single_iteration))
+    attempt_counts = list(map(add, attempt_counts, attempt_counts_single_iter))
 
-average_takes = list(map(lambda x: x / num_of_iterations, attempt_counts_so_far))
+average_takes = list(map(lambda x: x / num_of_iterations, attempt_counts))
 print(average_takes)
 # [18.205, 16.967, 14.659, 12.82, 11.686, 9.444, 7.238, 4.854, 2.984, 1.0]
 ```
@@ -303,18 +320,18 @@ How would matching socks be identical to sorting?
 Note how comparison count increases roughly by 4 `(6, 30, 132)` as the length of the lists increase by 2 `(3, 6, 12)`.
 
 ```python
-def bubble_sort(list_to_sort):
+def bubble_sort(a_list):
     comparison_count = 0
     unsorted = True
     while unsorted:
         unsorted = False
-        for i in range(len(list_to_sort) - 1):
+        for i in range(len(a_list) - 1):
             comparison_count = comparison_count + 1
-            if list_to_sort[i] > list_to_sort[i + 1]:
+            if a_list[i] > a_list[i + 1]:
                 unsorted = True
-                list_to_sort[i + 1], list_to_sort[i] = list_to_sort[i], list_to_sort[i + 1]
+                a_list[i + 1], a_list[i] = a_list[i], a_list[i + 1]
 
-    return list_to_sort, comparison_count
+    return a_list, comparison_count
 
 print(bubble_sort([3, 2, 1]))
 # ([1, 2, 3], 6)
@@ -330,17 +347,17 @@ print(bubble_sort([12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
 #### Insertion Sort Implementation in Python
 
 ```python
-def insertion_sort(list_to_sort):
+def insertion_sort(a_list):
     i = 1
-    while i < len(list_to_sort):
-        temp = list_to_sort[i]
+    while i < len(a_list):
+        temp = a_list[i]
         j = i
-        while j !=  0 and list_to_sort[j - 1] > temp:
-            list_to_sort[j] = list_to_sort[j - 1]
+        while j !=  0 and a_list[j - 1] > temp:
+            a_list[j] = a_list[j - 1]
             j = j - 1
-        list_to_sort[j] = temp
+        a_list[j] = temp
         i = i + 1
-    return list_to_sort
+    return a_list
 
 print(insertion_sort([5, 4, 3, 2, 1]))
 # [1, 2, 3, 4, 5]
@@ -525,7 +542,8 @@ final List<Task> tasks = Arrays.asList(
 );
 
 // Sort tasks by minimum work needed. It can be either workA or workB.
-List<Task> collect = tasks.stream().sorted(Comparator.comparing(Task::minimumWork)).collect(Collectors.toList());
+List<Task> collect = 
+    tasks.stream().sorted(comparing(Task::minimumWork)).collect(toList());
 
 // Tasks to be scheduled first
 List<Task> scheduled = new ArrayList<>();
@@ -637,8 +655,8 @@ while (!tasks.isEmpty()) {
     currentTime = executeTask(currentTime, taskExecutions, currentTask);
 }
 
-List<TaskExecution> delayedExecutions; 
-delayedExecutions = taskExecutions.stream().filter(TaskExecution::isDelayed).collect(toList());
+List<TaskExecution> delayedExecutions =  
+    taskExecutions.stream().filter(TaskExecution::isDelayed).collect(toList());
 System.out.println(taskExecutions);
 
 tasks = new LinkedList<>(Arrays.asList(
@@ -667,10 +685,14 @@ while (!delayedTasks.isEmpty()) {
     currentTime = executeTask(currentTime, taskExecutions, currentTask);
 }
 
-delayedExecutions = taskExecutions.stream().filter(TaskExecution::isDelayed).collect(toList());
+delayedExecutions = taskExecutions.stream()
+                                  .filter(TaskExecution::isDelayed)
+                                  .collect(toList());
 System.out.println(taskExecutions);
 
-private static int executeTask(int currentTime, List<TaskExecution> taskExecutions, Task currentTask) {
+static int executeTask(int currentTime, 
+                       List<TaskExecution> taskExecutions, 
+                       Task currentTask) {
     TaskExecution taskExecution = new TaskExecution();
     taskExecution.task = currentTask;
     taskExecution.startTime = currentTime;
@@ -684,7 +706,7 @@ private static int executeTask(int currentTime, List<TaskExecution> taskExecutio
 
 __Report__
 
-```
+```plaintext
 Earliest Date Algorithm:
 [TaskExecution{task=Task{requiredTime=2, deadLine=3}, startTime=1, endTime=3, isDelayed=false, delay=0},
  TaskExecution{task=Task{requiredTime=3, deadLine=4}, startTime=3, endTime=6, isDelayed=true, delay=2},
@@ -822,8 +844,8 @@ print(2 / crossed / iteration_count / 2)  # 3.140268574610112 Very close!
 ```java
 int upto = 100;
 
-final Set<Integer> nonPrimeProcessed = new HashSet<>();
-final Set<Integer> primes = IntStream.rangeClosed(1, upto).boxed().collect(Collectors.toSet());
+Set<Integer> nonPrimeProcessed = new HashSet<>();
+Set<Integer> primes = IntStream.rangeClosed(1, upto).boxed().collect(toSet());
 
 for (int i = 2; i < upto; i++) {
     if (i * i > upto) {
