@@ -898,8 +898,12 @@ def primes(up_to):
 > _Vint Cerf and Bob Kahn_, [A Protocol for Packet Network Intercommunication](https://www.cs.princeton.edu/courses/archive/fall06/cos561/papers/cerf74.pdf)
 
 ### Circuit Switching vs Packet Switching
-- Phone calls use __circuit switching__: Constant bandwidth between the sender and the receiver
-  - Not suitable for computers: Computers are idle for long periods, burst for a short period of time to send data, then go idle again
+- Phone calls use __circuit switching__ 
+  - Constant bandwidth between the sender and the receiver
+  - Not suitable for computers, since computers are
+    - Idle for long periods 
+    - Burst for a short period of time to send data
+    - Go idle again
 
 > In Packet Switching, there are no connections. What you call a connection is a _consensual illusion_ between two end points.
 >
