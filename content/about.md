@@ -40,15 +40,16 @@ how people can have very strong claims whether on programming or politics or wha
 I like solving programming challenges but I am hardly good at them. I am always fascinated by the solutions people come
 up with when I compare it to my own solutions. There are some very talented people out there!
 
-I was unfortunately unable to find a dev-buddy, with whom I would like to attempt challenges we decide on and share
-and discuss our approaches later on. If you would be interested in something like this, reach me at 
-`koray[at]tugay[dot]biz` please. Any level of expertise or any language is fine, actually solving challenges in a 
-new language is a very good way to learn that language I think!  
-
 I am also highly interested in _what is really going on_ and have been seeking the answer for a while, however without
 any success so far.
 
 I used to play a lot of video games, but I am not very interested in them anymore. My all-time favorite is Fallout 2.
+
+#### Wanted: Dev Buddy
+I was unfortunately unable to find a dev-buddy, with whom I would like to attempt challenges we decide on and share
+and discuss our approaches later on. If you would be interested in something like this, reach me at 
+`koray[at]tugay[dot]biz` please. Any level of expertise or any language is fine, actually solving challenges in a 
+new language is a very good way to learn that language I think!  
 
 ### Education and Work Experience
 I studied Civil Engineering and did an MSc on Structural Engineering. However I always wanted to work with computers 
