@@ -4,12 +4,8 @@ title:  "My Homepage"
 ---
 
 # Koray Tugay 's Personal Home Page
-{:.no_toc}
 
 1. [About](content/about.md)
-
-* TOC
-{:toc}
 
 ## Literature
 1. [1984](content/1984.md)
