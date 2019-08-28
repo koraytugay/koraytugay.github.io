@@ -5,23 +5,23 @@
 {:toc}
 
 ## Print current username and email
-```plaintext
+```bash
 git config user.name
 git config user.email
 ```
 
 ## Update email for current project
-```plaintext
+```bash
 git config user.email "koray@tugay.biz"
 ```
 
 ## Update email globally
-```plaintext
+```bash
 git config --global user.email "koray@tugay.biz"
 ```
 
 ## Reset Local to Remote
-```plaintext
+```bash
 git checkout master
 git reset --hard origin/master
 ```
