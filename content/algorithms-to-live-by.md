@@ -596,135 +596,113 @@ __Earliest Due Date vs Moore's Algorithm Example in Java__
 
 ```java
 class Task {
-    int requiredTime;
-    int deadLine;
+    int requiredTime, deadLine;
 
-    public Task(int requiredTime, int deadLine) {
-        this.requiredTime = requiredTime;
-        this.deadLine = deadLine;
+    static Task of(int requiredTime, int deadLine) {
+        Task task = new Task();
+        task.requiredTime = requiredTime;
+        task.deadLine = deadLine;
+        return task;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "requiredTime=" + requiredTime +
-                ", deadLine=" + deadLine +
-                '}';
+    // Sample data
+    static List<Task> tasks() {
+        return asList(of(2, 3), of(3, 4), of(6, 8), of(4, 10));
     }
 }
 
 class TaskExecution {
     Task task;
-    int startTime;
-    int endTime;
+    int startTime, endTime;
 
     int delay() {
-        if (endTime < task.deadLine) {
-            return 0;
-        }
-        return endTime - task.deadLine;
+        return endTime < task.deadLine ? 0 : endTime - task.deadLine;
     }
 
     boolean isDelayed() {
         return delay() > 0;
     }
+}
 
-    @Override
-    public String toString() {
-        return "TaskExecution{" +
-                "task=" + task +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", isDelayed=" + isDelayed() +
-                ", delay=" + delay() +
-                '}';
+class TaskExecutor {
+    void earliestDueDate(List<Task> tasks) {
+        int time = 1;
+        tasks.sort(Comparator.comparing(task -> task.deadLine));
+        List<TaskExecution> taskExecutions = new ArrayList<>();
+
+        while (!tasks.isEmpty()) {
+            Task task = tasks.remove(0);
+            TaskExecution taskExecution = executeTask(time, task);
+            taskExecutions.add(taskExecution);
+            time = taskExecution.endTime;
+        }
+    }
+
+    void mooresAlgorithm(List<Task> tasks) {
+        int time = 1;
+        tasks.sort(Comparator.comparing(task -> task.deadLine));
+        List<TaskExecution> taskExecutions = new ArrayList<>();
+        List<Task> delayedTasks = new ArrayList<>();
+
+        while (!tasks.isEmpty()) {
+            Task task = tasks.remove(0);
+            if (time + task.requiredTime > task.deadLine) {
+                delayedTasks.add(task);
+                continue;
+            }
+            TaskExecution taskExecution = executeTask(time, task);
+            taskExecutions.add(taskExecution);
+            time = taskExecution.endTime;
+        }
+
+        while (!delayedTasks.isEmpty()) {
+            Task task = delayedTasks.remove(0);
+            TaskExecution taskExecution = executeTask(time, task);
+            taskExecutions.add(taskExecution);
+            time = taskExecution.endTime;
+        }
+    }
+
+    TaskExecution executeTask(int startTime, Task task) {
+        TaskExecution taskExc = new TaskExecution();
+        taskExc.task = task;
+        taskExc.startTime = startTime;
+        taskExc.endTime = startTime + task.requiredTime;
+        return taskExc;
     }
 }
+```
 
-List<Task> tasks = new LinkedList<>(Arrays.asList(
-        new Task(2, 3),
-        new Task(3, 4),
-        new Task(6, 8),
-        new Task(4, 10)));
-
-tasks.sort(Comparator.comparing(task -> task.deadLine));
-
-int currentTime = 1;
-List<TaskExecution> taskExecutions = new ArrayList<>();
-
-while (!tasks.isEmpty()) {
-    Task currentTask = tasks.remove(0);
-    currentTime = executeTask(currentTime, taskExecutions, currentTask);
-}
-
-List<TaskExecution> delayedExecutions =  
-    taskExecutions.stream().filter(TaskExecution::isDelayed).collect(toList());
-System.out.println(taskExecutions);
-
-tasks = new LinkedList<>(Arrays.asList(
-        new Task(2, 3),
-        new Task(3, 4),
-        new Task(6, 8),
-        new Task(4, 10)));
-
-tasks.sort(Comparator.comparing(task -> task.deadLine));
-
-currentTime = 1;
-taskExecutions = new ArrayList<>();
-
-List<Task> delayedTasks = new ArrayList<>();
-while (!tasks.isEmpty()) {
-    Task currentTask = tasks.remove(0);
-    if (currentTime + currentTask.requiredTime > currentTask.deadLine) {
-        delayedTasks.add(currentTask);
-    } else {
-        currentTime = executeTask(currentTime, taskExecutions, currentTask);
-    }
-}
-
-while (!delayedTasks.isEmpty()) {
-    Task currentTask = delayedTasks.remove(0);
-    currentTime = executeTask(currentTime, taskExecutions, currentTask);
-}
-
-delayedExecutions = taskExecutions.stream()
-                                  .filter(TaskExecution::isDelayed)
-                                  .collect(toList());
-System.out.println(taskExecutions);
-
-static int executeTask(int currentTime, 
-                       List<TaskExecution> taskExecutions, 
-                       Task currentTask) {
-    TaskExecution taskExecution = new TaskExecution();
-    taskExecution.task = currentTask;
-    taskExecution.startTime = currentTime;
-    int endTime = currentTime + currentTask.requiredTime;
-    taskExecution.endTime = endTime;
-    taskExecutions.add(taskExecution);
-    currentTime = endTime;
-    return currentTime;
-}
+__Execution__
+```java
+TaskExecutor taskExecutor = new TaskExecutor();
+taskExecutor.earliestDueDate(new LinkedList<>(Task.tasks()));
+taskExecutor.mooresAlgorithm(new LinkedList<>(Task.tasks()));
 ```
 
 __Report__
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Earliest Due Date Algorithm</th>
+            <th>Moore 's Algorithm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Delayed Task Count</td>
+            <td>3</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Total Delay Amount</td>
+            <td>12</td>
+            <td>14</td>
+        </tr>
+    </tbody>
+</table>
 
-```plaintext
-Earliest Date Algorithm:
-[TaskExecution{task=Task{requiredTime=2, deadLine=3}, startTime=1, endTime=3, isDelayed=false, delay=0},
- TaskExecution{task=Task{requiredTime=3, deadLine=4}, startTime=3, endTime=6, isDelayed=true, delay=2},
- TaskExecution{task=Task{requiredTime=6, deadLine=8}, startTime=6, endTime=12, isDelayed=true, delay=4},
- TaskExecution{task=Task{requiredTime=4, deadLine=10}, startTime=12, endTime=16, isDelayed=true, delay=6}]
-
-Moore's Algorithm:
-[TaskExecution{task=Task{requiredTime=2, deadLine=3}, startTime=1, endTime=3, isDelayed=false, delay=0},
- TaskExecution{task=Task{requiredTime=4, deadLine=10}, startTime=3, endTime=7, isDelayed=false, delay=0},
- TaskExecution{task=Task{requiredTime=3, deadLine=4}, startTime=7, endTime=10, isDelayed=true, delay=6},
- TaskExecution{task=Task{requiredTime=6, deadLine=8}, startTime=10, endTime=16, isDelayed=true, delay=8}]
-```
-
-In the data above, note that:
-- In Earliest Due Date Algorithm, there are 3 delayed executions whereas in Moore's Algorithm 2
-- In Earliest Due Date Algorithm total amount of delay is 12 whereas in Moore's Algorithm 14
 - End Time are both same: 16
 - Moore's Algorithm skips executing the 2nd and 3rd tasks in favor of getting the 4rd task on time
 - Moore's Algorithm causes delay amounts of `6` and `8` instead of `2` and `4` on tasks 2 and 3
