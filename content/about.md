@@ -47,8 +47,8 @@ I used to play a lot of video games, but I am not very interested in them anymor
 
 #### Wanted: Dev Buddy
 I was unfortunately unable to find a dev-buddy, with whom I would like to attempt challenges we decide on and share
-and discuss our approaches later on. If you would be interested in something like this, reach me at 
-[koray@tugay.biz](koray@tugay.biz) please. Any level of expertise or any language is fine, actually solving challenges in a 
+and discuss our approaches later on. If you would be interested in something like this, reach by
+[email](koray@tugay.biz) please. Any level of expertise or any language is fine, actually solving challenges in a 
 new language is a very good way to learn that language I think!  
 
 ### Education and Work Experience
