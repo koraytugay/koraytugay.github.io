@@ -128,9 +128,8 @@ class Bob {
 
 class App {
     public static void main(String[] args) throws Exception {
-        SignedMessage alicesMessage = new Alice().signedMessage();
-        Bob bob = new Bob();
-        boolean isAuthentic = bob.receive(alicesMessage);
+        boolean isAuthentic = new Bob().receive(new Alice().signedMessage());
+        System.out.println(isAuthentic);
     }
 }
 ```
