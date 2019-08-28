@@ -4,6 +4,10 @@ title:  "Merge vs Rebase"
 ---
 
 # Merge vs Rebase
+{:.no_toc}
+
+* TOC
+{:toc}
 
 ## Initial State
 Imagine We have a long running branch called `feature` that is behind `master`, which we want to merge.
