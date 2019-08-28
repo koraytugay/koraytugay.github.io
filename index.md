@@ -17,4 +17,4 @@ title:  "My Homepage"
 1. [The Phoenix Project](content/the-phoenix-project.md)
 
 ## Cryptography
-1. [Sharing a Signed Message (Example in Java)](content/sharing-a-signed-message.md)
+1. [Sending a Signed Message](content/sending-a-signed-message.md)
