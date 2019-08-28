@@ -107,7 +107,7 @@ class Alice {
 
 /**
  * Bob has access to his keystore, where Alice 's certificate is loaded.
- * Bob does not have access to Alice 's keystore, private key or any of her passwords.
+ * Bob does not have access to Alice 's private key or any of her passwords.
  */
 class Bob {
     boolean receive(SignedMessage signedMessage) throws Exception {
