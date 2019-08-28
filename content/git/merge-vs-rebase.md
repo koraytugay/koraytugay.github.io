@@ -10,7 +10,7 @@ title:  "Merge vs Rebase"
 {:toc}
 
 ## Initial State
-Imagine We have a long running branch called `feature` that is behind `master`, which we want to merge.
+Imagine We have a long running branch called feature that is behind master, which we want to merge.
 
 ```bash
 git log --graph --decorate --oneline --all
@@ -25,6 +25,7 @@ git log --graph --decorate --oneline --all
 There are several ways we can do it.
 
 ## Option 1 - Merge `feature` to `master`
+
 ```bash
 git checkout master
 git merge feature -m "merge feature"
@@ -44,7 +45,8 @@ git log --graph --decorate --oneline
 - History of `master` is not the prettiest
 - We have multiple commits on `master` incoming from `feature`
 
-## Option 2 - Squash `feature` to `master`
+## Option 2 - Squash feature to master
+
 ```bash
 git checkout master
 git merge feature --squash
@@ -57,6 +59,7 @@ git log --graph --decorate --oneline
 # * cd5ca21 Master moving forward
 # * f38dfc2 Initial
 ```
+
 - We __did__ need to `commit`
   - We entered a new commit message
 - History of `master` is prettier
@@ -64,6 +67,7 @@ git log --graph --decorate --oneline
 - We have a single commit on `master` incoming from `feature`
 
 ## Option 3 - Rebase and Merge
+
 ```bash
 git checkout feature
 
@@ -76,7 +80,7 @@ git checkout master
 git merge feature
 git branch delete feature
 
-git log --graph --decorate --oneline`
+git log --graph --decorate --oneline
 # * e6ae076 (HEAD -> master, feature, delete) Feature - 2
 # * 921c475 Feature - 1
 # * 5e59f79 Master moving even more
@@ -84,6 +88,7 @@ git log --graph --decorate --oneline`
 # * f38dfc2 Initial
 
 ```
+
 - We did __not__ need to `commit`
 - We did not lose our commit messages from the `feature` branch
 - We have multiple commits on `master` incoming from `feature`
