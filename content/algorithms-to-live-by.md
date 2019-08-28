@@ -495,12 +495,11 @@ The optimal cache eviction policy is to evict the item we will need again _the l
     </tr>
 </table>
 
-
 ### Multiple Machine Scheduling
 - [Johnson's rule](https://en.wikipedia.org/wiki/Johnson%27s_rule) is a method of scheduling jobs in two work centers
 - Goal is to finish running all the tasks in the shortest time possible
 
-#### Johnson's rule Algorithm
+#### Johnson's Rule Algorithm
 - List the jobs and their durations at each work center
 - Select the job with the shortest duration
   - If that activity duration is for the first work center, then schedule the job first
@@ -569,14 +568,16 @@ while (!lastToDo.isEmpty()) {
 ```
 
 ### Single Machine Scheduling
-If we have a list of tasks and the only a single machine (unlike the example above), no matter how we order the tasks we can not optimize finishing running the all tasks in terms of shortest time.
-However, if every task has a deadline, we can
+If we have a list of tasks and only a single machine (unlike the example above), no matter how we order the tasks we can not optimize finishing running the all tasks in terms of shortest time. However, if every task has a deadline, we can
+
 - Optimize for the minimum delay
-  - i.e. We do not care how many tasks are delayed, we want them to be delayed by minimum amounts
+  - We do not care how many tasks are delayed
+  - We want them to be delayed by minimum amounts
 - Optimize for the minimum number of delayed tasks
-  - i.e. We want as few as possible tasks to delayed, but we do not care the delay amount on the tasks that are delayed
+  - We want as few as possible tasks to delayed, 
+  - We do not care the delay amount on the tasks that are delayed
 - Optimize for getting individual tasks done as quick as possible
-  - i.e. Increment the count of _tasks done_
+  - We want to increment the count of _tasks done_ rapidly
 
 #### Earliest Due Date - Minimizing the Total Delay Duration
 - Order all tasks by deadline
@@ -584,11 +585,12 @@ However, if every task has a deadline, we can
 
 #### Moore's Algorithm - Minimizing the Total Delayed Task Count
 - Start just like Earliest Due Date
-- Whenever you encounter a task that you will not finish in time, skip it and do it at the very end
+  - Whenever you encounter a task that will be delayed
+    - Skip working on the task and move it to end of the queue
 
 #### Shortest Processing Time - Maximizing the Finished Task Count
 - Always do the shortest task first, ignoring the deadline
-- This will lead to fastest removal of things from the to-do list
+  - This will lead to fastest removal of things from the to-do list
 
 __Earliest Due Date vs Moore's Algorithm Example in Java__
 
@@ -730,27 +732,28 @@ In the data above, note that:
 None of these tasks had _weight_ (i.e. importance) associated with them in our examples. When tasks not only have deadline but also weight, things get complicated.
 
 ### Priority Inheritance
-If a low-priority task is found to be blocking a high-priority resource, the low-priority task should become the highest-priority.
-If you keep constantly thinking about the novel you are about to finish while studying for the exam you need to take, maybe it is better to finish the novel first, unblocking the high priority task at hand!
+If a low-priority task is found to be blocking a high-priority resource, the low-priority task should become the highest-priority. If you keep constantly thinking about the novel you are about to finish while studying for the exam you need to take, maybe it is better to finish the novel first, unblocking the high priority task at hand.
 
 ### Context Switch
 Context Switching helps us getting things done by pausing at a state of a task, getting other things done, and getting back to it.
 
-Computers and people face the same challenge: The machine responsible for scheduling is the machine itself that will process the tasks.
-The scheduling task itself becomes a task in the to-do list which also must be scheduled.
+Computers and people face the same challenge: The machine responsible for scheduling is the machine itself that will process the tasks. The scheduling task itself becomes a task in the to-do list which also must be scheduled.
 
-Context Switching however is expensive: _Now where was I_. The effects of context switching can cause delays of not only seconds but minutes and errors.
+Context Switching however is expensive, and may end up in asking the question: _Now where was I?_.
 
 ### Better Scheduling
 - Limit yourself to checking your messages once (or twice a day) if you are not expected to be more responsive
-  - Try to stay on a single task without decreasing your responsiveness below the lowest acceptable limit, minimise context switching
-- Learn to say no, i.e. refuse
-  - Do not accept any more tasks if you are full, which will in theory lead to only context switching and not getting done anything at all
-- If there are any low priority tasks blocking high priority tasks getting done, let the low priority task inherit priority from the high priority task
+  - Try to stay on a single task without decreasing your responsiveness below the lowest acceptable limit
+  - Minimise context switching
+- Learn to refuse
+  - i.e. Learn to say __no__
+  - Do not accept any more tasks if you are full
+    - You might end up only context switching and getting nothing done
+- If there are any low priority tasks blocking high priority tasks, let the low priority task inherit priority from the high priority task
 
 ## Bayes 's Rule
 ### Rule of Succession
-> If we repeat an experiment that we know can result in a success or failure, n times independently, and get s successes, then what is the probability that the next repetition will succeed?
+> If we repeat an experiment that we know can result in a success or failure, `n` times independently, and get `s` successes, then what is the probability that the next repetition will succeed?
 >
 > The more data we have, the less importance should be assigned to our prior information.
 >
@@ -772,22 +775,22 @@ Context Switching however is expensive: _Now where was I_. The effects of contex
   - Hitting Blackjack has always the same probability no matter how many times you tried before
 
 <table>
-        <tr>
-            <th style="width:25%">Distribution</th>
-            <th>Expectation</th>
-        </tr>
-        <tr>
-            <td>Normal Distribution</td>
-            <td>The longer the incidents goes on, expect it to finish sooner.</td>
-        </tr>
-        <tr>
-            <td>Power-Law Distribution</td>
-            <td>The longer the incidents goes on, expect it to go longer.</td>
-        </tr>
-        <tr>
-            <td>Erlang Distribution</td>
-            <td>The longer the incidents goes on, assume it might finish any given time.</td>
-        </tr>
+<tr>
+    <th style="width:25%">Distribution</th>
+    <th>Expectation</th>
+</tr>
+<tr>
+    <td>Normal Distribution</td>
+    <td>The longer the incidents goes on, expect it to finish sooner.</td>
+</tr>
+<tr>
+    <td>Power-Law Distribution</td>
+    <td>The longer the incidents goes on, expect it to go longer.</td>
+</tr>
+<tr>
+    <td>Erlang Distribution</td>
+    <td>The longer the incidents goes on, assume it might finish any given time.</td>
+</tr>
 </table>
 
 ### Predictions
@@ -924,12 +927,17 @@ def primes(up_to):
   - Packet Switching: Transmissions are delayed. _Gets slow_
 
 ### Buffer
-- A buffer is a queue whose function is to smooth out bursts: A line in a coffee shop is a buffer
+- A buffer is a queue whose function is to smooth out bursts 
+  - A line in a coffee shop is a buffer
 - A buffer will only function correctly when it is routinely zeroed out
 - We think we are always connected, actually we are always buffered
-- The feeling that one needs to look at everything on the Internet, read all possible books, watch all shows is called _buffer-bloat_
+- Buffer-bloat: The feeling that one feels like they need to 
+  - Look at everything on the Internet
+  - Read all possible books
+  - Watch all shows
 - Lack of idleness is the primary feature for buffers: works for machines, not for us
-- Vacation email auto-responders tell senders to expect latency, that their mails are _buffered_. A better way maybe _Tail Drop_: Informing no messages will be received for a while
+- Vacation email auto-responders tell senders to expect latency, that their mails are _buffered_. 
+  - A better way maybe _Tail Drop_: Informing no messages will be accepted for a while
 
 ## Game Theory
 - Just because equilibrium is stable, it does not mean it is good
