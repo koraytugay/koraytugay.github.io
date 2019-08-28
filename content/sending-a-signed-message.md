@@ -29,12 +29,13 @@ keytool -genkeypair \
         -keyalg RSA \
         -keysize 2048 \
         -sigalg SHA256withRSA \
-        -keystore alice.p12 -storetype pkcs12 \
+        -keystore alice.p12 \
+        -storetype pkcs12 \
         -storepass i-am-alice \
         -keypass i-am-alice \
         -dname "CN=CN OU=OU, O=O, L=L, ST=ON, C=CA" \
         -noprompt \
-        -validity 36500
+        -validity 36500        
 ```
 
 - Alice exports her certificate from the keystore
