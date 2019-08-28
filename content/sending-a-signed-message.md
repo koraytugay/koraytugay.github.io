@@ -128,7 +128,8 @@ class Bob {
 
 class App {
     public static void main(String[] args) throws Exception {
-        boolean isAuthentic = new Bob().receive(new Alice().signedMessage());
+        SignedMessage signedMessage = new Alice().signedMessage();
+        boolean isAuthentic = new Bob().receive(signedMessage);
         System.out.println(isAuthentic);
     }
 }
@@ -147,6 +148,6 @@ java App
 - To see an example of case where the message can not be verified, modify the main method slightly as seen below
   - Executing the modified version will print `false` since the message can not be authenticated
 ```java
-SignedMessage alicesMessage = new Alice().signedMessage();
-alicesMessage.msg = alicesMessage.msg + "-modified";
+SignedMessage signedMessage = new Alice().signedMessage();
+signedMessage.msg = signedMessage.msg + "-modified";
 ```
