@@ -10,7 +10,7 @@ title:  "Merge vs Rebase"
 {:toc}
 
 ## Initial State
-Imagine We have a long running branch called feature that is behind master, which we want to merge.
+Imagine we have a long running branch, named `feature` that is behind `master`, which we want to merge into.
 
 ```bash
 git log --graph --decorate --oneline --all
