@@ -145,9 +145,9 @@ cd target
 java App
 ```
 
-- To see an example of case where the message can not be verified, modify the main method slightly as seen below
-  - Executing the modified version will print `false` since the message can not be authenticated
+To see an example of case where the message can not be verified, modify the main method slightly as seen below.
 ```java
 SignedMessage signedMessage = new Alice().signedMessage();
 signedMessage.msg = signedMessage.msg + "-modified";
 ```
+Executing the modified version will print `false` since the message is altered and it can not be authenticated.
