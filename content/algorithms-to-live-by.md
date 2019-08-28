@@ -681,6 +681,9 @@ taskExecutor.mooresAlgorithm(new LinkedList<>(Task.tasks()));
 ```
 
 __Report__
+
+Moore's Algorithm skips executing the 2nd and 3rd tasks in favor of getting the 4rd task on time and causes delay amounts of `6` and `8` compared to `2` and `4` on tasks 2 and 3.
+
 <table>
     <thead>
         <tr>
@@ -700,12 +703,13 @@ __Report__
             <td>12</td>
             <td>14</td>
         </tr>
+        <tr>
+            <td>End Time</td>
+            <td>16</td>
+            <td>16</td>
+        </tr>
     </tbody>
 </table>
-
-- End Time are both same: 16
-- Moore's Algorithm skips executing the 2nd and 3rd tasks in favor of getting the 4rd task on time
-- Moore's Algorithm causes delay amounts of `6` and `8` instead of `2` and `4` on tasks 2 and 3
 
 None of these tasks had _weight_ (i.e. importance) associated with them in our examples. When tasks not only have deadline but also weight, things get complicated.
 
