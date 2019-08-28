@@ -23,13 +23,13 @@ How can this be achieved?
   - Password for the keystore itself is `i-am-alice`
   - Password for the private key is also `i-am-alice`
 
-```plaintext
+```bash
 keytool -genkeypair \
         -alias alice-key-pair \
-        -keyalg RSA \ 
+        -keyalg RSA \
         -keysize 2048 \
         -sigalg SHA256withRSA \
-        -keystore alice.p12 -storetype pkcs12 \ 
+        -keystore alice.p12 -storetype pkcs12 \
         -storepass i-am-alice \
         -keypass i-am-alice \
         -dname "CN=CN OU=OU, O=O, L=L, ST=ON, C=CA" \
@@ -41,7 +41,7 @@ keytool -genkeypair \
   - The following command creates `alice.cert`
   - Certificate contains only the public key
 
-```plaintext
+```bash
 keytool -export \
         -keystore alice.p12 \
         -alias alice-key-pair \
@@ -56,7 +56,7 @@ keytool -export \
   - The following command loads Alice 's certificate to Bob 's keystore
     - Bob only has Alice 's certificate, he does not need to know her keystore or private key password
 
-```plaintext
+```bash
 keytool -importcert \
         -file alice.cert \
         -keystore bob.p12 \
