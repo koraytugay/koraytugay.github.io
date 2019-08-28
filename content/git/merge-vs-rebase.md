@@ -24,7 +24,7 @@ git log --graph --decorate --oneline --all
 
 There are several ways we can do it.
 
-## Option 1 - Merge `feature` to `master`
+## Option 1 - Merge feature to master
 
 ```bash
 git checkout master
