@@ -30,7 +30,7 @@ git checkout master
 git merge feature -m "merge feature"
 git branch delete feature
 
-git log --graph --decorate --oneline`
+git log --graph --decorate --oneline
 # *   16bd684 (HEAD -> master) merge feature
 # |\  
 # | * 64488c1 (feature, delete) Feature - 2
