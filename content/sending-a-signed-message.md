@@ -135,7 +135,7 @@ class App {
 }
 ```
 
-## Sample Execution
+### Sample Execution
 Running the following commands will output `true` in the console since the message is not altered.
 
 ```bash
