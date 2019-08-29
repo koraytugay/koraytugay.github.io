@@ -1,27 +1,17 @@
 # Git Cheat Sheet
-{:.no_toc}
 
-* TOC
-{:toc}
-
-## Print current username and email
 ```bash
+# Print current username and email
 git config user.name
 git config user.email
-```
 
-## Update email for current project
-```bash
+# Update email for current project
 git config user.email "koray@tugay.biz"
-```
 
-## Update email globally
-```bash
+# Update email globally
 git config --global user.email "koray@tugay.biz"
-```
 
-## Reset Local to Remote
-```bash
+# Reset Local to Remote
 git checkout master
 git reset --hard origin/master
 ```
