@@ -301,11 +301,13 @@ Bill finds the meeting room and sees that Nancy, John and Wes are present, toget
 
 John tries to get some points by reminding that they at least dodged an issue in the database with the tokenization change, to which Nancy reminds him that it is not in the scope of the SOX-404 audit.
 
-The discussion heats up when John keeps going with his suggestions and Wes responds
+The discussion heats up when John keeps going with his suggestions and Wes responds with:
 
-> Some of the servers that those manufacturing ERP systems run on are over twenty years old. Half the company will grind to a halt if they go down, and the vendor went out of business decades ago! They’ll never survive the changes you’re proposing! You want to patch it yourself, fine. But I want a signed piece of paper from you saying that if you push the button and the entire business grinds to a halt, you’ll fly around and grovel to all the plant managers.
+> Some of the servers that those manufacturing ERP systems run on are over twenty years old. Half the company will grind to a halt if they go down, and the vendor went out of business decades ago! They’ll never survive the changes you’re proposing! 
+>
+> You want to patch it yourself, fine. But I want a signed piece of paper from you saying that if you push the button and the entire business grinds to a halt, you’ll fly around and grovel to all the plant managers.
 
-John also responds back, angrily
+John also responds back, angrily:
 
 > Oh, yeah? How about when we’re on the front page of the news because we lost consumer data that we’re responsible for protecting? You’ll personally apologize to the thousands or millions of families whose data are now being sold by the Russian Mafia?
 
