@@ -111,18 +111,16 @@ class Alice {
  */
 class Bob {
     boolean receive(SignedMessage signedMessage) throws Exception {
-        try (InputStream is = new FileInputStream("bob.p12")) {
-            KeyStore keyStore = KeyStore.getInstance("pkcs12");
-            keyStore.load(is, "i-am-bob".toCharArray());
+        InputStream is = new FileInputStream("bob.p12");        
+        KeyStore keyStore = KeyStore.getInstance("pkcs12");
+        keyStore.load(is, "i-am-bob".toCharArray());
 
-            Certificate certificate = keyStore.getCertificate("alice-cert");
+        Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initVerify(keyStore.getCertificate("alice-cert"));
+        signature.update(signedMessage.msg.getBytes(UTF_8));
 
-            Signature signature = Signature.getInstance("SHA256withRSA");
-            signature.initVerify(certificate);
-            signature.update(signedMessage.msg.getBytes(UTF_8));
-
-            return signature.verify(signedMessage.sign);
-        }
+        is.close();
+        return signature.verify(signedMessage.sign);
     }
 }
 
