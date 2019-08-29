@@ -208,7 +208,7 @@
         $("pre code").each(function (index) {
             let dynamicId = 'clipboard'.concat(index);
             $(this).attr("id", dynamicId);
-            $(this).before('<a href="#" onclick="clipContent(' + dynamicId + '); return false;" style="position: absolute; right: 0; margin-bottom: -20px">&#128203;</a>');
+            $(this).before('<a href="#" onclick="clipContent(' + dynamicId + '); return false;" style="position: absolute; cursor:copy; right: 0; margin-bottom: -20px">&#128203;</a>');
         })
     );
 
