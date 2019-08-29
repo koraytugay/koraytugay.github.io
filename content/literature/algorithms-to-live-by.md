@@ -1,7 +1,6 @@
 ---
 layout: default
 title:  "Algorithms To Live By"
-permalink: /content/algorithms-to-live-by.html
 ---
 
 # Algorithms To Live By
@@ -512,8 +511,7 @@ The optimal cache eviction policy is to evict the item we will need again _the l
 ```java
 class Task {
     String name;
-    double workHoursA; // first workcenter
-    double workHoursB; // second workcenter
+    double workHoursA, workHoursB; // first workcenter, second workcenter
 
     Task(String name, double workHoursA, double workHoursB) {
         this.name = name;
@@ -525,46 +523,45 @@ class Task {
         return workHoursA < workHoursB ? workHoursA : workHoursB;
     }
 
-    @Override
     public String toString() {
         return "Task{" + name +'}';
     }
 }
 
-// Schedule the following tasks
-final List<Task> tasks = Arrays.asList(
-        new Task("A", 3.2, 4.2),
-        new Task("B", 4.7, 1.5),
-        new Task("C", 2.2, 5.0),
-        new Task("D", 5.8, 4.0),
-        new Task("E", 3.1, 2.8)
-);
-
-// Sort tasks by minimum work needed. It can be either workA or workB.
-List<Task> collect = 
-    tasks.stream().sorted(comparing(Task::minimumWork)).collect(toList());
-
-// Tasks to be scheduled first
-List<Task> scheduled = new ArrayList<>();
-
-// Use a first in last out to push the items to be scheduled last
-// Retrieve them by popping each later to scheduled
-ArrayDeque<Task> lastToDo = new ArrayDeque<>();
-
-collect.forEach(task -> {
-    if (task.workHoursA < task.workHoursB) {
-        scheduled.add(task);
-    } else {
-        lastToDo.push(task);
+class JohnsonRuleAlgorithm {
+    void scheduleTasks() {
+        // Schedule the following tasks
+        List<Task> tasks = Arrays.asList(
+            new Task("A", 3.2, 4.2),
+            new Task("B", 4.7, 1.5),
+            new Task("C", 2.2, 5.0),
+            new Task("D", 5.8, 4.0),
+            new Task("E", 3.1, 2.8)
+        );
+        
+        // Sort tasks by minimum work needed. It can be either workA or workB.
+        List<Task> collect = tasks.stream()
+                                  .sorted(comparing(Task::minimumWork))
+                                  .collect(toList());
+        
+        // Tasks to be scheduled first
+        List<Task> scheduled = new ArrayList<>();
+        
+        // Use a first in last out to push the items to be scheduled last
+        // Retrieve them by popping each later to scheduled
+        ArrayDeque<Task> lastToDo = new ArrayDeque<>();
+        
+        collect.forEach(task -> {
+            if (task.workHoursA < task.workHoursB) 
+                scheduled.add(task);
+            else 
+                lastToDo.push(task);
+        });
+        
+        while (!lastToDo.isEmpty()) scheduled.add(lastToDo.pop());
+        // scheduled: [Task{C}, Task{A}, Task{D}, Task{E}, Task{B}]
     }
-});
-
-while (!lastToDo.isEmpty()) {
-    scheduled.add(lastToDo.pop());
 }
-
-// scheduled:
-// [Task{C}, Task{A}, Task{D}, Task{E}, Task{B}]
 ```
 
 ### Single Machine Scheduling
