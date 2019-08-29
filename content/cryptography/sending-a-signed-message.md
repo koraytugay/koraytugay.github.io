@@ -24,17 +24,17 @@ How can this be achieved?
   - Password for the private key is also `i-am-alice`
 
 ```bash
-keytool -genkeypair \
-        -alias alice-key-pair \
-        -keyalg RSA \
-        -keysize 2048 \
-        -sigalg SHA256withRSA \
-        -keystore alice.p12 \
-        -storetype pkcs12 \
-        -storepass i-am-alice \
-        -keypass i-am-alice \
+keytool -genkeypair                                 \
+        -alias alice-key-pair                       \
+        -keyalg RSA                                 \
+        -keysize 2048                               \
+        -sigalg SHA256withRSA                       \
+        -keystore alice.p12                         \
+        -storetype pkcs12                           \
+        -storepass i-am-alice                       \
+        -keypass i-am-alice                         \
         -dname "CN=CN OU=OU, O=O, L=L, ST=ON, C=CA" \
-        -noprompt \
+        -noprompt                                   \
         -validity 36500        
 ```
 
@@ -43,10 +43,10 @@ keytool -genkeypair \
   - Certificate contains only the public key
 
 ```bash
-keytool -export \
-        -keystore alice.p12 \
+keytool -export               \
+        -keystore alice.p12   \
         -alias alice-key-pair \
-        -file alice.cert \
+        -file alice.cert      \
         -storepass i-am-alice
 ```
 
@@ -58,9 +58,9 @@ keytool -export \
     - Bob only has Alice 's certificate, he does not need to know her keystore or private key password
 
 ```bash
-keytool -importcert \
-        -file alice.cert \
-        -keystore bob.p12 \
+keytool -importcert         \
+        -file alice.cert    \
+        -keystore bob.p12   \
         -alias "alice-cert" \
         -storepass i-am-bob \
         -noprompt
