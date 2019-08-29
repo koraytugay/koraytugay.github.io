@@ -11,7 +11,7 @@ title:  "My Homepage"
 1. [Sending a Signed Message](content/cryptography/sending-a-signed-message.md)
 
 ## Git
-1. [Cheat Sheet](content/git/cheat-sheet.md)
+1. [Cheat Sheet](content/git/git-cheat-sheet.md)
 1. [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
 ## Literature
