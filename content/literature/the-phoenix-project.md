@@ -293,7 +293,7 @@ September 5, and Bill starts his day with anoher email that informs him yet on a
 >
 > Nancy
 
-Bill finds the meeting room and sees that Nancy, John and Wes are present, together with Tim, the ID auditor. The news Bill hear is not pleasent.
+Bill finds the meeting room and sees that Nancy, John and Wes are present, together with Tim, the IT auditor. The news Bill hear is not pleasent.
 
 > We found 952 IT general control deficiencies, of which 16 are significant.  You need to investigate each of these findings, confirm them, and then create a remediation plan. 
 >
