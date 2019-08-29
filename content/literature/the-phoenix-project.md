@@ -20,6 +20,7 @@ __Bill Palmer__
 __Brent__
 - Highly skilled engineer
 - Has know-how on many applications and systems
+- One of the few people who understand how all the applications talk together
 
 __Bob Strauss__
 - Steve 's old boss
@@ -38,12 +39,17 @@ __Dick Landrey__
 
 __John Pesche__
 - Chief Information Security Officer
+- Looks to be in mid-thirties with thick, curly black hair
 
 __Laura Beck__
 - VP in charge of HR
 
 __Kirsten Fingle__
 - Runs the Project Management Office
+
+__Nancy Mailer__
+- Chief Audit Executive
+- Smart and formidable
 
 __Patty__
 - Director of IT Service Support
@@ -283,8 +289,53 @@ Bill summarises the situation to himself when the call is over..
 ## Chapter 5
 September 5, and Bill starts his day with anoher email that informs him yet on another urgent matter that must be fixed as soon as possible.
 
-> We just concluded our Q3 internal audit in preparation for the upcoming SOX-404 external audit. We discovered some very concerning deficiencies that we need to discuss with you. Due to the severity and urgency of the findings, we need to meet with IT this morning. Nancy
+> We just concluded our Q3 internal audit in preparation for the upcoming SOX-404 external audit. We discovered some very concerning deficiencies that we need to discuss with you. Due to the severity and urgency of the findings, we need to meet with IT this morning. 
+>
+> Nancy
 
+Bill finds the meeting room and sees that Nancy, John and Wes are present, together with Tim, the ID auditor. The news Bill hear is not pleasent.
+
+> We found 952 IT general control deficiencies, of which 16 are significant.  You need to investigate each of these findings, confirm them, and then create a remediation plan. 
+>
+> We only have three weeks until the external auditors arrive. We’ll make sure to give IT more time in the next audit cycle. But this time around, we require your response by one week from Monday.
+
+John tries to get some points by reminding that they at least dodged an issue in the database with the tokenization change, to which Nancy reminds him that it is not in the scope of the SOX-404 audit.
+
+The discussion heats up when John keeps going with his suggestions and Wes responds
+
+> Some of the servers that those manufacturing ERP systems run on are over twenty years old. Half the company will grind to a halt if they go down, and the vendor went out of business decades ago! They’ll never survive the changes you’re proposing! You want to patch it yourself, fine. But I want a signed piece of paper from you saying that if you push the button and the entire business grinds to a halt, you’ll fly around and grovel to all the plant managers.
+
+John also responds back, angrily
+
+> Oh, yeah? How about when we’re on the front page of the news because we lost consumer data that we’re responsible for protecting? You’ll personally apologize to the thousands or millions of families whose data are now being sold by the Russian Mafia?
+
+Already soaked with work and the deadline pressure caused by the Phoenix Project, Bill is now wondering how he is going to deal with this new requirement of going through all the audit findings, where he is going to find resources for it.
+
+Wes and Bill starts a conversation after the meeting, which leads to Wes commenting they would need Brent for a bunch of the items. Bill is not happy with hearing this.
+
+> Brent. Brent, Brent, Brent! Can’t we do anything without him? Look at us! I don’t care how talented he is. If you’re telling me that our organization can’t do anything without him, we’ve got a big problem.
+
+Wes, admits in an embarrassed way that Brent may know more about how the company works compared to him, which Bill does not like either.
+
+> You’re a senior manager. This should be as unacceptable to you as it is to me!
+
+As the discussion goes, Wes complains people will just keep asking IT for more and more _stuff_, which has always been the case. Bill asks where he can find the current list of _commitments_, which does not exist. He calls Patty telling her he will need her help to figure what all the current work commitments are, so that he can talk about resourcing to Steve later. Patty informs him that there is no such consolidated list and it is somewhat scattered across departments and people, and some work is actually not even documented and done by people going to their favorite IT guy and for getting done as quickly as possible.
+
+Bill then decides the best he can get at the moment can be finding out all the commitments the people work on audit findings and Phoenix are. 
+
+> At the very least, get me the work estimate to fix the audit findings. Then, for each of those resources, tell me what their other commitments are that we’re going to be pulling them off of. For that matter, do the same thing for every person assigned to Phoenix. I’m guessing we’re overloaded, so I want to know by how much. I want to proactively tell people whose projects have been bumped, so they’re not surprised when we don’t deliver what we promised.
+
+Patty approves Bill..
+
+> We should have done this a long time ago. We bump up the priorities of things all the time, but we never really know what just got bumped down.
+
+..and informs him that she will start right away.
 
 ### Chapter Notes
 - Urgent matters, i.e. tech debt never seems to let Bill be productive
+- People are not prioritising their tasks correctly
+- There is no team work and people are spending time fighting with each other
+- A lot of tasks depend on one particular person
+- Demand, priorities, status of work in progress, and available resources are not known, not visible by any means
+- People reach IT staff directly to get things done, by-passing any documentation or recording
+- No one knows what gets bumped down, when something new gets bumped up
