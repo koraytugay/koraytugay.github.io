@@ -86,7 +86,6 @@ git log --graph --decorate --oneline
 # * 5e59f79 Master moving even more
 # * cd5ca21 Master moving forward
 # * f38dfc2 Initial
-
 ```
 
 - We did __not__ need to `commit`
