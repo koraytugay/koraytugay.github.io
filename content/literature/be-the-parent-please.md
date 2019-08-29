@@ -4,6 +4,11 @@ title:  "Be The Parent Please"
 ---
 
 # Be the Parent Please
+{:.no_toc}
+
+* TOC
+{:toc}
+
 ## Happy Children
 - In order to be happy, a child needs
   - to eat well
