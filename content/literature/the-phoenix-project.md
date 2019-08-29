@@ -10,22 +10,22 @@ title:  "The Phoenix Project"
 {:toc}
 
 ## Characters
-### Ann 
+__Ann__
 - Operations Manager
 
-### Bill Palmer
+__Bill Palmer__
 - Former Director of Midrange Technology Operations
 - VP of IT Operations
 
-### Brent
+__Brent__
 - Highly skilled engineer
 - Has know-how on many applications and systems
 
-### Bob Strauss
+__Bob Strauss__
 - Steve 's old boss
 - Chairman of the company
 
-### Chris Allers
+__Chris Allers__
 - VP of Application Development
 - Responsible for developing applications
 - Life currently dominated by Phoenix
@@ -33,19 +33,19 @@ title:  "The Phoenix Project"
 - Manages nearly two hundred developers
 - Constantly being asked to deliver more features with less money
 
-### Dick Landrey
+__Dick Landrey__
 - CFO
 
-### John Pesche
+__John Pesche__
 - Chief Information Security Officer
 
-### Laura Beck
+__Laura Beck__
 - VP in charge of HR
 
-### Kirsten Fingle
+__Kirsten Fingle__
 - Runs the Project Management Office
 
-### Patty
+__Patty__
 - Director of IT Service Support
 - Owns all the level 1 and 2 help desk technicians
 - Owns the key processes and tools that the entire IT Operations organization relies upon
@@ -56,20 +56,20 @@ title:  "The Phoenix Project"
 - Stickler for processes and procedures
 - Does all the scheduling and hands the people to do the work
 
-### Sarah Moulton
+__Sarah Moulton__
 - SVP of Retail Operations
 - Blames other people for screwups
 
-### Stacey
+__Stacey__
 - Steve 's assistant
 - 40 years old
 - Very organized
 
-### Steve Masters
+__Steve Masters__
 - CEO
 - Acting CIO
 
-### Wes
+__Wes__
 - Director of Distributed Technology Operations
 - Responsible for 
   - over a thousand Windows servers
@@ -77,32 +77,32 @@ title:  "The Phoenix Project"
 - Loud, outspoken
 
 ## Acronyms
-### CAB
+__CAB__
 - Change Advisory Board
 - Lead by Patty
 
-### CMM
+__CMM__
 - Change Management Meeting
 - Where a team coordinates and organizes all their work to make sure they do not shoot ourselves in the foot
 
-### ITIL
+__ITIL__
 - IT Infrastructure Library
 - Documents many IT best practices and processes
 
-### Phoenix Project
+__Phoenix Project__
 - A Project long overdue and over budget that must go live very soon
 - Cruicial for the future of the company
 
-### SOX-404
+__SOX-404__
 - Sarbanes-Oxley Act of 2002
 - Financial auditing
 
-### SAN
+__SAN__
 - Storage Area Networks
 - Provides centralized storage to many critical systems
 - Failures are typically global
 
-### SEV 1 Outage
+__SEV 1 Outage__
 - Severity 1 Outage
 - Serious business-impacting incidents
 - Everything else is dropped until a SEV 1 is solved
@@ -110,24 +110,24 @@ title:  "The Phoenix Project"
 ## Parts Unlimited
 - Manufacturing and retail company based in Elkhart Grove
 
-### Building 2
+__Building 2__
 - Tallest building on the campus
 - Houses Steve 's office
 
-### Building 5
+__Building 5__
 - Where Laura and her staff reside
 - Nicely furnished
 
-### Building 7
+__Building 7__
 - Ghetto of the Parts Unlimited
 
-#### NOC
+__Building 9__
+- Where the Marketing department is at
+
+__NOC__
 - Found within Building 7
 - Network Operations Center
 - A large area displaying the status of all the various IT services on large monitors
-
-### Building 9
-- Where the Marketing department is at
 
 ## Chapter 1
 Parts Unlimited is rapidly falling behind the competition in terms of sales and constantly losing market share. The main problem is constantly being late to the market. 
@@ -208,7 +208,6 @@ They finally solve the problem at 7 p.m., when it is too late.
 - There is no way to track what has been done recently
 - Departments see each other as foes instead of allies, blaming each other
 
-
 ## Chapter 4
 It is September 3rd and Bill is in his office at 7:30 a.m. He seens an email from Sarah putting pressure on him where Sarah reminds Bill that Phoenix Project is most important and he is not supposed to be holding releases back. She invites him to an emergency meeting at 10:00 a.m. same day.
 
@@ -280,3 +279,5 @@ Bill summarises the situation to himself when the call is over..
 - People do not use the tools and follow procedures
   - They believe it is too cumbersome and too slow to do so
   - They claim no work can get done with such heavy procedures
+
+## Chapter 5
