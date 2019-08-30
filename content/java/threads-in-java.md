@@ -101,6 +101,7 @@ Thread.sleep(long millis) throws InterruptedException
 
 ### Making a Thread Join Another Thread
 - `join() throws InterruptedException` will move the current thread to `sleeping` state until the thread being joined finishes
+
 ```java
 Runnable longRunning = () -> {
     try {
