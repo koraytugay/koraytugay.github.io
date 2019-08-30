@@ -9,28 +9,27 @@ title:  "Threads in Java"
 * TOC
 {:toc}
 
-## Overview
-### Thread vs thread
+## Thread vs thread
 - `Thread` is a class in Java
 - `thread` is an individual, lightweight process
-  - Every `thread` has its own call stack
-    - In other words, a call stack executes in a separate `thread`
+
+Every thread has its own call stack, in other words: a call stack executes in a separate thread.
 
 ## Creating and Starting a Thread
-- A `thread` in Java starts as an instance of a `java.lang.Thread`
-  - Every `thread` of execution starts as an instance of class `Thread`
+- A thread in Java starts as an instance of a `java.lang.Thread`
+  - Every thread of execution starts as an instance of class Thread
 
 ### Passing a Runnable to a Thread
-- A `Thread` executes the target `Runnable` in a new `thread`
+- A Thread executes the target `Runnable` in a new thread
 
 ```java
 Runnable r = () -> {};
 new Thread(r).start();
 ```
 
-- A `Runnable` can be passed to multiple `Thread`s
-  - That would mean the exact same job will be repeated multiple times (albeit in different `thread`s)
-  - The job will be executed in multiple call stacks in multiple `thread`s
+- A `Runnable` can be passed to multiple Threads
+  - That would mean the exact same job will be repeated multiple times (albeit in different threads)
+  - The job will be executed in multiple call stacks in multiple threads
 
 ```java
 Runnable r = () -> {};
