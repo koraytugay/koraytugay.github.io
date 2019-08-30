@@ -14,6 +14,9 @@ title:  "My Homepage"
 - [Cheat Sheet](content/git/git-cheat-sheet.md)
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
+## Java
+- [Threads in Java](content/java/threads-in-java.md)
+
 ## Literature
 - [1984](content/literature/1984.md)
 - [Algorithms To Live By](content/literature/algorithms-to-live-by.md)
