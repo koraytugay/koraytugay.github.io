@@ -167,12 +167,12 @@ class Client implements Runnable {
     }
 }
 
-final Account account = new Account();
-final Client alice = new Client(account);
-final Client bob = new Client(account);
+Account account = new Account();
+Client alice = new Client(account);
+Client bob = new Client(account);
 
-final Thread threadAlice = new Thread(alice);
-final Thread threadBob = new Thread(bob);
+Thread threadAlice = new Thread(alice);
+Thread threadBob = new Thread(bob);
 
 threadAlice.start();
 threadBob.start();
@@ -418,7 +418,7 @@ For example:
 
 ```java
 class Notifier implements Runnable {
-    final Stack<String> messages;
+    Stack<String> messages;
 
     public Notifier(Stack<String> messages) {
         this.messages = messages;
@@ -433,7 +433,7 @@ class Notifier implements Runnable {
                         messages.wait();
                     } catch (InterruptedException ignored) {}
                 }
-                final String mostRecentMsg = messages.pop();
+                String mostRecentMsg = messages.pop();
                 System.out.println(LocalTime.now() + " " + mostRecentMsg);
                 if (mostRecentMsg.equals("q"))
                     System.exit(-1);
@@ -443,7 +443,7 @@ class Notifier implements Runnable {
 } // Notifier
 
 class Receiver implements Runnable {
-    final Stack<String> messages;
+    Stack<String> messages;
 
     public Receiver(Stack<String> messages) {
         this.messages = messages;
@@ -452,8 +452,8 @@ class Receiver implements Runnable {
     @Override
     public void run() {
         while (true) {
-            final Scanner scanner = new Scanner(System.in);
-            final String msg = scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            String msg = scanner.nextLine();
             synchronized (messages) {
                 messages.push(msg);
                 messages.notify();
@@ -462,7 +462,7 @@ class Receiver implements Runnable {
     }
 }
 
-final Stack<String> messages = new Stack<>();
+Stack<String> messages = new Stack<>();
 
 new Thread(new Notifier(messages)).start();
 new Thread(new Receiver(messages)).start();
