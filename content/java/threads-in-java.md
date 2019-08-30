@@ -51,18 +51,20 @@ new Thread(r, "bar").start();
 
 ## Thread States
 A Thread is
-- `new` until the `start` is called
-- `alive` once the `start` is called
-- `dead` once the `run` method (called from the `start`) finishes execution
+
+- `new` until `start` is called.
+- `alive` once `start` is called.
+- `dead` once execution is finished.
+  - A dead thread can never be re-started.
 
 ### Alive Threads
-An alive thread can be in the following states:
+An alive thread can be in one of the following states:
+
 - runnable
 - running
 - blocked / waiting / sleeping
 
 ## The Thread Scheduler
-
 The Thread Scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the following methods:
 
 ```java
@@ -73,13 +75,13 @@ void join() throws InterruptedException
 
 ### Runnable State
 - A thread has been started but is not actually running
-- It may be moved to `running` state any time by the thread scheduler
+- It may be moved to running state any time by the thread scheduler
 
 ### Running State
 - A Thread that has been started and actually being executed
-- It can finish executing and move to `dead` state
-- It can be moved back to `runnable` state any time by the thread scheduler
-- It can move to `blocked / waiting / sleeping` state by either an intention or lack of a required resource
+- It can finish executing and move to dead state
+- It can be moved back to runnable state any time by the thread scheduler
+- It can move to blocked / waiting / sleeping state by either an intention or lack of a required resource
   - Intentions can be `sleep`, `yield` or `join`
 
 ### Blocked / Waiting / Sleeping State
@@ -88,27 +90,29 @@ void join() throws InterruptedException
 - Can only move back to `runnable` state (and never directly to `running` state) once the reason (or intention) vanishes / expires
   - It may never go back to `runnable` if the reason never vanishes / expires
 
-## Preventing thread Execution
-### Making a thread Sleep
+## Preventing Thread Execution
+### Making a Thread Sleep
+
+A thread goes to sleep when the static method `sleep` is called within its call stack.
 
 ```java
 Thread.sleep(long millis) throws InterruptedException
 ```
 
-- You can only make the current executing thread sleep, you can not make any other threads sleep
-- `millis` you pass into the method is the minimum duration of sleep
-  - It is not exact
-- After waking up, the thread will end up in the runnable state
-  - It will not go to running state directly
-- A thread does not release the locks its holding when it goes to sleep
+Note that:
+- A thread can never make any other thread sleep.
+- `millis` passed to the method is the minimum durartion of sleep and it is not exact.
+- After waking up, thread ends up in the runnable state. 
+- A thread does not release the locks its holding when it goes to sleep.
 
 ### Making a Thread Yield
-- `static Thread.yield()` is to influence the thread scheduler to move the current running thread to `runnable state`
-- There is no guarantee that it will have any effect
-  - Even if the thread moves to `runnable` state, it might be picked up immediately and moved to `running` state
+
+- `static Thread.yield()` is to influence the Thread Scheduler to move the current running thread to runnable state.
+- There is no guarantee that it will have any effect.
+  - Even if the thread moves to `runnable` state, it might be picked up immediately and moved to `running` state.
 
 ### Making a thread Join Another thread
-- `join() throws InterruptedException` will move the current thread to `sleeping` state until the thread being joined finishes
+`join() throws InterruptedException` moves the current thread to sleeping state until the thread being joined finishes.
 
 ```java
 Runnable longRunning = () -> {
@@ -122,7 +126,7 @@ Thread longRunningThread = new Thread(longRunning);
 longRunningThread.start();
 
 out.println("I will wait for my long running friend!");
-longRunningThread.join();
+longRunningThread.join();  // Blocks until longRunningThread finishes
 out.println("I can continue!");
 
 // I will wait for my long running friend!
@@ -132,9 +136,10 @@ out.println("I can continue!");
 
 ## Thread Problems and Synchronisation
 ### Race Condition
-- A thread using (or _racing in in to_) a resource while another thread is doing an operation that is supposed to be atomic
+ A race condition can be summarised as a thread using (or _racing in to_) a resource while another thread is doing an operation on the very same resource that is supposed to be atomic.
 
-#### Race Condition Example
+__Example__
+
 The following example in my case prints `0` for the most of the time, but not every time. The value seen in the console will be `-10` from time to time.
 
 ```java
@@ -178,18 +183,18 @@ threadBob.join();
 System.out.println(account.balance); // Most of the time 0, -10 from time to time
 ```
 
-The race condition here is as follows, assuming when account balance is currently 10:
+The race condition occurs as follows. Assuming account balance is currently 10:
 
-1. alice checks `account.balance > 0` and sees it is
-1. Before alice calls `account.withdraw()`, bob races in
-1. bob checks `account.balance > 0` and since alice did not do the withdrawal yet, bob also sees it is
-1. alice calls `account.withdraw()` and balance becomes `0`
-1. bob thinking balance is `10` calls `account.withdraw()` while balance actually is `0`
-1. Account balance becomes `-10`
+1. alice checks `account.balance > 0`.
+1. Before alice calls `account.withdraw()`, bob _races in_.
+1. bob also checks `account.balance > 0` and at this point alice has not withdrawn yet.
+1. alice calls `account.withdraw()` and balance becomes `0`.
+1. bob calls `account.withdraw()` while balance actually is `0`.
+1. Account balance becomes `-10`.
 
 ### Making Operations Atomic
 #### Using Synchronisation
-We must somehow guarantee that checking the balance and withdrawing is atomic. We can make use of `synchronized` as seen in the below example.
+We must guarantee that checking the balance and withdrawing is atomic. We can make use of `synchronized` as seen in the below example.
 
 ```java
 class ThreadSafeAccount {
@@ -207,17 +212,16 @@ class ThreadSafeAccount {
 Once a thread enters the `withdraw` method, it is guaranteed that no other thread can enter any synchronized methods (including `withdraw`), making balance overdraw impossible.
 
 #### Synchronisation and Locks
-- Every object has a single lock associated with it
-- When a thread enters a synchronised method of an object, the thread acquires the lock associated with the object
-  - A thread is not guaranteed to run until the end of the synchronised method / block, however even if the thread goes to runnable state, it does not release the lock, hence avoiding any other thread entering the synchronised block/method
-  - Not only the synchronised block itself, no other synchronised block can be entered by any other thread
-- Methods in a class can be synchronised on arbitrary locks, it does not have to be their own locks
-- A thread can hold more than one lock
-- A thread is free to call (and enter) other methods that requires the lock it is holding
-- Only methods and blocks can be synchronized, classes and variables can not be synchronized
-- Synchronising static methods uses the lock of the class instance
-  - That is an instance of the class `Class` associated with the class where the static method is defined
-  - For a `class Foo`, that would be: `Class clazz = Foo.class;`
+- Every object has a single lock associated with it.
+- When a thread enters a synchronised method of an object, the thread acquires the lock associated with the object.
+  - A thread is not guaranteed to run until the end of the synchronised block, however even if the thread goes to runnable state, it does not release the lock, hence avoiding any other thread entering the synchronised block.
+  - Not only the synchronised block itself, no other synchronised blocks can be entered by any other threads.
+- Methods in a class can be synchronised on arbitrary locks, it does not have to be their own locks.
+- A thread can hold more than a single lock.
+- A thread is free to enter other methods that requires the lock it is holding.
+- Only methods and blocks can be synchronized, classes and variables can not be synchronized.
+- Synchronising static methods uses the lock of the class instance, which is the the instance of `Class` associated with the class where the static method is defined.
+  - For a `class Foo`, that would be: `Class clazz = Foo.class`.
 
 #### Arbitrary Lock Example
 
@@ -239,23 +243,18 @@ class Foo {
 In the example above, assume an instance of `Foo` is shared between 2 threads, namely `a` and `b`. Assume `a` enters `foo`, which would make `a` acquire `lock_1`. At this point, if `b` tries to enter `foo`, it would not succeed. However `b` is free to enter `bar` by acquiring the lock of `lock_2` which is free.
 
 #### Synchronized Method vs Synchronized Block
-- Synchronising a method is identical to having a synchronised block on `this` in the method
+Synchronising a method is identical to having a synchronised block on `this` in the method.
 
 ```java
-synchronized void foo() {
-    // implementation
-}
+synchronized void foo() {}
 
 void foo() {
-    synchronized (this) {
-        // implementation
-    }
+    synchronized (this) {}
 }
 ```
 
 ### Thread Safety
-A class is said to be thread-safe if its data is protected by synchronized methods / blocks.
-However it still needs consideration to use thread-safe classes.
+A class is said to be thread-safe if its data is protected by synchronized methods / blocks. However it still needs consideration to use thread-safe classes.
 
 ```java
 List<String> synchronizedList = 
@@ -276,23 +275,26 @@ Runnable r = () -> {
     }
 };
 
-new Thread(r).start();
-new Thread(r).start();
+Thread a = new Thread(r);
+Thread b = new Thread(r);
+
+a.start();
+b.start();
 ```
 
 The example above will throw an `IndexOutOfBoundsException` even though we are using a `SynchronizedList`.
 In a `SynchronizedList` each individual method is `synchronized`. There is nothing stopping from the following:
-- `thread a` asks if the list is empty, acquiring the lock of the list
-  - At this point `thread b` can not access any methods of the list
-- `thread a` releases the lock knowing the list is not empty
-- `thread a` goes to runnable state
-- `thread b` asks the list if it is empty acquiring the lock
-  - At this point `thread a` can not access any method of the list
-- `thread b` releases the lock knowing the list is not empty
-- `thread a` gets its turn and removes the item from the list
-  - At this point `thread b` can not call the remove method
-- `thread a` releases the lock
-- `thread b` removes the element and the exception is thrown
+1. `a` asks if the list is empty, acquiring the lock of the list
+  - At this point `b` can not access any methods of the list
+1. `a` releases the lock knowing the list is not empty
+1. `a` goes to runnable state
+1. `b` asks the list if it is empty acquiring the lock
+  - At this point `a` can not access any method of the list
+1. `b` releases the lock knowing the list is not empty
+1. `a` gets its turn and removes the item from the list
+  - At this point `b` can not call the remove method
+1. `a` releases the lock
+1. `b` removes the element and the exception is thrown
 
 It is better to use just a plain old ArrayList, but synchronising on the list itself as seen below.
 
@@ -314,13 +316,15 @@ Runnable r = () -> {
     }
 };
 
-new Thread(r).start();
-new Thread(r).start();
+Thread a = new Thread(r);
+Thread b = new Thread(r);
+
+a.start();
+b.start();
 ```
 
 ### Deadlock
-A deadlock happens when a thread acquires `lock_1` and starts waiting for `lock_2` to be released, where `lock_2` is acquired by another thread which is waiting for `lock_1` to be released.
-Neither thread is ever able to acquire the lock it is waiting for, and neither thread ever releases the lock it is holding.
+A deadlock happens when a thread acquires `lock_1` and starts waiting for `lock_2` to be released, where `lock_2` is acquired by another thread which is waiting for `lock_1` to be released. Neither thread is ever able to acquire the lock it is waiting for, and neither thread ever releases the lock it is holding.
 
 ```java
 class DeadLockExample {
@@ -349,7 +353,7 @@ class DeadLockExample {
     }
 }
 
-final DeadLockExample deadLockExample = new DeadLockExample();
+DeadLockExample deadLockExample = new DeadLockExample();
 
 Runnable foo = () -> deadLockExample.foo();
 Runnable bar = () -> deadLockExample.bar();
