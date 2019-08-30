@@ -362,7 +362,7 @@ new Thread(bar).start();
 Thread starvation happens when a thread acquires a lock on a shared resource and goes onto a long running process or an infinite loop, never giving a chance to the other thread to proceed.
 
 ## wait - notify
-A thread can acquire a lock on an object, and then may decide to release its lock by calling the `wait` method on the object, until `notify` is called on the same object by some other thread.
+A thread can acquire a lock on an object, and then may decide to release its lock by calling the `wait` method until `notify` is called on the same object by some other thread.
 
 ```java
 void wait() throws InterruptedException
@@ -374,13 +374,13 @@ For example:
 - `thread-a` acquires the lock on `list`
 - `thread-a` queries for the size of the `list`
 - `thread-a` sees that `list` is empty
-- Instead of releasing the lock, sleeping for a while, acquiring the lock again and checking if the list is empty, `thread-a` can call `wait` on the `list` object (which causes `thread-a` to release the lock its holding) which will block the execution of `thread-a` until `notify` is called on the same object
+- Instead of releasing the lock and sleeping only to acquire the lock again to check if the list is empty, `thread-a` can call `wait` on the `list` object (which causes `thread-a` to release the lock its holding) which will block the execution of `thread-a` until `notify` is called on the same object
 - `thread-b` acquires the lock on `list`
 - `thread-b` inserts an item in the `list`
 - `thread-b` calls `notify` on the list
   - unlike `wait` this does not end up in releasing the lock immediately
-- `thread-b` releases the lock on `list` its holding by exiting the `synchronized` method/block
-- `thread-a` gets notified and starts running again acquiring the lock on `list`
+- `thread-b` releases the lock on `list` by exiting the `synchronized` block
+- `thread-a` gets notified and starts running, acquiring the lock on `list`
 
 <table>
     <tr>
