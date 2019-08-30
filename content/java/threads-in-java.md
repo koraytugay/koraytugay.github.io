@@ -188,25 +188,22 @@ The race condition here is as follows, assuming when account balance is currentl
 - Account balance becomes `-10`
 
 ### Making Operations to Atomic by Synchronising
-- We must somehow guarantee that checking the balance and withdrawing is atomic
-  - There are several ways to do it
-
-An example can be as seen below:
+We must somehow guarantee that checking the balance and withdrawing is atomic. We can make use of `synchronized` as seen in the below example.
 
 ```java
-class Account {
+class ThreadSafeAccount {
     int balance = 50;
     synchronized int withdraw() {
-        if (balance > 0) {
-            balance = balance - 10;
-            return 10;
-        }
-        return 0;
+        if (balance == 0)
+            return 0;
+        
+        balance = balance - 10;
+        return 10;
     }
 }
 ```
 
-In the example above, once a thread enters the `withdraw` method, it is guaranteed that no other thread can enter any synchronized methods (including `withdraw`), making balance overdraw impossible.
+Once a thread enters the `withdraw` method, it is guaranteed that no other thread can enter any synchronized methods (including `withdraw`), making balance overdraw impossible.
 
 #### Synchronisation and Locks
 - Every object has a single lock associated with it
@@ -214,7 +211,7 @@ In the example above, once a thread enters the `withdraw` method, it is guarante
   - A thread is not guaranteed to run until the end of the synchronised method / block, however even if the thread goes to runnable state, it does not release the lock, hence avoiding any other thread entering the synchronised block/method
   - Not only the synchronised block itself, no other synchronised block can be entered by any other thread
 - Methods in a class can be synchronised on arbitrary locks, it does not have to be their own locks
-- A thread can hold more than one locks
+- A thread can hold more than one lock
 - A thread is free to call (and enter) other methods that requires the lock it is holding
 - Only methods and blocks can be synchronized, classes and variables can not be synchronized
 - Synchronising static methods uses the lock of the class instance
@@ -238,10 +235,7 @@ class Foo {
 }
 ```
 
-In the example above, assume an instance of `Foo` is shared between 2 threads: `a` and `b`
-- If `a` enters `foo`, `a` acquires the lock of `lock_1`
-  - At this point If `b` tries to enter `foo`, it would not succeed
-  - However `b` is free to enter `bar` by acquiring the lock of `lock_2` which is free
+In the example above, assume an instance of `Foo` is shared between 2 threads, namely `a` and `b`. Assume `a` enters `foo`, which would make `a` acquire `lock_1`. At this point, if `b` tries to enter `foo`, it would not succeed. However `b` is free to enter `bar` by acquiring the lock of `lock_2` which is free.
 
 #### Synchronized Method vs Synchronized Block
 - Synchronising a method is identical to having a synchronised block on `this` in the method
