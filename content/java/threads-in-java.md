@@ -4,7 +4,6 @@ title:  "Threads in Java"
 ---
 
 # Threads in Java
-
 {:.no_toc}
 
 * TOC
