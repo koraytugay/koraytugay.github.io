@@ -10,8 +10,8 @@ title:  "Threads in Java"
 {:toc}
 
 ## Thread vs thread
-- `Thread` is a class in Java
-- `thread` is an individual, lightweight process
+- `Thread` is a class in Java.
+- `thread` is an individual, lightweight process.
 
 Every thread has its own call stack, in other words: a call stack executes in a separate thread.
 
