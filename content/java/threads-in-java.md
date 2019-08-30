@@ -187,7 +187,8 @@ The race condition here is as follows, assuming when account balance is currentl
 - bob thinking balance is `10` calls `account.withdraw()` while balance actually is `0`
 - Account balance becomes `-10`
 
-### Making Operations to Atomic by Synchronising
+### Making Operations Atomic
+#### Using Synchronisation
 We must somehow guarantee that checking the balance and withdrawing is atomic. We can make use of `synchronized` as seen in the below example.
 
 ```java
