@@ -180,11 +180,11 @@ System.out.println(account.balance); // Most of the time 0, -10 from time to tim
 ```
 
 The race condition here is as follows, assuming when account balance is currently 10:
-- `alice` checks `account.balance > 0` and sees it is
-- Before `alice` calls `account.withdraw()`, `bob` races in
-- `bob` checks `account.balance > 0` and since `alice` did not do the withdrawal yet, `bob` also sees it is
-- `alice` calls `account.withdraw()` and balance becomes 0
-- `bob` thinking balance is 10 calls `account.withdraw()` while balance actually is `0`
+- alice checks `account.balance > 0` and sees it is
+- Before alice calls `account.withdraw()`, bob races in
+- bob checks `account.balance > 0` and since alice did not do the withdrawal yet, bob also sees it is
+- alice calls `account.withdraw()` and balance becomes `0`
+- bob thinking balance is `10` calls `account.withdraw()` while balance actually is `0`
 - Account balance becomes `-10`
 
 ### Using the `synchronized` Keyword for Converting Operations to Atomic
