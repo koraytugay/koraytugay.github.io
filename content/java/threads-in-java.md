@@ -371,16 +371,15 @@ void notifyAll()
 ```
 
 For example:
-- `thread-a` acquires the lock on `list`
-- `thread-a` queries for the size of the `list`
-- `thread-a` sees that `list` is empty
-- Instead of releasing the lock and sleeping only to acquire the lock again to check if the list is empty, `thread-a` can call `wait` on the `list` object (which causes `thread-a` to release the lock its holding) which will block the execution of `thread-a` until `notify` is called on the same object
-- `thread-b` acquires the lock on `list`
-- `thread-b` inserts an item in the `list`
-- `thread-b` calls `notify` on the list
-  - unlike `wait` this does not end up in releasing the lock immediately
-- `thread-b` releases the lock on `list` by exiting the `synchronized` block
-- `thread-a` gets notified and starts running, acquiring the lock on `list`
+1. `thread-a` acquires the lock on `list`
+1. `thread-a` queries for the size of the `list`
+1. `thread-a` sees that `list` is empty
+1. Instead of releasing the lock and sleeping only to acquire the lock again to check if the list is empty, `thread-a` can call `wait` on the `list` object (which causes `thread-a` to release the lock its holding) which will block the execution of `thread-a` until `notify` is called on the same object
+1. `thread-b` acquires the lock on `list`
+1. `thread-b` inserts an item in the `list`
+1. `thread-b` calls `notify` on the list, unlike `wait` this does not end up in releasing the lock immediately
+1. `thread-b` releases the lock on `list` by exiting the `synchronized` block
+1. `thread-a` gets notified and starts running, acquiring the lock on `list`
 
 <table>
     <tr>
