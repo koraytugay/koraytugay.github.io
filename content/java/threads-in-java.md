@@ -20,49 +20,50 @@ Every thread has its own call stack, in other words: a call stack executes in a 
   - Every thread of execution starts as an instance of class Thread
 
 ### Passing a Runnable to a Thread
-- A Thread executes the target `Runnable` in a new thread
+A Thread executes the target `Runnable` in a new thread.
 
 ```java
 Runnable r = () -> {};
 new Thread(r).start();
 ```
 
-- A `Runnable` can be passed to multiple Threads
-  - That would mean the exact same job will be repeated multiple times (albeit in different threads)
-  - The job will be executed in multiple call stacks in multiple threads
+A single instance of a Runnable can be passed to multiple Threads. That would mean the exact same job will be repeated multiple times (albeit in different threads).
 
 ```java
 Runnable r = () -> {};
+
 new Thread(r).start();
-new Thread(r).start(); // Perfectly legal to pass r to multiple Threads as target
+new Thread(r).start();  // This is fine 
 ```
 
 #### Determining the Thread executing the Runnable
 
 ```java
 Runnable r = () -> {
-    System.out.println("Being executed by: " + Thread.currentThread().getName());
+    out.println("Executed by: " + Thread.currentThread().getName());
 };
 new Thread(r, "foo").start();
 new Thread(r, "bar").start();
 
-// Being executed by: foo
-// Being executed by: bar
+// Executed by: foo
+// Executed by: bar
 ```
 
-## Thred Scheduler and Thread States
+## Thread States
 A Thread is
 - `new` until the `start` is called
 - `alive` once the `start` is called
 - `dead` once the `run` method (called from the `start`) finishes execution
 
 ### Alive Threads
-An alive Thread can be in
-- runnable state
-- running state
-- blocked / waiting / sleeping state
+An alive thread can be in the following states:
+- runnable
+- running
+- blocked / waiting / sleeping
 
-The thread scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the methods:
+## The Thread Scheduler
+
+The Thread Scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the following methods:
 
 ```java
 static void sleep(long millis) throws InterruptedException
@@ -70,25 +71,25 @@ static void yield()
 void join() throws InterruptedException
 ```
 
-#### runnable Thread
-- A Thread has been started but not actually running
+### Runnable State
+- A thread has been started but is not actually running
 - It may be moved to `running` state any time by the thread scheduler
 
-#### running Thread
+### Running State
 - A Thread that has been started and actually being executed
 - It can finish executing and move to `dead` state
 - It can be moved back to `runnable` state any time by the thread scheduler
 - It can move to `blocked / waiting / sleeping` state by either an intention or lack of a required resource
   - Intentions can be `sleep`, `yield` or `join`
 
-#### blocked / waiting / sleeping Thread
-- A Thread that has been started and was in `running` state at least once
+### Blocked / Waiting / Sleeping State
+- A thread that has been started and was in `running` state at least once
 - Moved to this state due to one of the reasones mentioned in `running` state
 - Can only move back to `runnable` state (and never directly to `running` state) once the reason (or intention) vanishes / expires
   - It may never go back to `runnable` if the reason never vanishes / expires
 
-## Preventing Thread Execution
-### Making a Thread Sleep
+## Preventing thread Execution
+### Making a thread Sleep
 
 ```java
 Thread.sleep(long millis) throws InterruptedException
@@ -97,8 +98,8 @@ Thread.sleep(long millis) throws InterruptedException
 - You can only make the current executing thread sleep, you can not make any other threads sleep
 - `millis` you pass into the method is the minimum duration of sleep
   - It is not exact
-- After waking up, the thread will end up in the `Runnable` state
-  - It will not go to `Running` state directly
+- After waking up, the thread will end up in the runnable state
+  - It will not go to running state directly
 - A thread does not release the locks its holding when it goes to sleep
 
 ### Making a Thread Yield
@@ -106,7 +107,7 @@ Thread.sleep(long millis) throws InterruptedException
 - There is no guarantee that it will have any effect
   - Even if the thread moves to `runnable` state, it might be picked up immediately and moved to `running` state
 
-### Making a Thread Join Another Thread
+### Making a thread Join Another thread
 - `join() throws InterruptedException` will move the current thread to `sleeping` state until the thread being joined finishes
 
 ```java
@@ -120,9 +121,9 @@ Runnable longRunning = () -> {
 Thread longRunningThread = new Thread(longRunning);
 longRunningThread.start();
 
-System.out.println("I will wait for my long running friend!");
+out.println("I will wait for my long running friend!");
 longRunningThread.join();
-System.out.println("I can continue!");
+out.println("I can continue!");
 
 // I will wait for my long running friend!
 // I am done!
@@ -134,8 +135,7 @@ System.out.println("I can continue!");
 - A thread using (or _racing in in to_) a resource while another thread is doing an operation that is supposed to be atomic
 
 #### Race Condition Example
-The following example in my case prints `0` for the most of the time, but not every time.
-The value seen in the console will be `-10` from time to time.
+The following example in my case prints `0` for the most of the time, but not every time. The value seen in the console will be `-10` from time to time.
 
 ```java
 class Account {
@@ -179,12 +179,13 @@ System.out.println(account.balance); // Most of the time 0, -10 from time to tim
 ```
 
 The race condition here is as follows, assuming when account balance is currently 10:
-- alice checks `account.balance > 0` and sees it is
-- Before alice calls `account.withdraw()`, bob races in
-- bob checks `account.balance > 0` and since alice did not do the withdrawal yet, bob also sees it is
-- alice calls `account.withdraw()` and balance becomes `0`
-- bob thinking balance is `10` calls `account.withdraw()` while balance actually is `0`
-- Account balance becomes `-10`
+
+1. alice checks `account.balance > 0` and sees it is
+1. Before alice calls `account.withdraw()`, bob races in
+1. bob checks `account.balance > 0` and since alice did not do the withdrawal yet, bob also sees it is
+1. alice calls `account.withdraw()` and balance becomes `0`
+1. bob thinking balance is `10` calls `account.withdraw()` while balance actually is `0`
+1. Account balance becomes `-10`
 
 ### Making Operations Atomic
 #### Using Synchronisation
