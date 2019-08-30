@@ -389,24 +389,24 @@ For example:
         <th style="width: 25%">notifyAll()</th>
     </tr>
     <tr>
-        <td colspan="4">Can only be called on objects where the lock is acquired</td>
+        <td colspan="4">Can only be called on objects where the lock is acquired.</td>
     </tr>
     <tr>
-        <td colspan="4">Throws <code>IllegalMonitorStateException</code> which is an unchecked exception, hence need not to be handled</td>
+        <td colspan="4">Throws <code>IllegalMonitorStateException</code> which is an unchecked exception, hence need not to be handled.</td>
     </tr>
     <tr>
-        <td colspan="2">Throws checked exception <code>InterruptedException</code></td>
-        <td colspan="2">Does not throws any checked exceptions</td>
+        <td colspan="2">Throws checked exception <code>InterruptedException</code>.</td>
+        <td colspan="2">Does not throws any checked exceptions.</td>
     </tr>
     <tr>
-        <td colspan="2">Releases the lock immediately and blocks the thread</td>
-        <td colspan="2">Does not release the lock immediately</td>
+        <td colspan="2">Releases the lock immediately and blocks the thread.</td>
+        <td colspan="2">Does not release the lock immediately.</td>
     </tr>
     <tr>
-        <td colspan="1">Waits until <code>notify</code> is called on the object</td>
-        <td colspan="1">Waits until <code>notify</code> is called on the object or timeout occurs</td>
-        <td>Only one of the threads waiting on the object is notified, which one is undefined</td>
-        <td>All of the threads waiting on the object is notified, which one will run first is undefined</td>
+        <td colspan="1">Waits until <code>notify</code> is called on the object.</td>
+        <td colspan="1">Waits until <code>notify</code> is called on the object or timeout occurs.</td>
+        <td>Only one of the threads waiting on the object is notified, which one is undefined.</td>
+        <td>All of the threads waiting on the object is notified, which one will run first is undefined.</td>
     </tr>
 </table>
 
