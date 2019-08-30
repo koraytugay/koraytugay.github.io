@@ -22,13 +22,16 @@ title:  "Threads in Java"
 
 ### Passing a Runnable to a Thread
 - A `Thread` executes the target `Runnable` in a new `thread`
+
 ```java
 Runnable r = () -> {};
 new Thread(r).start();
 ```
+
 - A `Runnable` can be passed to multiple `Thread`s
   - That would mean the exact same job will be repeated multiple times (albeit in different `thread`s)
   - The job will be executed in multiple call stacks in multiple `thread`s
+
 ```java
 Runnable r = () -> {};
 new Thread(r).start();
@@ -36,6 +39,7 @@ new Thread(r).start(); // Perfectly legal to pass r to multiple Threads as targe
 ```
 
 #### Determining the Thread executing the Runnable
+
 ```java
 Runnable r = () -> {
     System.out.println("Being executed by: " + Thread.currentThread().getName());
@@ -46,6 +50,7 @@ new Thread(r, "bar").start();
 // Being executed by: foo
 // Being executed by: bar
 ```
+
 ## Thred Scheduler and Thread States
 A Thread is
 - `new` until the `start` is called
@@ -59,6 +64,7 @@ An alive Thread can be in
 - blocked / waiting / sleeping state
 
 The thread scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the methods:
+
 ```java
 static void sleep(long millis) throws InterruptedException
 static void yield()
@@ -84,9 +90,11 @@ void join() throws InterruptedException
 
 ## Preventing Thread Execution
 ### Making a Thread Sleep
+
 ```java
 Thread.sleep(long millis) throws InterruptedException
 ```
+
 - You can only make the current executing thread sleep, you can not make any other threads sleep
 - `millis` you pass into the method is the minimum duration of sleep
   - It is not exact
@@ -170,6 +178,7 @@ threadBob.join();
 
 System.out.println(account.balance); // Most of the time 0, -10 from time to time
 ```
+
 The race condition here is as follows, assuming when account balance is currently 10:
 - `alice` checks `account.balance > 0` and sees it is
 - Before `alice` calls `account.withdraw()`, `bob` races in
@@ -183,6 +192,7 @@ The race condition here is as follows, assuming when account balance is currentl
   - There are several ways to do it
 
 An example can be as seen below:
+
 ```java
 class Account {
     int balance = 50;
@@ -195,6 +205,7 @@ class Account {
     }
 }
 ```
+
 In the example above, once a thread enters the `withdraw` method, it is guaranteed that no other thread can enter any synchronized methods (including `withdraw`), making balance overdraw impossible.
 
 #### Synchronisation and Locks
@@ -211,6 +222,7 @@ In the example above, once a thread enters the `withdraw` method, it is guarante
   - For a `class Foo`, that would be: `Class clazz = Foo.class;`
 
 #### Arbitrary Lock Example
+
 ```java
 class Foo {
     Object lock_1 = new Object();
@@ -225,6 +237,7 @@ class Foo {
     }
 }
 ```
+
 In the example above, assume an instance of `Foo` is shared between 2 threads: `a` and `b`
 - If `a` enters `foo`, `a` acquires the lock of `lock_1`
   - At this point If `b` tries to enter `foo`, it would not succeed
@@ -232,6 +245,7 @@ In the example above, assume an instance of `Foo` is shared between 2 threads: `
 
 #### Synchronized Method vs Synchronized Block
 - Synchronising a method is identical to having a synchronised block on `this` in the method
+
 ```java
 synchronized void foo() {
     // implementation
@@ -243,11 +257,14 @@ void foo() {
     }
 }
 ```
+
 ### Thread Safety
 A class is said to be thread-safe if its data is protected by synchronized methods / blocks.
 However it still needs consideration to use thread-safe classes.
+
 ```java
-List<String> synchronizedList = Collections.synchronizedList(new ArrayList<>());
+List<String> synchronizedList = 
+    Collections.synchronizedList(new ArrayList<>());
 synchronizedList.addAll(Arrays.asList("foo"));
 
 Runnable r = () -> {
@@ -267,6 +284,7 @@ Runnable r = () -> {
 new Thread(r).start();
 new Thread(r).start();
 ```
+
 The example above will throw an `IndexOutOfBoundsException` even though we are using a `SynchronizedList`.
 In a `SynchronizedList` each individual method is `synchronized`. There is nothing stopping from the following:
 - `thread a` asks if the list is empty, acquiring the lock of the list
@@ -282,6 +300,7 @@ In a `SynchronizedList` each individual method is `synchronized`. There is nothi
 - `thread b` removes the element and the exception is thrown
 
 It is better to use just a plain old ArrayList, but synchronising on the list itself as seen below.
+
 ```java
 List<String> synchronizedList = new ArrayList<>();
 synchronizedList.addAll(Arrays.asList("foo"));
@@ -303,9 +322,11 @@ Runnable r = () -> {
 new Thread(r).start();
 new Thread(r).start();
 ```
+
 ### Deadlock
 A deadlock happens when a thread acquires `lock_1` and starts waiting for `lock_2` to be released, where `lock_2` is acquired by another thread which is waiting for `lock_1` to be released.
 Neither thread is ever able to acquire the lock it is waiting for, and neither thread ever releases the lock it is holding.
+
 ```java
 class DeadLockExample {
 
@@ -347,11 +368,13 @@ Thread starvation happens when a thread acquires a lock on a shared resource and
 
 ## wait - notify
 A thread can acquire a lock on an object, and then may decide to release its lock by calling the `wait` method on the object, until `notify` is called on the same object by some other thread.
+
 ```java
 void wait() throws InterruptedException
 void notify()
 void notifyAll()
 ```
+
 For example:
 - `thread-a` acquires the lock on `list`
 - `thread-a` queries for the size of the `list`
@@ -394,6 +417,7 @@ For example:
 </table>
 
 ### wait - notify Example
+
 ```java
 class Notifier implements Runnable {
     final Stack<String> messages;
@@ -454,8 +478,10 @@ new Thread(new Receiver(messages)).start();
 // 12:20:52.989 q
 //
 // Process finished with exit code 255
+
 ```
 ### wait - notify Example - 2
+
 ```java
 Object lock = new Object();
 
