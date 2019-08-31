@@ -287,7 +287,7 @@ Bill summarises the situation to himself when the call is over..
   - They claim no work can get done with such heavy procedures
 
 ## Chapter 5
-September 5, and Bill starts his day with anoher email that informs him yet on another urgent matter that must be fixed as soon as possible.
+September 5, and Bill starts his day with another email that informs him yet on another urgent matter that must be fixed as soon as possible.
 
 > We just concluded our Q3 internal audit in preparation for the upcoming SOX-404 external audit. We discovered some very concerning deficiencies that we need to discuss with you. Due to the severity and urgency of the findings, we need to meet with IT this morning. 
 >
