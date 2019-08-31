@@ -48,6 +48,15 @@ new Thread(r, "bar").start();
 // Executed by: bar
 ```
 
+## The Thread Scheduler
+The Thread Scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the following methods:
+
+```java
+static void sleep(long millis) throws InterruptedException
+static void yield()
+void join() throws InterruptedException
+```
+
 ## Thread States
 A Thread is considered to be:
 
@@ -62,15 +71,6 @@ An alive thread can be in one of the following states:
 - runnable
 - running
 - blocked / waiting / sleeping
-
-### The Thread Scheduler
-The Thread Scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the following methods:
-
-```java
-static void sleep(long millis) throws InterruptedException
-static void yield()
-void join() throws InterruptedException
-```
 
 ### Runnable State
 A thread is considered to be in runnable state when it is started but not actually being executed. It may be moved to running state any time by the Thread Scheduler.
