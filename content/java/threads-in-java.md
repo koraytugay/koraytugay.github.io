@@ -26,7 +26,7 @@ Runnable r = () -> {};
 new Thread(r).start();
 ```
 
-A single instance of a Runnable can be passed to  and executed by multiple Threads. That would mean the exact same job will be repeated multiple times (albeit in different threads).
+A single instance of a Runnable can be passed to and executed by multiple Threads. That would mean the same job will be processed multiple times (albeit in different threads).
 
 ```java
 Runnable r = () -> {};
@@ -66,6 +66,12 @@ An alive thread can be in one of the following states:
 ### The Thread Scheduler
 The Thread Scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the following methods:
 
+```java
+static void sleep(long millis) throws InterruptedException
+static void yield()
+void join() throws InterruptedException
+```
+
 ### Runnable State
 A thread is considered to be in runnable state when it is started but not actually being executed. It may be moved to running state any time by the Thread Scheduler.
 
@@ -73,13 +79,7 @@ A thread is considered to be in runnable state when it is started but not actual
 A thread is considered to be in running state while it is actually being executed. A thread in the running state can..
 - finish executing and move to dead state.
 - be moved back to runnable state any time by the Thread Scheduler.
-- move to blocked / waiting / sleeping state by either an intention or lack of a required resource. Intentions mentioned can be one of the following:
-
-```java
-static void sleep(long millis) throws InterruptedException
-static void yield()
-void join() throws InterruptedException
-```
+- move to blocked / waiting / sleeping state by either an intention or lack of a required resource.
 
 ### Blocked / Waiting / Sleeping State
 A thread that has been started and was in `running` state at least once but not currently being actually executed will be in either of these states. Such a thread can only be moved to runnable state and never to running state immediatly. It may also stay in its current state in case the reason never vanishes that blocks or makes the thread sleep.
