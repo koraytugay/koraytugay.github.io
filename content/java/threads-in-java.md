@@ -15,9 +15,8 @@ title:  "Threads in Java"
 
 Every thread has its own call stack, in other words: a call stack executes in a separate thread.
 
-## Creating and Starting a Thread
-- A thread in Java starts as an instance of a `java.lang.Thread`
-  - Every thread of execution starts as an instance of class Thread
+## Starting a Thread
+A thread in Java starts as an instance of a `java.lang.Thread`. Every thread of execution gets started and run by an instance of Thread.
 
 ### Passing a Runnable to a Thread
 A Thread executes the target `Runnable` in a new thread.
@@ -27,7 +26,7 @@ Runnable r = () -> {};
 new Thread(r).start();
 ```
 
-A single instance of a Runnable can be passed to multiple Threads. That would mean the exact same job will be repeated multiple times (albeit in different threads).
+A single instance of a Runnable can be passed to  and executed by multiple Threads. That would mean the exact same job will be repeated multiple times (albeit in different threads).
 
 ```java
 Runnable r = () -> {};
@@ -49,8 +48,14 @@ new Thread(r, "bar").start();
 // Executed by: bar
 ```
 
+```java
+static void sleep(long millis) throws InterruptedException
+static void yield()
+void join() throws InterruptedException
+```
+
 ## Thread States
-A Thread is
+A Thread is considered to be:
 
 - `new` until `start` is called.
 - `alive` once `start` is called.
@@ -64,35 +69,23 @@ An alive thread can be in one of the following states:
 - running
 - blocked / waiting / sleeping
 
-## The Thread Scheduler
+### The Thread Scheduler
 The Thread Scheduler is the part of the JVM which pulls alive threads from the thread pool and moves them between runnable and running states. A Thread can influence / notify the scheduler on its intend using the following methods:
 
-```java
-static void sleep(long millis) throws InterruptedException
-static void yield()
-void join() throws InterruptedException
-```
-
 ### Runnable State
-- A thread has been started but is not actually running
-- It may be moved to running state any time by the thread scheduler
+A thread is considered to be in runnable state when it is started but not actually being executed. It may be moved to running state any time by the Thread Scheduler.
 
 ### Running State
-- A Thread that has been started and actually being executed
-- It can finish executing and move to dead state
-- It can be moved back to runnable state any time by the thread scheduler
-- It can move to blocked / waiting / sleeping state by either an intention or lack of a required resource
-  - Intentions can be `sleep`, `yield` or `join`
+A thread is considered to be in running state while it is actually being executed. A thread in the running state can..
+- finish executing and move to dead state.
+- be moved back to runnable state any time by the Thread Tcheduler.
+- move to blocked / waiting / sleeping state by either an intention or lack of a required resource. Intentions can be `sleep`, `yield` or `join`.
 
 ### Blocked / Waiting / Sleeping State
-- A thread that has been started and was in `running` state at least once
-- Moved to this state due to one of the reasones mentioned in `running` state
-- Can only move back to `runnable` state (and never directly to `running` state) once the reason (or intention) vanishes / expires
-  - It may never go back to `runnable` if the reason never vanishes / expires
+A thread that has been started and was in `running` state at least once but not currently being actually executed will be in either of these states. Such a thread can only be moved to runnable state and never to running state immediatly. It may also stay in its current state in case the reason never vanishes that blocks or makes the thread sleep.
 
 ## Preventing Thread Execution
 ### Making a Thread Sleep
-
 A thread goes to sleep when the static method `sleep` is called within its call stack.
 
 ```java
@@ -136,10 +129,9 @@ out.println("I can continue!");
 
 ## Thread Problems and Synchronisation
 ### Race Condition
- A race condition can be summarised as a thread using (or _racing in to_) a resource while another thread is doing an operation on the very same resource that is supposed to be atomic.
+A race condition can be summarised as a thread using (or _racing in to_) a resource while another thread is doing an operation on the very same resource that is supposed to be atomic.
 
 __Example__
-
 The following example in my case prints `0` for the most of the time, but not every time. The value seen in the console will be `-10` from time to time.
 
 ```java
@@ -177,10 +169,10 @@ Thread threadBob = new Thread(bob);
 threadAlice.start();
 threadBob.start();
 
-threadAlice.join();
-threadBob.join();
+threadAlice.join();  // join the main thread
+threadBob.join();    // join the main thread
 
-System.out.println(account.balance); // Most of the time 0, -10 from time to time
+out.println(account.balance); // Most of the time 0, -10 from time to time
 ```
 
 The race condition occurs as follows. Assuming account balance is currently 10:
