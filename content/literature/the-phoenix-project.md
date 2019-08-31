@@ -336,10 +336,13 @@ Patty approves Bill..
 ..and informs him that she will start right away.
 
 ### Chapter Notes
-- Urgent matters, i.e. tech debt never seems to let Bill be productive
+- Urgent matters (mostly caused by tech debt) never let people be productive
 - People are not prioritising their tasks correctly
 - There is no team work and people are spending time fighting with each other
 - A lot of tasks depend on one particular person
 - Demand, priorities, status of work in progress, and available resources are not known, not visible by any means
-- People reach IT staff directly to get things done, by-passing any documentation or recording
-- No one knows what gets bumped down, when something new gets bumped up
+  - No one knows what gets bumped down, when something new gets bumped up 
+  - People reach IT staff directly to get things done, by-passing any documentation or recording
+
+## Chapter 6
+..
