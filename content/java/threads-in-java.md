@@ -48,12 +48,6 @@ new Thread(r, "bar").start();
 // Executed by: bar
 ```
 
-```java
-static void sleep(long millis) throws InterruptedException
-static void yield()
-void join() throws InterruptedException
-```
-
 ## Thread States
 A Thread is considered to be:
 
@@ -78,8 +72,14 @@ A thread is considered to be in runnable state when it is started but not actual
 ### Running State
 A thread is considered to be in running state while it is actually being executed. A thread in the running state can..
 - finish executing and move to dead state.
-- be moved back to runnable state any time by the Thread Tcheduler.
-- move to blocked / waiting / sleeping state by either an intention or lack of a required resource. Intentions can be `sleep`, `yield` or `join`.
+- be moved back to runnable state any time by the Thread Scheduler.
+- move to blocked / waiting / sleeping state by either an intention or lack of a required resource. Intentions mentioned can be one of the following:
+
+```java
+static void sleep(long millis) throws InterruptedException
+static void yield()
+void join() throws InterruptedException
+```
 
 ### Blocked / Waiting / Sleeping State
 A thread that has been started and was in `running` state at least once but not currently being actually executed will be in either of these states. Such a thread can only be moved to runnable state and never to running state immediatly. It may also stay in its current state in case the reason never vanishes that blocks or makes the thread sleep.
@@ -99,13 +99,10 @@ Note that:
 - A thread does not release the locks its holding when it goes to sleep.
 
 ### Making a Thread Yield
-
-- `static Thread.yield()` is to influence the Thread Scheduler to move the current running thread to runnable state.
-- There is no guarantee that it will have any effect.
-  - Even if the thread moves to `runnable` state, it might be picked up immediately and moved to `running` state.
+`static yield()` influences the Thread Scheduler to move the current running thread to runnable state. There is no guarantee that it will have any effect. Even if the thread moves to runnable state, it might be picked up immediately and moved to running state.
 
 ### Making a thread Join Another thread
-`join() throws InterruptedException` moves the current thread to sleeping state until the thread being joined finishes.
+`join() throws InterruptedException` moves the current thread to blocked state until the thread being joined finishes.
 
 ```java
 Runnable longRunning = () -> {
@@ -429,10 +426,10 @@ class Notifier implements Runnable {
                 System.out.println(LocalTime.now() + " " + mostRecentMsg);
                 if (mostRecentMsg.equals("q"))
                     System.exit(-1);
-            } // synchronized
-        } // while
-    } // run
-} // Notifier
+            }
+        }
+    }
+}
 
 class Receiver implements Runnable {
     Stack<String> messages;
@@ -459,7 +456,6 @@ Stack<String> messages = new Stack<>();
 new Thread(new Notifier(messages)).start();
 new Thread(new Receiver(messages)).start();
 
-// Sample execution
 // Hello World!
 // 12:20:50.057 Hello World!
 // Thank you!
@@ -468,7 +464,6 @@ new Thread(new Receiver(messages)).start();
 // 12:20:52.989 q
 //
 // Process finished with exit code 255
-
 ```
 ### wait - notify Example - 2
 
