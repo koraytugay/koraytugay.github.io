@@ -35,7 +35,7 @@ new Thread(r).start();
 new Thread(r).start();  // This is fine 
 ```
 
-#### Determining the Thread executing the Runnable
+### Determining the Thread executing the Runnable
 
 ```java
 Runnable r = () -> {
