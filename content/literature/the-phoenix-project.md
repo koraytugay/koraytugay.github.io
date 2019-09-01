@@ -402,4 +402,4 @@ Later that evening Patty calls Bill to inform him that she already received 243 
 - The Change Management Tool is not user-friendly.
 - Terms (such as _change_) do not have agreed on meanings.
   - It is defined in this chapter.
-- A light-weight procedure is embraced by people
+- A light-weight procedure is embraced by people.
