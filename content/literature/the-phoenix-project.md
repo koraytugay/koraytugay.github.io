@@ -86,6 +86,7 @@ __Wes__
 __CAB__
 - Change Advisory Board
 - Lead by Patty
+- Responsible for Change Management Process
 
 __CMM__
 - Change Management Meeting
@@ -155,7 +156,7 @@ The very same day he sits in his new chair, he is handed a message from the Dick
 #### Chapter Notes
 - The question Bill asks to Steve Masters when he is appointed is notable
 
-> What do you want most from me? And what don’t you want?”
+> What do you want most from me? And what don't you want?”
 
 - So is the answer he receives
 
@@ -164,7 +165,7 @@ The very same day he sits in his new chair, he is handed a message from the Dick
 ## Chapter 2
 Bill starts investigating the situation and learns the how the financial systems get the data from Ann. Ann tells him that it is a pretty fragile process and adds the information that there is a lot of manual modifications are done to the incoming data. 
 
-> I wince. I don’t like finance personnel manually changing payroll data outside the payroll application. It’s error-prone and dangerous.
+> I wince. I don't like finance personnel manually changing payroll data outside the payroll application. It's error-prone and dangerous.
 
 Bill is surprised to learn that all the salaried employees data are ok but the hourly ones were all zero. He then goes to NOC to find Wes and Patty to find them talking about the SAN, which surprises him. He also overhears some engineers talking about _an unsuccessful update to SAN_.
 
@@ -184,7 +185,7 @@ They walk past NOC to find Brent working in his cubicle, busy on the SAN issue. 
 
 During this discussion, Ann call Bill and informs him that only a single column in the incoming data was corrupt with unidentifiable characters. Bill argues the cause of this problem does not sound like a SAN failure and asks Brent what else was going on yesterday. 
 
-> “Well, now that you mention it... A developer for the timekeeping application called me yesterday with a strange question about the database table structure. I was in the middle of working on that Phoenix test VM, so I gave him a really quick answer so I could get back to work. You don’t suppose he did something to break the app, do you?”
+> “Well, now that you mention it... A developer for the timekeeping application called me yesterday with a strange question about the database table structure. I was in the middle of working on that Phoenix test VM, so I gave him a really quick answer so I could get back to work. You don't suppose he did something to break the app, do you?”
 
 Following this trail, Wes finds it was a developer called Max, who was out for a vacation starting today, who was doing some updates to the time keeping applications database for a project driven by John.
 
@@ -192,7 +193,7 @@ Patty complains John and his team never follows Patty's procedures. John informs
 
 Finally Bill asks John whether they have tested the change before applying it to which he gets the response
 
-> No, we could not test the change. There’s no test environment.
+> No, we could not test the change. There's no test environment.
 
 After hanging up, Patty repeats her point
 
@@ -200,7 +201,7 @@ After hanging up, Patty repeats her point
 
 Bill reinforces this point
 
-> No one made changes without telling everyone else, and we’d bend over backward to make sure our changes wouldn’t screw someone else up.
+> No one made changes without telling everyone else, and we'd bend over backward to make sure our changes wouldn't screw someone else up.
 
 Bill also learns from Patty that people are not even using the ticketing system they have to log what changes they make. Bill finds this unacceptable and tells Patty to inform every department manager to attend Change Advisory Board meetings starting tomorrow.
 
@@ -219,7 +220,7 @@ It is September 3rd and Bill is in his office at 7:30 a.m. He seens an email fro
 
 Bill and Wes gets into a phone call where Wes comments about the e-mail
 
-> I’m pretty sure it’s about Brent not finishing up that configuration work for the Phoenix developers. Everyone is chasing their tails because the developers can’t actually tell us what the test environment should look like. We’re doing our best, but every time we deliver something, they tell us we did it wrong.
+> I'm pretty sure it's about Brent not finishing up that configuration work for the Phoenix developers. Everyone is chasing their tails because the developers can't actually tell us what the test environment should look like. We're doing our best, but every time we deliver something, they tell us we did it wrong.
 
 At 10:00 a.m. Bill goes to the meeting to see that pretty much everyone is there in the meeting, including Steve. Kirsten kicks off the meeting..
 
@@ -239,21 +240,21 @@ to which Chris responds
 
 Bill does not hear liking this answer since Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live by answering from developers perspective only. Wes responds with several arguments
 
-> Your guys still haven’t told us what sort of infrastructure we need, so we can’t even order the necessary server and networking gear.
+> Your guys still haven't told us what sort of infrastructure we need, so we can't even order the necessary server and networking gear.
 >
-> You’re supposed to support 250 transactions per second, and you’re barely doing even four! We’re going to need so much hardware.
+> You're supposed to support 250 transactions per second, and you're barely doing even four! We're going to need so much hardware.
 >
-> We still don’t have a concrete specification of how the production and test systems should be configured. 
+> We still don't have a concrete specification of how the production and test systems should be configured. 
 >
-> Oh, do you guys not need a test environment anymore? You haven’t even done any real testing of your code yet, because that fell off the schedule, too!
+> Oh, do you guys not need a test environment anymore? You haven't even done any real testing of your code yet, because that fell off the schedule, too!
 
 The argument between Sarah, Chris, Bill and Wes keeps going, focused on Sarah pressuring the rollout of Phoenix to be done and not delayed anymore no matter what, where Bill and Wes argue it might be a catastroph if done so. Steve hears what he wants to hear, and appricates the risks but demands the rollout to be done by next week, which Bill finds unreasonable and too risky.
 
 Walking out of the meeting, Wes and Bill are on the same page that there will be big trouble ahead. Bill asks Wes why they do not attend meetings held by Chris 's team, to which he responds
 
-> We did get notice on a couple of the big planning meetings. One of the most critical people who needed to be there, Brent, wasn’t able to make it, due to escalations. 
+> We did get notice on a couple of the big planning meetings. One of the most critical people who needed to be there, Brent, wasn't able to make it, due to escalations. 
 >
-> He’s the guy we need at those meetings to tell those idiotic developers how things work in the real world and what type of things keep breaking in production. The irony, of course, is that he can’t tell the developers, because he’s too busy repairing the things that are already broken.
+> He's the guy we need at those meetings to tell those idiotic developers how things work in the real world and what type of things keep breaking in production. The irony, of course, is that he can't tell the developers, because he's too busy repairing the things that are already broken.
 
 Bill goes to Patty 's Change Management Meeting in the afternoon, to see an empty room, only attendee being Patty herself. Bill asks Patty what the reason behind this is, to which she replies
 
@@ -273,7 +274,7 @@ A few minutes later Wes calls Bills, explaining why the change management proces
 
 Bill summarises the situation to himself when the call is over..
 
-> Before, I was merely worried that IT Operations was under attack by Development, Information Security, Audit, and the business. Now, I’m starting to realize that my primary managers seem to be at war with each other, as well.
+> Before, I was merely worried that IT Operations was under attack by Development, Information Security, Audit, and the business. Now, I'm starting to realize that my primary managers seem to be at war with each other, as well.
 
 #### Chapter Notes
 - There is a clear problem between the Development team and the Operations team in handoffs
@@ -297,29 +298,29 @@ Bill finds the meeting room and sees that Nancy, John and Wes are present, toget
 
 > We found 952 IT general control deficiencies, of which 16 are significant.  You need to investigate each of these findings, confirm them, and then create a remediation plan. 
 >
-> We only have three weeks until the external auditors arrive. We’ll make sure to give IT more time in the next audit cycle. But this time around, we require your response by one week from Monday.
+> We only have three weeks until the external auditors arrive. We'll make sure to give IT more time in the next audit cycle. But this time around, we require your response by one week from Monday.
 
 John tries to get some points by reminding that they at least dodged an issue in the database with the tokenization change, to which Nancy reminds him that it is not in the scope of the SOX-404 audit.
 
 The discussion heats up when John keeps going with his suggestions and Wes responds with:
 
-> Some of the servers that those manufacturing ERP systems run on are over twenty years old. Half the company will grind to a halt if they go down, and the vendor went out of business decades ago! They’ll never survive the changes you’re proposing! 
+> Some of the servers that those manufacturing ERP systems run on are over twenty years old. Half the company will grind to a halt if they go down, and the vendor went out of business decades ago! They'll never survive the changes you're proposing! 
 >
-> You want to patch it yourself, fine. But I want a signed piece of paper from you saying that if you push the button and the entire business grinds to a halt, you’ll fly around and grovel to all the plant managers.
+> You want to patch it yourself, fine. But I want a signed piece of paper from you saying that if you push the button and the entire business grinds to a halt, you'll fly around and grovel to all the plant managers.
 
 John also responds back, angrily:
 
-> Oh, yeah? How about when we’re on the front page of the news because we lost consumer data that we’re responsible for protecting? You’ll personally apologize to the thousands or millions of families whose data are now being sold by the Russian Mafia?
+> Oh, yeah? How about when we're on the front page of the news because we lost consumer data that we're responsible for protecting? You'll personally apologize to the thousands or millions of families whose data are now being sold by the Russian Mafia?
 
 Already soaked with work and the deadline pressure caused by the Phoenix Project, Bill is now wondering how he is going to deal with this new requirement of going through all the audit findings, where he is going to find resources for it.
 
 Wes and Bill starts a conversation after the meeting, which leads to Wes commenting they would need Brent for a bunch of the items. Bill is not happy with hearing this.
 
-> Brent. Brent, Brent, Brent! Can’t we do anything without him? Look at us! I don’t care how talented he is. If you’re telling me that our organization can’t do anything without him, we’ve got a big problem.
+> Brent. Brent, Brent, Brent! Can't we do anything without him? Look at us! I don't care how talented he is. If you're telling me that our organization can't do anything without him, we've got a big problem.
 
 Wes, admits in an embarrassed way that Brent may know more about how the company works compared to him, which Bill does not like either.
 
-> You’re a senior manager. This should be as unacceptable to you as it is to me!
+> You're a senior manager. This should be as unacceptable to you as it is to me!
 
 As the discussion goes, Wes complains people will just keep asking IT for more and more _stuff_, which has always been the case. Bill asks where he can find the current list of _commitments_, which does not exist as far as Wes knows. 
 
@@ -327,7 +328,7 @@ He calls Patty telling her he will need her help to figure what all the current 
 
 Bill then decides the best he can get at the moment can be finding out all the commitments the people work on audit findings and Phoenix are. 
 
-> At the very least, get me the work estimate to fix the audit findings. Then, for each of those resources, tell me what their other commitments are that we’re going to be pulling them off of. For that matter, do the same thing for every person assigned to Phoenix. I’m guessing we’re overloaded, so I want to know by how much. I want to proactively tell people whose projects have been bumped, so they’re not surprised when we don’t deliver what we promised.
+> At the very least, get me the work estimate to fix the audit findings. Then, for each of those resources, tell me what their other commitments are that we're going to be pulling them off of. For that matter, do the same thing for every person assigned to Phoenix. I'm guessing we're overloaded, so I want to know by how much. I want to proactively tell people whose projects have been bumped, so they're not surprised when we don't deliver what we promised.
 
 Patty approves Bill..
 
@@ -345,4 +346,60 @@ Patty approves Bill..
   - People reach IT staff directly to get things done, by-passing any documentation or project tracking
 
 ## Chapter 6
-..
+Bill, Patty and Wes meet in the afternoon. Patty shares her findings after the meetings she has done with all the employees. All the findings reinforce what they have been already finding out recently: There are too many projects without priotiries unknown, people are gettig interrupted with to frequent outages and procedures are being overridden. There also exists the problem of IT people not being able to get the work done that is in their hands.
+
+> Practically every executive in the company is guilty of going directly to their favorite IT person, either asking a favor or pressuring them to get something done.
+
+They start discussing how many new members would be required to support the load, to which Wes respons:
+
+> Based on our rough numbers, we'll probably need to hire seven people: three database administrators, two server engineers, one network engineer, and one virtualization engineer. Of course, you know that it'll take time to find these people and then another six to twelve months before they're fully productive.
+
+The next meeting is the CAB meeting. There are fourteen people in the meeting this time, most of the technical leads from various groups are attending.
+
+Bill summarises the purpose of the meeting: _We need to tighten up our change controls, and as managers and technical leads, we must figure out how_. 
+
+Technical leads repeat the problems with the Change Management Tool, it is too cumbersome to use.
+
+> There's a million mandatory fields..
+>
+> To follow Patty's rules, I have to manually type in hundreds of server names in one of the text boxes..
+>
+> When my guys put in change requests, they have to wait a lifetime to get approvals, let alone get on the schedule.
+
+Bill understands that expecting the current Change Management Tool to be used is impossible, and comes up with a very basic request:
+
+> I want each group to write down every change they're planning, one change per index card. I want three pieces of information: who is planning the change, the system being changed, and a one-sentence summary.
+>
+> I've drawn a calendar on the whiteboard where we will eventually post approved changes according to their scheduled implementation.
+
+People start filling in the index cards, which reveals yet another problem, the problem that IT people do not even agree on what a change is.
+
+One of the leads holds up a card he has filled in and starts reading it:
+
+> Execute the vendor-recommended database maintenance script on
+Octave server XZ577 to fix retail store POS performance issues. This affects the order entry database and applications. We'd like to do this next Friday evening at 8:30 p.m.
+
+to which Wes objects:
+
+> That's not a change! That's just running a database script. If you were changing the script, then we'd have something to talk about.
+
+but the lead replies:
+
+> No, it's definitely a change. It temporarily changes some database settings, and we don't know what production impact it could have. To me, it's just as risky as a database configuration change.
+
+This leads to some long discussion on what counts as a _change_ which is later agreed upon as follows:
+
+A __change__ is any activity that is physical, logical, or virtual to applications, databases, operating systems, networks, or hardware that could impact services being delivered.
+
+After 2 hours, they realise they were only able to go over 5 changes, due to all the discussions. Given the time for the meeting is up, Bill tells people to fill their index cards as soon as possible and hand them to Patty.
+
+Later that evening Patty calls Bill to inform him that she already received 243 changes for next week already. 
+
+> Holy crap. Four hundred? How many of these four hundred changes are high risk, potentially affecting Phoenix, the payroll application, or worse? Umm, at least people are following the process.. Send out an e-mail telling everyone to submit any change for next week by Monday. Monday’s changes will not need to be authorized but changes for the remainder of the week will. No exceptions.
+
+### Chapter Notes
+- It is expected from a new hire to be fully productive between six to twelve months.
+- The Change Management Tool is not user-friendly.
+- Terms (such as _change_) do not have agreed on meanings.
+  - It is defined in this chapter.
+- A light-weight procedure is embraced by people
