@@ -447,7 +447,7 @@ Eric says IT Operations is very similar to the work here in the plant:
 He then summarises the __Three Ways__ and tells Bill that he must understand them well:
 - __The First Way__ helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that’s what’s between the business and the customer.
 - __The Second Way__ shows us how to shorten and amplify feedback loops, so we can fix quality at the source and avoid rework.
-- __The Third Way__ shows us how to create a culture that si- multaneously fosters experimentation, learning from failure, and un- derstanding that repetition and practice are the prerequisites to mastery.
+- __The Third Way__ shows us how to create a culture that simultaneously fosters experimentation, learning from failure, and understanding that repetition and practice are the prerequisites to mastery.
 
 He tells Bill that there are four types of work, and he must find out what the other three are, next to the one he already identified: Business project work.
 
@@ -466,7 +466,7 @@ Another explanation I found is as follows:
 
 > The quantity of work-in-progress will directly affect cycle-time, the more work you are currently undertaking the greater the required cycle-time to complete each task.
 
-For me, maybe, just maybe I think what is meant is, as long as you are not able to finish tasks in your hand, but still accepting new work, you are not making any overall progress. Work In Progress is both the source of product, but in the same time, is the cause of not being able to deliver anything, if not managed properly.
+The explanation I would make would be someting like this: As long as you are not able to finish tasks in your hand, but still accepting new work, you are not making any overall progress. Work In Progress is both the source of product, but in the same time, is the cause of not being able to deliver anything, if not managed properly. It is just like oxygen for us, it is what makes it live, and what makes as age.. The less frequent you breathe, you keep living, and you live longer.
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
