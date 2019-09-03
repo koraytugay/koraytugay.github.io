@@ -354,13 +354,13 @@ Patty approves Bill..
   - People reach IT staff directly to get things done, by-passing any documentation or project tracking
 
 ## Chapter 6
-Bill, Patty and Wes meet in the afternoon. Patty shares her findings after the meetings she has done with all the employees. All the findings reinforce what they have been already finding out recently: There are too many projects without priotiries unknown, people are gettig interrupted with to frequent outages and procedures are being overridden. There also exists the problem of IT people not being able to get the work done that is in their hands.
+Bill, Patty and Wes meet in the afternoon. Patty shares her findings after the meetings she has done with all the employees. All the findings reinforce what they have been already finding out recently: There are too many projects without priotiries unknown, people are gettig interrupted with frequent outages and procedures are being overridden. There also exists the problem of IT people not being able to get the work done that is in their hands.
 
 > Practically every executive in the company is guilty of going directly to their favorite IT person, either asking a favor or pressuring them to get something done.
 
 They start discussing how many new members would be required to support the load, to which Wes respons:
 
-> Based on our rough numbers, we'll probably need to hire seven people: three database administrators, two server engineers, one network engineer, and one virtualization engineer. Of course, you know that it'll take time to find these people and then another six to twelve months before they're fully productive.
+> Based on our rough numbers, we'll probably need to hire seven people. Of course, you know that it'll take time to find these people and then another six to twelve months before they're fully productive.
 
 The next meeting is the CAB meeting. There are fourteen people in the meeting this time, most of the technical leads from various groups are attending.
 
@@ -413,23 +413,23 @@ Later that evening Patty calls Bill to inform him that she already received 243 
 - A light-weight procedure is embraced by people.
 
 ## Chapter 7
-Bill gets a phone call from Stacy informing a there is a potential new board member calld Erik, who wants to meet all IT leaders.
+Bill gets a phone call from Stacy. There is a potential new board member: Erik and he wants to meet all IT leaders.
 
 Bill meets Erik in half an hour in the conference room and they start talking about the current situation the company is in. Erik has already met with other members and is aware of some of the details. He shares his first impressions with Bill:
 
 > Your problem right now is that you obviously don't actually know what 'work' is.
 
-Bill does not quite like being told that he does not know what work is, and responds to Eric:
+to which Bill responds:
 
 > We need to get Phoenix out the door. That qualifies as work in my mind.
 
 But Eric does not find the answer complete:
 
-> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's nowhere near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance. Grab your stuff. We’re going for a ride.
+> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's nowhere near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance.. We’re going for a ride.
 
-They go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik makes a small speech to Bill about the plant:
+They go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik speaks:
 
-> You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see all the WIP, that’s __'work in process'__ (or 'inventory' for plant newbies), make its way toward the other side of the plant floor, where it’s shipped to customers as finished goods.
+> You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see all the __WIP__, that’s __Work In Progress__ (or 'inventory' for plant newbies), make its way toward the other side of the plant floor, where it’s shipped to customers as finished goods.
 >
 > In the 1980s, this plant was the beneficiary of three incredible scientifically-grounded management movements. You’ve probably heard of them: the __Theory of Constraints__, __Lean production__ or the Toyota Production System, and __Total Quality Management__. They all agree on one thing: __WIP is the silent killer__. Therefore, one of the most critical mechanisms in the management of any plant is job and materials release. Without it, you can’t control WIP.
 >
@@ -438,10 +438,8 @@ he replies, ‘Well, no. This is the way I’ve done it for twenty years.’
 >
 > But of course, now everyone knows that you don’t release work based on the availability of the first station. Instead, it should be based on the tempo of how quickly the bottleneck resource can consume the work.
 >
-> Eliyahu M. Goldratt, who created the Theory of Constraints, showed us how any improvements made anywhere besides the bottleneck are an illusion. Astonishing, but true! Any improvement made after the bottleneck is useless, because it will always remain starved, waiting for work from the bottleneck.
-
-Eric says IT Operations is very similar to the work here in the plant:
-
+> Theory of Constraints showed us how any improvements made anywhere besides the bottleneck are an illusion. Any improvement made after the bottleneck is useless, because it will always remain starved, waiting for work from the bottleneck.
+>
 > __Your job as VP of IT Operations__ is to ensure the fast, predictable, and uninterrupted flow of planned work that delivers value to the business while minimizing the impact and disruption of unplanned work, so you can provide stable, predictable, and secure IT service.
 
 He then summarises the __Three Ways__ and tells Bill that he must understand them well:
@@ -467,6 +465,9 @@ Another explanation I found is as follows:
 > The quantity of work-in-progress will directly affect cycle-time, the more work you are currently undertaking the greater the required cycle-time to complete each task.
 
 The explanation I would make would be someting like this: As long as you are not able to finish tasks in your hand, but still accepting new work, you are not making any overall progress. Work In Progress is both the source of product, but in the same time, is the cause of not being able to deliver anything, if not managed properly. It is just like oxygen for us, it is what makes it live, and what makes as age.. The less frequent you breathe, you keep living, and you live longer.
+
+## Chapter 8
+
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
