@@ -37,6 +37,10 @@ __Chris Allers__
 __Dick Landrey__
 - CFO
 
+__Erik__
+- Technology hotshot
+- Potential board member
+
 __John Pesche__
 - Chief Information Security Officer
 - Looks to be in mid-thirties with thick, curly black hair
@@ -66,7 +70,7 @@ __Sarah Moulton__
 - SVP of Retail Operations
 - Blames other people for screwups
 
-__Stacey__
+__Stacy__
 - Steve 's assistant
 - 40 years old
 - Very organized
@@ -130,6 +134,10 @@ __Building 7__
 
 __Building 9__
 - Where the Marketing department is at
+
+__MRP-8__
+- One of the manufacturing plants
+- An enormous building in good condition and recent renovations
 
 __NOC__
 - Found within Building 7
@@ -389,13 +397,13 @@ but the lead replies:
 
 This leads to some long discussion on what counts as a _change_ which is later agreed upon as follows:
 
-A __change__ is any activity that is physical, logical, or virtual to applications, databases, operating systems, networks, or hardware that could impact services being delivered.
+__A change is any activity that is physical, logical, or virtual to applications, databases, operating systems, networks, or hardware that could impact services being delivered.__
 
 After 2 hours, they realise they were only able to go over 5 changes, due to all the discussions. Given the time for the meeting is up, Bill tells people to fill their index cards as soon as possible and hand them to Patty.
 
 Later that evening Patty calls Bill to inform him that she already received 243 changes for next week already. 
 
-> Holy crap. Four hundred? How many of these four hundred changes are high risk, potentially affecting Phoenix, the payroll application, or worse? Umm, at least people are following the process.. Send out an e-mail telling everyone to submit any change for next week by Monday. Monday’s changes will not need to be authorized but changes for the remainder of the week will. No exceptions.
+> Holy crap. Four hundred? How many of these four hundred changes are high risk, potentially affecting Phoenix, the payroll application, or worse? Umm, at least people are following the process.. Send out an e-mail telling everyone to submit any change for next week by Monday. Monday's changes will not need to be authorized but changes for the remainder of the week will. No exceptions.
 
 ### Chapter Notes
 - It is expected from a new hire to be fully productive between six to twelve months.
@@ -403,3 +411,62 @@ Later that evening Patty calls Bill to inform him that she already received 243 
 - Terms (such as _change_) do not have agreed on meanings.
   - It is defined in this chapter.
 - A light-weight procedure is embraced by people.
+
+## Chapter 7
+Bill gets a phone call from Stacy informing a there is a potential new board member calld Erik, who wants to meet all IT leaders.
+
+Bill meets Erik in half an hour in the conference room and they start talking about the current situation the company is in. Erik has already met with other members and is aware of some of the details. He shares his first impressions with Bill:
+
+> Instead of one general in your chain of command, you've got ten generals calling the shots here, and all of them have a direct line to each and every private in your company. Your problem right now is that you obviously don't actually know what 'work' is.
+
+Bill does not quite like being told that he does not know what work is, and responds to Eric:
+
+> We need to get Phoenix out the door. That qualifies as work in my mind.
+
+But Eric does not find the answer complete:
+
+> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's no-where near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance. Grab your stuff. We’re going for a ride.
+
+They go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik makes a small speech to Bill about the plant:
+
+> You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see all the WIP, that’s __'work in process'__ (or 'inventory' for plant newbies), make its way toward the other side of the plant floor, where it’s shipped to customers as finished goods.
+>
+> In the 1980s, this plant was the beneficiary of three incredible scientifically-grounded management movements. You’ve probably heard of them: the __Theory of Constraints__, __Lean production__ or the Toyota Production System, and __Total Quality Management__. They all agree on one thing: __WIP is the silent killer__. Therefore, one of the most critical mechanisms in the management of any plant is job and materials release. Without it, you can’t control WIP.
+>
+> Decades ago, there used to be a guy named Mark. He was the supervisor for that first work center, right down there by that desk. One day I see Mark picking up a folder to start some job. I ask him, ‘On what basis did you choose that job, versus any of the others? e says, ‘It’s a job that requires this work center first. And we’re open.’ I could hardly believe it. I tell him, ‘Your station is just the first of twenty operations. You don’t factor the availability of any of the other nineteen stations in your decision?’ And
+he replies, ‘Well, no. This is the way I’ve done it for twenty years.’
+>
+> But of course, now everyone knows that you don’t release work based on the availability of the first station. Instead, it should be based on the tempo of how quickly the bottleneck resource can consume the work.
+>
+> Eliyahu M. Goldratt, who created the Theory of Constraints, showed us how any improvements made anywhere besides the bottleneck are an illusion. Astonishing, but true! Any improvement made after the bottleneck is useless, because it will always remain starved, waiting for work from the bottleneck.
+
+Eric says IT Operations is very similar to the work here in the plant:
+
+> __Your job as VP of IT Operations is to ensure the fast, predictable, and uninterrupted flow of planned work that delivers value to the business while minimizing the impact and disruption of unplanned work, so you can provide stable, predictable, and secure IT service.__
+
+He then summarises the __Three Ways__ and tells Bill that he must understand them well:
+- __The First Way__ helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that’s what’s between the business and the customer.
+- __The Second Way__ shows us how to shorten and amplify feedback loops, so we can fix quality at the source and avoid rework.
+- __The Third Way__ shows us how to create a culture that si- multaneously fosters experimentation, learning from failure, and un- derstanding that repetition and practice are the prerequisites to mastery.
+
+He tells Bill that there are four types of work, and he must find out what the other three are, next to the one he already identified: Business project work.
+
+### Chapter Notes
+- One must be able to see the work to be able to organize, sequence and have assurance that available resources can complete it.
+- Any improvements made anywhere besides the bottleneck are an illusion.
+- There are four types of work:
+  - Business Project
+
+#### WIP is the silent killer
+I am not sure if I understand what is meant by this. Pat Robinson has a summary of this sentence [here](https://patrobinson.github.io/2015/09/01/wip-is-the-silent-killer/).
+
+> When there is no clear, unified decision made by the business as a whole as to what work is a priority, company resources are innevitably wasted switching between all the Work In Progress (WIP) depending on who is screaming the loudest. 
+
+Another explanation I found is as follows:
+
+> The quantity of work-in-progress will directly affect cycle-time, the more work you are currently undertaking the greater the required cycle-time to complete each task.
+
+For me, maybe, just maybe I think what is meant is, as long as you are not able to finish tasks in your hand, but still accepting new work, you are not making any overall progress. Work In Progress is both the source of product, but in the same time, is the cause of not being able to deliver anything, if not managed properly.
+
+## References
+- [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
