@@ -442,7 +442,7 @@ he replies, ‘Well, no. This is the way I’ve done it for twenty years.’
 
 Eric says IT Operations is very similar to the work here in the plant:
 
-> __Your job as VP of IT Operations is to ensure the fast, predictable, and uninterrupted flow of planned work that delivers value to the business while minimizing the impact and disruption of unplanned work, so you can provide stable, predictable, and secure IT service.__
+> __Your job as VP of IT Operations__ is to ensure the fast, predictable, and uninterrupted flow of planned work that delivers value to the business while minimizing the impact and disruption of unplanned work, so you can provide stable, predictable, and secure IT service.
 
 He then summarises the __Three Ways__ and tells Bill that he must understand them well:
 - __The First Way__ helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that’s what’s between the business and the customer.
