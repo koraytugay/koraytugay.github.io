@@ -417,7 +417,7 @@ Bill gets a phone call from Stacy informing a there is a potential new board mem
 
 Bill meets Erik in half an hour in the conference room and they start talking about the current situation the company is in. Erik has already met with other members and is aware of some of the details. He shares his first impressions with Bill:
 
-> Instead of one general in your chain of command, you've got ten generals calling the shots here, and all of them have a direct line to each and every private in your company. Your problem right now is that you obviously don't actually know what 'work' is.
+> Your problem right now is that you obviously don't actually know what 'work' is.
 
 Bill does not quite like being told that he does not know what work is, and responds to Eric:
 
