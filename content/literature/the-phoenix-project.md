@@ -425,7 +425,7 @@ Bill does not quite like being told that he does not know what work is, and resp
 
 But Eric does not find the answer complete:
 
-> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's no-where near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance. Grab your stuff. We’re going for a ride.
+> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's nowhere near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance. Grab your stuff. We’re going for a ride.
 
 They go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik makes a small speech to Bill about the plant:
 
