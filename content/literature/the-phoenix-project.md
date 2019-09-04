@@ -467,7 +467,24 @@ Another explanation I found is as follows:
 The explanation I would make would be someting like this: As long as you are not able to finish tasks in your hand, but still accepting new work, you are not making any overall progress. Work In Progress is both the source of product, but in the same time, is the cause of not being able to deliver anything, if not managed properly. It is just like oxygen for us, it is what makes it live, and what makes as age.. The less frequent you breathe, you keep living, and you live longer.
 
 ## Chapter 8
+Bill meets Steve and tells him his findings from his first week:
 
+> We are definitely understaffed. There’s no way that we can deliver everything we’ve promised. Either we need to cut down the project list, or we’ve got to staff up. The other big problem is that we have too many different projects competing for our attention. You’ve been consistent and clear that Phoenix is the most important, but we can’t seem to keep resources dedicated to it.
+
+The meeting does not go as Bill expected and Steve simply tells him he has to work with what he has, and must complete both fixing Audit findings and make progress with the Phoenix Project.
+
+Bills walks into the Change Coordination Room for another CAB meeting. Almost every area of the wall is now covered in whiteboards. Index cards cover nearly every inch of the whiteboards on two of the walls.
+
+> And now we’re supposed to go through and approve all of them? This meeting was only scheduled for an hour—we’d need days to go through all of these!
+
+Since the amount of change requests are too many, and can not be each worked on, they know they have to somehow filter and manage them. They come up with the following plan:
+
+- __High-risk changes__ must have change requests submitted, but must have authorization before being scheduled and implemented.
+- For __Messy middle changes__ the change submitter has responsibility for consulting and getting approval from people affected. Once they do that, they submit their change card for us to review and approve for scheduling.
+- __Low-risk changes__, changes that have been done many times before successfully are preapproved. They still need to be submitted, but they can be scheduled without the need of approval.
+
+### Chapter Notes
+- The main objective with all the planning work is to get the left and right hands to know what the other is doing which should give some situational awareness during outages.
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
