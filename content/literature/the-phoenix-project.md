@@ -223,7 +223,7 @@ Sarah takes the lead in the meeting
 
 Steve asks for an explanation from Bill for this, to which Bill responds
 
-> The critical resource in question is Brent, who has been one hundred percent utilized helping to recover from the payroll failure. This was an emergency but one that we had to handle. Everyone knows how important Phoenix is, and we are doing everything we can to make sure Brent can stay focused.
+> The critical resource in question is Brent, who has been one hundred percent utilized helping to recover from the payroll failure. This was an emergency that we had to handle. We are doing everything we can to make sure Brent can stay focused.
 
 Sarah puts pressure on Bill and Chris during the meeting, expecting to get an answer to the question
 
