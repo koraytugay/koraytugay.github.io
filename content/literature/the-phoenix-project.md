@@ -436,7 +436,7 @@ Bills walks into the Change Coordination Room for another CAB meeting. Almost ev
 Since the amount of change requests are too many, and can not be each worked on, they know they have to somehow filter and manage them. They come up with the following plan:
 
 - __High-risk changes__ must have change requests submitted, but must have authorization before being scheduled and implemented.
-- For __Messy middle changes__ the change submitter has the responsibility for consulting and getting approval from people affected. Once they do that, they submit their change card for us to review and approve for scheduling.
+- For __messy middle changes__ the change submitter has the responsibility for consulting and getting approval from people affected. Once they do that, they submit their change card for us to review and approve for scheduling.
 - __Low-risk changes__, changes that have been done many times before successfully are preapproved. They still need to be submitted, but they can be scheduled without the need of approval.
 
 __Notes__
