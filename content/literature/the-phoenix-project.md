@@ -451,7 +451,7 @@ Phoenix deployment is now only three days away and things are not looking good. 
 
 They realise, too many changes are planned for Friday, which is also the deployment day for the Phoenix. People start exchanging ideas and after a while, the distribution of the cards on the change board is much more even.
 
-Looking at the board, Bill realises the other 2 categories of work Erik had mentioned.
+Looking at the board, Bill realises the other two categories of work Erik had mentioned.
 
 > Wes and Patty did a manual inventory of all our projects, coming up with nearly a hundred projects. Those projects certainly represent two categories of work: business projects and internal IT projects. I realize that changes are the third category of work.
 >
