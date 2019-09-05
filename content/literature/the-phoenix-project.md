@@ -533,7 +533,7 @@ Convinced with the fact that this deployment will not bring any good, Bill conta
 
 After a very long night, things go as expected, the deployment becomes a big failure..
 
-- All sales in stores are being processed by manual credit card imprint machines. 
+- POS Systems in stores are down and all sales are being processed by manual credit card imprint machines.
 - Customers using the Phoenix website are complaining about how it is either down or so slow as to be unusable. 
 - The Phoenix website is leaking customer credit card numbers and losing transactions.
 
