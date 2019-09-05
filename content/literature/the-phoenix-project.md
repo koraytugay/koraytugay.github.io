@@ -319,7 +319,7 @@ Finally, they decide to take a very different approach:
 
 > IT Operations will freeze all non-Phoenix work. Development can’t idle the twenty-plus non-Phoenix projects, but will freeze all deployments. No work will flow from Development to IT Operations for another two weeks.
 
-## Chapter 20
+### Chapter 20
 ..
 
 ## Key Learnings
