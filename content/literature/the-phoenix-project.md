@@ -500,5 +500,20 @@ __Notes__
 - A better shared knowledge is required in the organization and systems should not depend on individuals.
 - Processes are supposed to protect people. They must be well defined, approved by upper management and followed.
 
+## Chapter 11
+Patty realizes a lot of changes are not getting done and the change request cards are piling up. Changes go in but never come out.
+
+> But changes need to get done, right? That’s why they’re changes. But when was the question ever asked whether we should accept the
+work? And on what basis did we ever make that decision?
+
+They realise a lot of work is not being done, because they intersect in Brent, the bottleneck.
+
+> We need a better understanding of what work is going to be heading Brent’s way. We need to know which change cards involve Brent.
+
+__Notes__
+- Deciding on what to work, based on available resources, is as important as getting work done. Accepting any work will interrupt the work that actually must get done.
+- Improvement must be done in the bottleneck.
+
+
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
