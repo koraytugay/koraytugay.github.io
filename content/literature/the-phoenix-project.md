@@ -10,9 +10,6 @@ title:  "The Phoenix Project"
 {:toc}
 
 ## Characters
-__Ann__
-- Operations Manager
-
 __Bill Palmer__
 - Former Director of Midrange Technology Operations
 - VP of IT Operations
@@ -22,17 +19,9 @@ __Brent__
 - Has know-how on many applications and systems
 - One of the few people who understand how all the applications talk together
 
-__Bob Strauss__
-- Steve 's old boss
-- Chairman of the company
-
 __Chris Allers__
 - VP of Application Development
 - Responsible for developing applications
-- Life currently dominated by Phoenix
-- Reports to Steve Masters
-- Manages nearly two hundred developers
-- Constantly being asked to deliver more features with less money
 
 __Dick Landrey__
 - CFO
@@ -45,16 +34,6 @@ __John Pesche__
 - Chief Information Security Officer
 - Looks to be in mid-thirties with thick, curly black hair
 
-__Laura Beck__
-- VP in charge of HR
-
-__Kirsten Fingle__
-- Runs the Project Management Office
-
-__Nancy Mailer__
-- Chief Audit Executive
-- Smart and formidable
-
 __Patty__
 - Director of IT Service Support
 - Owns all the level 1 and 2 help desk technicians
@@ -62,18 +41,6 @@ __Patty__
   - Trouble ticketing system
   - Monitoring
   - Running change management meetings
-- Thoughtful, analytical
-- Stickler for processes and procedures
-- Does all the scheduling and hands the people to do the work
-
-__Sarah Moulton__
-- SVP of Retail Operations
-- Blames other people for screwups
-
-__Stacy__
-- Steve 's assistant
-- 40 years old
-- Very organized
 
 __Steve Masters__
 - CEO
@@ -84,11 +51,6 @@ __Wes__
 - Responsible for 
   - over a thousand Windows servers
   - for the database and networking teams
-- Loud, outspoken
-
-__William Mason__
-- Director of Quality Assurance
-- Works for Chris
 
 ## Acronyms
 __CAB__
@@ -99,18 +61,6 @@ __CAB__
 __CMM__
 - Change Management Meeting
 - Where a team coordinates and organizes all their work to make sure they do not shoot ourselves in the foot
-
-__ITIL__
-- IT Infrastructure Library
-- Documents many IT best practices and processes
-
-__Phoenix Project__
-- A Project long overdue and over budget that must go live very soon
-- Cruicial for the future of the company
-
-__SOX-404__
-- Sarbanes-Oxley Act of 2002
-- Financial auditing
 
 __SAN__
 - Storage Area Networks
@@ -124,20 +74,6 @@ __SEV 1 Outage__
 
 ## Parts Unlimited
 - Manufacturing and retail company based in Elkhart Grove
-
-__Building 2__
-- Tallest building on the campus
-- Houses Steve 's office
-
-__Building 5__
-- Where Laura and her staff reside
-- Nicely furnished
-
-__Building 7__
-- Ghetto of the Parts Unlimited
-
-__Building 9__
-- Where the Marketing department is at
 
 __MRP-8__
 - One of the manufacturing plants
@@ -160,21 +96,17 @@ Bill gets promoted to the VP of IT Operations role learning he must make the Pho
 >
 > We are __years late delivering__.
 
-The very same day payroll system is broken, and he only has until the end of the day to fix it.
-
 ### Untracable Work
-Bill starts investigating and learns how the financial systems get the data. He goes to Wes and Patty and overhears some engineers talking about _an unsuccessful update to SAN_.
-
-Wes tells that payroll system broke when they were doing a SAN firmware upgrade. As they attempted rollback on the upgrade, SAN got bricked. Now the situation is, SAN does not even boot.
+The very same day payroll system is broken, and he only has until the end of the day to fix it. Bill starts investigating and learns how the financial systems get the data. He goes to Wes and Patty and overhears some engineers talking about _an unsuccessful update to SAN_.
 
 Bill is hesitant to believe the root cause is SAN being bricked, he claims 
 there would have been more wide-spread outages if it was. They decide to go talk to Brent, the guy who was doing the upgrade.
 
-They find Brent working busy on the SAN issue. Brent informs them they tried an update to SAN the day before and upon reboot there were some tests failing. After around 15 minutes payroll system was broken, which made them link the update failure to payroll system failure. Panicking, they try rolling back the update, which ends up bricking SAN and taking several databases down.
+Brent informs them they tried an update to SAN the day before and upon reboot there were tests failing. After 15 minutes payroll system was broken, which made them link the update failure to payroll system failure. Panicking, they try rolling back the update, which ends up bricking SAN and taking several databases down.
 
-Bill argues the cause of this problem does not sound like a SAN failure and asks Brent what else was going on yesterday. 
+Bill pushes more asking what else was going on yesterday.
 
-> A developer for the timekeeping application called me yesterday with a strange question about the database table structure. I was in the middle of working on something, so I gave him a quick answer.
+> A developer for the timekeeping application called me yesterday with a question about the database structure. I was in the middle of working on something, I gave him a quick answer.
 
 Following the trail, Wes finds it was a developer, who was doing updates to the time keeping applications database for a project driven by John.
 
@@ -190,13 +122,11 @@ The next morning Bill is invited to an emergency meeting. Sarah takes the lead
 
 > First on our agenda is Phoenix. Last week there were twelve tasks in the critical path of Phoenix Phase 1. Only three of those tasks were completed.
 
-Steve asks for an explanation from Bill for this, to which Bill responds:
+To which Bill responds:
 
 > The critical resource in question is Brent, who has been one hundred percent utilized helping to recover from the payroll failure. This was an emergency that we had to handle.
 
-Sarah puts pressure on Bill and Chris during the meeting, expecting to get an answer to the question _When is the soonest we can go live?_ to which Chris responds _We can go into production one week from Friday._
-
-Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live by answering from developers perspective only. Wes responds with several arguments:
+Sarah puts pressure on Bill and Chris during the meeting, expecting to get an answer to the question _When is the soonest we can go live?_.  Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live. Wes responds with several arguments:
 
 > Your guys still haven't told us what sort of infrastructure we need, we can't even order the necessary servers.
 >
@@ -206,12 +136,10 @@ Chris is forced to spit out a date and so he does without considering all the th
 >
 > Oh, do you guys not need a test environment anymore? You haven't even done any real testing of your code yet, because that fell off the schedule, too.
 
-Steve appricates the risks and demands the rollout to be done by next week.
-
-Walking out of the meeting, Wes and Bill are on the same page that there will be big trouble ahead.
+Steve appricates the risks and demands the rollout to be done by next week. Walking out of the meeting, Wes and Bill are on the same page that there will be big trouble ahead.
 
 ### Processes Not Being Followed
-Bill goes to Patty 's Change Management Meeting in the afternoon, to see an empty room. Patty explains:
+Bill goes to Change Management Meeting in the afternoon, to see an empty room. Patty explains:
 
 > All we have is a process on paper that no one follows and a tool that no one uses. When I pester people to use them, all I get are complaints and excuses.
 
@@ -223,40 +151,30 @@ Following all this Bill broadcasts via e-mail:
 
 A few minutes later Wes calls Bills, explaining why the change management process is not popular within IT:
 
->  No one could get a single thing done. It was ridiculous and a waste of time.
->
-> That software application she made us use is a total piece of crap. It takes twenty minutes to fill out all those fields for a simple five-minute change!
+> No one could get a single thing done. It was ridiculous and a waste of time. That software application she made us use is a total piece of crap. It takes twenty minutes to fill out all those fields for a simple five-minute change!
 
 ### Unplanned Work
-Bill starts yet another day with an email informing him on another urgent matter that must be fixed as soon as possible.
-
-> We just concluded our Q3 internal audit for the upcoming SOX-404 external audit. We discovered concerning deficiencies. Due to the urgency of the findings, we need to meet with IT this morning. 
->
-> Nancy
-
-Bill finds the meeting room and sees that Nancy, John and Wes are present, together with Tim, the IT auditor.
+Bill starts yet another day with an invitation to an emergency meeting with the internal audit.
 
 > We found 952 IT general control deficiencies, of which 16 are significant.  You need to investigate each of these findings, confirm them, and then create a remediation plan. We only have three weeks until the external auditors arrive. We require your response by one week from Monday.
 
 Bill is now wondering where he is going to find resources for it.
 
 ### Constraints
-Wes and Bill starts a conversation after the meeting, which leads to Wes commenting they would need Brent for a bunch of the items. Bill is not happy with hearing this.
+Wes and Bill starts a conversation after the meeting, which leads to Wes commenting they would need Brent for a bunch of the items. Bill is not happy hearing this.
 
-> Brent. Brent, Brent, Brent! Can't we do anything without him? Look at us! I don't care how talented he is. If you're telling me that our organization can't do anything without him, we've got a big problem.
+> Brent. Brent, Brent, Brent! Can't we do anything without him? I don't care how talented he is. If you're telling me that our organization can't do anything without him, we've got a big problem.
 
-Wes, admits in an embarrassed way that Brent may know more about how the company works compared to him, which Bill does not like either.
+Wes, admits Brent may know more about how the company works compared to him.
 
 > You're a senior manager. This should be as unacceptable to you as it is to me!
 
-### Planning Work
+### Unkown Workload
 As the discussion goes, Wes complains people will just keep asking IT for more and more _stuff_, which has always been the case. Bill asks where he can find the current list of _commitments_, which does not exist as far as Wes knows. 
 
-He calls Patty telling her he will need her help to figure what all the current work commitments are, so that he can talk about resourcing to Steve later. Patty informs him that there is no such list and it is somewhat scattered across departments and people, and some work is actually not even documented and done by people going to their favorite IT guy and for getting done as quickly as possible.
+He calls Patty telling her he will need her help to figure what all the current work commitments are. Patty informs him there is no such list and it is somewhat scattered across departments, and some work is actually not even documented at all.
 
-Bill then decides the best he can get at the moment can be finding out all the commitments the people work on audit findings and Phoenix are. 
-
-> At the very least, get me the work estimate to fix the audit findings. Then, for each of those resources, tell me what their other commitments are that we're going to be pulling them off of. For that matter, do the same thing for every person assigned to Phoenix. I'm guessing we're overloaded, so I want to know by how much. I want to proactively tell people whose projects have been bumped, so they're not surprised when we don't deliver what we promised.
+> At the very least, get me the work estimate to fix the audit findings. Then, for each of those resources, tell me what their other commitments are that we're going to be pulling them off of. For that matter, do the same thing for every person assigned to Phoenix. I'm guessing we're overloaded.
 
 Patty approves Bill..
 
@@ -265,22 +183,21 @@ Patty approves Bill..
 ..and informs him that she will start right away.
 
 ### Simplifying the Change Management System
-Bill, Patty and Wes meet in the afternoon and Patty shares her findings: There are too many projects with priotiries unknown, people are gettig interrupted with frequent outages and procedures are being overridden. There also exists the problem of IT people not being able to get the work done that is in their hands.
+Bill, Patty and Wes meet in the afternoon. There are too many projects with priotiries unknown, people are gettig interrupted with frequent outages and procedures are being overridden. 
 
 Wes jumps in..
 
 > We'll need to hire seven people. It'll take time to find these people and then another six to twelve months before they're fully productive.
 
-The next meeting is the CAB meeting. There are fourteen people in the meeting this time, most of the technical leads are attending.
+The next meeting is the CAB meeting. There are fourteen people in the meeting this time with technical leads attending.
 
-Bill summarises the purpose of the meeting: _We need to tighten up our change controls, and as managers and technical leads, we must figure out how_. 
+Purpose of the meeting is _to tighten up our change controls, and as managers and technical leads, we must figure out how_. 
 
 Technical leads repeat the problems with the Change Management Tool, it is too cumbersome to use. Bill understands that expecting the current Change Management Tool to be used is impossible, and comes up with a very basic request:
 
 > I want each group to write down every change they're planning, one change per index card. I want three pieces of information: who is planning the change, the system being changed, and a one-sentence summary.
 >
 > I've drawn a calendar on the whiteboard where we will eventually post approved changes according to their scheduled implementation.
-
 
 ### Definition of a Change
 One of the leads holds up a card he has filled in and starts reading it:
@@ -305,31 +222,18 @@ Given the time for the meeting is up, Bill tells people to fill their index card
 ### Work in Progress
 There is a potential new board member: Erik and he wants to meet all IT leaders.
 
-As Bill and Erik meet, they start talking about the current situation the company is in. He shares his first impressions with Bill:
-
-> Your problem right now is that you obviously don't actually know what 'work' is.
-
-to which Bill responds:
-
-> We need to get Phoenix out the door. That qualifies as work in my mind.
-
-But Erik does not find the answer complete:
-
-> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. We're going for a ride.
-
-They go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik speaks:
+As Bill and Erik meet, they go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik speaks:
 
 > You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see all the __WIP__, that's __Work In Progress__ (or 'inventory' for plant newbies), make its way toward the other side of the plant floor, where it's shipped to customers as finished goods.
 >
 > In the 1980s, this plant was the beneficiary of three incredible scientifically-grounded management movements. You've probably heard of them: the __Theory of Constraints__, __Lean production__ or the Toyota Production System, and __Total Quality Management__. They all agree on one thing: __WIP is the silent killer__. Therefore, one of the most critical mechanisms in the management of any plant is job and materials release. Without it, you can't control WIP.
 
-
 ### Prioritising Work
 Bill is in a meeting with Steve:
 
-> We are definitely understaffed. There's no way that we can deliver everything we've promised. Either we need to cut down the project list, or we've got to staff up. The other big problem is that we have too many different projects competing for our attention. You've been consistent and clear that Phoenix is the most important, but we can't seem to keep resources dedicated to it.
+> We are understaffed. There's no way that we can deliver everything promised. Either we need to cut down the project list, or we've got to staff up. The other big problem is that we have too many different projects competing for our attention. You've been consistent and clear that Phoenix is the most important, but we can't seem to keep resources dedicated to it.
 
-The meeting does not go as Bill expected and Steve simply tells him he has to work with what he has, and must complete make progress with the Phoenix Project and all the other projects.
+Steve simply tells him he has to work with what he has, and must complete make progress with the Phoenix Project and all the other projects.
 
 Bills walks into the Change Coordination Room for another CAB meeting. Almost every area of the wall is now covered in whiteboards. Index cards cover nearly every inch of the whiteboards on two of the walls.
 
@@ -341,15 +245,8 @@ Since the amount of change requests are too many, and can not be each worked on,
 - For __messy middle changes__ the change submitter has the responsibility for consulting and getting approval from people affected. Once they do that, they submit their change card for us to review and approve for scheduling.
 - __Low-risk changes__, changes that have been done many times before successfully are preapproved. They still need to be submitted, but they can be scheduled without the need of approval.
 
-__Notes__
-- The main objective with all the planning work is to get the left and right hands to know what the other is doing which should give some situational awareness during outages.
-
 ### Mitigating Risk by Distributing High-Risk Changes
-Another SEV 1 Outage occurs and Brent fixes the outage without informing anyone, which Bill does not like.
-
-> We need to get everyone used to solving problems in a methodical way.
-
-Phoenix deployment is now only three days away and things are not looking good. Bill finds himself in a CAB meeting where people are contributing much more with the new procedure and changes are being approved and planning is made.
+It is three days before the Phoenix deployment an Bill finds himself in a CAB meeting where people are contributing much more with the new procedure and changes are being approved and planning is made.
 
 They realise, too many changes are planned for Friday, which is also the deployment day for the Phoenix. People start exchanging ideas and after a while, the distribution of the cards on the change board is much more even.
 
@@ -370,6 +267,7 @@ Bill meets Wes and Petty to share his ideas:
 
 > Every time that we let Brent fix something that none of us can replicate, Brent gets a little smarter, and the entire system gets dumber.
 
+### Building Technical Knowledge Across the Organization
 They come up with the following plan:
 
 - A resource pool of level 3 engineers will be created.
@@ -408,17 +306,19 @@ After a very long night, things go as expected, the deployment becomes a big fai
 - The Phoenix website is leaking customer credit card numbers and losing transactions.
 
 ### Too Much Pressure
-A few days after yet another SEV 1 Outage occurs, and instead of appointing Brent to the situation, Bill insists they follow the procedure they have where other engineers must handle the situation. Steve does not like this and gets in an argument with Bill and applies pressure on him to not follow these processes and just does whatever is needed to get things fixed as soon as possible.
+A few days after yet another SEV 1 Outage occurs and Bill insists they follow the procedure they have where other engineers must handle the situation. Steve does not like this and gets in an argument with Bill and applies pressure to just involve Brent to get things done as soon as possible.
 
-Bill finally decides there is nothing to do here, and tells Steve to accept his resignation. 
+Bill tells Steve to accept his resignation. 
 
 ## Key Learnings
 - People tend not to use the processes they find cumbersome.
-- Work Planned and Work in Progress must be visible across the teams.
+- The main objective of planning work is to get the left and right hands to know what the other is doing which should give some situational awareness during outages.
+  - Work Planned and Work in Progress must be visible across the teams.
 - Being able to take needless work out of the system is more important than being able to put more work into the system.
 - When there is no clear, unified decision made by the business as a whole as to what work is a priority, company resources are innevitably wasted switching between all the Work In Progress depending on who is screaming the loudest. [Source](https://patrobinson.github.io/2015/09/01/wip-is-the-silent-killer/)
-- There must be enough time for Quality Assurance planned, and approval from QA is a must for production deployment. QA must be able to stop the release if found necessary.
-- Being able to start a test environment and do a smoke test must be automated and a quick process.
+- There must be enough time for Quality Assurance planned, and approval from QA is a must for production deployment. 
+- QA must be able to stop the release if found necessary.
+- Being able to start a test environment must be a fast, automated process.
 
 ### Four Types Of Work
 - Business Projects
