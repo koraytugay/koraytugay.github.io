@@ -86,6 +86,10 @@ __Wes__
   - for the database and networking teams
 - Loud, outspoken
 
+__William Mason__
+- Director of Quality Assurance
+- Works for Chris
+
 ## Acronyms
 __CAB__
 - Change Advisory Board
@@ -466,6 +470,35 @@ __Notes__
   - Internal IT Projects
   - Changes
 
+## Chapter 10
+Brents name keeps coming up and Bill goes to Brents cubicle to observe and understand. He sees Brent is falling behind because everyone is just calling him on their will to get things done, which constantly interrupts him.
+
+> Okay, from here on out, you’re working only on Phoenix. I'm expecting you to reject any task that anyone tries to assign you.
+
+Brent believes that would not work..
+
+> Our guys around here just don't seem up-to-speed with how all our systems work. In the end, they keep coming to me.
+
+but Bill insists this will be the case. He realises this is a serious problem that must be fixed:
+
+> We need to change the way we're managing escalations to Brent. Right now.
+
+Bill meets Wes and Petty to share his ideas:
+
+> Every time that we let Brent fix something that none of us can replicate, Brent gets a little smarter, and the entire system gets dumber.
+
+They come up with the following plan:
+
+- A resource pool of level 3 engineers will be created.
+- The level 3s will be responsible for resolving all incidents.
+- The level 3s will be the only people who can get access to Brent.
+- Brent is not allowed to fix the escalations himself, he must guide the 3s.
+- All the fixes must be documented by the level 3s upon resolving an incident.
+
+__Notes__
+- Engineers getting constantly interrupted is causing a lot of trouble and delay in high priority projects.
+- A better shared knowledge is required in the organization and systems should not depend on individuals.
+- Processes are supposed to protect people. They must be well defined, approved by upper management and followed.
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
