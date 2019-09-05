@@ -395,7 +395,7 @@ Patty realizes a lot of changes are not getting done and the change request card
 work? And on what basis did we ever make that decision?
 
 ### Quality Assurance
-7:30 p.m. on Friday, two hours after the Phoenix deployment was scheduled to start, and things are not looking good.
+Two hours after the Phoenix deployment was scheduled to start, and things are not looking good.
 
 Wes speaks first:
 
