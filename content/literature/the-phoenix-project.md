@@ -471,7 +471,7 @@ __Notes__
   - Changes
 
 ## Chapter 10
-Brents name keeps coming up and Bill goes to Brents cubicle to observe and understand. He sees Brent is falling behind because everyone is just calling him on their will to get things done, which constantly interrupts him.
+Brents name keeps coming up and Bill goes to Brents cubicle to observe him. He sees Brent is falling behind because everyone is just calling him on their will to get things done, which constantly interrupts him.
 
 > Okay, from here on out, you’re working only on Phoenix. I'm expecting you to reject any task that anyone tries to assign you.
 
