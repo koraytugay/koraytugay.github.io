@@ -159,7 +159,7 @@ Bill gets promoted by Steve into taking the VP of IT Operations role. He learns 
 
 The very same day he sits in his new chair, he is handed a message from Dick informing him that the payroll system is broken, and he only has until the end of the day to solve it.
 
-#### Chapter Notes
+#__Notes__
 - The question Bill asks to Steve Masters when he is appointed is notable
 
 > What do you want most from me? And what don't you want?”
@@ -180,7 +180,7 @@ Three of them further discuss where Wes informs Bill that payroll system broke w
 Bill is hesitant to believe the root cause is SAN being bricked, he claims 
 there would have been more wide-spread outages if it was. Wes suggest them to go talk to Brent, the guy who was doing the upgrade.
 
-#### Chapter Notes
+#__Notes__
 - There exists an error-prone, dangerous manual data manipulation done by the Operations
 - No one has an idea what else is doing
 - This makes identifying the problems difficult
@@ -208,7 +208,7 @@ Bill also learns from Patty that people are not even using the ticketing system 
 
 They finally solve the problem at 7 p.m., when it is too late.
 
-#### Chapter Notes
+#__Notes__
 - There is no test environment
 - People do not use the procedures finding them too cumbersome
   - They claim no work would get done following all the process
@@ -277,7 +277,7 @@ Bill summarises the situation to himself when the call is over..
 
 > Before, I was merely worried that IT Operations was under attack by Development, Information Security, Audit, and the business. Now, I'm starting to realize that my primary managers seem to be at war with each other, as well.
 
-#### Chapter Notes
+#__Notes__
 - There is a clear problem between the Development team and the Operations team in handoffs
   - Operations claim Developers do not think about deployment or testing until the very last moment
 - The whole IT seems to be dependent on a single engineer
@@ -325,7 +325,7 @@ Patty approves Bill..
 
 ..and informs him that she will start right away.
 
-### Chapter Notes
+__Notes__
 - Urgent matters (mostly caused by tech debt) never let people be productive
 - People are not prioritising their tasks correctly
 - There is no team work and people are spending time fighting with each other
@@ -378,7 +378,7 @@ __A change is any activity that is physical, logical, or virtual to applications
 
 After 2 hours, they realise they were only able to go over 5 changes, due to all the discussions. Given the time for the meeting is up, Bill tells people to fill their index cards as soon as possible and hand them to Patty.
 
-### Chapter Notes
+__Notes__
 - It is expected from a new hire to be fully productive between six to twelve months.
 - The Change Management Tool is not user-friendly.
 - Terms (such as _change_) do not have agreed on meanings.
@@ -398,31 +398,31 @@ to which Bill responds:
 
 But Eric does not find the answer complete:
 
-> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's nowhere near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance.. We’re going for a ride.
+> Yes, that's certainly one type of work. But you're still missing the three other types of work that IT Operations is responsible for. To me, that's nowhere near the level of understanding of work you need in order to fix your problems around project deliverables, outages, and compliance.. We're going for a ride.
 
 They go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik speaks:
 
-> You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see all the __WIP__, that’s __Work In Progress__ (or 'inventory' for plant newbies), make its way toward the other side of the plant floor, where it’s shipped to customers as finished goods.
+> You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see all the __WIP__, that's __Work In Progress__ (or 'inventory' for plant newbies), make its way toward the other side of the plant floor, where it's shipped to customers as finished goods.
 >
-> In the 1980s, this plant was the beneficiary of three incredible scientifically-grounded management movements. You’ve probably heard of them: the __Theory of Constraints__, __Lean production__ or the Toyota Production System, and __Total Quality Management__. They all agree on one thing: __WIP is the silent killer__. Therefore, one of the most critical mechanisms in the management of any plant is job and materials release. Without it, you can’t control WIP.
+> In the 1980s, this plant was the beneficiary of three incredible scientifically-grounded management movements. You've probably heard of them: the __Theory of Constraints__, __Lean production__ or the Toyota Production System, and __Total Quality Management__. They all agree on one thing: __WIP is the silent killer__. Therefore, one of the most critical mechanisms in the management of any plant is job and materials release. Without it, you can't control WIP.
 >
-> Decades ago, there used to be a guy named Mark. He was the supervisor for that first work center, right down there by that desk. One day I see Mark picking up a folder to start some job. I ask him, ‘On what basis did you choose that job, versus any of the others? e says, ‘It’s a job that requires this work center first. And we’re open.’ I could hardly believe it. I tell him, ‘Your station is just the first of twenty operations. You don’t factor the availability of any of the other nineteen stations in your decision?’ And
-he replies, ‘Well, no. This is the way I’ve done it for twenty years.’
+> Decades ago, there used to be a guy named Mark. He was the supervisor for that first work center, right down there by that desk. One day I see Mark picking up a folder to start some job. I ask him, ‘On what basis did you choose that job, versus any of the others? e says, ‘It's a job that requires this work center first. And we're open.' I could hardly believe it. I tell him, ‘Your station is just the first of twenty operations. You don't factor the availability of any of the other nineteen stations in your decision?' And
+he replies, ‘Well, no. This is the way I've done it for twenty years.'
 >
-> But of course, now everyone knows that you don’t release work based on the availability of the first station. Instead, it should be based on the tempo of how quickly the bottleneck resource can consume the work.
+> But of course, now everyone knows that you don't release work based on the availability of the first station. Instead, it should be based on the tempo of how quickly the bottleneck resource can consume the work.
 >
 > Theory of Constraints showed us how any improvements made anywhere besides the bottleneck are an illusion. Any improvement made after the bottleneck is useless, because it will always remain starved, waiting for work from the bottleneck.
 >
 > __Your job as VP of IT Operations__ is to ensure the fast, predictable, and uninterrupted flow of planned work that delivers value to the business while minimizing the impact and disruption of unplanned work, so you can provide stable, predictable, and secure IT service.
 
 He then summarises the __Three Ways__ and tells Bill that he must understand them well:
-- __The First Way__ helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that’s what’s between the business and the customer.
+- __The First Way__ helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that's what's between the business and the customer.
 - __The Second Way__ shows us how to shorten and amplify feedback loops, so we can fix quality at the source and avoid rework.
 - __The Third Way__ shows us how to create a culture that simultaneously fosters experimentation, learning from failure, and understanding that repetition and practice are the prerequisites to mastery.
 
 He tells Bill that there are four types of work, and he must find out what the other three are, next to the one he already identified: Business project work.
 
-### Chapter Notes
+__Notes__
 - One must be able to see the work to be able to organize, sequence and have assurance that available resources can complete it.
 - Any improvements made anywhere besides the bottleneck are an illusion.
 - There are four types of work:
@@ -442,13 +442,13 @@ The explanation I would make would be someting like this: As long as you are not
 ## Chapter 8
 Bill meets Steve and tells him his findings from his first week:
 
-> We are definitely understaffed. There’s no way that we can deliver everything we’ve promised. Either we need to cut down the project list, or we’ve got to staff up. The other big problem is that we have too many different projects competing for our attention. You’ve been consistent and clear that Phoenix is the most important, but we can’t seem to keep resources dedicated to it.
+> We are definitely understaffed. There's no way that we can deliver everything we've promised. Either we need to cut down the project list, or we've got to staff up. The other big problem is that we have too many different projects competing for our attention. You've been consistent and clear that Phoenix is the most important, but we can't seem to keep resources dedicated to it.
 
 The meeting does not go as Bill expected and Steve simply tells him he has to work with what he has, and must complete both fixing Audit findings and make progress with the Phoenix Project.
 
 Bills walks into the Change Coordination Room for another CAB meeting. Almost every area of the wall is now covered in whiteboards. Index cards cover nearly every inch of the whiteboards on two of the walls.
 
-> And now we’re supposed to go through and approve all of them? This meeting was only scheduled for an hour—we’d need days to go through all of these!
+> And now we're supposed to go through and approve all of them? This meeting was only scheduled for an hour—we'd need days to go through all of these!
 
 Since the amount of change requests are too many, and can not be each worked on, they know they have to somehow filter and manage them. They come up with the following plan:
 
@@ -456,8 +456,33 @@ Since the amount of change requests are too many, and can not be each worked on,
 - For __Messy middle changes__ the change submitter has the responsibility for consulting and getting approval from people affected. Once they do that, they submit their change card for us to review and approve for scheduling.
 - __Low-risk changes__, changes that have been done many times before successfully are preapproved. They still need to be submitted, but they can be scheduled without the need of approval.
 
-### Chapter Notes
+__Notes__
 - The main objective with all the planning work is to get the left and right hands to know what the other is doing which should give some situational awareness during outages.
+
+## Chapter 9
+Another SEV 1 Outage occurs when Bill is in a meeting with Dick which makes Bill leave the meeting. Brent fixes the outage without informing anyone, which Bill does not like.
+
+> We need to get everyone used to solving problems in a methodical way.
+
+Phoenix deployment is now only three days away and things are not looking good. Bill finds himself in a CAB meeting where people are contributing much more with the new methodology and changes are being approved and planning is made.
+
+This time however, they realise, a lot of changes are planned for Friday, which is also the deployment day for the Phoenix. People start changing ideas and after a while, the distribution of the cards on the change board is much more even.
+
+Looking at the board, Bill realises the other 2 categories of work Erik had mentioned.
+
+> Wes and Patty did a manual inventory of all our projects, coming up with nearly a hundred projects. Those projects certainly represent two categories of work: business projects and internal IT projects. I realize that changes are the third category of work.
+>
+> Thinking for a moment, I decide there's value in knowing that changes represent yet another category of work but don't know why.
+
+__Notes__
+- Individual engineers are making changes without informing others and following procedures to get things done.
+- The simpler Change Management Process is embraced by everyone and is much more effective.
+- Too many changes on a given day is not welcome, but it was only apparent by following the system.
+- The three types of work are:
+  - Business Projects
+  - Internal IT Projects
+  - Changes
+
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
