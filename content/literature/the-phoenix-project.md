@@ -345,7 +345,7 @@ Finally, they decide to take a very different approach:
 
 ### Three Ways
 #### The First Way
-Helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that's what's between the business and the customer.
+The First Way helps us understand how to create fast flow of work as it moves from Development into IT Operations, because that's what between the business and the customer is.
 
 Visualising work is very important for creating a fast flow of work. Index cards on a kanban board is a very good mechanism to do this. It lets everyone see the Work In Progress.
 
