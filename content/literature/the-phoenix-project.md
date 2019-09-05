@@ -276,12 +276,6 @@ They come up with the following plan:
 - Brent is not allowed to fix the escalations himself, he must guide the 3s.
 - All the fixes must be documented by the level 3s upon resolving an incident.
 
-### Refusing Work
-Patty realizes a lot of changes are not getting done and the change request cards are piling up. Changes go in but never come out.
-
-> But changes need to get done, right? That’s why they’re changes. But when was the question ever asked whether we should accept the
-work? And on what basis did we ever make that decision?
-
 ### Quality Assurance
 Two hours after the Phoenix deployment was scheduled to start, and things are not looking good.
 
@@ -305,10 +299,28 @@ After a very long night, things go as expected, the deployment becomes a big fai
 - Customers using the Phoenix website are complaining about how it is either down or so slow as to be unusable. 
 - The Phoenix website is leaking customer credit card numbers and losing transactions.
 
-### Too Much Pressure
-A few days after yet another SEV 1 Outage occurs and Bill insists they follow the procedure they have where other engineers must handle the situation. Steve does not like this and gets in an argument with Bill and applies pressure to just involve Brent to get things done as soon as possible.
+### Definition of Complete
+Ideas are being exchanged in a meeting on how IT in general can be improved. Chris claims his team delivers projects on time. _Yeah, just like you hit the Phoenix date, right?_ Wes asks.. 
 
-Bill tells Steve to accept his resignation. 
+> That’s not what I meant. It was a total disaster. But, technically, we did hit the date.
+
+This is a recurring pattern. Development never factors in all the work that Operations needs to do.
+
+### Refusing Work
+They also talk about how they should be planning incoming demand. Bill asks Steve:
+
+> Are we even allowed to say no? Every time I’ve asked you to prioritize or defer work on a project, you’ve bitten my head off. When everyone is conditioned to believe that no isn’t an acceptable answer
+
+to which Steve responds:
+
+> I need you to say no. We cannot afford to have this team be order takers. We pay you to think, not just do.
+
+Finally, they decide to take a very different approach:
+
+> IT Operations will freeze all non-Phoenix work. Development can’t idle the twenty-plus non-Phoenix projects, but will freeze all deployments. No work will flow from Development to IT Operations for another two weeks.
+
+## Chapter 20
+..
 
 ## Key Learnings
 - People tend not to use the processes they find cumbersome.
@@ -319,6 +331,8 @@ Bill tells Steve to accept his resignation.
 - There must be enough time for Quality Assurance planned, and approval from QA is a must for production deployment. 
 - QA must be able to stop the release if found necessary.
 - Being able to start a test environment must be a fast, automated process.
+- Definition of Complete must be done clearly, and all plan must be done accordingly.
+- Analysis of capacity and demand must be done before accepting work, and new work must be refused if needed.
 
 ### Four Types Of Work
 - Business Projects
@@ -326,7 +340,7 @@ Bill tells Steve to accept his resignation.
 - Changes
 - Unplanned Work
   - Also known as: Firefighting
-  - Unplanned Work is the worst form of work: in the presence of unplanned work, all planned work gets delayed.
+  - Unplanned Work is the most expensive form of work: in the presence of unplanned work, all planned work gets delayed.
   - It is important to know where your unplanned work is coming from.
 
 ### Three Ways
