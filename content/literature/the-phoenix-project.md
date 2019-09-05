@@ -460,7 +460,7 @@ Looking at the board, Bill realises the other two categories of work Erik had me
 __Notes__
 - Individual engineers are making changes without informing others and following procedures to get things done.
 - The simpler Change Management Process is embraced by everyone and is much more effective.
-- Too many changes on a given day is not welcome, but it was only apparent by following the system.
+- Too many changes on a given day is not welcome, but it was only apparent by following the procedure.
 - The three types of work are:
   - Business Projects
   - Internal IT Projects
