@@ -514,6 +514,32 @@ __Notes__
 - Deciding on what to work, based on available resources, is as important as getting work done. Accepting any work will interrupt the work that actually must get done.
 - Improvement must be done in the bottleneck.
 
+## Chapter 12
+7:30 p.m. on Friday, two hours after the Phoenix deployment was scheduled to start, and things are not looking good.
+
+Wes speaks first:
+
+> We are getting incomplete releases from the developers. We still don’t know how to configure the test environment so that Phoenix actually comes up cleanly.
+
+and William follows Wes:
+
+> The code is changing so fast that we’re having problems keeping up. Phoenix is going to blow up in production. I’ve talked with Chris a couple of times about stopping the release, but he ran right over me. 
+>
+> When we find problems in our testing, we send it back to Development to have them fix it. Then they’ll send back a new release. The problem is that it takes about a half hour to get everything set up and running.
+
+Convinced with the fact that this deployment will not bring any good, Bill contacts Steve to inform he wants to stop the deployment at this time. His request is not approved:
+
+> It sounds bad, but at this point, we don’t have a choice. We have to keep going.
+
+After a very long night, things go as expected, the deployment becomes a big failure..
+
+- All sales in stores are being processed by manual credit card imprint machines. 
+- Customers using the Phoenix website are complaining about how it is either down or so slow as to be unusable. 
+- The Phoenix website is leaking customer credit card numbers and losing transactions.
+
+__Notes__
+- There must be enough time for Quality Assurance planned, and approval from QA is a must for production deployment. QA must be able to stop the release if found necessary.
+- Being able to start a test environment and do a smoke test must be automated and a quick process.
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
