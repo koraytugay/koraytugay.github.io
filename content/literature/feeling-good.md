@@ -62,10 +62,10 @@ Every time you _feel_ depressed, stop and try to identify the _thought_ that mad
 > had problems extracting the meaning and had many logical errors. __They were overly concrete and could not make generalizations.__
 
 ### Talk Back to the Internal Critic
-- Listen to your inner critic, capture it
-- Write it down
-- Identify the in which category (or categories) the critic falls into from the _Ten Cognitive Distortions_ lists above
-- Respond to the internal criticism by rationally responding to it also by noting your response
+1. Listen to your inner critic, capture it.
+1. Write it down.
+1. Identify the in which category (or categories) the critic falls into from the _Ten Cognitive Distortions_.
+1. Respond to the internal criticism by rationally responding to it, noting your response.
 
 <table>
     <tr>
