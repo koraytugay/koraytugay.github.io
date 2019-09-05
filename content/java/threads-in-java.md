@@ -63,7 +63,7 @@ A thread is considered to be in running state while it is actually being execute
 - move to blocked / waiting / sleeping state by either an intention or lack of a required resource.
 
 #### Blocked / Waiting / Sleeping State
-A thread that has been started and was in `running` state at least once but not currently being actually executed will be in either of these states. Such a thread can only be moved to runnable state and never to running state immediatly. It may also stay in its current state in case the reason never vanishes that blocks or makes the thread sleep.
+A thread that has been started and was in running state at least once but not currently being actually executed will be in either of these states. Such a thread can only be moved to runnable state and never to running state immediatly. It may also stay in its current state in case the reason never vanishes that blocks or makes the thread sleep.
 
 ## Preventing Thread Execution
 ### Making a Thread Sleep
