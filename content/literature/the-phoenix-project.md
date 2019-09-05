@@ -178,19 +178,15 @@ Bill argues the cause of this problem does not sound like a SAN failure and asks
 
 Following the trail, Wes finds it was a developer, who was doing updates to the time keeping applications database for a project driven by John.
 
-### The Absence of Test Environment
+### Absence of Test Environment
 They contact John and ask whether they have tested the change before applying it to which he gets the response:
 
 > No, we could not test the change. There's no test environment.
 
 They finally solve the problem at 7 p.m., when it is too late.
 
-### The Lack of Communication
-It is a new day and Bill is in office to see an email from Sarah putting pressure on him, inviting him to an emergency meeting. Bill and Wes gets into a phone call where Wes comments about the e-mail:
-
-> I'm pretty sure it's about Brent not finishing up that configuration work for the Phoenix developers. Everyone is chasing their tails because the developers can't actually tell us what the test environment should look like. 
-
-Sarah takes the lead in the meeting:
+### Lack of Planning
+The next morning Bill is invited to an emergency meeting. Sarah takes the lead 
 
 > First on our agenda is Phoenix. Last week there were twelve tasks in the critical path of Phoenix Phase 1. Only three of those tasks were completed.
 
@@ -198,23 +194,17 @@ Steve asks for an explanation from Bill for this, to which Bill responds:
 
 > The critical resource in question is Brent, who has been one hundred percent utilized helping to recover from the payroll failure. This was an emergency that we had to handle.
 
-Sarah puts pressure on Bill and Chris during the meeting, expecting to get an answer to the question:
-
-> When is the soonest we can go live?
-
-to which Chris responds:
-
-> We can go into production one week from Friday.
+Sarah puts pressure on Bill and Chris during the meeting, expecting to get an answer to the question _When is the soonest we can go live?_ to which Chris responds _We can go into production one week from Friday._
 
 Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live by answering from developers perspective only. Wes responds with several arguments:
 
-> Your guys still haven't told us what sort of infrastructure we need, so we can't even order the necessary server and networking gear.
+> Your guys still haven't told us what sort of infrastructure we need, we can't even order the necessary servers.
 >
-> You're supposed to support 250 transactions per second, and you're barely doing even four! We're going to need so much hardware.
+> You're supposed to support 250 transactions per second, and you're barely doing four.
 >
 > We still don't have a concrete specification of how the production and test systems should be configured. 
 >
-> Oh, do you guys not need a test environment anymore? You haven't even done any real testing of your code yet, because that fell off the schedule, too!
+> Oh, do you guys not need a test environment anymore? You haven't even done any real testing of your code yet, because that fell off the schedule, too.
 
 Steve appricates the risks and demands the rollout to be done by next week.
 
