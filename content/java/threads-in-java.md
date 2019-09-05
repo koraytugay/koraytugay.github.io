@@ -53,16 +53,16 @@ An alive thread can be in one of the following states:
 - running
 - blocked / waiting / sleeping
 
-### Runnable State
+#### Runnable State
 A thread is considered to be in runnable state when it is started but not actually being executed. It may be moved to running state any time by the Thread Scheduler.
 
-### Running State
+#### Running State
 A thread is considered to be in running state while it is actually being executed. A thread in the running state can..
 - finish executing and move to dead state.
 - be moved back to runnable state any time by the Thread Scheduler.
 - move to blocked / waiting / sleeping state by either an intention or lack of a required resource.
 
-### Blocked / Waiting / Sleeping State
+#### Blocked / Waiting / Sleeping State
 A thread that has been started and was in `running` state at least once but not currently being actually executed will be in either of these states. Such a thread can only be moved to runnable state and never to running state immediatly. It may also stay in its current state in case the reason never vanishes that blocks or makes the thread sleep.
 
 ## Preventing Thread Execution
