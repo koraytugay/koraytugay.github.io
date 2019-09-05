@@ -148,7 +148,8 @@ __NOC__
 - Network Operations Center
 - A large area displaying the status of all the various IT services on large monitors
 
-## Chapter 1
+## Book Summary
+### Bill and The Phoenix Project
 Parts Unlimited is rapidly falling behind the competition in terms of sales. The main problem is constantly being late to the market.
 
 > I hear a commercial from our largest competitor. They are talking about the new service they are offering. How do they keep bringing such incredible new capabilities to market while we remain stuck in the mud?
@@ -172,7 +173,7 @@ __Notes__
 
 > I want the IT systems to be reliable and available, and for the business to be able to depend upon them. I want disruptions to normal operations kept to an absolute minimum so that the business can focus on getting Phoenix done.
 
-## Chapter 2
+## The Broken Payroll System
 Bill starts investigating and learns how the financial systems get the data. It is a pretty fragile process and there is a lot of manual modifications are done to the incoming data. 
 
 > I don't like finance personnel manually changing payroll data outside the payroll application. It's error-prone and dangerous.
@@ -185,11 +186,10 @@ Bill is hesitant to believe the root cause is SAN being bricked, he claims
 there would have been more wide-spread outages if it was. Wes suggest them to go talk to Brent, the guy who was doing the upgrade.
 
 __Notes__
-- There exists an error-prone, dangerous manual data manipulation done by the Operations
-- No one has an idea what else is doing
-- This makes identifying the problems difficult
+- There exists an error-prone, dangerous manual data manipulation done by the Operations.
+- No one has an idea what else is doing which makes tracking the cause of the problems impossible.
 
-## Chapter 3
+### The Cumbersome Change Management Process
 They find Brent working in his cubicle, busy on the SAN issue. Brent informs them they tried an update to SAN the day before and upon reboot there were some tests failing. After around 15 minutes payroll system was broken, which made them link the update failure to payroll system failure. Panicking, they try rolling back the update, which ends up bricking SAN and taking several databases down.
 
 Bill argues the cause of this problem does not sound like a SAN failure and asks Brent what else was going on yesterday. 
@@ -216,7 +216,7 @@ __Notes__
 - There is no way to track what has been done recently
 - Departments see each other as foes instead of allies, blaming each other
 
-## Chapter 4
+### The Lack of Communication
 It is a new day and Bill is in office to see an email from Sarah putting pressure on him, inviting him to an emergency meeting. Bill and Wes gets into a phone call where Wes comments about the e-mail
 
 > I'm pretty sure it's about Brent not finishing up that configuration work for the Phoenix developers. Everyone is chasing their tails because the developers can't actually tell us what the test environment should look like. We're doing our best, but every time we deliver something, they tell us we did it wrong.
@@ -278,7 +278,7 @@ __Notes__
   - They believe it is too cumbersome and too slow to do so
   - They claim no work can get done with such heavy procedures
 
-## Chapter 5
+### Unplanned Work
 Bill starts yet another day with an email informing him on another urgent matter that must be fixed as soon as possible.
 
 > We just concluded our Q3 internal audit for the upcoming SOX-404 external audit. We discovered concerning deficiencies. Due to the urgency of the findings, we need to meet with IT this morning. 
@@ -322,7 +322,7 @@ __Notes__
   - No one knows what gets bumped down, when something gets bumped up 
   - People reach IT staff directly to get things done, by-passing any documentation or project tracking
 
-## Chapter 6
+### Simplifying the Change Management System
 Bill, Patty and Wes meet in the afternoon and Patty shares her findings: There are too many projects with priotiries unknown, people are gettig interrupted with frequent outages and procedures are being overridden. There also exists the problem of IT people not being able to get the work done that is in their hands.
 
 Wes jumps in..
@@ -372,7 +372,7 @@ __Notes__
   - A light-weight procedure is embraced by people.
 - Terms (such as _change_) do not have agreed on meanings.
 
-## Chapter 7
+### Work in Progress and The Three Ways
 There is a potential new board member: Erik and he wants to meet all IT leaders.
 
 As Bill and Erik meet, they start talking about the current situation the company is in. He shares his first impressions with Bill:
@@ -426,7 +426,7 @@ Another explanation I found is as follows:
 
 The explanation I would make would be someting like this: As long as you are not able to finish tasks in your hand, but still accepting new work, you are not making any overall progress. Work In Progress is both the source of product, but in the same time, is the cause of not being able to deliver anything, if not managed properly.
 
-## Chapter 8
+### Improving the Change Management Process
 Bill is in a meeting with Steve:
 
 > We are definitely understaffed. There's no way that we can deliver everything we've promised. Either we need to cut down the project list, or we've got to staff up. The other big problem is that we have too many different projects competing for our attention. You've been consistent and clear that Phoenix is the most important, but we can't seem to keep resources dedicated to it.
@@ -446,7 +446,7 @@ Since the amount of change requests are too many, and can not be each worked on,
 __Notes__
 - The main objective with all the planning work is to get the left and right hands to know what the other is doing which should give some situational awareness during outages.
 
-## Chapter 9
+### Mitigating Risk by Distributing Changes Over Time
 Another SEV 1 Outage occurs and Brent fixes the outage without informing anyone, which Bill does not like.
 
 > We need to get everyone used to solving problems in a methodical way.
@@ -470,7 +470,7 @@ __Notes__
   - Internal IT Projects
   - Changes
 
-## Chapter 10
+### Improving the Bottleneck
 Brents name keeps coming up and Bill goes to Brents cubicle to observe him. He sees Brent is falling behind because everyone is just calling him on their will to get things done, which constantly interrupts him.
 
 > Okay, from here on out, you’re working only on Phoenix. I'm expecting you to reject any task that anyone tries to assign you.
@@ -500,7 +500,7 @@ __Notes__
 - A better shared knowledge is required in the organization and systems should not depend on individuals.
 - Processes are supposed to protect people. They must be well defined, approved by upper management and followed.
 
-## Chapter 11
+### Refusing Work
 Patty realizes a lot of changes are not getting done and the change request cards are piling up. Changes go in but never come out.
 
 > But changes need to get done, right? That’s why they’re changes. But when was the question ever asked whether we should accept the
@@ -514,7 +514,7 @@ __Notes__
 - Deciding on what to work, based on available resources, is as important as getting work done. Accepting any work will interrupt the work that actually must get done.
 - Improvement must be done in the bottleneck.
 
-## Chapter 12
+### Improtance of Processes and Quality Assurance
 7:30 p.m. on Friday, two hours after the Phoenix deployment was scheduled to start, and things are not looking good.
 
 Wes speaks first:
@@ -540,6 +540,31 @@ After a very long night, things go as expected, the deployment becomes a big fai
 __Notes__
 - There must be enough time for Quality Assurance planned, and approval from QA is a must for production deployment. QA must be able to stop the release if found necessary.
 - Being able to start a test environment and do a smoke test must be automated and a quick process.
+- Forth form of work: __Unplanned work__ is the worst form of work: in the presence of unplanned work, all planned work gets delayed. 
+
+### The Pressure and Giving Up
+A few days after yet another SEV 1 Outage occurs, and instead of appointing Brent to the situation, Bill insists they follow the procedure they have where other engineers must handle the situation. Steve does not like this and gets in an argument with Bill and applies pressure on him to not follow these processes and just does whatever is needed to get things fixed as soon as possible.
+
+Bill finally decides there is nothing to do here, and tells Steve to accept his resignation. 
+
+## Key Learnings
+- Being able to take needless work out of the system is more important than being able to put more work into the system.
+
+### Four Types Of Work
+- Business Projects
+- Internal IT Projects
+- Changes
+- Unplanned Work
+  - Also known as: Firefighting
+  - Unplanned Work is the worst form of work: in the presence of unplanned work, all planned work gets delayed.
+  - It is important to know where your unplanned work is coming from.
+
+### Three Ways
+#### The First Way
+Visualising work is very important for creating a fast flow of work. Index cards on a kanban board is a very good mechanism to do this. It lets everyone see the Work In Progress.
+
+#### The Second Way
+Sources of unplanned work must be removed.
 
 ## References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
