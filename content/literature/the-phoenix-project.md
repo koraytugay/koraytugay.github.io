@@ -154,7 +154,7 @@ Parts Unlimited is rapidly falling behind the competition in terms of sales. The
 
 > I hear a commercial from our largest competitor. They are talking about the new service they are offering. How do they keep bringing such incredible new capabilities to market while we remain stuck in the mud?
 
-Bill gets promoted to the VP of IT Operations role, and he will be reporting to Steve directly from now on. During his conversation with Steve, he learns:
+Bill gets promoted to the VP of IT Operations role learning he must make the Phoenix Project go live:
 
 > Phoenix Project is essential to closing the gap with the competiton. Customer needs to be able to buy from us from wherever they want, whether it's on the Internet or in our retail stores.
 >
