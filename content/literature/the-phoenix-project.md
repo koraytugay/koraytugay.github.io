@@ -149,7 +149,7 @@ __NOC__
 - A large area displaying the status of all the various IT services on large monitors
 
 ## Book Summary
-### Bill and The Phoenix Project
+### The Phoenix Project
 Parts Unlimited is rapidly falling behind the competition in terms of sales. The main problem is constantly being late to the market.
 
 > I hear a commercial from our largest competitor. They are talking about the new service they are offering. How do they keep bringing such incredible new capabilities to market while we remain stuck in the mud?
@@ -159,21 +159,15 @@ Bill gets promoted to the VP of IT Operations role, and he will be reporting to 
 > Phoenix Project is essential to closing the gap with the competiton. Customer needs to be able to buy from us from wherever they want, whether it's on the Internet or in our retail stores.
 >
 > We are __years late delivering__.
-> 
-> I need Chris and you focused on Phoenix execution.
 
-The very same day he sits in his new chair, he is handed a message from Dick informing him that the payroll system is broken, and he only has until the end of the day to fix it.
+The very same day payroll system is broken, and he only has until the end of the day to fix it.
 
 __Notes__
-- The question Bill asks to Steve Masters when he is appointed is notable
+- The question Bill asks to Steve Masters when he is appointed is notable.
 
-> What do you want most from me? And what don't you want?”
+> What do you want most from me? And what don't you want?
 
-- So is the answer he receives
-
-> I want the IT systems to be reliable and available, and for the business to be able to depend upon them. I want disruptions to normal operations kept to an absolute minimum so that the business can focus on getting Phoenix done.
-
-## The Broken Payroll System
+### The Broken Payroll System
 Bill starts investigating and learns how the financial systems get the data. It is a pretty fragile process and there is a lot of manual modifications are done to the incoming data. 
 
 > I don't like finance personnel manually changing payroll data outside the payroll application. It's error-prone and dangerous.
