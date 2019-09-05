@@ -159,7 +159,7 @@ Bill gets promoted to the VP of IT Operations role, and he will be reporting to 
 
 The very same day he sits in his new chair, he is handed a message from Dick informing him that the payroll system is broken, and he only has until the end of the day to fix it.
 
-#__Notes__
+__Notes__
 - The question Bill asks to Steve Masters when he is appointed is notable
 
 > What do you want most from me? And what don't you want?”
@@ -180,7 +180,7 @@ Wes, Patty and Bill starts discussing and Wes informs Bill that payroll system b
 Bill is hesitant to believe the root cause is SAN being bricked, he claims 
 there would have been more wide-spread outages if it was. Wes suggest them to go talk to Brent, the guy who was doing the upgrade.
 
-#__Notes__
+__Notes__
 - There exists an error-prone, dangerous manual data manipulation done by the Operations
 - No one has an idea what else is doing
 - This makes identifying the problems difficult
@@ -204,7 +204,7 @@ Bill learns from Patty that people are not using the ticketing system where they
 
 They finally solve the problem at 7 p.m., when it is too late.
 
-#__Notes__
+__Notes__
 - There is no test environment
 - People do not use the procedures finding them too cumbersome
   - They claim no work would get done following all the process
@@ -263,7 +263,7 @@ A few minutes later Wes calls Bills, explaining why the change management proces
 >
 > That software application she made us use is a total piece of crap. It takes twenty minutes to fill out all those fields for a simple five-minute change!
 
-#__Notes__
+__Notes__
 - There is a clear problem between the Development team and the Operations team in handoffs
   - Operations claim Developers do not think about deployment or testing until the very last moment
 - The whole IT seems to be dependent on a single engineer
