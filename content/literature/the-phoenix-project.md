@@ -9,7 +9,8 @@ title:  "The Phoenix Project"
 * TOC
 {:toc}
 
-## Characters
+## Summary
+### Characters
 - __Bill:__ Former Director of Midrange Technology Operations and VP of IT Operations.
 - __Brent:__ A highly skilled engineer.
 - __Chris:__ VP of Application Development.
@@ -18,16 +19,15 @@ title:  "The Phoenix Project"
 - __Steve:__ CEO and acting CIO.
 - __Wes:__ Director of Distributed Technology Operations who is responsible for maintenence of servers and databases.
 
-## Acronyms
+### Acronyms
 - __CAB:__ Change Advisory Board, responsible for Change Management Process.
 - __SAN:__ Storage Area Networks, provides centralized storage to many critical systems where failures are typically global.
 
-## Places
+### Places
 - __Parts Unlimited:__ Manufacturing and retail company.
 - __MRP-8:__ Manufacturing plant.
 - __NOC:__ Network Operations Center, a large area displaying the status of all the various IT services on large monitors.
 
-## Summary
 ### Falling Behind
 Parts Unlimited is rapidly falling behind the competition in terms of sales. The main problem is constantly being late to the market.
 
