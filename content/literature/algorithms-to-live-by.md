@@ -576,20 +576,27 @@ If we have a list of tasks and only a single machine (unlike the example above),
 - Optimize for getting individual tasks done as quick as possible
   - We want to increment the count of _tasks done_ rapidly
 
-#### Earliest Due Date - Minimizing the Total Delay Duration
+#### Earliest Due Date
+Minimizes the cumulative delay.
+
 - Order all tasks by deadline
 - Execute each one by one
 
-#### Moore's Algorithm - Minimizing the Total Delayed Task Count
-- Start just like Earliest Due Date
-  - Whenever you encounter a task that will be delayed
-    - Skip working on the task and move it to end of the queue
+#### Moore's Algorithm
+Minimizes the delayed task count.
 
-#### Shortest Processing Time - Maximizing the Finished Task Count
+- Order all tasks by deadline
+- Execute each one by one 
+- Whenever you encounter a task that will be delayed
+  - Skip working on the task and move it to end of the queue
+
+#### Shortest Processing Time
+Maximizes the finished task counts earlier.
+
 - Always do the shortest task first, ignoring the deadline
-  - This will lead to fastest removal of things from the to-do list
+- This will lead to fastest removal of things from the to-do list
 
-__Earliest Due Date vs Moore's Algorithm Example in Java__
+__Earliest Due Date vs Moore's Algorithm Example__
 
 ```java
 class Task {
