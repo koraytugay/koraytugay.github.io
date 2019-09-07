@@ -826,10 +826,8 @@ for i in range(iteration_count):
 print(2 / crossed / iteration_count / 2)  # 3.140268574610112 Very close!
 ```
 
-### Prime Numbers
-[Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) 
-
-#### Sieve of Eratosthenes Implementation - Java
+### Prime Numbers and Sieve of Eratosthenes
+__Implementation in Java__
 ```java
 int upto = 100;
 
@@ -853,9 +851,7 @@ for (int i = 2; i < upto; i++) {
     }
 }
 ```
-
-#### Sieve of Eratosthenes Implementation - Python
-
+__Implementation in Python__
 ```python
 def primes(up_to):
     if up_to < 2:
