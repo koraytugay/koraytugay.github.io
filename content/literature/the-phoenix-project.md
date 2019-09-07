@@ -140,7 +140,7 @@ Bill and Erik meet, they go to one of the manufacturing plants: MRP-8 and climb 
 
 > You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see __Work In Progress__ make its way toward the other side of the plant floor, where it's shipped to customers as finished goods. __WIP is the silent killer__.
 
-### Ranking Risk
+### Risk Management
 Bills walks into the Change Coordination Room for another CAB meeting. Almost every area of the wall is now covered in whiteboards. Index cards cover nearly every inch of the whiteboards on two of the walls.
 
 > And now we're supposed to go through and approve all of them? This meeting was only scheduled for an hour, we would need days to go through all of these!
@@ -151,7 +151,7 @@ The plan is as follows:
 - For __messy middle changes__ the change submitter has the responsibility for consulting and getting approval from people affected. Once they do that, they submit their change card for us to review and approve for scheduling.
 - __Low-risk changes__, changes that have been done many times before successfully are preapproved. They still need to be submitted, but they can be scheduled without the need of approval.
 
-### Mitigating Risk by Distributing High-Risk Changes
+### Mitigating Risk
 It is three days before the Phoenix deployment an Bill finds himself in a CAB meeting where people are contributing much more with the new procedure and changes are being approved and planning is made.
 
 They realise, too many changes are planned for Friday, which is also the deployment day for the Phoenix. People start exchanging ideas and after a while, the distribution of the cards on the change board is much more even.
