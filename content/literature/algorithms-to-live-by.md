@@ -23,7 +23,8 @@ title:  "Algorithms To Live By"
 ### The Secretary Problem
 [Problem Definition](https://en.wikipedia.org/wiki/Secretary_problem)
 
-#### Optimal Stopping Simulation Using Core Python - 3 Secretaries - 1,000,000 runs
+__Optimal Stopping Simulation Using Core Python - 3 Secretaries - 1,000,000 runs__
+
 - Do not hire the 1<sup>st</sup> candidate
 - Hire the 2<sup>nd</sup> candidate if they are better compared to 1<sup>st</sup>
 - Otherwise hire the 3<sup>rd</sup> candidate
@@ -51,7 +52,8 @@ for i in range(iteration_count):
 print(right_choice_made / iteration_count) # 0.500469
 ```
 
-#### Optimal Stopping Simulation Using Pandas - 100 Secretaries - 1,000,000 runs
+__Optimal Stopping Simulation Using Pandas - 100 Secretaries - 1,000,000 runs__
+
 Do not hire any candidate from the first 37 percentile, store the value of best in this phase. Starting from 38 percentile, hire the first candidate encountered where the candidate is better compared to best observed in first 37 percentile.
 Following this strategy will lead to hiring the best candidate 37% of the time, the best you can have.
 
