@@ -70,7 +70,7 @@ To which Bill responds:
 
 > The critical resource in question is Brent, who has been one hundred percent utilized helping to recover from the payroll failure. This was an emergency that we had to handle.
 
-### Pressure for Nothing
+### Harmful Pressure
 Bill and Chris are pressured to provide an answer to the question _When is the soonest we can go live?_.  Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live.
 
 ### Pointing Fingers
