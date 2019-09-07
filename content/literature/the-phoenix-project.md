@@ -102,7 +102,7 @@ Wes and Bill starts a conversation after the meeting, which leads to Wes comment
 
 > Brent. Brent, Brent, Brent! Can't we do anything without him? If you're telling me that our organization can't do anything without him, we've got a big problem.
 
-### Unkown Workload and Being Overloaded
+### Unkown Workload
 As the discussion goes, Wes complains people will just keep asking IT for more and more _stuff_, which has always been the case. Bill asks where he can find the current list of _commitments_, which does not exist as far as Wes knows. 
 
 He calls Patty telling her he will need her help to figure what all the current work commitments are. Patty informs him there is no such list and it is somewhat scattered across departments, and some work is actually not even documented at all.
@@ -114,7 +114,7 @@ The next meeting is the CAB meeting with all technical leads attending. Purpose 
 
 > I want each group to write down every change they're planning, one change per index card. I've drawn a calendar on the whiteboard where we will eventually post approved changes according to their scheduled implementation.
 
-### Definition of a Change
+### Definition of Change
 One of the leads holds up a card he has filled in and starts reading it:
 
 > Execute the vendor-recommended database maintenance script on server XZ577 to fix performance issues. 
