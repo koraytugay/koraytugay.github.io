@@ -73,15 +73,7 @@ To which Bill responds:
 ### Harmful Pressure
 Bill and Chris are pressured to provide an answer to the question _When is the soonest we can go live?_.  Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live.
 
-### Pointing Fingers
-Wes responds with several arguments:
-- Your guys still haven't told us what sort of infrastructure we need, we can't even order the necessary servers.
-- You're supposed to support 250 transactions per second, and you're barely doing four.
-- We still don't have a concrete specification of how the production and test systems should be configured. 
-- Oh, do you guys not need a test environment anymore? You haven't even done any real testing of your code yet, because that fell off the schedule, too.
-
-### How Not To Accept Risks
-Steve appricates the risks and demands the rollout to be done by next week. Walking out of the meeting, Wes and Bill are on the same page that there will be big trouble ahead.
+Walking out of the meeting, Wes and Bill are on the same page that there will be big trouble ahead.
 
 ### Processes Not Being Followed
 Bill goes to Change Management Meeting in the afternoon, to see an empty room. Patty explains:
