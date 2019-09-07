@@ -317,7 +317,7 @@ How would matching socks be identical to sorting?
 - Time complexity `O(n²)` 
   - As the size of the list that is being sorted increases by a multiple of 2, time complexity increases by n² = 4
 
-#### Bubble Sort Implementation in Python
+__Bubble Sort Implementation in Python__
 Note how comparison count increases roughly by 4 `(6, 30, 132)` as the length of the lists increase by 2 `(3, 6, 12)`.
 
 ```python
@@ -345,7 +345,7 @@ print(bubble_sort([12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
 ```
 
 ### Insertion Sort
-#### Insertion Sort Implementation in Python
+__Insertion Sort Implementation in Python__
 
 ```python
 def insertion_sort(a_list):
@@ -369,7 +369,7 @@ print(insertion_sort([5, 4, 3, 2, 1]))
 
 > Merge Sort is as important in the history of sorting as sorting in the history of computing.
 
-#### Merge Sort Implementation in Python
+__Merge Sort Implementation in Python__
 
 ```python
 def sort_merge_step(list_01: list, list_02: list = None):
