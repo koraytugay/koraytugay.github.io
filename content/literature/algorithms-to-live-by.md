@@ -508,7 +508,7 @@ The optimal cache eviction policy is to evict the item we will need again _the l
 - Eliminate the shortest job from further consideration
 - Repeat steps 2 and 3, working towards the center of the job schedule until all jobs have been scheduled
 
-##### Johnson's Rule Algorithm Implementation in Java
+__Johnson's Rule Algorithm Implementation in Java__
 
 ```java
 class Task {
