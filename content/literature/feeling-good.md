@@ -201,13 +201,20 @@ __Focus.__ Get a dumb wrist watch, put that cell phone away, in another room. Go
 - Am I learning from my error or punishing myself in a destructive manner?
 
 ### The Irresponsibility of Guilt
-Must you punish yourself for what you have done, and if yes what is the punishment and for how long? Is there an answer? Will you be able to stop being miserable after the punishment is served?
-Feeling guilty will not reverse anything that has been done and __labeling self as bad and beliving in it will lead up to further bad behavior__.
+- Must you punish yourself for what you have done, and if yes what is the punishment and for how long? Will you be able to stop being miserable after the punishment is served?
+- Feeling guilty will not reverse anything that has been done and __labeling self as bad and beliving in it will lead up to further bad behavior__.
 
 > Change and learning occur most readily when you (a) recognize that an error has occured and (b) develop a strategy for correcting the problem. An attitude of self-love and relaxation facilitates this, whereas guilt interferes.
 
-- Focus on the behavior
-- Conceptualize the impact of your behavior (empathy) and feel appropriate sorrow without labeling self as _bad_ 
+- Focus on the behavior.
+- Conceptualize the impact of your behavior (empathy) and feel appropriate sorrow without labeling self as _bad_.
+
+#### A Personal Mistake I Have Made
+I unfortunately did lose my control once in YouTube 's comments section. I did use bad language and was out of line.
+
+I did remove my comment and apologized to this person. I did learn to better control myself and realised how destructive words can be. I did not think about the person at the other end of the screen, reading my comment. 
+
+This does not make me a bad person, it was a bad behavior, which I learned from, and never repeated anything like this afterwards. There is nothing else I can do at the moment, and feeling miserable will not help me. I made a mistake, just like we all do, and served my punishment by feeling bad for a long time.
 
 ### Dealing with Guilt
 - Respond back to your toughts that makes you feel guilty, find the cognitive distortions in them
