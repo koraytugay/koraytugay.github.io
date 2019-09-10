@@ -7,9 +7,11 @@ title:  "Maven Cheat Sheet"
 
 ```bash
 # Creating an Empty Maven Project Using the Quickstart Archetype
-mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes \
-  -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4
-# https://maven.apache.org/archetypes/maven-archetype-simple
+# Reference: https://maven.apache.org/archetypes/maven-archetype-simple
+mvn archetype:generate                               \
+    -DarchetypeGroupId=org.apache.maven.archetypes   \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.4
 
 # Creating the standard directory layout
 mkdir -p src/main/java/biz/tugay
