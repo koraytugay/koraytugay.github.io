@@ -3,8 +3,7 @@ layout: default
 title:  "Koray Tugay"
 ---
 
-# Koray Tugay 's Space
-
+## Hello, I am Koray.
 - [About](content/about.md)
 
 #### Cryptography
