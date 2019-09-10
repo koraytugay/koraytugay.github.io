@@ -14,44 +14,31 @@ title:  "Feeling Good"
 The basic idea of the books seems to be instead of calling yourself a total loser, you should tell yourself that you sometimes fail and sometimes succeed just like everyone else and just let it go.
 
 ## Principles of Cognitive Theraphy
-- Your cognitions determine your feelings
-  - Cognitions include
-    - Your toughts
-    - Your interpretation of your surroundings
-    - Your beliefes
-    - Your judgments (what you tell / think about yourself or others)
-- When you feel depressed, you are more likely to focus on negativity in general
-  - You start thinking past was never good and future never will be
-  - You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy
-- Depressed peoples cognitions almost always have either distoritons or are plain wrong
-  - You end up living real feelings, based on distorted toughts
+- Your cognitions determine your feelings.
+  - Cognitions include: 
+    - Your toughts.
+    - Your interpretation of your surroundings.
+    - Your beliefes.
+    - Your judgments (what you tell / think about yourself or others).
+- When you feel depressed, you are more likely to focus on negativity in general. You start thinking past was never good and future never will be. You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy.
+- Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
 
 ## Ten Cognitive Distortions
-- All or Nothing Thinking
-  - Seeing self as a total failure in case performance is not extremely perfect, perfectionism
+- All or Nothing Thinking: Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
 
 > Perfect is the enemy of good.
 >
 > Voltaire
 
-- Labeling
-  - A form of overgeneralization where you label yourself or people around you after incidents
-- Overgeneralization
-  - Believing something happened once or a few times will happen over and over again
-- Jumping to Conclusions
-  - Reading minds of other people, predicting the future
-- Mental Filter
-  - Filtering out all positive experiences and being left with only negative
-- Disqualifying the Positive
-  - Believing positive experiences do not count for whatever reason or were fake
-- Magnification or Minimization
-  - Magnifying the importance of bad situations or minimizing achievements
-- Should Statements
-  - Falsely replacing _wants_ with _shoulds_ and _musts_
-- Emotional Reasoning
-  - Thinking that how you feel is the reality as in _I feel bad so I am bad_
-- Personalization
-  - Taking blame on yourself incorrectly for things that are out of your control
+- Labeling:  A form of overgeneralization where you label yourself or people around you after incidents.
+- Overgeneralization: Believing something happened once or a few times will happen over and over again.
+- Jumping to Conclusions: Reading minds of other people, predicting the future
+- Mental Filter: Filtering out all positive experiences and being left with only negative.
+- Disqualifying the Positive: Believing positive experiences do not count for whatever reason or were fake.
+- Magnification or Minimization: Magnifying the importance of bad situations or minimizing achievements.
+- Should Statements: Falsely replacing _wants_ with _shoulds_ and _musts_.
+- Emotional Reasoning: Thinking that how you feel is the reality as in _I feel bad so I am bad_.
+- Personalization: Taking blame on yourself incorrectly for things that are out of your control.
 
 ### Identifying Cognitive Distortions
 Every time you _feel_ depressed, stop and try to identify the _thought_ that made you feel the way you are feeling. See if your _thought_ contains any of the distortions listed above.
@@ -81,44 +68,30 @@ Every time you _feel_ depressed, stop and try to identify the _thought_ that mad
 </table>
 
 ## Do Nothingism
-- When you are depressed, you do not feel like doing much
-- You start procrastination
-- You feel worse because you actually did procrastinate
-- You procrastinate even more
-- You end up in a vicios cycle which ends up in isolation
+- When you are depressed, you do not feel like doing much.
+- You start procrastination.
+- You feel worse because you actually did procrastinate.
+- You procrastinate even more.
+- You end up in a vicios cycle which ends up in isolation.
 
 ### Find the Cause for Motivational Paralysis
-- When you think about an undone task, what thoughts immediatly come to your mind?
-- Try to find how your thoughts are distorted
+When you think about an undone task, what thoughts immediatly come to your mind?
 
 ### Common Mind-Sets Most Commonly Associated with Do-Nothingism and Procrastination
-- Hopelessness 
-  - When you are depressed, you forget you ever felt better or you will ever feel better
-- Helplessness 
-  - You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations
-- Overwhelming 
-  - Imagining _all the work_ that has to be done and being overwhelmed with it before even starting doing anything
-- Self Labeling 
-  - Labeling yourself a procrastinator hence not doing anything because this is who you are
-- Undervaluing Rewards 
-  - Beliving doing the task is not worth the effort
-- Perfectionism 
-  - Defeating self with inapproproate goals and standards and ending up settling with _nothing_ instead
-- Fear of Success or Fear of Failure 
-  - Afraid of failing or successing so that you will need success every other time
-- Fear of Disapproval 
-  - Fear of criticsm, or fear of being able to handle any sort of criticism
-- Coercion and Resentment 
-  - Trying to motivate yourself with _should_ statements which ends up building stress and anxiety
-- Low Frustration Tolerance 
-  - Beliving in _For all the miles I have gone, I should be.._ and not realising any steps you have taken so far
-- Guilt and Self Blame 
-  - Beliving you are bad or have let others down already in life which takes away any motivation to move on in life
+- Hopelessness: When you are depressed, you forget you ever felt better or you will ever feel better.
+- Helplessness: You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.
+- Overwhelming: Imagining _all the work_ that has to be done and being overwhelmed with it before even starting doing anything.
+- Self Labeling: Labeling yourself a procrastinator hence not doing anything because this is who you are.
+- Undervaluing Rewards: Beliving doing the task is not worth the effort.
+- Perfectionism: Defeating self with inapproproate goals and standards and ending up settling with _nothing_ instead.
+- Fear of Success or Fear of Failure: Afraid of failing or successing so that you will need success every other time.
+- Fear of Disapproval: Fear of criticsm, or fear of being able to handle any sort of criticism.
+- Coercion and Resentment: Trying to motivate yourself with _should_ statements which ends up building stress and anxiety.
+- Low Frustration Tolerance: Beliving in _For all the miles I have gone, I should be.._ and not realising any steps you have taken so far.
+- Guilt and Self Blame: Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.
 
 ### How to Beat Procrastination?
-- Remember __action brings motivation__ and not the otherway around
-  - Do not wait for motivation to take action
-  - Take action and invite motivation
+Remember __action brings motivation__ and not the otherway around. Do not wait for motivation to take action. Take action and invite motivation.
 
 #### Fight your Buts
 <table>
@@ -217,17 +190,14 @@ I did remove my comment and apologized to this person. I did learn to better con
 This does not make me a bad person, it was a bad behavior, which I learned from, and never repeated anything like this afterwards. There is nothing else I can do at the moment, and feeling miserable will not help me. I made a mistake, just like we all do, and served my punishment by feeling bad for a long time.
 
 ### Dealing with Guilt
-- Respond back to your toughts that makes you feel guilty, find the cognitive distortions in them
-  - Remember: toughts are the sources of feelings, if they are distorted how you feel will not be reflected on the reality
-- Study your _shoulds_, eliminate unreasonable ones
-  - I should always be happy
-  - I should make my wife happy all the time
+- Respond back to your toughts that makes you feel guilty, find the cognitive distortions in them.
+  - Remember: toughts are the sources of feelings, if they are distorted how you feel will not be reflected on the reality.
+- Study your _shoulds_, eliminate unreasonable ones..
+  - I should always be happy.
+  - I should make my wife happy all the time.
 
 #### How _should_ Defeats You
-> The major thing that holds you back when you're trying to change a bad habit like eating, smoking or drinking too much is your belief you are out of control. The cause of this lack of 
-> control is the should statements. They defeat you. Suppose, for example, you are trying to avoid eating ice cream. There you are watching TV, saying, "Oh, I really should study and
-> I shouldn't eat any ice cream." Now ask yourself, "How do I feel when I say these things myself?" I think you know the answer: You feel guilty and nervous. Then what do you do?
-> You go and eat! That is the point. The reason you are eating is that you're telling yourself you shouldn't! Then you try to bury your guilt and anxiety under more piles of food.
+> The major thing that holds you back when you're trying to change a bad habit like eating, smoking or drinking too much is your belief you are out of control. The cause of this lack of control is the should statements. They defeat you. Suppose, for example, you are trying to avoid eating ice cream. There you are watching TV, saying, "Oh, I really should study and I shouldn't eat any ice cream." Now ask yourself, "How do I feel when I say these things myself?" I think you know the answer: You feel guilty and nervous. Then what do you do? You go and eat! That is the point. The reason you are eating is that you're telling yourself you shouldn't! Then you try to bury your guilt and anxiety under more piles of food.
 
 <table>
     <tr>
