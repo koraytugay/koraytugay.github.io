@@ -1,26 +1,26 @@
 ---
 layout: default
-title:  "My Homepage"
+title:  "Koray Tugay"
 ---
 
-# Koray Tugay 's Personal Home Page
+# Koray Tugay 's Space
 
 - [About](content/about.md)
 
-## Cryptography
+#### Cryptography
 - [Sending a Signed Message](content/cryptography/sending-a-signed-message.md)
 
-## Git
+#### Git
 - [Cheat Sheet](content/git/git-cheat-sheet.md)
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
-## Grumble
-- [One on One Meetings](content/grumble/one-on-one-meetings.md)
+#### Workspace
+- [One on One Meetings](content/workspace/one-on-one-meetings.md)
 
-## Java
+#### Java
 - [Threads in Java](content/java/threads-in-java.md)
 
-## Literature
+#### Literature
 - [1984](content/literature/1984.md)
 - [Algorithms To Live By](content/literature/algorithms-to-live-by.md)
 - [Fathers And Sons](content/literature/fathers-and-sons.md)
