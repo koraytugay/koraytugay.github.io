@@ -24,7 +24,7 @@ It is of course also a good opportunity to see the work enviornment from the emp
 ## Can a One on One Meeting Backfire?
 I believe so. 
 
-### Assumptions and Too Much Pressure
+### Too Much Pressure
 Asking questions based on assumptions may put pressure on the employee, or may let them think they are falling behind or their manager is unhappy with their performance. (Of course, if that is the case, the best thing would be to share the situation openly.) 
 
 As an example consider the following question: _"What do you think of doing Individual Objectives and Key Results for this quarter?"_. 
@@ -50,7 +50,7 @@ The solution I believe is asking questions in a supportive manner..
 - Is it something related to what we do here? Would you share how we can incorporate it to our product(s)?
   - The key here is again the first question: Do not assume the subject in question is something that can directly be applied to the company or the products. It is employees own time after all.
 
-### Vision and Suggestions
+#### Vision and Suggestions
 Another good practice would be to make a direct suggestion to the employee.
 
 A manager should have a better vision of the company, where the company is headed. Instead of just asking what the employee is up to, making a suggestion to the employee, something in the lines of _"So we are planning on supporting Mongo Database"_ or _"There are plans ahead to make use of Kubernetes.."_, _"..would you be interested in taking part when it is time? We will need people familiar with this technology."_ would give the hint and the motivation to the employee.
