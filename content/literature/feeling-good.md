@@ -10,43 +10,28 @@ title:  "Feeling Good"
 {:toc}
 
 ## Overview
-[Feeling Good: The New Mood Therapy](https://www.goodreads.com/book/show/46674.Feeling_Good), written by David D. Burns.
-The basic idea of the books seems to be instead of calling yourself a total loser, you should tell yourself that you sometimes fail and sometimes succeed just like everyone else and just let it go.
+My notes on [Feeling Good: The New Mood Therapy](https://www.goodreads.com/book/show/46674.Feeling_Good), written by David D. Burns.
 
 ## Principles of Cognitive Theraphy
-- Your cognitions determine your feelings.
-  - Cognitions include: 
-    - Your toughts.
-    - Your interpretation of your surroundings.
-    - Your beliefes.
-    - Your judgments (what you tell / think about yourself or others).
-- When you feel depressed, you are more likely to focus on negativity in general. You start thinking past was never good and future never will be. You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy.
-- Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
+Your cognitions determine your feelings, where cognitions include your toughts, interpretation of your surroundings, beliefes and judgments (what you tell / think about yourself or others). When you feel depressed, you are more likely to focus on negativity in general. You start thinking past was never good and future never will be. You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy. Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
 
 ## Ten Cognitive Distortions
-- All or Nothing Thinking: Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
-
-> Perfect is the enemy of good.
->
-> Voltaire
-
-- Labeling: A form of overgeneralization where you label yourself or people around you after incidents.
-- Overgeneralization: Believing something happened once or a few times will happen over and over again.
-- Jumping to Conclusions: Reading minds of other people, predicting the future
-- Mental Filter: Filtering out all positive experiences and being left with only negative.
-- Disqualifying the Positive: Believing positive experiences do not count for whatever reason or were fake.
-- Magnification or Minimization: Magnifying the importance of bad situations or minimizing achievements.
-- Should Statements: Falsely replacing _wants_ with _shoulds_ and _musts_.
-- Emotional Reasoning: Thinking that how you feel is the reality as in _I feel bad so I am bad_.
-- Personalization: Taking blame on yourself incorrectly for things that are out of your control.
+1. All or Nothing Thinking: Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
+1. Labeling: A form of overgeneralization where you label yourself or people around you after incidents.
+1. Overgeneralization: Believing something happened once or a few times will happen over and over again.
+1. Jumping to Conclusions: Reading minds of other people, predicting the future
+1. Mental Filter: Filtering out all positive experiences and being left with only negative.
+1. Disqualifying the Positive: Believing positive experiences do not count for whatever reason or were fake.
+1. Magnification or Minimization: Magnifying the importance of bad situations or minimizing achievements.
+1. Should Statements: Falsely replacing _wants_ with _shoulds_ and _musts_.
+1. Emotional Reasoning: Thinking that how you feel is the reality as in _I feel bad so I am bad_.
+1. Personalization: Taking blame on yourself incorrectly for things that are out of your control.
 
 ### Identifying Cognitive Distortions
-Every time you _feel_ depressed, stop and try to identify the _thought_ that made you feel the way you are feeling. See if your _thought_ contains any of the distortions listed above.
+Every time you feel depressed, stop and try to identify the thought that made you feel the way you are feeling. See if your thought contains any of the distortions listed above.
 
 ## Building Self-Esteem
-> .. there is actually a formal thinking disturbance in depressed patients. Depressed people were compared to undepressed
-> people in terms of extracting meaning from proverbs such as 'A stitch in time saves nine'. It was seen that depressed people
-> had problems extracting the meaning and had many logical errors. __They were overly concrete and could not make generalizations.__
+> .. there is actually a formal thinking disturbance in depressed patients. Depressed people were compared to undepressed people in terms of extracting meaning from proverbs such as 'A stitch in time saves nine'. It was seen that depressed people had problems extracting the meaning and had many logical errors. __They were overly concrete and could not make generalizations.__
 
 ### Talk Back to the Internal Critic
 1. Listen to your inner critic, capture it.
@@ -68,11 +53,11 @@ Every time you _feel_ depressed, stop and try to identify the _thought_ that mad
 </table>
 
 ## Do Nothingism
-- When you are depressed, you do not feel like doing much.
-- You start procrastination.
-- You feel worse because you actually did procrastinate.
-- You procrastinate even more.
-- You end up in a vicios cycle which ends up in isolation.
+1. When you are depressed, you do not feel like doing much.
+1. You start procrastination.
+1. You feel worse because you actually did procrastinate.
+1. You procrastinate even more.
+1. You go back to step 1 and end up in a vicios cycle which ends up in isolation.
 
 ### Find the Cause for Motivational Paralysis
 When you think about an undone task, what thoughts immediatly come to your mind?
@@ -91,7 +76,7 @@ When you think about an undone task, what thoughts immediatly come to your mind?
 - Guilt and Self Blame: Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.
 
 ### How to Beat Procrastination?
-Remember __action brings motivation__ and not the otherway around. Do not wait for motivation to take action. Take action and invite motivation.
+__Action brings motivation__. Do not wait for motivation to take action. Take action which will bring motivation.
 
 #### Fight your Buts
 <table>
