@@ -24,21 +24,21 @@ The basic idea of the books seems to be instead of calling yourself a total lose
 - Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
 
 ## Ten Cognitive Distortions
-- __All or Nothing Thinking__ Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
+- All or Nothing Thinking: Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
 
 > Perfect is the enemy of good.
 >
 > Voltaire
 
-- __Labeling:__  A form of overgeneralization where you label yourself or people around you after incidents.
-- __Overgeneralization:__ Believing something happened once or a few times will happen over and over again.
-- __Jumping to Conclusions:__ Reading minds of other people, predicting the future
-- __Mental Filter:__ Filtering out all positive experiences and being left with only negative.
-- __Disqualifying the Positive:__ Believing positive experiences do not count for whatever reason or were fake.
-- __Magnification or Minimization:__ Magnifying the importance of bad situations or minimizing achievements.
-- __Should Statements:__ Falsely replacing _wants_ with _shoulds_ and _musts_.
-- __Emotional Reasoning:__ Thinking that how you feel is the reality as in _I feel bad so I am bad_.
-- __Personalization:__ Taking blame on yourself incorrectly for things that are out of your control.
+- Labeling: A form of overgeneralization where you label yourself or people around you after incidents.
+- Overgeneralization: Believing something happened once or a few times will happen over and over again.
+- Jumping to Conclusions: Reading minds of other people, predicting the future
+- Mental Filter: Filtering out all positive experiences and being left with only negative.
+- Disqualifying the Positive: Believing positive experiences do not count for whatever reason or were fake.
+- Magnification or Minimization: Magnifying the importance of bad situations or minimizing achievements.
+- Should Statements: Falsely replacing _wants_ with _shoulds_ and _musts_.
+- Emotional Reasoning: Thinking that how you feel is the reality as in _I feel bad so I am bad_.
+- Personalization: Taking blame on yourself incorrectly for things that are out of your control.
 
 ### Identifying Cognitive Distortions
 Every time you _feel_ depressed, stop and try to identify the _thought_ that made you feel the way you are feeling. See if your _thought_ contains any of the distortions listed above.
@@ -78,17 +78,17 @@ Every time you _feel_ depressed, stop and try to identify the _thought_ that mad
 When you think about an undone task, what thoughts immediatly come to your mind?
 
 ### Common Mind-Sets Most Commonly Associated with Do-Nothingism and Procrastination
-- __Hopelessness:__ When you are depressed, you forget you ever felt better or you will ever feel better.
-- __Helplessness:__ You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.
-- __Overwhelming:__ Imagining _all the work_ that has to be done and being overwhelmed with it before even starting doing anything.
-- __Self Labeling:__ Labeling yourself a procrastinator hence not doing anything because this is who you are.
-- __Undervaluing Rewards:__ Beliving doing the task is not worth the effort.
-- __Perfectionism:__ Defeating self with inapproproate goals and standards and ending up settling with _nothing_ instead.
-- __Fear of Success or Fear of Failure:__ Afraid of failing or successing so that you will need success every other time.
-- __Fear of Disapproval:__ Fear of criticsm, or fear of being able to handle any sort of criticism.
-- __Coercion and Resentment:__ Trying to motivate yourself with _should_ statements which ends up building stress and anxiety.
-- __Low Frustration Tolerance:__ Beliving in _For all the miles I have gone, I should be.._ and not realising any steps you have taken so far.
-- __Guilt and Self Blame:__ Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.
+- Hopelessness: When you are depressed, you forget you ever felt better or you will ever feel better.
+- Helplessness: You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.
+- Overwhelming: Imagining _all the work_ that has to be done and being overwhelmed with it before even starting doing anything.
+- Self Labeling: Labeling yourself a procrastinator hence not doing anything because this is who you are.
+- Undervaluing Rewards: Beliving doing the task is not worth the effort.
+- Perfectionism: Defeating self with inapproproate goals and standards and ending up settling with _nothing_ instead.
+- Fear of Success or Fear of Failure: Afraid of failing or successing so that you will need success every other time.
+- Fear of Disapproval: Fear of criticsm, or fear of being able to handle any sort of criticism.
+- Coercion and Resentment: Trying to motivate yourself with _should_ statements which ends up building stress and anxiety.
+- Low Frustration Tolerance: Beliving in _For all the miles I have gone, I should be.._ and not realising any steps you have taken so far.
+- Guilt and Self Blame: Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.
 
 ### How to Beat Procrastination?
 Remember __action brings motivation__ and not the otherway around. Do not wait for motivation to take action. Take action and invite motivation.
