@@ -6,11 +6,14 @@ title:  "Koray Tugay"
 # Hello, I am Koray.
 - [About](content/about.md)
 
+#### Cheat Sheets
+- [Git Cheat Sheet](content/cheat-sheets/git-cheat-sheet.md)
+- [Maven Cheat Sheet](content/cheat-sheets/maven-cheat-sheet.md)
+
 #### Cryptography
 - [Sending a Signed Message](content/cryptography/sending-a-signed-message.md)
 
 #### Git
-- [Cheat Sheet](content/git/git-cheat-sheet.md)
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
 #### Workspace

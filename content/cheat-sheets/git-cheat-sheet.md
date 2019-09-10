@@ -1,5 +1,9 @@
-# Git Cheat Sheet
+---
+layout: default
+title:  "Git Cheat Sheet"
+---
 
+# Git Cheat Sheet
 ```bash
 # Print current username and email
 git config user.name
