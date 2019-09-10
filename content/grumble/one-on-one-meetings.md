@@ -1,4 +1,13 @@
+---
+layout: default
+title:  "1984"
+---
+
 # One on One Meetings
+{:.no_toc}
+
+* TOC
+{:toc}
 
 ## The Ultimate Goal
 What is your ultimate goal sparing half an hour to an employee every week, having a one on one meeting? When you ask _why_ a few times, where do you end up as a manager (or as the company)?
