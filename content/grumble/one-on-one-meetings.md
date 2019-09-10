@@ -53,4 +53,4 @@ The solution I believe is asking questions in a supportive manner..
 ### Vision and Suggestions
 Another good practice would be to make a direct suggestion to the employee.
 
-A manager should have a better vision of the company, where the company is headed. Instead of just asking what the employee is up to, making a suggestion to the employee, something in the linest of _"So we are planning on supporting Mongo Database"_ or _"There are plans ahead to make use of Kubernetes.."_, _"..would you be interested in taking part when it is time? We will need people familiar with this technology."_ would give the hint and the motivation to the employee.
+A manager should have a better vision of the company, where the company is headed. Instead of just asking what the employee is up to, making a suggestion to the employee, something in the lines of _"So we are planning on supporting Mongo Database"_ or _"There are plans ahead to make use of Kubernetes.."_, _"..would you be interested in taking part when it is time? We will need people familiar with this technology."_ would give the hint and the motivation to the employee.
