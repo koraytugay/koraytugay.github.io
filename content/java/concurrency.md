@@ -341,15 +341,15 @@ executorService.shutdown();
 
 ## Fork-Join Framework
 ### Important Classes
-- [java.util.concurrent.ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)
+- [ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)
   - Implements [java.util.concurrent.ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)
   - Runs `ForkJoinTask`s
-- [java.util.concurrent.ForkJoinTask<V>](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinTask.html)
+- [ForkJoinTask](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinTask.html)
   - Abstract class
-- [java.util.concurrent.RecursiveTask<V>](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveTask.html)
+- [RecursiveTask](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveTask.html)
   - Extends `ForkJoinTask`
   - Returns a value
-- [java.util.concurrent.RecursiveAction](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveAction.html)
+- [RecursiveAction](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveAction.html)
   - Extends `ForkJoinTask`
   - Does not return a value
 
