@@ -20,7 +20,8 @@ title:  "Koray Tugay"
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
 
 #### Java
-- [Threads in Java](content/java/threads-in-java.md)
+- [Threads](content/java/threads.md)
+- [Concurrency](content/java/concurrency.md)
 
 #### Literature
 - [1984](content/literature/1984.md)

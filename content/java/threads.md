@@ -1,9 +1,9 @@
 ---
 layout: default
-title:  "Threads in Java"
+title:  "Threads"
 ---
 
-# Threads in Java
+# Threads
 {:.no_toc}
 
 * TOC
