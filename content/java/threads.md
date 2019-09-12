@@ -109,7 +109,6 @@ out.println("I can continue!");
 ### Race Condition
 A race condition can be summarised as a thread using (or _racing in to_) a resource while another thread is doing an operation on the very same resource that is supposed to be atomic.
 
-__Example__
 The following example in my case prints `0` for the most of the time, but not every time. The value seen in the console will be `-10` from time to time.
 
 ```java
