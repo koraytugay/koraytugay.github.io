@@ -480,6 +480,7 @@ long sum = fjp.invoke(new MyRecursiveTask());  // invoke is blocking, execute is
   - Simulates a long running server request
   - Sends a count value in 2.5 seconds to a GET request
   - Tells the client to close the connection
+
 ```javascript
 const http = require('http');
 
@@ -496,9 +497,11 @@ const server = http.createServer(function(request, response) {
 
 server.listen(port);
 ```
+
 - Initial Approach
   - Simply makes 10 requests in a basic loop
   - Takes a little more than 25 seconds
+
 ```java
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
@@ -529,9 +532,11 @@ public class Main {
     }
 }
 ```
+
 - Concurrent Approach
   - Uses a Thread Pool with 10 threads to send requests concurrently
   - Takes a little more than 2.5 seconds to complete
+
 ```java
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
