@@ -189,7 +189,7 @@ Once a thread enters the `withdraw` method, it is guaranteed that no other threa
 - A thread can hold more than a single lock.
 - A thread is free to enter other methods that requires the lock it is holding.
 - Only methods and blocks can be synchronized, classes and variables can not be synchronized.
-- Synchronising static methods uses the lock of the class instance, which is the the instance of `Class` associated with the class where the static method is defined.
+- Synchronising static methods uses the lock of the class instance, which is the instance of `Class` associated with the class where the static method is defined.
   - For a `class Foo`, that would be: `Class clazz = Foo.class`.
 
 #### Arbitrary Lock Example
