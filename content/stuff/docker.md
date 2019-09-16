@@ -52,7 +52,6 @@ docker container port f53
 # 80/tcp -> 0.0.0.0:32772
 
 # Connect using telnet
-
 telnet localhost 32772
 # Trying ::1...
 # Connected to localhost.
