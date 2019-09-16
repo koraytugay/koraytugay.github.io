@@ -140,3 +140,6 @@ docker container prune
 ## References
 - [container commands](https://docs.docker.com/engine/reference/commandline/container/)
 - [image commands](https://docs.docker.com/engine/reference/commandline/image/)
+
+## Terminology
+__Detached Container__: A detached container runs in the background, without being attached to any input or output stream.
