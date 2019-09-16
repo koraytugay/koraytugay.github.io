@@ -11,9 +11,9 @@ title:  "Docker"
 
 ## Hello World
 
-1. Pull the image from Docker Hub using `docker pull hello-world`.
-1. Run the image using `docker run --rm hello-world`.
-  - `--rm` is for remove container on exit.
+1. Pull the image from Docker Hub using `docker pull hello-world`
+1. Run the image using `docker run --rm hello-world`
+  - `--rm` is for removing container on exit
 
 ```bash
 docker pull hello-world
