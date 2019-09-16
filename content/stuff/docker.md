@@ -57,7 +57,7 @@ docker image ls
 docker run {image-name} # REPOSITORY column
 
 # Running an image - assigning a random port
-docker run - P {image-name}
+docker run -P {image-name}
 
 # Removing an image
 docker docker image rm {image-id}
