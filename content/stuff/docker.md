@@ -41,6 +41,42 @@ docker run --rm hello-world
 #  $ docker run -it ubuntu bash
 ```
 
+## Examples
+### Running nginx on a Random Port
+
+```bash
+docker run -d -P nginx. # Run in detached mode, expose ports random
+
+## Find the exposed port
+docker container port f53
+# 80/tcp -> 0.0.0.0:32772
+
+## Connect using telnet
+
+telnet localhost 32772
+# Trying ::1...
+# Connected to localhost.
+# Escape character is '^]'.
+GET / HTTP/1.1
+HOST: localhost
+
+# HTTP/1.1 200 OK
+# Server: nginx/1.17.3
+# Date: Mon, 16 Sep 2019 19:20:44 GMT
+# Content-Type: text/html
+# Content-Length: 612
+# Last-Modified: Tue, 13 Aug 2019 08:50:00 GMT
+# Connection: keep-alive
+# ETag: "5d5279b8-264"
+# Accept-Ranges: bytes
+# 
+# <!DOCTYPE html>
+# <html>
+# <head>
+# <title>Welcome to nginx!</title>
+# .. lot more
+```
+
 ## Cheat Sheet
 ### Images
 
