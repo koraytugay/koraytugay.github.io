@@ -47,11 +47,11 @@ docker run --rm hello-world
 ```bash
 docker run -d -P nginx. # Run in detached mode, expose ports random
 
-## Find the exposed port
+# Find the exposed port
 docker container port f53
 # 80/tcp -> 0.0.0.0:32772
 
-## Connect using telnet
+# Connect using telnet
 
 telnet localhost 32772
 # Trying ::1...
