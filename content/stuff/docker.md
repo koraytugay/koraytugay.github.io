@@ -17,7 +17,6 @@ title:  "Docker"
 
 ```bash
 docker pull hello-world
-
 # Using default tag: latest
 # latest: Pulling from library/hello-world
 # 1b930d010525: Pull complete 
