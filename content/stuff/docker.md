@@ -42,6 +42,8 @@ docker run --rm hello-world
 ```
 
 ## Cheat Sheet
+### Images
+
 ```bash
 # Pulling an image
 docker pull {repository-name/image-name:tag}
@@ -57,14 +59,18 @@ docker run {image-name} # REPOSITORY column
 # Running an image - assigning a random port
 docker run - P {image-name}
 
-# Printing exposed ports for a container
-docker container port {container-id}
-
 # Removing an image
 docker docker image rm {image-id}
+```
 
+### Containers
+
+```bash
 # Listing containers
 docker container ls -a
+
+# Printing exposed ports for a container
+docker container port {container-id}
 
 # Removing a single container
 docker container rm {container-id}
