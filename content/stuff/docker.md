@@ -40,3 +40,35 @@ docker run --rm hello-world
 # To try something more ambitious, you can run an Ubuntu container with:
 #  $ docker run -it ubuntu bash
 ```
+
+## Cheat Sheet
+```bash
+# Pulling an image
+docker pull {repository-name/image-name:tag}
+# Example: docker pull library/hello-world:latest
+# For official images with default latest: docker pull hello-world
+
+# Listing images
+docker image ls
+
+# Running an image - this will end up creating a new container
+docker run {image-name} # REPOSITORY column
+
+# Running an image - assigning a random port
+docker run - P {image-name}
+
+# Printing exposed ports for a container
+docker container port {container-id}
+
+# Removing an image
+docker docker image rm {image-id}
+
+# Listing containers
+docker container ls -a
+
+# Removing a single container
+docker container rm {container-id}
+
+# Removing all stopped containers
+docker container prune
+```
