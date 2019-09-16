@@ -76,6 +76,12 @@ HOST: localhost
 # .. lot more
 ```
 
+### Running a Specific Ubuntu Version Interactive
+
+```bash
+docker run --name my-ubuntu -it ubuntu:16.04
+```
+
 ## Cheat Sheet
 ### Images
 
@@ -91,8 +97,13 @@ docker image ls
 # Running an image - this will end up creating a new container
 docker run {image-name} # REPOSITORY column
 
-# Running an image - assigning a random port
-docker run -P {image-name}
+# Running an image
+docker run {image-name}
+## Parameters
+-P     # Expose ports randomly
+-d     # Run in detached mode
+-it    # Interactive 
+--name # Give container a name
 
 # Removing an image
 docker docker image rm {image-id}
@@ -104,8 +115,20 @@ docker docker image rm {image-id}
 # Listing containers
 docker container ls -a
 
+# Attaching to a running container
+docker attach {container-id}
+
 # Printing exposed ports for a container
 docker container port {container-id}
+
+# Stopping a container 
+docker stop {container-id}
+
+# Restarting a container
+docker start {container-id}
+
+# Attaching to a running container
+docker attach {container-id}
 
 # Removing a single container
 docker container rm {container-id}
