@@ -95,7 +95,7 @@ docker pull {repository-name/image-name:tag}
 docker image ls
 
 # Running an image - this will end up creating a new container
-docker run {image-name} # REPOSITORY column
+docker run {image-name}
 
 # Running an image
 docker run {image-name}
