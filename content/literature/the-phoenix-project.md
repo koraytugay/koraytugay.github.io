@@ -97,7 +97,7 @@ Bill and Erik meet, they go to one of the manufacturing plants and climb to the 
 > You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see __Work In Progress__ make its way toward the other side of the plant floor, where it's shipped to customers as finished goods. __WIP is the silent killer__.
 
 ### Risk Management
-Bills walks into the Change Coordination Room for another CAB meeting. Almost every area of the wall is now covered in whiteboards. Index cards cover nearly every inch of the whiteboards on two of the walls.
+Bills attends yet another CAB meeting. Almost every area of the wall is now covered in whiteboards. Index cards cover nearly every inch of the whiteboards on two of the walls.
 
 > And now we're supposed to go through and approve all of them? This meeting was only scheduled for an hour, we would need days to go through all of these!
 
@@ -117,25 +117,16 @@ Brents name keeps coming up and Bill goes to Brents cubicle to observe him. He s
 
 > Okay, from here on out, you're working only on Phoenix. I'm expecting you to reject any task that anyone tries to assign you.
 
-Brent believes that would not work..
-
-> Our guys around here just don't seem up-to-speed with how all our systems work. In the end, they keep coming to me.
-
-but Bill insists this will be the case. He realises this is a serious problem that must be fixed:
-
-> We need to change the way we're managing escalations to Brent. Right now.
-
+### Building Technical Knowledge Across the Organization
 Bill meets Wes and Petty to share his ideas:
 
+> We need to change the way we're managing escalations to Brent. Right now.
 > Every time that we let Brent fix something that none of us can replicate, Brent gets a little smarter, and the entire system gets dumber.
 
-### Building Technical Knowledge Across the Organization
 They come up with the following plan:
 
-- A resource pool of level 3 engineers will be created.
-- The level 3s will be responsible for resolving all incidents.
-- The level 3s will be the only people who can get access to Brent.
-- Brent is not allowed to fix the escalations himself, he must guide the 3s.
+- A resource pool of level 3 engineers will be created who will be responsible for resolving all incidents and will be the only people who can get access to Brent.
+- Brent is not allowed to fix the escalations himself, he must guide the level 3s.
 - All the fixes must be documented by the level 3s upon resolving an incident.
 
 ### Quality Assurance
