@@ -81,7 +81,7 @@ docker container prune
 ### nginx on a Random Port
 
 ```bash
-docker run -d -P nginx # Run in detached mode, expose ports random
+docker run -d -P nginx # Run in detached mode, expose ports randomly
 
 # Find the exposed port
 docker container port f53
