@@ -19,35 +19,73 @@ title:  "Docker"
 docker pull hello-world
 # Using default tag: latest
 # latest: Pulling from library/hello-world
-# 1b930d010525: Pull complete 
-# Digest: sha256:b8ba256769a0ac28dd126d584e0a2011cd2877f3f76e093a7ae560f2a5301c00
-# Status: Downloaded newer image for hello-world:latest
-# docker.io/library/hello-world:latest
 
 docker run --rm hello-world
 # Hello from Docker!
 # This message shows that your installation appears to be working correctly.
 # 
-# To generate this message, Docker took the following steps:
-#  1. The Docker client contacted the Docker daemon.
-#  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-#     (amd64)
-#  3. The Docker daemon created a new container from that image which runs the
-#     executable that produces the output you are currently reading.
-#  4. The Docker daemon streamed that output to the Docker client, which sent it
-#     to your terminal.
-# 
 # To try something more ambitious, you can run an Ubuntu container with:
 #  $ docker run -it ubuntu bash
 ```
 
+## Images
+A Docker Image is a collection of all the required files for an executable. Docker Images are layered, i.e. are stacked on top of each other, with the [base image](https://hub.docker.com/search?category=base&source=verified&type=image) having no parent images.
+
+### Useful Commands
+```bash
+# Pulling an image
+docker pull repository-name/image-name:tag
+# Example: docker pull library/hello-world:latest
+# For official images with default latest: docker pull hello-world
+
+# Listing images
+docker image ls
+
+# Spinning off a container from an image
+docker run image-name
+## Parameters
+-P     # Expose ports randomly
+-d     # Run in detached mode
+-i     # Make the container interactive by grabbing the standard in
+-t     # Attach a terminal to the container
+-rm    # Remove container upon stop
+--name # Give container a name
+
+# Removing an image
+docker docker image rm image-id
+```
+
 ## Containers
+A Docker Container is a running instance of an image.
+
 ### Container Lifecycle
 Containers spin off from images either by `run`ing an image using `docker run image-name` or `create`ed using `docker create image-name`, the difference being a created container will not start running right away.  
 
 An existing container can be `start`ed, `stop`ped or `restart`ed, depending on its state.
 
 A stopped container will keep its state, the data generated in it, but the idea of containers are to be stateless and containers should ideally be started by `--rm` so that they are removed once they finish running.
+
+### Creating an Image from a Container
+A container can be `commit`ed in a desired state to be stored as an image.
+
+__Creating an Ubuntu Container with wget__
+```bash
+docker run -it --rm ubuntu
+
+# Run the following inside the container
+apt-get update
+apt-get install -y wget
+wget www.example.com
+
+# Stop the container by exiting
+exit 
+
+docker commit container-id koraytugay/ubuntu_wget
+# At this point you should have a new image you can start anytime you like
+# that comes with wget
+
+docker run -it --rm koraytugay/ubuntu
+```
 
 ### Useful Commands
 
@@ -115,9 +153,6 @@ HOST: localhost
 ### Ubuntu
 
 ```bash
-# -i is for making the container interactive by grabbing the standard in
-# -t is for attaching a terminal to the container
-# -rm is for removing container upon stop
 docker run -it --rm ubuntu:16.04
 root@4c7e285cba32:/#
 ```
@@ -132,43 +167,6 @@ Attaching back to the container can be accomplished by `docker attach container-
 
 #### Running Ubuntu in Background
 Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
-
-#### Using the Package Manager
-`wget` can be installed as follows to ubuntu running within the container:
-
-```bash
-apt-get update
-apt-get install -y wget
-wget www.example.com
-```
-
-## Cheat Sheet
-### Images
-
-```bash
-# Pulling an image
-docker pull repository-name/image-name:tag
-# Example: docker pull library/hello-world:latest
-# For official images with default latest: docker pull hello-world
-
-# Listing images
-docker image ls
-
-# Running an image - this will end up creating a new container
-docker run image-name
-
-# Running an image
-docker run image-name
-## Parameters
--P     # Expose ports randomly
--d     # Run in detached mode
--it    # Interactive 
---name # Give container a name
-
-# Removing an image
-docker docker image rm image-id
-```
-
 
 ## References
 - [container commands](https://docs.docker.com/engine/reference/commandline/container/)
