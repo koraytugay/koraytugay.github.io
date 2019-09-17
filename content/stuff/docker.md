@@ -47,6 +47,8 @@ Containers spin off from images either by `run`ing an image (using `docker run {
 
 An existing container can be `start`ed, `stop`ped or `restart`ed, depending on its state.
 
+A stopped container will keep its state, the data generated in it, but the idea of containers are to be stateless and containers should ideally be started by `-rm` so that they are removed once they finish running.
+
 ### Useful Commands
 
 ```bash
