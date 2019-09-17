@@ -126,9 +126,9 @@ A [Dockerfile](https://docs.docker.com/v17.12/engine/reference/builder/) is a te
 
 A Dockerfile is in the form of
 
-```
+```dockerfile
 # This is a comment.
-INSTRUCTION argument
+INSTRUCTION argument(s)
 ```
 
 where instructions are case-insensitive but best practice is to have them uppercase.
