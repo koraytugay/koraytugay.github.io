@@ -138,7 +138,7 @@ Given a Dockerfile with following contents:
 
 ```dockerfile
 FROM busybox
-CMD echo Hello world.
+CMD echo Hello world!
 ```
 
 an image can be built by 
