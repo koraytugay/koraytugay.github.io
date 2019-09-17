@@ -142,4 +142,4 @@ docker container prune
 - [image commands](https://docs.docker.com/engine/reference/commandline/image/)
 
 ## Terminology
-__Detached Container__: A detached container runs in the background, without being attached to any input or output stream.
+__Detached Container__: A detached container runs in the background, without being attached to any input or output stream. Running detached containers are very useful for _deamon_ programs. A daemon usually interacts with other programs or humsn over a network. 
