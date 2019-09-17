@@ -43,7 +43,7 @@ Bill contatcs the responsible person asking whether they tested their change.
 
 The payrol system is finally fixed, but too late.
 
-### Lack of Planning
+### Unplanned Work
 The next morning Bill is invited to an emergency meeting.
 
 > First on our agenda is Phoenix. Last week there were twelve tasks in the critical path of Phoenix Phase 1. Only three of those tasks were completed.
@@ -72,7 +72,7 @@ A few minutes later Wes calls Bills, explaining why the change management proces
 
 > No one could get a single thing done. It was ridiculous and a waste of time. It takes twenty minutes to fill out all those fields for a simple five-minute change!
 
-### Unplanned Work
+### More Unplanned Work
 Bill starts yet another day with an invitation to an emergency meeting with the internal audit.
 
 > We found 952 IT general control deficiencies, of which 16 are significant.  You need to investigate each of these findings, confirm them, and then create a remediation plan. We require your response by one week from Monday.
