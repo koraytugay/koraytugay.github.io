@@ -41,6 +41,10 @@ docker run --rm hello-world
 #  $ docker run -it ubuntu bash
 ```
 
+## Containers
+### Container Lifecycle
+A container can be `start`ed, `stop`ped or `restart`ed. 
+
 ## Examples
 ### Running nginx on a Random Port
 
@@ -76,11 +80,26 @@ HOST: localhost
 # .. lot more
 ```
 
-### Running a Specific Ubuntu Version Interactive
+### Running Ubuntu
 
 ```bash
-docker run --name my-ubuntu -it ubuntu:16.04
+# -i is for making the container interactive by grabbing the standard in
+# -t is for attaching a terminal to the container
+# -rm is for removing container upon stop
+docker run -it --rm ubuntu:16.04 /bin/bash
+root@4c7e285cba32:/#
 ```
+
+Command can also be executed by `docker run -it --rm ubuntu:16.04 /bin/bash`. Why both works is explained [here](https://askubuntu.com/a/938872).
+
+#### Detaching
+The sequence of `CTRL+P` followed by `CTRL+Q` will detach the user from the running container. Ubuntu will still be running and the container will continue to run.
+
+#### Attaching
+Attaching back to the container can be accomplished by `docker attach {container-id}`.
+
+#### Running Ubuntu in Background
+Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
 
 ## Cheat Sheet
 ### Images
