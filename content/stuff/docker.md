@@ -68,7 +68,7 @@ A stopped container will keep its state, the data generated in it, but the idea 
 ### Creating an Image from a Container
 A container can be `commit`ed in a desired state to be stored as an image.
 
-__Creating an Ubuntu Container with wget__
+__Example__
 ```bash
 docker run -it --rm ubuntu
 
