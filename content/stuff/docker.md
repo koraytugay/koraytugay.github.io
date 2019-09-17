@@ -78,7 +78,7 @@ docker container prune
 ```
 
 ## Examples
-### Running nginx on a Random Port
+### nginx on a Random Port
 
 ```bash
 docker run -d -P nginx # Run in detached mode, expose ports random
@@ -112,7 +112,7 @@ HOST: localhost
 # .. lot more
 ```
 
-### Running Ubuntu
+### Ubuntu
 
 ```bash
 # -i is for making the container interactive by grabbing the standard in
@@ -132,6 +132,15 @@ Attaching back to the container can be accomplished by `docker attach {container
 
 #### Running Ubuntu in Background
 Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
+
+#### Using the Package Manager
+`wget` can be installed as follows to ubuntu running within the container:
+
+```bash
+apt-get update
+apt-get install -y wget
+wget www.example.com
+```
 
 ## Cheat Sheet
 ### Images
