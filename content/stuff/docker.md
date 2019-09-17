@@ -118,11 +118,11 @@ HOST: localhost
 # -i is for making the container interactive by grabbing the standard in
 # -t is for attaching a terminal to the container
 # -rm is for removing container upon stop
-docker run -it --rm ubuntu:16.04 /bin/bash
+docker run -it --rm ubuntu:16.04
 root@4c7e285cba32:/#
 ```
 
-Command can also be executed by `docker run -it --rm ubuntu:16.04 /bin/bash`. Why both works is explained [here](https://askubuntu.com/a/938872).
+`docker run -it --rm ubuntu:16.04 /bin/bash` also works and the why is explained [here](https://askubuntu.com/a/938872).
 
 #### Detaching
 The sequence of `CTRL+P` followed by `CTRL+Q` will detach the user from the running container. Ubuntu will still be running and the container will continue to run.
