@@ -59,19 +59,19 @@ docker container ls
 docker container ls -a
 
 # Print exposed ports for a container
-docker container port {container-id}
+docker container port container-id
 
 # Stop a container 
-docker stop {container-id}
+docker stop container-id
 
 # Restart a container
-docker start {container-id}
+docker start container-id
 
 # Attach to a running container
-docker attach {container-id}
+docker attach container-id
 
 # Remove a single container
-docker container rm {container-id}
+docker container rm container-id
 
 # Remove all stopped containers
 docker container prune
@@ -128,7 +128,7 @@ root@4c7e285cba32:/#
 The sequence of `CTRL+P` followed by `CTRL+Q` will detach the user from the running container. Ubuntu will still be running and the container will continue to run.
 
 #### Attaching
-Attaching back to the container can be accomplished by `docker attach {container-id}`.
+Attaching back to the container can be accomplished by `docker attach container-id`.
 
 #### Running Ubuntu in Background
 Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
