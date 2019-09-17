@@ -47,6 +47,34 @@ Containers spin off from images either by `run`ing an image (using `docker run {
 
 An existing container can be `start`ed, `stop`ped or `restart`ed, depending on its state.
 
+### Useful Commands
+
+```bash
+# List running containers
+docker container ls
+
+# List all containers
+docker container ls -a
+
+# Print exposed ports for a container
+docker container port {container-id}
+
+# Stop a container 
+docker stop {container-id}
+
+# Restart a container
+docker start {container-id}
+
+# Attach to a running container
+docker attach {container-id}
+
+# Remove a single container
+docker container rm {container-id}
+
+# Remove all stopped containers
+docker container prune
+```
+
 ## Examples
 ### Running nginx on a Random Port
 
@@ -130,33 +158,6 @@ docker run {image-name}
 docker docker image rm {image-id}
 ```
 
-### Containers
-
-```bash
-# Listing containers
-docker container ls -a
-
-# Attaching to a running container
-docker attach {container-id}
-
-# Printing exposed ports for a container
-docker container port {container-id}
-
-# Stopping a container 
-docker stop {container-id}
-
-# Restarting a container
-docker start {container-id}
-
-# Attaching to a running container
-docker attach {container-id}
-
-# Removing a single container
-docker container rm {container-id}
-
-# Removing all stopped containers
-docker container prune
-```
 
 ## References
 - [container commands](https://docs.docker.com/engine/reference/commandline/container/)
