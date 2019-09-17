@@ -132,7 +132,11 @@ FROM busybox
 CMD echo Hello world.
 ```
 
-an image can be built by `docker build -t koraytugay/busyhello .`. 
+an image can be built by 
+
+```bash
+docker build -t koraytugay/busyhello .
+````
 
 ## Examples
 ### nginx on a Random Port
