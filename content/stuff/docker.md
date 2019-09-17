@@ -115,6 +115,25 @@ docker container rm container-id
 docker container prune
 ```
 
+## Dockerfile
+A [Dockerfile](https://docs.docker.com/v17.12/engine/reference/builder/) is a text-based build script from which images can be built. The instructionso of Dockerfile can contain:
+
+- Selecting the base image
+- Installing the required application
+- Adding the configuration and data files
+- Commands to running services
+- Commands to expose the services to outside
+
+### Hello World
+Given a Dockerfile with following contents:
+
+```dockerfile
+FROM busybox
+CMD echo Hello world.
+```
+
+an image can be built by `docker build -t koraytugay/busyhello .`. 
+
 ## Examples
 ### nginx on a Random Port
 
