@@ -52,7 +52,7 @@ docker run image-name
 --name # Give container a name
 
 # Removing an image
-docker docker image rm image-id
+docker image rm image-id
 ```
 
 ## Containers
