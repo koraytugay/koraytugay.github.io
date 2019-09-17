@@ -124,7 +124,16 @@ A [Dockerfile](https://docs.docker.com/v17.12/engine/reference/builder/) is a te
 - Commands to running services
 - Commands to expose the services to outside
 
-### Hello World
+A Dockerfile is in the form of
+
+```
+# This is a comment.
+INSTRUCTION argument
+```
+
+where instructions are case-insensitive but best practice is to have them uppercase.
+
+### Dockerfile Example
 Given a Dockerfile with following contents:
 
 ```dockerfile
@@ -137,6 +146,27 @@ an image can be built by
 ```bash
 docker build -t koraytugay/busyhello .
 ````
+
+### Dockerfile Instructions
+#### FROM
+`FROM` is the first valid instruction of a Dockerfile and sets the base image for the build process. The syntax is: `FROM <image>[:<tag>|@digest]`. Value `latest` is the default if no `tag` or `digest` is supplied. `FROM centos` and `FROM ubuntu:16.04` are examples for the `FROM` instruction.
+
+Using multiple `FROM` instructions is possible but discouraged.
+
+#### COPY
+`COPY <src> ... <dst>` can be used to copy multiple files (or directories) from the Docker host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`.
+
+__Example__
+The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
+
+```dockerfile
+FROM busybox
+COPY Dockerfile /
+CMD cat Dockerfile
+```
+
+#### ADD
+Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
 
 ## Examples
 ### nginx on a Random Port
