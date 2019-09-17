@@ -55,22 +55,14 @@ To which Bill responds:
 ### Harmful Pressure
 Bill and Chris are pressured to provide an answer to the question _When is the soonest we can go live?_.  Chris is forced to spit out a date and so he does without considering all the things that the Operations team must do before going live.
 
-Walking out of the meeting, Wes and Bill are on the same page that there will be big trouble ahead.
-
 ### Processes Not Being Followed
 Bill goes to Change Management Meeting in the afternoon, to see an empty room. Patty explains:
 
 > All we have is a process on paper that no one follows and a tool that no one uses. All I get are complaints and excuses.
 
-Bill asks her to schedule another meeting informing everyone that attandence is mandatory. 
-
-Following all this Bill broadcasts via e-mail:
+Bill asks her to schedule another meeting and broadcasts an e-mail:
 
 > Effective immediately, managers are required to attend all scheduled CAB meetings and to perform their assigned duties.
-
-A few minutes later Wes calls Bills, explaining why the change management process is not popular within IT:
-
-> No one could get a single thing done. It was ridiculous and a waste of time. It takes twenty minutes to fill out all those fields for a simple five-minute change!
 
 ### More Unplanned Work
 Bill starts yet another day with an invitation to an emergency meeting with the internal audit.
@@ -89,36 +81,18 @@ As the discussion goes, Wes complains people will just keep asking IT for more a
 
 He calls Patty telling her he will need her help to figure what all the current work commitments are. Patty informs him there is no such list and it is somewhat scattered across departments, and some work is actually not even documented at all.
 
-> Get me the work estimate to fix the audit findings. For each of those resources, tell me what their other commitments are that we're going to be pulling them off of. I'm guessing we're __overloaded__.
+> Get me the work estimate to fix the audit findings. For each of those resources, tell me what their other commitments are that we're going to be pulling them off of. I'm guessing we're overloaded.
 
 ### Simple Tools
-The next meeting is the CAB meeting with all technical leads attending. Purpose of the meeting is _to figure out how to tighten up change controls_. Bill understands that expecting the current Change Management Tool to be used is impossible, and comes up with a very basic request:
+The next meeting is the CAB meeting with all technical leads attending. Bill understands that expecting the current Change Management Tool to be used is impossible, and comes up with a very basic request:
 
 > I want each group to write down every change they're planning, one change per index card. I've drawn a calendar on the whiteboard where we will eventually post approved changes according to their scheduled implementation.
 
 ### Definition of Change
-One of the leads holds up a card he has filled in and starts reading it:
-
-> Execute the vendor-recommended database maintenance script on server XZ577 to fix performance issues. 
->
-> This affects the order entry database and applications. 
-> 
-> We'd like to do this next Friday evening at 8:30 p.m.
-
-to which Wes objects:
-
-> That's not a change, just running a database script. If you were changing the script, then we'd have something to talk about.
-
-where the reply is:
-
-> No, it's definitely a change. It temporarily changes some database settings, and we don't know what production impact it could have.
-
 This reveals another problem, the problem that they do not even agree on what a change is. What counts as a _change_ which is later agreed upon: __A change is any activity that is physical, logical, or virtual to applications, databases, operating systems, networks, or hardware that could impact services being delivered.__
 
-Given the time for the meeting is up, Bill tells people to fill their index cards as soon as possible and hand them to Patty.
-
 ### Work in Progress
-Bill and Erik meet, they go to one of the manufacturing plants: MRP-8 and climb to the catwalk to get a birds-eye view of the plant floor. Erik speaks:
+Bill and Erik meet, they go to one of the manufacturing plants and climb to the catwalk to get a birds-eye view of the plant floor. Erik speaks:
 
 > You can see loading docks on each side of the building. Raw materials are brought in on this side, and the finished goods leave out the other. Orders come off that printer down there. If you stand here long enough, you can actually see __Work In Progress__ make its way toward the other side of the plant floor, where it's shipped to customers as finished goods. __WIP is the silent killer__.
 
@@ -202,7 +176,7 @@ to which Steve responds:
 Finally, they decide to take a very different approach: __IT Operations will freeze all non-Phoenix work__, naming it Project Freeze.
 
 ### Work Centers and Workers
-Erik and Bill visit MRP-8 one more time, where they discuss how Brent is similar to a worker in the plant and how the IT work is similar to work centers. If work centers depend on a specific worker, they can not operate. 
+Erik and Bill visit the manufacturing plant one more time, where they discuss how Brent is similar to a worker in the plant and how the IT work is similar to work centers. If work centers depend on a specific worker, they can not operate. 
 
 ### Standardizing and Documenting Work
 Erik summarises what Bill has done by creating the Level 3 pool and appricates the effort.
@@ -279,5 +253,4 @@ The Third Way shows us how to create a culture that simultaneously fosters exper
 
 ### Places
 - __Parts Unlimited:__ Manufacturing and retail company.
-- __MRP-8:__ Manufacturing plant.
 - __NOC:__ Network Operations Center, a large area displaying the status of all the various IT services on large monitors.
