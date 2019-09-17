@@ -43,7 +43,7 @@ docker run --rm hello-world
 
 ## Containers
 ### Container Lifecycle
-Containers spin off from images either by `run`ing an image (using `docker run {image-name}`) or `create`ed (using `docker create {image-name}`), the difference being a created container will not start running right away.  
+Containers spin off from images either by `run`ing an image using `docker run {image-name}` or `create`ed using `docker create {image-name}`, the difference being a created container will not start running right away.  
 
 An existing container can be `start`ed, `stop`ped or `restart`ed, depending on its state.
 
