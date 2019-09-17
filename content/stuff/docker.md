@@ -43,7 +43,9 @@ docker run --rm hello-world
 
 ## Containers
 ### Container Lifecycle
-A container can be `start`ed, `stop`ped or `restart`ed. 
+Containers spin off from images either by `run`ing an image (using `docker run {image-name}`) or `create`ed (using `docker create {image-name}`), the difference being a created container will not start running right away.  
+
+An existing container can be `start`ed, `stop`ped or `restart`ed, depending on its state.
 
 ## Examples
 ### Running nginx on a Random Port
