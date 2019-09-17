@@ -147,7 +147,7 @@ wget www.example.com
 
 ```bash
 # Pulling an image
-docker pull {repository-name/image-name:tag}
+docker pull repository-name/image-name:tag
 # Example: docker pull library/hello-world:latest
 # For official images with default latest: docker pull hello-world
 
@@ -166,7 +166,7 @@ docker run image-name
 --name # Give container a name
 
 # Removing an image
-docker docker image rm {image-id}
+docker docker image rm image-id
 ```
 
 
