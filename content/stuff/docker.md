@@ -168,6 +168,61 @@ CMD cat Dockerfile
 #### ADD
 Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
 
+#### ENV
+`ENV <key> <value>` sets environmental variables in the image. 
+
+```Dockerfile
+ENV APACHE_LOG_DIR /var/log/apache
+```
+
+Declared values declared by `ENV` can also be used together with other instructions.
+
+```Dockerfile
+ENV BACKUP_DIR backupdir
+WORKDIR /usr/${BACKUP_DIR}
+```
+
+#### ARG
+`ARG <variable> [=<default value>]` lets defining variables that can be passed during Docker image build time. 
+
+Given the following Dockerfile:
+
+```Dockerfile
+ARG user=john_doe
+```
+
+an image can be built overriding the value `johndoe` by:
+
+```bash
+docker build --build-arg user=koraytugay ,
+```
+
+Just like `ENV`, declarations can be used together with other instructions.
+
+#### WORKDIR
+`WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN` and `CMD` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
+
+```Dockerfile
+WORKDIR /mycustom/workdir
+```
+
+#### VOLUME 
+todo
+
+#### EXPOSE
+`EXPOSE <port> [<port>...]` lets you expose multiple ports from the container.
+
+#### LABEL
+Metadata can be added to images using `LABEL`.
+
+```Dockerfile
+LABEL version="2.0"
+      release-date="2016-08-05"
+```
+
+#### RUN
+`RUN <command>` is executed when an image is being built. There can be multiple `RUN` commands in a Dockerfile, and each adds an additional layer to the image. `RUN` can also added in the form of json array syntax: `RUN ["<exec>", "<arg-1>", "<arg-n>"]`.
+
 ## Examples
 ### nginx on a Random Port
 
