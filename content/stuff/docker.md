@@ -221,7 +221,7 @@ LABEL version="2.0"
 ```
 
 #### RUN
-`RUN <command>` is executed when an image is being built. There can be multiple `RUN` commands in a Dockerfile, and each adds an additional layer to the image. `RUN` can also added in the form of json array syntax: `RUN ["<exec>", "<arg-1>", "<arg-n>"]`.
+`RUN <command>` is executed when an image is being built. There can be multiple `RUN` commands in a Dockerfile, and each adds an additional layer to the image. `RUN` can also added in the form of json array syntax: `RUN ["<exec>", "<arg-1>", "<..>"]`.
 
 ## Examples
 ### nginx on a Random Port
