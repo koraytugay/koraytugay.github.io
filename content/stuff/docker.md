@@ -276,6 +276,27 @@ Attaching back to the container can be accomplished by `docker attach container-
 #### Running Ubuntu in Background
 Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
 
+### Python Environment in Container
+
+```Dockerfile
+FROM python:3.6.9-slim
+RUN pip install pipenv
+```
+
+Build with:
+
+```bash
+docker build -t my-pip-env .
+```
+
+and run by overriding the default entrypoint:
+
+```bash
+docker run --rm -it my-pip-env /bin/sh
+```
+
+This should give you a linux machine with python 3.6.9 and pipenv installed.
+
 ## References
 - [container commands](https://docs.docker.com/engine/reference/commandline/container/)
 - [image commands](https://docs.docker.com/engine/reference/commandline/image/)
