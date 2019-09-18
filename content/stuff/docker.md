@@ -171,13 +171,13 @@ Please see [this](https://stackoverflow.com/questions/24958140) question on Stac
 #### ENV
 `ENV <key> <value>` sets environmental variables in the image. 
 
-```Dockerfile
+```dockerfile
 ENV APACHE_LOG_DIR /var/log/apache
 ```
 
 Declared values declared by `ENV` can also be used together with other instructions.
 
-```Dockerfile
+```dockerfile
 ENV BACKUP_DIR backupdir
 WORKDIR /usr/${BACKUP_DIR}
 ```
@@ -187,7 +187,7 @@ WORKDIR /usr/${BACKUP_DIR}
 
 Given the following Dockerfile:
 
-```Dockerfile
+```dockerfile
 ARG user=john_doe
 ```
 
@@ -202,7 +202,7 @@ Just like `ENV` , declarations can be used together with other instructions.
 #### WORKDIR
 `WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN` and `CMD` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
 
-```Dockerfile
+```dockerfile
 WORKDIR /mycustom/workdir
 ```
 
@@ -215,7 +215,7 @@ todo
 #### LABEL
 Metadata can be added to images using `LABEL`.
 
-```Dockerfile
+```dockerfile
 LABEL version="2.0"
       release-date="2016-08-05"
 ```
@@ -278,7 +278,7 @@ Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not i
 
 ### Python Environment in Container
 
-```Dockerfile
+```dockerfile
 FROM python:3.6.9-slim
 RUN pip install pipenv
 ```
