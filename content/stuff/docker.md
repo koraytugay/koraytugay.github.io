@@ -194,10 +194,10 @@ ARG user=john_doe
 an image can be built overriding the value `johndoe` by:
 
 ```bash
-docker build --build-arg user=koraytugay ,
+docker build --build-arg user=koraytugay .
 ```
 
-Just like `ENV`, declarations can be used together with other instructions.
+Just like `ENV` , declarations can be used together with other instructions.
 
 #### WORKDIR
 `WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN` and `CMD` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
