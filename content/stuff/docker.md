@@ -175,7 +175,7 @@ Please see [this](https://stackoverflow.com/questions/24958140) question on Stac
 ENV APACHE_LOG_DIR /var/log/apache
 ```
 
-Declared values declared by `ENV` can also be used together with other instructions.
+Values declared by `ENV` can also be used together with other instructions.
 
 ```dockerfile
 ENV BACKUP_DIR backupdir
