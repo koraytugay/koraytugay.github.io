@@ -126,7 +126,7 @@ RUN touch foo.txt
 ```
 
 #### JSON array
-`RUN ["<exec", "<arg-1>", ... "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
+`RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
 
 ```dockerfile
 FROM alpine
@@ -134,4 +134,21 @@ RUN ["sh", "-c", "touch foo.txt"]
 ```
 
 ### CMD
-`CMD` is somewhat similar to `RUN` with a one big very difference: execution time. `CMD` is executed when the container is launched. `CMD` instruction provides the default execution for the container. When the supplied application terminates, the container also terminates. 
+`CMD` is similar to `RUN` with one major difference: execution time. `CMD` is executed when the container is launched and provides the default execution for the container. When the supplied application terminates, the container also terminates. Note that `CMD` can be overridden by `docker run <sub-command>`.
+
+#### Shell Type
+`CMD <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`. 
+
+#### JSON Array
+`CMD ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
+
+#### Setting Default Parameters to ENTRYPOINT
+`CMD ["<arg-1>", ..., "<arg-n>"]` is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. 
+
+### ENTRYPOINT
+`ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT` instead of overriding as it was the case for `CMD`. `ENTRYPOINT` can also be overridden itself by `docker run --entrypoint <sub-command>`.
+
+`ENTRYPOINT` command has two types of syntax:
+
+#### Shell Type
+..

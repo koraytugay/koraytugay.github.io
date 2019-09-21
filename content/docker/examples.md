@@ -32,15 +32,17 @@ docker run --rm hello-world
 This example demonstrates compiling the source file in image creation time and executing the java program in container launch. 
 
 ```java
-import java.util.Scanner;
-
 class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello World");
-        Scanner scanner = new Scanner(System.in);
-        String msg = scanner.nextLine();
-        System.out.println(msg);
-        scanner.close();
+    }
+}
+```
+
+```java
+class Goodbye {
+    public static void main(String[] args) {
+        System.out.println("Goodbye");
     }
 }
 ```
@@ -49,14 +51,24 @@ class HelloWorld {
 FROM openjdk:8
 WORKDIR /helloworld
 COPY HelloWorld.java .
+COPY Goodbye.java .
 RUN javac HelloWorld.java
+RUN javac Goodbye.java
 CMD java HelloWorld
 ```
 
 __Execution__
+
 ```bash
 docker build -t java-helloworld .  # Build the image
-docker run --it java-helloworld    # Run the container in interactive mode
+docker run --rm java-helloworld    # Run the container
+```
+
+`CMD java HelloWorld` can be overridden in container launch time as follows:
+
+```bash
+docker build -t java-helloworld .  # Build the image
+docker run --rm java-helloworld java Goodbye   # Override CMD
 ```
 
 ## nginx on a Random Port
