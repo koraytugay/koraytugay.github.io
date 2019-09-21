@@ -115,4 +115,20 @@ LABEL version="2.0"
 ```
 
 ### RUN
-`RUN <command>` is executed when an image is being built. There can be multiple `RUN` commands in a Dockerfile, and each adds an additional layer to the image. `RUN` can also added in the form of json array syntax: `RUN ["<exec>", "<arg-1>", "<..>"]`.
+`RUN` is executed when an image is being built and can be used to run any command. Best practice is to execute multiple commands using one `RUN` instruction. `RUN` command has two types of syntax:
+
+#### Shell Type
+`RUN <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`. `-c` is used for reading commands from string:
+
+```dockerfile
+FROM alpine
+RUN touch foo.txt
+```
+
+#### JSON array
+`RUN ["<exec", "<arg-1>", ... "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
+
+```dockerfile
+FROM alpine
+RUN ["sh", "-c", "touch foo.txt"]
+```
