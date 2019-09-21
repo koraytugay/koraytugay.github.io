@@ -132,3 +132,6 @@ RUN touch foo.txt
 FROM alpine
 RUN ["sh", "-c", "touch foo.txt"]
 ```
+
+### CMD
+`CMD` is somewhat similar to `RUN` with a one big very difference: execution time. `CMD` is executed when the container is launched. `CMD` instruction provides the default execution for the container. When the supplied application terminates, the container also terminates. 

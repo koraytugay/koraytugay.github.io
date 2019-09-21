@@ -28,6 +28,37 @@ docker run --rm hello-world
 #  $ docker run -it ubuntu bash
 ```
 
+## Java Hello World
+This example demonstrates compiling the source file in image creation time and executing the java program in container launch. 
+
+```java
+import java.util.Scanner;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+        Scanner scanner = new Scanner(System.in);
+        String msg = scanner.nextLine();
+        System.out.println(msg);
+        scanner.close();
+    }
+}
+```
+
+```dockerfile
+FROM openjdk:8
+WORKDIR /helloworld
+COPY HelloWorld.java .
+RUN javac HelloWorld.java
+CMD java HelloWorld
+```
+
+__Execution__
+```bash
+docker build -t java-helloworld .  # Build the image
+docker run --it java-helloworld    # Run the container in interactive mode
+```
+
 ## nginx on a Random Port
 
 ```bash
