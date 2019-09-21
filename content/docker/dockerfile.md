@@ -40,21 +40,24 @@ docker build -t koraytugay/busyhello .
 
 ## Dockerfile Instructions
 ### FROM
-`FROM` is the first valid instruction of a Dockerfile and sets the base image for the build process. The syntax is: `FROM <image>[:<tag>|@digest]`. Value `latest` is the default if no `tag` or `digest` is supplied. `FROM centos` and `FROM ubuntu:16.04` are examples for the `FROM` instruction.
+`FROM` is the first valid instruction of a Dockerfile and sets the base image for the build process. Value `latest` is the default if no `tag` or `digest` is supplied. `FROM centos` and `FROM ubuntu:16.04` are examples for the `FROM` instruction. 
 
-Using multiple `FROM` instructions is possible but discouraged.
+See the [official documentation](https://docs.docker.com/engine/reference/builder/#from) for detailed information.
 
 ### COPY
-`COPY <src> ... <dst>` can be used to copy multiple files (or directories) from the Docker host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
+`COPY <src> ... <dst>` can be used to copy files from the host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
 
 ```dockerfile
 FROM busybox
 COPY Dockerfile /
 CMD cat Dockerfile
 ```
+See the [official documentation](https://docs.docker.com/engine/reference/builder/#copy) for detailed information.
 
 ### ADD
 Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
+
+See the [official documentation](https://docs.docker.com/engine/reference/builder/#add) for detailed information.
 
 ### ENV
 `ENV <key> <value>` sets environmental variables in the image. 
@@ -70,8 +73,10 @@ ENV BACKUP_DIR backupdir
 WORKDIR /usr/${BACKUP_DIR}
 ```
 
+See the [official documentation](https://docs.docker.com/engine/reference/builder/#env) for detailed information.
+
 ### ARG
-`ARG <variable> [=<default value>]` lets defining variables that can be passed during Docker image build time. 
+With `ARG <variable> [=<default value>]` variables that can be passed during image build time can be defined. 
 
 Given the following Dockerfile:
 
@@ -119,7 +124,7 @@ FROM alpine
 RUN touch foo.txt
 ```
 
-#### JSON array
+#### JSON Array
 `RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
 
 ```dockerfile
@@ -145,4 +150,7 @@ RUN ["sh", "-c", "touch foo.txt"]
 `ENTRYPOINT` command has two types of syntax:
 
 #### Shell Type
-..
+`ENTRYPOINT <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`.
+
+#### JSON Array
+`ENTRYPOINT ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
