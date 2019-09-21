@@ -140,7 +140,7 @@ RUN ["sh", "-c", "touch foo.txt"]
 `CMD ["<arg-1>", ..., "<arg-n>"]` is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. 
 
 ### ENTRYPOINT
-`ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT` instead of overriding as it was the case for `CMD`. `ENTRYPOINT` can also be overridden itself by `docker run --entrypoint <sub-command>`.
+`ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT` instead of overriding as it was the case for `CMD`. `ENTRYPOINT` can also be overridden by `docker run --entrypoint <sub-command>`.
 
 `ENTRYPOINT` command has two types of syntax:
 
