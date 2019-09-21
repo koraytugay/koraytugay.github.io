@@ -25,17 +25,14 @@ A Dockerfile is in the form of
 INSTRUCTION argument(s)
 ```
 
-where instructions are case-insensitive but best practice is to have them uppercase.
-
-## Dockerfile Example
-Given a Dockerfile with following contents:
+where instructions are case-insensitive but best practice is to have them uppercase. Given a Dockerfile with following contents:
 
 ```dockerfile
 FROM busybox
 CMD echo Hello world!
 ```
 
-an image can be built by 
+an image can be built by `docker build` as follows:
 
 ```bash
 docker build -t koraytugay/busyhello .
