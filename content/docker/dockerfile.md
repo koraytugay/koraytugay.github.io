@@ -45,10 +45,7 @@ docker build -t koraytugay/busyhello .
 Using multiple `FROM` instructions is possible but discouraged.
 
 ### COPY
-`COPY <src> ... <dst>` can be used to copy multiple files (or directories) from the Docker host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`.
-
-__Example__
-The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
+`COPY <src> ... <dst>` can be used to copy multiple files (or directories) from the Docker host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
 
 ```dockerfile
 FROM busybox
