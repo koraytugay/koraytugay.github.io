@@ -96,15 +96,13 @@ RUN ["/bin/bash", "-c", "touch foo.txt"]
 > Unlike the shell form, the exec form does not invoke a command shell. This means that normal shell processing does not happen. For example, `CMD [ "echo", "$HOME" ]` will not do variable substitution on `$HOME`. If you want shell processing then either use the shell form or execute a shell directly, for example: `CMD [ "sh", "-c", "echo $HOME" ]`. When using the exec form and executing a shell directly, as in the case for the shell form, it is the shell that is doing the environment variable expansion, not docker.
 
 #### Shell Form
-`CMD <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`. 
+`CMD <command>` is the syntax for the Shell form. This type is executed using `/bin/sh -c`. 
 
 #### Exec Form
-`CMD ["<executable>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the preferred form__.
+Syntax for this form is `CMD ["<executable>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the preferred form__.
 
 #### Defaults to ENTRYPOINT
-`CMD ["<arg-1>", ..., "<arg-n>"]` is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. 
-
-If this form is used, both the `CMD` and `ENTRYPOINT` instructions should be specified with the exec form.
+Syntax for this form is `CMD ["<arg-1>", ..., "<arg-n>"]` and this form is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. If this form is used, both the `CMD` and `ENTRYPOINT` instructions should be specified with the exec form.
 
 #### Examples
 The following are valid options:
