@@ -10,7 +10,7 @@ title:  "Dockerfile"
 {:toc}
 
 ## Overview
-A [Dockerfile](https://docs.docker.com/v17.12/engine/reference/builder/) is a text-based build script from which images can be built. The instructionso of Dockerfile can contain:
+A [Dockerfile](https://docs.docker.com/v17.12/engine/reference/builder/) is a text-based build script from which images can be built. The instructions of Dockerfile can contain:
 
 - Selecting the base image
 - Installing the required application
