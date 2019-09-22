@@ -113,3 +113,10 @@ X-NF-Request-ID: 430113ee-49ad-4d0f-ae15-c270b9635100-1238620
  \(__)|
 closed
 ```
+
+## Random Notes
+### SSL/TLS Capabilities of Your Browser
+[SSL Labs](https://www.ssllabs.com/ssltest/viewMyClient.html) offers a webpage where you can check what SSL/TLS protocols your browser supports. 
+
+## Resources
+- https://howhttps.works/
