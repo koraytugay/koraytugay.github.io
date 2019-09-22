@@ -13,11 +13,11 @@ title:  "HTTP"
 Proxy servers sit between the client computer and the Internet and are used for security, filtering targets or contents and caching. 
 
 ```plaintext
-+--------+      +-------+     +--------+      +--------+
-|        +----->+       +---->+        +----->+        |
-| Client |      | Proxy |     |Internet|      | Target |
-|        +<-----+       +<----+        +<-----+        |
-+--------+      +-------+     +--------+      +--------+
+            +--------+      +-------+     +--------+      +--------+
+            |        +----->+       +---->+        +----->+        |
+            | Client |      | Proxy |     |Internet|      | Target |
+            |        +<-----+       +<----+        +<-----+        |
+            +--------+      +-------+     +--------+      +--------+
 ```
 
 SSL connection can be possible in the existence of proxy servers by turning the server into a TCP tunnel with `CONNECT`. More detailed answer can be found in [this](https://stackoverflow.com/a/40885184) answer and in [Section 4.3.6](https://tools.ietf.org/html/rfc7231#section-4.3.6) of Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content RFC. [Wikipedia](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_method) also explains and gives examples on how `CONNECT` works.
