@@ -32,7 +32,7 @@ FROM busybox
 CMD echo Hello world!
 ```
 
-an image can be built by `docker build` as follows:
+an image can be built by:
 
 ```bash
 docker build -t koraytugay/busyhello .
@@ -42,8 +42,6 @@ docker build -t koraytugay/busyhello .
 ### FROM
 `FROM` is the first valid instruction of a Dockerfile and sets the base image for the build process. Value `latest` is the default if no `tag` or `digest` is supplied. `FROM centos` and `FROM ubuntu:16.04` are examples for the `FROM` instruction. 
 
-See the [official documentation](https://docs.docker.com/engine/reference/builder/#from) for detailed information.
-
 ### COPY
 `COPY <src> ... <dst>` can be used to copy files from the host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
 
@@ -52,45 +50,9 @@ FROM busybox
 COPY Dockerfile /
 CMD cat Dockerfile
 ```
-See the [official documentation](https://docs.docker.com/engine/reference/builder/#copy) for detailed information.
 
 ### ADD
 Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
-
-See the [official documentation](https://docs.docker.com/engine/reference/builder/#add) for detailed information.
-
-### ENV
-`ENV <key> <value>` sets environmental variables in the image. 
-
-```dockerfile
-ENV APACHE_LOG_DIR /var/log/apache
-```
-
-Values declared by `ENV` can also be used together with other instructions.
-
-```dockerfile
-ENV BACKUP_DIR backupdir
-WORKDIR /usr/${BACKUP_DIR}
-```
-
-See the [official documentation](https://docs.docker.com/engine/reference/builder/#env) for detailed information.
-
-### ARG
-With `ARG <variable> [=<default value>]` variables that can be passed during image build time can be defined. 
-
-Given the following Dockerfile:
-
-```dockerfile
-ARG user=john_doe
-```
-
-an image can be built overriding the value `johndoe` by:
-
-```bash
-docker build --build-arg user=koraytugay .
-```
-
-Just like `ENV` , declarations can be used together with other instructions.
 
 ### WORKDIR
 `WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN` and `CMD` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
@@ -103,46 +65,62 @@ WORKDIR /mycustom/workdir
 todo
 
 ### EXPOSE
-`EXPOSE <port> [<port>...]` lets you expose multiple ports from the container.
-
-### LABEL
-Metadata can be added to images using `LABEL`.
-
-```dockerfile
-LABEL version="2.0"
-      release-date="2016-08-05"
-```
+Please see [this](https://stackoverflow.com/a/47594352/1173112) answer for `EXPOSE`.
 
 ### RUN
-`RUN` is executed when an image is being built and can be used to run any command. Best practice is to execute multiple commands using one `RUN` instruction. `RUN` command has two types of syntax:
+`RUN` is executed when an image is being built and can be used to run any command. Best practice is to execute multiple commands using one `RUN` instruction since every execution adds a new layer to the image. 
 
-#### Shell Type
-`RUN <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`. `-c` is used for reading commands from string:
+`RUN` has two forms: Shell Form and Exec Form.
+
+#### Shell Form
+Shell Form has the syntax: `RUN <command>` and is defaults to `/bin/sh -c` where `-c` is used for reading commands from string:
 
 ```dockerfile
 FROM alpine
 RUN touch foo.txt
 ```
 
-#### JSON Array
-`RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
+#### Exec Form
+Exec form has the syntax: `RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. This form also lets using a different shell:
 
 ```dockerfile
 FROM alpine
-RUN ["sh", "-c", "touch foo.txt"]
+RUN ["/bin/bash", "-c", "touch foo.txt"]
 ```
 
 ### CMD
-`CMD` is similar to `RUN` with one major difference: execution time. `CMD` is executed when the container is launched and provides the default execution for the container. When the supplied application terminates, the container also terminates. Note that `CMD` can be overridden by `docker run <sub-command>`.
+`CMD` is similar to `RUN` with one major difference: execution time: `CMD` is executed when the container is launched. `CMD` can be overridden by `docker run <sub-command>`.
 
-#### Shell Type
+> __The main purpose of a `CMD` is to provide defaults for an executing container.__ These defaults can include an executable, or they can omit the executable, in which case you must specify an `ENTRYPOINT` instruction as well.
+
+> Unlike the shell form, the exec form does not invoke a command shell. This means that normal shell processing does not happen. For example, `CMD [ "echo", "$HOME" ]` will not do variable substitution on `$HOME`. If you want shell processing then either use the shell form or execute a shell directly, for example: `CMD [ "sh", "-c", "echo $HOME" ]`. When using the exec form and executing a shell directly, as in the case for the shell form, it is the shell that is doing the environment variable expansion, not docker.
+
+#### Shell Form
 `CMD <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`. 
 
-#### JSON Array
-`CMD ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
+#### Exec Form
+`CMD ["<executable>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the preferred form__.
 
-#### Setting Default Parameters to ENTRYPOINT
+#### Defaults to ENTRYPOINT
 `CMD ["<arg-1>", ..., "<arg-n>"]` is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. 
+
+If this form is used, both the `CMD` and `ENTRYPOINT` instructions should be specified with the exec form.
+
+#### Examples
+The following are valid options:
+
+```dockerfile
+ENTRYPOINT ["java"]
+CMD ["Hello"]
+```
+
+```dockerfile
+CMD java Hello
+```
+
+```dockerfile
+CMD ["java", "Hello"]
+```
 
 ### ENTRYPOINT
 `ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT` instead of overriding as it was the case for `CMD`. `ENTRYPOINT` can also be overridden by `docker run --entrypoint <sub-command>`.
