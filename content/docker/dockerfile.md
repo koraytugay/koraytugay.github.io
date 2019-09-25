@@ -65,7 +65,11 @@ WORKDIR /mycustom/workdir
 todo
 
 ### EXPOSE
-Please see [this](https://stackoverflow.com/a/47594352/1173112) answer for `EXPOSE`.
+> The `EXPOSE` instruction does not actually publish the port. 
+>
+> It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published. 
+>
+> To actually publish the port when running the container, use the `-p` flag on docker run to publish and map one or more ports, or the `-P` flag to publish all exposed ports and map them to high-order ports.
 
 ### RUN
 `RUN` is executed when an image is being built and can be used to run any command. Best practice is to execute multiple commands using one `RUN` instruction since every execution adds a new layer to the image. 
@@ -93,40 +97,40 @@ RUN ["/bin/bash", "-c", "touch foo.txt"]
 
 > __The main purpose of a `CMD` is to provide defaults for an executing container.__ These defaults can include an executable, or they can omit the executable, in which case you must specify an `ENTRYPOINT` instruction as well.
 
-> Unlike the shell form, the exec form does not invoke a command shell. This means that normal shell processing does not happen. For example, `CMD [ "echo", "$HOME" ]` will not do variable substitution on `$HOME`. If you want shell processing then either use the shell form or execute a shell directly, for example: `CMD [ "sh", "-c", "echo $HOME" ]`. When using the exec form and executing a shell directly, as in the case for the shell form, it is the shell that is doing the environment variable expansion, not docker.
+> If `CMD` is used to provide default arguments for the `ENTRYPOINT` instruction, both the `CMD` and `ENTRYPOINT` instructions should be specified with the JSON array format.
+
+> When used in the shell or exec formats, the `CMD` instruction sets the command to be executed when running the image.
+
+> If you use the shell form of the `CMD`, then the `<command>` will execute in `/bin/sh -c`.
+
+> If the user specifies arguments to `docker run` then they will override the default specified in `CMD`.
 
 #### Shell Form
 `CMD <command>` is the syntax for the Shell form. This type is executed using `/bin/sh -c`. 
 
 #### Exec Form
-Syntax for this form is `CMD ["<executable>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the preferred form__.
+Syntax for this form is `CMD ["<executable>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. 
+
+> If you want to run your `<command>` without a shell then you must express the command as a JSON array and give the full path to the executable. __This is the preferred form__.
+
+```bash
+FROM ubuntu
+CMD ["/usr/bin/wc","--help"]
+```
 
 #### Defaults to ENTRYPOINT
 Syntax for this form is `CMD ["<arg-1>", ..., "<arg-n>"]` and this form is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. If this form is used, both the `CMD` and `ENTRYPOINT` instructions should be specified with the exec form.
 
-#### Examples
-The following are valid options:
-
-```dockerfile
-ENTRYPOINT ["java"]
-CMD ["Hello"]
-```
-
-```dockerfile
-CMD java Hello
-```
-
-```dockerfile
-CMD ["java", "Hello"]
-```
-
 ### ENTRYPOINT
 `ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT` instead of overriding as it was the case for `CMD`. `ENTRYPOINT` can also be overridden by `docker run --entrypoint <sub-command>`.
 
-`ENTRYPOINT` command has two types of syntax:
+`ENTRYPOINT` command has two forms:
 
-#### Shell Type
+#### Shell Form
 `ENTRYPOINT <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`.
 
-#### JSON Array
-`ENTRYPOINT ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments.
+#### Exec Form
+`ENTRYPOINT ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the prefered form__.
+
+### Understanding ENTRYPOINT and CMD
+Refresh your memory by looking at [this](https://docs.docker.com/v17.12/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact) page over and over.
