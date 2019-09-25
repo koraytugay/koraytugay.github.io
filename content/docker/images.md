@@ -12,7 +12,33 @@ title:  "Docker Images"
 ## Overview
 A Docker Image is a collection of all the required files for an executable. Docker Images are layered, i.e. are stacked on top of each other, with the [base image](https://hub.docker.com/search?category=base&source=verified&type=image) having no parent images.
 
-Docker images can be downloaded from the [Docker Hub](https://hub.docker.com) or built from `Dockerfile`s. 
+Docker images can be downloaded from registires, [Docker Hub](https://hub.docker.com) being an example, built from `Dockerfile`s or from existing containers.
+
+## Downlading an Image From a Registry
+
+```bash
+docker pull ubuntu
+```
+
+## Creating an Image from a Container
+A container can be commited using the `commit` command in a desired state to be stored as an image.
+
+```bash
+docker run -it --rm ubuntu
+
+# Run the following inside the container
+apt-get update
+apt-get install -y wget
+
+# Stop the container by exiting
+exit 
+
+docker commit container-id koraytugay/ubuntu_wget
+# At this point you should have a new image you can start anytime you like
+# that comes with wget
+
+docker run -it --rm koraytugay/ubuntu
+```
 
 ## Related Commands
 ```bash

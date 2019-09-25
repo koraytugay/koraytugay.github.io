@@ -67,7 +67,7 @@ docker run --rm java-helloworld    # Run the container
 `CMD java HelloWorld` can be overridden in container launch time as follows:
 
 ```bash
-docker build -t java-helloworld .  # Build the image
+docker build -t java-helloworld .              # Build the image
 docker run --rm java-helloworld java Goodbye   # Override CMD
 ```
 
@@ -89,20 +89,12 @@ GET / HTTP/1.1
 HOST: localhost
 
 # HTTP/1.1 200 OK
-# Server: nginx/1.17.3
-# Date: Mon, 16 Sep 2019 19:20:44 GMT
-# Content-Type: text/html
-# Content-Length: 612
-# Last-Modified: Tue, 13 Aug 2019 08:50:00 GMT
-# Connection: keep-alive
-# ETag: "5d5279b8-264"
-# Accept-Ranges: bytes
 # 
 # <!DOCTYPE html>
 # <html>
 # <head>
 # <title>Welcome to nginx!</title>
-# .. lot more
+# ..
 ```
 
 ## Ubuntu
@@ -122,24 +114,3 @@ Attaching back to the container can be accomplished by `docker attach container-
 
 ### Running Ubuntu in Background
 Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
-
-## Python Environment in Container
-
-```dockerfile
-FROM python:3.6.9-slim
-RUN pip install pipenv
-```
-
-Build with:
-
-```bash
-docker build -t my-pip-env .
-```
-
-and run by overriding the default entrypoint:
-
-```bash
-docker run --rm -it my-pip-env /bin/sh
-```
-
-This should give you a linux machine with python 3.6.9 and pipenv installed.

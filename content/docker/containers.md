@@ -17,28 +17,6 @@ Containers spin off from images either by runing an image using `docker run imag
 
 A stopped container will keep its state, the data generated in it, but the idea of containers are to be stateless and containers should ideally be started by `--rm` so that they are removed once they finish running.
 
-## Creating an Image from a Container
-A container can be `commit`ed in a desired state to be stored as an image.
-
-__Example__
-```bash
-docker run -it --rm ubuntu
-
-# Run the following inside the container
-apt-get update
-apt-get install -y wget
-wget www.example.com
-
-# Stop the container by exiting
-exit 
-
-docker commit container-id koraytugay/ubuntu_wget
-# At this point you should have a new image you can start anytime you like
-# that comes with wget
-
-docker run -it --rm koraytugay/ubuntu
-```
-
 ## Related Commands
 
 ```bash
