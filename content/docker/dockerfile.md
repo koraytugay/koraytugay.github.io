@@ -73,7 +73,7 @@ Please see [this](https://stackoverflow.com/a/47594352/1173112) answer for `EXPO
 `RUN` has two forms: Shell Form and Exec Form.
 
 #### Shell Form
-Shell Form has the syntax: `RUN <command>` and is defaults to `/bin/sh -c` where `-c` is used for reading commands from string:
+Shell Form has the syntax: `RUN <command>` and is defaults to `/bin/sh -c` where `-c` is used for reading commands from a string:
 
 ```dockerfile
 FROM alpine
@@ -81,7 +81,7 @@ RUN touch foo.txt
 ```
 
 #### Exec Form
-Exec form has the syntax: `RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. This form also lets using a different shell:
+Exec form has the syntax: `RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. This form also lets the user use a different shell:
 
 ```dockerfile
 FROM alpine
