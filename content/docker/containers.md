@@ -13,7 +13,7 @@ title:  "Docker Containers"
 A Docker Container is a running instance of an image.
 
 ## Container Lifecycle
-Containers spin off from images either by runing an image using `docker run image-name` or createed using `docker create image-name`, the difference being a created container will not start running right away. An existing container can be started, stopped or restarted, depending on its state.
+Containers spin off from images either by runing an image using `docker run image-name` or created using `docker create image-name`, the difference being a created container will not start running right away. An existing container can be started, stopped or restarted, depending on its state.
 
 A stopped container will keep its state, the data generated in it, but the idea of containers are to be stateless and containers should ideally be started by `--rm` so that they are removed once they finish running.
 
