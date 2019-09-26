@@ -14,6 +14,20 @@ A Docker Image is a collection of all the required files for an executable. Dock
 
 Docker images can be downloaded from registires, [Docker Hub](https://hub.docker.com) being an example, built from `Dockerfile`s or from existing containers.
 
+## Building an Image from a Dockerfile
+Given a Dockerfile:
+
+```dockerfile
+FROM ubuntu
+CMD echo HelloWorld
+```
+
+an image can be built by:
+
+```bash
+docker build -t ubuntu-helloworld .
+```
+
 ## Downlading an Image From a Registry
 
 ```bash

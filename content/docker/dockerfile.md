@@ -61,9 +61,6 @@ Please see [this](https://stackoverflow.com/questions/24958140) question on Stac
 WORKDIR /mycustom/workdir
 ```
 
-### VOLUME 
-todo
-
 ### EXPOSE
 > The `EXPOSE` instruction does not actually publish the port. 
 >
