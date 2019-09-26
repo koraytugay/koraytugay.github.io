@@ -13,7 +13,19 @@ title:  "Feeling Good"
 My notes on [Feeling Good: The New Mood Therapy](https://www.goodreads.com/book/show/46674.Feeling_Good), written by David D. Burns.
 
 ## Principles of Cognitive Theraphy
-Your cognitions determine your feelings, where cognitions include your toughts, interpretation of your surroundings, beliefes and judgments (what you tell / think about yourself or others). When you feel depressed, you are more likely to focus on negativity in general. You start thinking past was never good and future never will be. You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy. Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
+Your cognitions determine your feelings, where cognitions include your toughts, interpretation of your surroundings, beliefes and judgments (what you tell / think about yourself or others). 
+
+> Be careful of your thoughts, for your thoughts become your words. 
+> 
+> Be careful of your words, for your words become your actions. 
+>
+> Be careful of your actions, for your actions become your habits. 
+> Be careful of your habits, for your habits become your character. 
+> Be careful of your character, for your character becomes your destiny. 
+> 
+> -- Chinese proverb, author unknown
+
+When you feel depressed, you are more likely to focus on negativity in general. You start thinking past was never good and future never will be. You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy. Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
 
 ## Ten Cognitive Distortions
 1. All or Nothing Thinking: Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
