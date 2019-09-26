@@ -20,7 +20,9 @@ Your cognitions determine your feelings, where cognitions include your toughts, 
 > Be careful of your words, for your words become your actions. 
 >
 > Be careful of your actions, for your actions become your habits. 
+>
 > Be careful of your habits, for your habits become your character. 
+>
 > Be careful of your character, for your character becomes your destiny. 
 > 
 > -- Chinese proverb, author unknown
