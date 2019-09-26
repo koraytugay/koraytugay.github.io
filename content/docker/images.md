@@ -69,10 +69,12 @@ docker image ls
 docker run image-name
 ## Parameters
 -P     # Expose ports randomly
--p <host-port>:<container:-port> # Bind ports
+-p <host-port>:<container-port> # Bind port
 -d     # Run in detached mode
 -i     # Make the container interactive by grabbing the standard in
 -t     # Attach a terminal to the container
+-v <volume-name>:<container-dir> # Bind volume
+-v <host-absolute-path>:<container-dir> # Bind host directory to container
 -rm    # Remove container upon stop
 --name # Give container a name
 
