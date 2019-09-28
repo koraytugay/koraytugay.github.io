@@ -16,7 +16,7 @@ Start a busybox container named my-bb with port 5000 exposed in interactive mode
 docker run -it -p 5000:5000 --rm --name my-bb busybox
 ```
 
-### Connecting to Container from Host
+### Container to Host Connection
 You can connect to my-bb from the host simply using `localhost` and the port exposed. In my-bb starting listening on port 5000:
 
 ```bash
@@ -29,7 +29,7 @@ For connecting to container from host:
 telnet localhost 5000
 ```
 
-### Connecting to Host from Container
+### Host to Container Connection
 Start listening on port 5001 in host:
 
 ```bash
