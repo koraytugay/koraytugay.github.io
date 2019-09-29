@@ -27,19 +27,22 @@ docker container ls
 docker container ls -a
 
 # Print exposed ports for a container
-docker container port container-id
+docker container port <container-id>
 
 # Stop a container 
-docker stop container-id
+docker stop <container-id>
+
+# Insoect a container
+docker inspect <container-id>
 
 # Restart a container
-docker start container-id
+docker start <container-id>
 
 # Attach to a running container
-docker attach container-id
+docker attach <container-id>
 
 # Remove a single container
-docker container rm container-id
+docker container rm <container-id>
 
 # Remove all stopped containers
 docker container prune

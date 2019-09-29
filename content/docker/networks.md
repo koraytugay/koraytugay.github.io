@@ -9,35 +9,28 @@ title:  "Docker Networks"
 * TOC
 {:toc}
 
-## Single Container - Default Network
-Start a busybox container named my-bb with port 5000 exposed in interactive mode:
+## Overview
+Docker Enginer by default creates the networks `bridge`, `host` and `none`. When Docker spins up a new container, by default the container is attached to the `bridge` network. 
 
+`host` mode only works on Linux and the container shares the hosts IP address. A container running in `none` network cannot communicate with the external word. 
+
+## Bridge Network
+Bridge network is very simple and useful for development purposes.
+
+## Related Commands
 ```bash
-docker run -it -p 5000:5000 --rm --name my-bb busybox
+docker network create
+
+docker network connect
+
+docker network disconnect
+
+docker network inspect
+
+docker network ls
+
+docker network rm
 ```
 
-### Container to Host Connection
-You can connect to my-bb from the host simply using `localhost` and the port exposed. In my-bb starting listening on port 5000:
-
-```bash
-nc -l -p 5000
-```
-
-For connecting to container from host:
-
-```bash
-telnet localhost 5000
-```
-
-### Host to Container Connection
-Start listening on port 5001 in host:
-
-```bash
-nc -l -p 5001
-```
-
-For connecting to host from container:
-
-```bash
-telnet host.docker.internal 5001
-```
+## Random Notes
+- Container to host: `telnet host.docker.internal <port-number>`
