@@ -18,6 +18,7 @@ Docker Enginer by default creates the networks `bridge`, `host` and `none`. When
 Bridge network is very simple and useful for development purposes.
 
 ## Related Commands
+
 ```bash
 docker network create
 
