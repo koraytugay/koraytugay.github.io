@@ -66,15 +66,10 @@ If we spin up yet another `busybox` container, the two containers can communicat
 
 ```bash
 docker network create
-
 docker network connect
-
 docker network disconnect
-
 docker network inspect
-
 docker network ls
-
 docker network rm
 ```
 
