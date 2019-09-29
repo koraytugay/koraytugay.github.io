@@ -32,8 +32,11 @@ docker container port <container-id>
 # Stop a container 
 docker stop <container-id>
 
-# Insoect a container
+# Inspect a container
 docker inspect <container-id>
+
+# Find port bindings
+docker port <container-id>
 
 # Restart a container
 docker start <container-id>
