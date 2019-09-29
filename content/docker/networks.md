@@ -17,7 +17,7 @@ Docker Enginer by default creates the networks `bridge`, `host` and `none`. When
 ## Bridge Network
 The default `bridge` network is very simple and useful for development purposes. In this mode, all containers and the host can talk to one another however there is no connection between containers on different bridge networks.
 
-Start a jetty container and inspect it:
+Start a busybox container and inspect it:
 
 ```bash
 # Map port 5000 on host to port 6000 on busybox
