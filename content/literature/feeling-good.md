@@ -22,6 +22,10 @@ Your cognitions determine your feelings, where cognitions include your toughts, 
 When you feel depressed, you are more likely to focus on negativity in general. You start thinking past was never good and future never will be. You are dominated with the tought (not the feeling!) that the whole world is dark and gloomy. Depressed peoples cognitions almost always have either distoritons or are plain wrong. __You end up living real feelings, based on distorted toughts.__
 
 ## Ten Cognitive Distortions
+<dl>
+  <dt>All or Nothing Thinking</dt>
+  <dd>Seeing self as a total failure in case performance is not extremely perfect, perfectionism.</dd>
+</dl>
 1. __All or Nothing Thinking__ Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
 1. __Labeling__ A form of overgeneralization where you label yourself or people around you after incidents.
 1. __Overgeneralization__ Believing something happened once or a few times will happen over and over again.
