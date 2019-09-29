@@ -9,6 +9,48 @@ title:  "HTTP"
 * TOC
 {:toc}
 
+## Overview
+HTTP stands for Hypertext Transfer Protocol but is used for transferring all kinds of data and it is a protocol based on plain text.
+
+__HTTP Requests__ are composed of a domain (or an IP address), a resource, a method and usually a bunch of headers. Requests, in addition to headers, can have body too. A hello world in HTTP can be demonstrated by using `telnet example.com 80`:
+
+```plaintext
+Trying 93.184.216.34...
+Connected to example.com.
+Escape character is '^]'.
+GET / HTTP/1.1
+host: example.com
+connection: close
+
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: text/html; charset=UTF-8
+Date: Sun, 29 Sep 2019 21:53:24 GMT
+Etag: "1541025663+ident"
+Expires: Sun, 06 Oct 2019 21:53:24 GMT
+Last-Modified: Fri, 09 Aug 2013 23:54:35 GMT
+Server: ECS (ord/573A)
+Vary: Accept-Encoding
+X-Cache: HIT
+Content-Length: 1270
+Connection: close
+
+<!doctype html>
+<html>
+..
+</html>
+```
+
+The example above shows `host` and `connection` headers. HTTP headers are __not__ case sensitive. There are many other HTTP headers. Following the domain comes the path and the query parameters. For example `/foo/bar/baz?q=1&t=2` consists of the path `/foo/bar/baz` and query parameters `q=1` and `t=2`.
+
+As per methods, here is a summary: `GET` usually does not have any body and used to retrieve data. `POST` usually is used to insert data which is supplied in the request body. `HEAD` asks for HTTP headers only for a given path. `OPTIONS` is used mostly for CORS requests. `DELETE` is used for deleting resources, mostly found in a specific path such as `/v1/orders/id/42` would be a request to delete order with id 42. `PUT` is similar to `POST` but means either insert or update and `PATCH` is used for partial updates. 
+
+`CONNECT` is a special HTTP method. Instead of making a request to a server directly, it asks for a proxy server to open a connection. Proxy servers usually immediatly answer `CONNECT` requests, and blindly forwards any request to destination and vise-versa. 
+
+__HTTP Responses__ are very similar to HTTP Requests in the sense of they also have headers and a body but instead of methods, responsese has statuses such as `200` or `404`.
+
+
+
 ## Proxy Server
 Proxy servers sit between the client computer and the Internet and are used for security, filtering targets or contents and caching. 
 
@@ -115,8 +157,7 @@ closed
 ```
 
 ## Random Notes
-### SSL/TLS Capabilities of Your Browser
-[SSL Labs](https://www.ssllabs.com/ssltest/viewMyClient.html) offers a webpage where you can check what SSL/TLS protocols your browser supports. 
-
-## Resources
-- https://howhttps.works/
+- [SSL Labs](https://www.ssllabs.com/ssltest/viewMyClient.html) offers a webpage where you can check what SSL/TLS protocols your browser supports.
+- [curl](https://curl.haxx.se/) and [wget](https://www.gnu.org/software/wget/) are useful tools for playing with HTTP APIs.
+- [netcat](http://netcat.sourceforge.net/) is very useful for listening on ports. To listen on port 5000: `netcat -l -p 5000`.
+- [howhttps.works](https://howhttps.works/) is fun to go through.
