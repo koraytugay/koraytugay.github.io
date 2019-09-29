@@ -15,7 +15,7 @@ Docker Enginer by default creates the networks `bridge`, `host` and `none`. When
 `host` mode only works on Linux and the container shares the hosts IP address. A container running in `none` network cannot communicate with the external word. 
 
 ## Bridge Network
-The default `bridge` network is very simple and useful for development purposes. In this mode, all containers and the host can talk to one another however there is no connection between containrs on different bridge networks.
+The default `bridge` network is very simple and useful for development purposes. In this mode, all containers and the host can talk to one another however there is no connection between containers on different bridge networks.
 
 Start a jetty container and inspect it:
 
