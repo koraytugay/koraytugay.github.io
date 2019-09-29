@@ -26,9 +26,6 @@ docker container ls
 # List all containers
 docker container ls -a
 
-# Print exposed ports for a container
-docker container port <container-id>
-
 # Stop a container 
 docker stop <container-id>
 
@@ -37,6 +34,20 @@ docker inspect <container-id>
 
 # Find port bindings
 docker port <container-id>
+
+# Spin off a container from an image
+docker run image-name
+## Parameters
+-P     # Bind all exported ports to random ports
+-p <host-port>:<container-port> # Bind host port to container port
+-p <container-port> # Bind port to a random port on host
+-d     # Run in detached mode
+-i     # Make the container interactive by grabbing the standard in
+-t     # Attach a terminal to the container
+-v <volume-name>:<container-dir> # Bind volume
+-v <host-absolute-path>:<container-dir> # Bind host directory to container
+-rm    # Remove container upon stop
+--name # Give container a name, --name=my-container
 
 # Restart a container
 docker start <container-id>

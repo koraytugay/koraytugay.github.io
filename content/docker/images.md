@@ -65,20 +65,6 @@ docker pull hello-world # equivalent to :latest
 # Listing images
 docker image ls
 
-# Spinning off a container from an image
-docker run image-name
-## Parameters
--P     # Bind all exported ports to random ports
--p <host-port>:<container-port> # Bind host port to container port
--p <container-port> # Bind port to a random port on host
--d     # Run in detached mode
--i     # Make the container interactive by grabbing the standard in
--t     # Attach a terminal to the container
--v <volume-name>:<container-dir> # Bind volume
--v <host-absolute-path>:<container-dir> # Bind host directory to container
--rm    # Remove container upon stop
---name # Give container a name, --name=my-container
-
 # Removing an image
 docker image rm image-id
 ```
