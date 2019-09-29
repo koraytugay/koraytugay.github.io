@@ -76,7 +76,7 @@ docker run image-name
 -v <volume-name>:<container-dir> # Bind volume
 -v <host-absolute-path>:<container-dir> # Bind host directory to container
 -rm    # Remove container upon stop
---name # Give container a name
+--name # Give container a name, --name=my-container
 
 # Removing an image
 docker image rm image-id
