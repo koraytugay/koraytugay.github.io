@@ -68,8 +68,9 @@ docker image ls
 # Spinning off a container from an image
 docker run image-name
 ## Parameters
--P     # Expose ports randomly
--p <host-port>:<container-port> # Bind port
+-P     # Bind all exported ports to random ports
+-p <host-port>:<container-port> # Bind host port to container port
+-p <container-port> # Bind port to a random port on host
 -d     # Run in detached mode
 -i     # Make the container interactive by grabbing the standard in
 -t     # Attach a terminal to the container
