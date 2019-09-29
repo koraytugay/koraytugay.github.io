@@ -13,11 +13,11 @@ title:  "HTTP"
 Proxy servers sit between the client computer and the Internet and are used for security, filtering targets or contents and caching. 
 
 ```plaintext
-           +--------+      +-------+     +--------+      +--------+
-           |        +----->+       +---->+        +----->+        |
-           | Client |      | Proxy |     |Internet|      | Target |
-           |        +<-----+       +<----+        +<-----+        |
-           +--------+      +-------+     +--------+      +--------+
++--------+      +-------+     +--------+      +--------+
+|        +----->+       +---->+        +----->+        |
+| Client |      | Proxy |     |Internet|      | Target |
+|        +<-----+       +<----+        +<-----+        |
++--------+      +-------+     +--------+      +--------+
 ```
 
 ### HTTPS Connection over Proxy Server
