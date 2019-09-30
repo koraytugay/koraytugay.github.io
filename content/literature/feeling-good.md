@@ -67,9 +67,6 @@ Every time you feel depressed, stop and try to identify the thought that made yo
 1. You procrastinate even more.
 1. You go back to step 1 and end up in a vicios cycle which ends up in isolation.
 
-### Find the Cause for Motivational Paralysis
-When you think about an undone task, what thoughts immediatly come to your mind?
-
 ### Common Mind-Sets Most Commonly Associated with Do-Nothingism and Procrastination
 <dl>
   <dt>Hopelessness</dt><dd>When you are depressed, you forget you ever felt better or you will ever feel better.</dd>
@@ -86,7 +83,7 @@ When you think about an undone task, what thoughts immediatly come to your mind?
 </dl>
 
 ### How to Beat Procrastination?
-__Action brings motivation__. Do not wait for motivation to take action. Take action which will bring motivation.
+Find the cause for motivational paralysis. When you think about an undone task, what thoughts immediatly come to your mind? Remember: __Action brings motivation__. Do not wait for motivation to take action. Take action which will bring motivation.
 
 #### Fight your Buts
 <table>
