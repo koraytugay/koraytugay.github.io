@@ -72,17 +72,17 @@ When you think about an undone task, what thoughts immediatly come to your mind?
 
 ### Common Mind-Sets Most Commonly Associated with Do-Nothingism and Procrastination
 <dl>
-<dt>Hopelessness</dt><dl>When you are depressed, you forget you ever felt better or you will ever feel better.</dl>
-<dt>Helplessness</dt><dl>You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.</dl>
-<dt>Overwhelming</dt><dl>Imagining <em>all the work</em> that has to be done and being overwhelmed with it before even starting doing anything.</dl>
-<dt>Self Labeling</dt><dl>Labeling yourself a procrastinator hence not doing anything because this is who you are.</dl>
-<dt>Undervaluing Rewards</dt><dl>Beliving doing the task is not worth the effort.</dl>
-<dt>Perfectionism</dt><dl>Defeating self with inapproproate goals and standards and ending up settling with <em>nothing</em> instead.</dl>
-<dt>Fear of Success or Fear of Failure</dt><dl>Afraid of failing or successing so that you will need success every other time.</dl>
-<dt>Fear of Disapproval</dt><dl>Fear of criticsm, or fear of being able to handle any sort of criticism.</dl>
-<dt>Coercion and Resentment</dt><dl>Trying to motivate yourself with <em>should</em> statements which ends up building stress and anxiety.</dl>
-<dt>Low Frustration Tolerance</dt><dl>Beliving in <em>For all the miles I have gone, I should be..</em> and not realising any steps you have taken so far.</dl>
-<dt>Guilt and Self Blame</dt><dl>Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.</dl>
+  <dt>Hopelessness</dt><dl>When you are depressed, you forget you ever felt better or you will ever feel better.</dl>
+  <dt>Helplessness</dt><dl>You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.</dl>
+  <dt>Overwhelming</dt><dl>Imagining <em>all the work</em> that has to be done and being overwhelmed with it before even starting doing anything.</dl>
+  <dt>Self Labeling</dt><dl>Labeling yourself a procrastinator hence not doing anything because this is who you are.</dl>
+  <dt>Undervaluing Rewards</dt><dl>Beliving doing the task is not worth the effort.</dl>
+  <dt>Perfectionism</dt><dl>Defeating self with inapproproate goals and standards and ending up settling with <em>nothing</em> instead.</dl>
+  <dt>Fear of Success or Fear of Failure</dt><dl>Afraid of failing or successing so that you will need success every other time.</dl>
+  <dt>Fear of Disapproval</dt><dl>Fear of criticsm, or fear of being able to handle any sort of criticism.</dl>
+  <dt>Coercion and Resentment</dt><dl>Trying to motivate yourself with <em>should</em> statements which ends up building stress and anxiety.</dl>
+  <dt>Low Frustration Tolerance</dt><dl>Beliving in <em>For all the miles I have gone, I should be..</em> and not realising any steps you have taken so far.</dl>
+  <dt>Guilt and Self Blame</dt><dl>Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.</dl>
 </dl>
 
 ### How to Beat Procrastination?
