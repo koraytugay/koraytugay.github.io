@@ -23,19 +23,17 @@ When you feel depressed, you are more likely to focus on negativity in general. 
 
 ## Ten Cognitive Distortions
 <dl>
-  <dt>All or Nothing Thinking</dt>
-  <dd>Seeing self as a total failure in case performance is not extremely perfect, perfectionism.</dd>
+    <dt>All or Nothing Thinking</dt><dd>Seeing self as a total failure in case performance is not extremely perfect, perfectionism.</dd>
+    <dt>Labeling</dt><dd>A form of overgeneralization where you label yourself or people around you after incidents.</dd>
+    <dt>Overgeneralization</dt><dd>Believing something happened once or a few times will happen over and over again.</dd>
+    <dt>Jumpingto Conclusions </dt><dd>Reading minds of other people, predicting the future</dd>
+    <dt>Mental Filter</dt><dd>Filtering out all positive experiences and being left with only negative.</dd>
+    <dt>Disqualifying the Positive</dt><dd>Believing positive experiences do not count for whatever reason or were fake.</dd>
+    <dt>Magnification or Minimization</dt><dd>Magnifying the importance of bad situations or minimizing achievements.</dd>
+    <dt>Should Statements</dt><dd>Falsely replacing _wants_ with _shoulds_ and _musts_.</dd>
+    <dt>Emotional Reasoning</dt><dd>Thinking that how you feel is the reality as in _I feel bad so I am bad_.</dd>
+    <dt>Personalization</dt><dd>Taking blame on yourself incorrectly for things that are out of your control.</dd>
 </dl>
-1. __All or Nothing Thinking__ Seeing self as a total failure in case performance is not extremely perfect, perfectionism.
-1. __Labeling__ A form of overgeneralization where you label yourself or people around you after incidents.
-1. __Overgeneralization__ Believing something happened once or a few times will happen over and over again.
-1. __Jumping to Conclusions__ Reading minds of other people, predicting the future
-1. __Mental Filter__ Filtering out all positive experiences and being left with only negative.
-1. __Disqualifying the Positive__ Believing positive experiences do not count for whatever reason or were fake.
-1. __Magnification or Minimization__ Magnifying the importance of bad situations or minimizing achievements.
-1. __Should Statements__ Falsely replacing _wants_ with _shoulds_ and _musts_.
-1. __Emotional Reasoning__ Thinking that how you feel is the reality as in _I feel bad so I am bad_.
-1. __Personalization__ Taking blame on yourself incorrectly for things that are out of your control.
 
 ### Identifying Cognitive Distortions
 Every time you feel depressed, stop and try to identify the thought that made you feel the way you are feeling. See if your thought contains any of the distortions listed above.
