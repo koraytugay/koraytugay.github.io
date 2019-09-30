@@ -71,7 +71,7 @@ Every time you feel depressed, stop and try to identify the thought that made yo
 When you think about an undone task, what thoughts immediatly come to your mind?
 
 ### Common Mind-Sets Most Commonly Associated with Do-Nothingism and Procrastination
-<dl></dl>
+<dl>
 <dt>Hopelessness</dt><dl>When you are depressed, you forget you ever felt better or you will ever feel better.</dl>
 <dt>Helplessness</dt><dl>You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.</dl>
 <dt>Overwhelming</dt><dl>Imagining <em>all the work</em> that has to be done and being overwhelmed with it before even starting doing anything.</dl>
