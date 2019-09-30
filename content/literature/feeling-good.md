@@ -26,7 +26,7 @@ When you feel depressed, you are more likely to focus on negativity in general. 
     <dt>All or Nothing Thinking</dt><dd>Seeing self as a total failure in case performance is not extremely perfect, perfectionism.</dd>
     <dt>Labeling</dt><dd>A form of overgeneralization where you label yourself or people around you after incidents.</dd>
     <dt>Overgeneralization</dt><dd>Believing something happened once or a few times will happen over and over again.</dd>
-    <dt>Jumpingto Conclusions </dt><dd>Reading minds of other people, predicting the future</dd>
+    <dt>Jumpingto Conclusions </dt><dd>Reading minds of other people, predicting the future.</dd>
     <dt>Mental Filter</dt><dd>Filtering out all positive experiences and being left with only negative.</dd>
     <dt>Disqualifying the Positive</dt><dd>Believing positive experiences do not count for whatever reason or were fake.</dd>
     <dt>Magnification or Minimization</dt><dd>Magnifying the importance of bad situations or minimizing achievements.</dd>
@@ -71,17 +71,19 @@ Every time you feel depressed, stop and try to identify the thought that made yo
 When you think about an undone task, what thoughts immediatly come to your mind?
 
 ### Common Mind-Sets Most Commonly Associated with Do-Nothingism and Procrastination
-- __Hopelessness__ When you are depressed, you forget you ever felt better or you will ever feel better.
-- __Helplessness__ You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.
-- __Overwhelming__ Imagining _all the work_ that has to be done and being overwhelmed with it before even starting doing anything.
-- __Self Labeling__ Labeling yourself a procrastinator hence not doing anything because this is who you are.
-- __Undervaluing Rewards__ Beliving doing the task is not worth the effort.
-- __Perfectionism__ Defeating self with inapproproate goals and standards and ending up settling with _nothing_ instead.
-- __Fear of Success or Fear of Failure__ Afraid of failing or successing so that you will need success every other time.
-- __Fear of Disapproval__ Fear of criticsm, or fear of being able to handle any sort of criticism.
-- __Coercion and Resentment__ Trying to motivate yourself with _should_ statements which ends up building stress and anxiety.
-- __Low Frustration Tolerance__ Beliving in _For all the miles I have gone, I should be.._ and not realising any steps you have taken so far.
-- __Guilt and Self Blame__ Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.
+<dl></dl>
+<dt>Hopelessness</dt><dl>When you are depressed, you forget you ever felt better or you will ever feel better.</dl>
+<dt>Helplessness</dt><dl>You are convinced your moods are caused by factors beyond your control such as fate, luck or other peoples evaluations.</dl>
+<dt>Overwhelming</dt><dl>Imagining <em>all the work</em> that has to be done and being overwhelmed with it before even starting doing anything.</dl>
+<dt>Self Labeling</dt><dl>Labeling yourself a procrastinator hence not doing anything because this is who you are.</dl>
+<dt>Undervaluing Rewards</dt><dl>Beliving doing the task is not worth the effort.</dl>
+<dt>Perfectionism</dt><dl>Defeating self with inapproproate goals and standards and ending up settling with <em>nothing</em> instead.</dl>
+<dt>Fear of Success or Fear of Failure</dt><dl>Afraid of failing or successing so that you will need success every other time.</dl>
+<dt>Fear of Disapproval</dt><dl>Fear of criticsm, or fear of being able to handle any sort of criticism.</dl>
+<dt>Coercion and Resentment</dt><dl>Trying to motivate yourself with <em>should</em> statements which ends up building stress and anxiety.</dl>
+<dt>Low Frustration Tolerance</dt><dl>Beliving in <em>For all the miles I have gone, I should be..</em> and not realising any steps you have taken so far.</dl>
+<dt>Guilt and Self Blame</dt><dl>Beliving you are bad or have let others down already in life which takes away any motivation to move on in life.</dl>
+</dl>
 
 ### How to Beat Procrastination?
 __Action brings motivation__. Do not wait for motivation to take action. Take action which will bring motivation.
