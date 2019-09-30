@@ -26,7 +26,7 @@ When you feel depressed, you are more likely to focus on negativity in general. 
     <dt>All or Nothing Thinking</dt><dd>Seeing self as a total failure in case performance is not extremely perfect, perfectionism.</dd>
     <dt>Labeling</dt><dd>A form of overgeneralization where you label yourself or people around you after incidents.</dd>
     <dt>Overgeneralization</dt><dd>Believing something happened once or a few times will happen over and over again.</dd>
-    <dt>Jumpingto Conclusions </dt><dd>Reading minds of other people, predicting the future.</dd>
+    <dt>Jumping to Conclusions </dt><dd>Reading minds of other people, predicting the future.</dd>
     <dt>Mental Filter</dt><dd>Filtering out all positive experiences and being left with only negative.</dd>
     <dt>Disqualifying the Positive</dt><dd>Believing positive experiences do not count for whatever reason or were fake.</dd>
     <dt>Magnification or Minimization</dt><dd>Magnifying the importance of bad situations or minimizing achievements.</dd>
