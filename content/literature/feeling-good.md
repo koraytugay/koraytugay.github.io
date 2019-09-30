@@ -30,8 +30,8 @@ When you feel depressed, you are more likely to focus on negativity in general. 
     <dt>Mental Filter</dt><dd>Filtering out all positive experiences and being left with only negative.</dd>
     <dt>Disqualifying the Positive</dt><dd>Believing positive experiences do not count for whatever reason or were fake.</dd>
     <dt>Magnification or Minimization</dt><dd>Magnifying the importance of bad situations or minimizing achievements.</dd>
-    <dt>Should Statements</dt><dd>Falsely replacing _wants_ with _shoulds_ and _musts_.</dd>
-    <dt>Emotional Reasoning</dt><dd>Thinking that how you feel is the reality as in _I feel bad so I am bad_.</dd>
+    <dt>Should Statements</dt><dd>Falsely replacing <em>wants</em> with <em>shoulds</em> and <em>musts</em>.</dd>
+    <dt>Emotional Reasoning</dt><dd>Thinking that how you feel is the reality as in <em>I feel bad so I am bad</em>.</dd>
     <dt>Personalization</dt><dd>Taking blame on yourself incorrectly for things that are out of your control.</dd>
 </dl>
 
