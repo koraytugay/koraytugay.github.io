@@ -122,7 +122,7 @@ Java is supposed to be _compile once, run anywhere_ but sometimes it is just not
 1. Download the JRE version you want to verify your application against from Oracle 's [download](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html) page to a folder you will share with the container. For me it will be `/app`. Stick to a 64-bit linux tar option.
 1. Put your jar file to `/app` as well.
 1. Start ubuntu in a container with `docker run --rm -it -v /app:/app -v ubuntu:16.04`.
-1. Inside the container go to `usr/java`, create it if it does not exist.
+1. Inside the container go to `/usr/java`, create it if it does not exist.
 1. Copy the tar file you downloaded with `cp /app/jre-xxx-linux-x64.tar.gz .`.
 1. Extract it `tar zxvf jre-8u45-linux-x64.tar.gz`.
 1. Fix the version and execute `export JAVA_HOME=/usr/java/jre1.8.0_45`.
