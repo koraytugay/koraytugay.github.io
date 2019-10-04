@@ -237,7 +237,7 @@ The Third Way shows us how to create a culture that simultaneously fosters exper
 <dt>Patty</dt><dd>Director of IT Service Support.</dd>
 <dt>Steve</dt><dd>CEO and acting CIO.</dd>
 <dt>Wes</dt><dd>Director of Distributed Technology Operations who is responsible for maintenence of servers and databases.</dd>
-<dl>
+</dl>
 
 ### Acronyms
 <dl>
