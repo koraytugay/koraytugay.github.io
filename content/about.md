@@ -10,13 +10,7 @@ title:  "About"
 {:toc}
 
 ## About This Page
-I like taking notes, it helps me keep in several ways:
-
-- It motivates me and avoids me from procrastination.
-- I like going back to my notes, reading my own notes is very helpful for me to refresh my knowledge on that topic.
-- I am hoping it will be a long journey, and I enjoy the journey itself.
-- I am hoping to reach out to people.
-- Writing is very relaxing and acts as a kind of therapy for me.
+I like taking notes, it helps me keep in several ways: It motivates me and avoids procrastination. I also like going back to my own notes, I realised reading my own notes is very helpful in refreshing my knowledge on a topic. It is also very nice to share knowledge and writing is like a theraphy. 
 
 And last but not least, lets not forget..
 
@@ -27,7 +21,7 @@ Hit `H` on your keyboard to go back to homepage.
 
 ## About Me
 ### Personal
-I am a `Year.now().compareTo(Year.of(1984))` years old Software Developer working mainly with Java. I am married and  a father to cutest boys in the world.
+I am a software developer working mainly with Java. I am married and  a father to cutest boys in the world.
 
 I am by no means assertive in any way and usually very suspicious even to my own ideas. I am usually confused by how people can have very strong claims whether on programming or politics or whatever topic really.
 
