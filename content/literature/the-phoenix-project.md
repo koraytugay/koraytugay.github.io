@@ -227,21 +227,26 @@ The Third Way shows us how to create a culture that simultaneously fosters exper
 ## Further References
 - [Gene Kim Defines the 3 Ways of The Phoenix Project](https://www.youtube.com/watch?v=nUOXDEvplRc)
 
-
 ## Appendix
 ### Characters
-- __Bill:__ Former Director of Midrange Technology Operations and VP of IT Operations.
-- __Brent:__ A highly skilled engineer.
-- __Chris:__ VP of Application Development.
-- __Erik:__ Technology hotshot and a potential board member.
-- __Patty:__ Director of IT Service Support.
-- __Steve:__ CEO and acting CIO.
-- __Wes:__ Director of Distributed Technology Operations who is responsible for maintenence of servers and databases.
+<dl>
+<dt>Bill</dt><dd>Former Director of Midrange Technology Operations and VP of IT Operations.</dd>
+<dt>Brent</dt><dd>A highly skilled engineer.</dd>
+<dt>Chris</dt><dd>VP of Application Development.</dd>
+<dt>Erik</dt><dd>Technology hotshot and a potential board member.</dd>
+<dt>Patty</dt><dd>Director of IT Service Support.</dd>
+<dt>Steve</dt><dd>CEO and acting CIO.</dd>
+<dt>Wes</dt><dd>Director of Distributed Technology Operations who is responsible for maintenence of servers and databases.</dd>
+<dl>
 
 ### Acronyms
-- __CAB:__ Change Advisory Board, responsible for Change Management Process.
-- __SAN:__ Storage Area Networks, provides centralized storage to many critical systems where failures are typically global.
+<dl>
+<dt>CAB</dt><dd>Change Advisory Board, responsible for Change Management Process.</dd>
+<dt>SAN</dt><dd>Storage Area Networks, provides centralized storage to many critical systems where failures are typically global.</dd>
+</dl>
 
 ### Places
-- __Parts Unlimited:__ Manufacturing and retail company.
-- __NOC:__ Network Operations Center, a large area displaying the status of all the various IT services on large monitors.
+<dl>
+<dt>Parts Unlimited</dt><dd>Manufacturing and retail company.</dd>
+<dt>NOC</dt><dd>Network Operations Center, a large area displaying the status of all the various IT services on large monitors.</dd>
+</dl>
