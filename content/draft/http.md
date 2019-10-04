@@ -47,7 +47,7 @@ As per methods, here is a summary: `GET` usually does not have any body and used
 
 `CONNECT` is a special HTTP method. Instead of making a request to a server directly, it asks for a proxy server to open a connection. Proxy servers usually immediatly answer `CONNECT` requests, and blindly forwards any request to destination and vise-versa. 
 
-__HTTP Responses__ are very similar to HTTP Requests in the sense of they also have headers and a body but instead of methods, responsese has statuses such as `200` or `404`.
+__HTTP Responses__ are very similar to HTTP Requests in the sense of they also have headers and a body but instead of methods, responses has statuses such as `200` or `404`.
 
 
 
