@@ -51,13 +51,11 @@ With some noise removed, a sample information returned will be as follows:
 }
 ```
 
-### Container to Host Connection
-
-Here, the hosts IP address is `192.168.0.10` which is not seen anywhere returned by `container inspect`.
-
+### Host to Container Connection
 When `busybox` is listening on port `6000` with `nc -l -p 6000`, host can connect to the container by `telnet localhost 5000`. Using the containers IP address, `telnet 172.17.0.2 5000` does __not__ work. 
 
-The container, in return, can connect to the host by using the IP address. Assume the host is listening on port `8000` with `nc -l -p 8000`. In this case container can connect to the host by `telnet 192.168.0.10 8000`. 
+### Container to Host Connection
+The container can connect to the host by using the the hosts IP address. Assume the host has the local IP address `192.168.0.10` and is listening on port `8000` with `nc -l -p 8000`. In this case container can connect to the host by `telnet 192.168.0.10 8000`. 
 
 ### Container to Container Connection
 If we spin up yet another `busybox` container, the two containers can communicate with each other by directly using the IP addresses. Given the second container has the IP address: `172.17.0.3` and listening on port `7000` with: `nc -l -p 7000`, the first container can simply connect with `telnet 172.17.0.3 7000`.
