@@ -13,7 +13,7 @@ title:  "Docker Volumes"
 Volumes are used for decoupling containers from storage and sharing data between containers. When volumes are _properly_ used, data is not lost upon container removal.
 
 ## Using the VOLUME Instruction in Dockerfile
-The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/58248523), [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
+The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
 
 ## Sharing Data Between Containers With Docker Volumes
 Start by creating a volume:
