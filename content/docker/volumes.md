@@ -10,7 +10,10 @@ title:  "Docker Volumes"
 {:toc}
 
 ## Overview
-Volumes are used for decoupling containers from storage and sharing data between containers. When volumes are used, data is not lost upon container removal.
+Volumes are used for decoupling containers from storage and sharing data between containers. When volumes are _properly_ used, data is not lost upon container removal.
+
+## Using the VOLUME Instruction in Dockerfile
+The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/58248523), [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
 
 ## Sharing Data Between Containers With Docker Volumes
 Start by creating a volume:
@@ -37,6 +40,8 @@ Mounting a local directory is very much same with attaching a volume to a contai
 ```bash
 docker run -it --rm -v /Users/kt/delete-me:/data busybox
 ```
+
+The host path must be an absolute path, but you can use `$(pwd)` to start from the working path, as in `$(pwd)/resources`.
 
 ## Related Commands
 

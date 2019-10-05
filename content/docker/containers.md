@@ -38,7 +38,7 @@ docker port <container-id>
 # Spin off a container from an image
 docker run image-name
 ## Parameters
--P     # Bind all exported ports to random ports
+-P     # Bind all exposed ports to random ports
 -p <host-port>:<container-port> # Bind host port to container port
 -p <container-port> # Bind port to a random port on host
 -d     # Run in detached mode
