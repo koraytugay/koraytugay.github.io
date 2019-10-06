@@ -10,13 +10,51 @@ title:  "Proxy Servers"
 {:toc}
 
 ## Proxy Server
-Proxy servers sit between the client computer and the Internet and are used for security, filtering targets or contents and caching. 
+Proxy servers sit between the client computer and the Internet and are used for security, filtering targets or contents and caching. HTTP proxy servers are both web servers and web clients. Proxy servers can be categorized as _forward proxy servers_ and _reverse proxy servers_ depending on where they are located. 
+
+### Forward Proxy Servers
+A forward proxy server is usually found at the exit point of a local network to control the traffic between the local network and the Internet. 
+
+### Reverse Proxy Servers
+A reverse proxy server (also named as a surrogate) typically assumes the name and IP address of the web server directly. In case of reverse proxy servers, a client would not be aware of connecting to a reverse proxy. 
 
 ## HTTPS Connection over Proxy Server
 SSL connection can be possible in the existence of proxy servers by turning the server into a TCP tunnel with `CONNECT`. More detailed answer can be found in [this](https://stackoverflow.com/a/40885184) answer and in [Section 4.3.6](https://tools.ietf.org/html/rfc7231#section-4.3.6) of Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content RFC. [Wikipedia](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_method) also explains and gives examples on how `CONNECT` works.
 
-## A Very Simple Proxy in Java
+## How a Proxy Server Gets a Traffic
+A client can intentionally configure a proxy server for whatever reason. A proxy server at the operating system level can be configured for a client, in which case all the HTTP traffic, including any browser running on the computer will use. In this situation, clients will be aware that they are behind a proxy server, and will act somewhat differently. For example, for a secure HTTP connection via HTTPS, client will first send a `CONNECT` to the Proxy Server, instead of a HTTP request. We can observe this behaviour by the following. Start listening on port `8443` using netcat:
 
+```bash
+nc -l -p 8843
+``` 
+
+And try to establish an HTTPS connecting to port 8843 using your browser by trying `https://localhost:8843`.
+
+The content you will see in netcat will be giberish:
+
+```plaintext
+???h???\Ϡ???gTR@R?02??<J=?`?0?,?(?$??
+?k9̨̩̪??????=5???/?+?'?#??  ?g3?E?</?A????
+    ?6
+
+??????
+```
+
+Now configure your operating system to use proxy for HTTPS at `localhost` on port `8844` and start listening on port `8844`:
+
+```bash
+nc -l -p 8844
+```
+
+Again, try establishing an HTTPS connection using your browser. This time you should be seeing a `CONNECT` request:
+
+```plaintext
+CONNECT clients2.google.com:443 HTTP/1.1
+Host: clients2.google.com:443
+Proxy-Connection: keep-alive
+```
+
+## A Very Simple Proxy in Java
 pom.xml
 
 ```xml
@@ -68,7 +106,7 @@ pom.xml
 ```
 
 MiniProxy.java
-
+    
 ```java
 package biz.tugay;
 
