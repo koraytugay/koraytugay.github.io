@@ -18,11 +18,14 @@ A forward proxy server is usually found at the exit point of a local network to 
 ### Reverse Proxy Servers
 A reverse proxy server (also named as a surrogate) typically assumes the name and IP address of the web server directly. In case of reverse proxy servers, a client would not be aware of connecting to a reverse proxy. 
 
-## HTTPS Connection over Proxy Server
+## How a Proxy Server Gets a Traffic
+### Client Configured Proxy
+A client can intentionally configure a proxy server for whatever reason. A proxy server at the operating system level can be configured for a client, in which case all the HTTP traffic, including any browser running on the computer will use. In this situation, clients will be aware that they are behind a proxy server, and will act differently in some situations: For example, for a secure HTTP connection via HTTPS, client will first send a `CONNECT` to the Proxy Server, instead of a HTTP request.
+
+#### SSL Connection Behind a Proxy Server
 SSL connection can be possible in the existence of proxy servers by turning the server into a TCP tunnel with `CONNECT`. More detailed answer can be found in [this](https://stackoverflow.com/a/40885184) answer and in [Section 4.3.6](https://tools.ietf.org/html/rfc7231#section-4.3.6) of Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content RFC. [Wikipedia](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_method) also explains and gives examples on how `CONNECT` works.
 
-## How a Proxy Server Gets a Traffic
-A client can intentionally configure a proxy server for whatever reason. A proxy server at the operating system level can be configured for a client, in which case all the HTTP traffic, including any browser running on the computer will use. In this situation, clients will be aware that they are behind a proxy server, and will act somewhat differently. For example, for a secure HTTP connection via HTTPS, client will first send a `CONNECT` to the Proxy Server, instead of a HTTP request. We can observe this behaviour by the following. Start listening on port `8443` using netcat:
+We can observe this behaviour by the following. Start listening on port `8443` using netcat:
 
 ```bash
 nc -l -p 8843
@@ -53,6 +56,9 @@ CONNECT clients2.google.com:443 HTTP/1.1
 Host: clients2.google.com:443
 Proxy-Connection: keep-alive
 ```
+
+### Network Interceptors
+Network Interceptors are usually used in office locations or schools. The clients may be configured to use a proxy, or may be unaware. The proxy server resides before the Internet intercepting all requests.
 
 ## A Very Simple Proxy in Java
 pom.xml
