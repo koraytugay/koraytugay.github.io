@@ -41,7 +41,7 @@ Mounting a local directory is very much same with attaching a volume to a contai
 docker run -it --rm -v /Users/kt/delete-me:/data busybox
 ```
 
-The host path must be an absolute path, but you can use `$(pwd)` to start from the working path, as in `$(pwd)/resources`.
+The host path must be an absolute path. You can use `$(pwd)` or (`"$PWD"`) to start from the working path, as in `$(pwd)/resources`. 
 
 ## Related Commands
 
