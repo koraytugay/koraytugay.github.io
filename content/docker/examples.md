@@ -116,7 +116,6 @@ Attaching back to the container can be accomplished by `docker attach container-
 Trying to run ubuntu with `docker run -d ubuntu` hoping the container will not immediately stop will not work. The correct way to achieve this is explained [here](https://stackoverflow.com/a/36872226/1173112).
 
 ## Testing Java Applications Against Various JREs in Containers
-
 Java is supposed to be _compile once, run anywhere_ but sometimes it is just not the case and you might end up needing to run your application against a specific JRE. This can easily be achieved by using Docker.
 
 1. Download the JRE version you want to verify your application against from Oracle 's [download](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html) page to a folder you will share with the container. For me it will be `/app`. Stick to a 64-bit linux tar option.
@@ -128,3 +127,9 @@ Java is supposed to be _compile once, run anywhere_ but sometimes it is just not
 1. Fix the version and execute `export JAVA_HOME=/usr/java/jre1.8.0_45`.
 1. Execute `export PATH=${PATH}:${JAVA_HOME}/bin`.
 1. Navigate to `app` via `cd /app` and execute your program with `java ..`.
+
+## Converting mov to mp4 in a Container
+
+```bash
+docker run -v $PWD:/tmp jrottenberg/ffmpeg -i /tmp/a.mov /tmp/a.mp4
+```
