@@ -128,7 +128,7 @@ Java is supposed to be _compile once, run anywhere_ but sometimes it is just not
 1. Execute `export PATH=${PATH}:${JAVA_HOME}/bin`.
 1. Navigate to `app` via `cd /app` and execute your program with `java ..`.
 
-## Converting mov to mp4 in a Container
+## Using ffmpeg in a Container
 
 ```bash
 docker run -v $PWD:/tmp jrottenberg/ffmpeg -i /tmp/a.mov /tmp/a.mp4
