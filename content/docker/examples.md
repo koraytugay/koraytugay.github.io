@@ -133,3 +133,26 @@ Java is supposed to be _compile once, run anywhere_ but sometimes it is just not
 ```bash
 docker run -v $PWD:/tmp jrottenberg/ffmpeg -i /tmp/a.mov /tmp/a.mp4
 ```
+
+## Using Git in a Container
+Build an image that will allow us to run git making use of the following Dockerfile by running the command: `docker image build -t alpine-git .`.
+
+```dockerfile
+FROM alpine:3.10
+RUN apk add --no-cache git
+
+```
+
+Cloning and updating a git repository using the container:
+
+```bash
+docker container run --rm -w /tmp -v $PWD:/tmp alpine-git git clone https://github.com/koraytugay/glw.git
+docker container run --rm -w /tmp/glw -v $PWD:/tmp alpine-git git pull
+```
+
+Instead of changing the working directory, multiple commands can be used as follows:
+
+```bash
+docker container run --rm -v $PWD:/tmp alpine-git /bin/sh -c "cd tmp; git clone https://github.com/koraytugay/glw.git"
+docker container run --rm -v $PWD:/tmp alpine-git /bin/sh -c "cd tmp/glw; git pull"
+```
