@@ -86,13 +86,15 @@ CMD echo $PWD
 and inspecting the image, we will see that no Entrypoint exists, the working directory is `/tmp` and the command to be executed is: `["/bin/sh", "-c", "echo $PWD"]`
 
 ```json
-"Entrypoint": null,
-"Cmd": [
-    "/bin/sh",
-    "-c",
-    "echo $PWD"
-],
-"WorkingDir": "/tmp"
+{
+    "Entrypoint": null,
+    "Cmd": [
+        "/bin/sh",
+        "-c",
+        "echo $PWD"
+    ],
+    "WorkingDir": "/tmp"
+}
 ```
 
 Running the container will echo the environmental variable `PWD`:
