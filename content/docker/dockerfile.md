@@ -38,6 +38,8 @@ an image can be built by:
 docker build -t koraytugay/busyhello .
 ````
 
+Another advantage of using Dockerfiles is, they integrate easily with existing build systems and continuous integration tools.
+
 ## Dockerfile Instructions
 ### FROM
 `FROM` is the first valid instruction of a Dockerfile and sets the base image for the build process. Value `latest` is the default if no `tag` or `digest` is supplied. `FROM centos` and `FROM ubuntu:16.04` are examples for the `FROM` instruction. 
