@@ -72,6 +72,44 @@ docker run --rm --env msg="Bye Bye" alpine-hello
 # Bye Bye
 ```
 
+### WORKDIR
+`WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN`, `CMD` and `ENTRYPOINT` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
+
+Build an image using the following Dockerfile:
+
+```dockerfile
+FROM alpine
+WORKDIR /tmp
+CMD echo $PWD
+```
+
+and inspecting the image, we will see that no Entrypoint exists, the working directory is `/tmp` and the command to be executed is: `["/bin/sh", "-c", "echo $PWD"]`
+
+```json
+"Entrypoint": null,
+"Cmd": [
+    "/bin/sh",
+    "-c",
+    "echo $PWD"
+],
+"WorkingDir": "/tmp"
+```
+
+Running the container will echo the environmental variable `PWD`:
+
+```bash
+docker run --rm my-alpine
+# /tmp
+```
+
+This example will behave exatcly same, in case you change the Dockerfile as follows:
+
+```dockerfile
+FROM alpine
+WORKDIR /tmp
+ENTRYPOINT echo $PWD
+```
+
 ### COPY
 `COPY <src> ... <dst>` can be used to copy files from the host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
 
@@ -81,15 +119,10 @@ COPY Dockerfile /
 CMD cat Dockerfile
 ```
 
+with only difference being, inspect resulting Cmd to be null but Entrypoint to be `["/bin/sh", "-c", "echo $PWD"]`.
+
 ### ADD
 Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
-
-### WORKDIR
-`WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN`, `CMD` and `ENTRYPOINT` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
-
-```dockerfile
-WORKDIR /mycustom/workdir
-```
 
 ### EXPOSE
 > The `EXPOSE` instruction does not actually publish the port. 
