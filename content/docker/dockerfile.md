@@ -124,15 +124,7 @@ RUN ["/bin/bash", "-c", "touch foo.txt"]
 ### CMD
 `CMD` is similar to `RUN` with one major difference: execution time: `CMD` is executed when the container is launched. `CMD` can be overridden by `docker run <sub-command>`.
 
-> __The main purpose of a `CMD` is to provide defaults for an executing container.__ These defaults can include an executable, or they can omit the executable, in which case you must specify an `ENTRYPOINT` instruction as well.
-
-> If `CMD` is used to provide default arguments for the `ENTRYPOINT` instruction, both the `CMD` and `ENTRYPOINT` instructions should be specified with the JSON array format.
-
-> When used in the shell or exec formats, the `CMD` instruction sets the command to be executed when running the image.
-
-> If you use the shell form of the `CMD`, then the `<command>` will execute in `/bin/sh -c`.
-
-> If the user specifies arguments to `docker run` then they will override the default specified in `CMD`.
+__The main purpose of a `CMD` is to provide defaults for an executing container.__ These defaults can include an executable, or they can omit the executable, in which case you must specify an `ENTRYPOINT` instruction as well. If `CMD` is used to provide default arguments for the `ENTRYPOINT` instruction, both the `CMD` and `ENTRYPOINT` instructions should be specified with the JSON array format. When used in the shell or exec formats, the `CMD` instruction sets the command to be executed when running the image. If you use the shell form of the `CMD`, then the `<command>` will execute in `/bin/sh -c`. If the user specifies arguments to `docker run` then they will override the default specified in `CMD`.
 
 #### Shell Form
 `CMD <command>` is the syntax for the Shell form. This type is executed using `/bin/sh -c`. 
