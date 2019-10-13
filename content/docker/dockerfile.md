@@ -71,6 +71,8 @@ WORKDIR /mycustom/workdir
 ### RUN
 `RUN` is executed when an image is being built and can be used to run any command. Best practice is to execute multiple commands using one `RUN` instruction since every execution adds a new layer to the image. 
 
+Installing software packages is one of the most common use cases for the `RUN` instruction. 
+
 `RUN` has two forms: Shell Form and Exec Form.
 
 #### Shell Form
