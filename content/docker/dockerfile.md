@@ -85,7 +85,7 @@ CMD cat Dockerfile
 Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
 
 ### WORKDIR
-`WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN` and `CMD` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
+`WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN`, `CMD` and `ENTRYPOINT` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
 
 ```dockerfile
 WORKDIR /mycustom/workdir
@@ -114,7 +114,7 @@ RUN touch foo.txt
 ```
 
 #### Exec Form
-Exec form has the syntax: `RUN ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. This form also lets the user use a different shell:
+Exec form has the syntax: `RUN ["<exec>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. This form also lets the user use a different shell:
 
 ```dockerfile
 FROM alpine
