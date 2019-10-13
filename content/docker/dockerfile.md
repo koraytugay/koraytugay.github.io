@@ -44,6 +44,34 @@ Another advantage of using Dockerfiles is, they integrate easily with existing b
 ### FROM
 `FROM` is the first valid instruction of a Dockerfile and sets the base image for the build process. Value `latest` is the default if no `tag` or `digest` is supplied. `FROM centos` and `FROM ubuntu:16.04` are examples for the `FROM` instruction. 
 
+### ENV
+To refresh your memory on environmental variables, see [this](https://askubuntu.com/a/58828) answer.
+
+`ENV` is used to set environment variables, either to be used in the Dockerfile itself or in the image being created. They can also be overridden when running a container.
+
+Starting with the following Dockerfile:
+
+```dockerfile
+FROM alpine
+ENV msg="Hello World"
+CMD echo $msg
+```
+
+Build and run to see the `msg`:
+
+```bash
+docker build -t alpine-hello .
+docker run --rm alpine-hello
+# Hello World
+```
+
+You can also overridde the environmental variable `msg` as follows:
+
+```bash
+docker run --rm --env msg="Bye Bye" alpine-hello
+# Bye Bye
+```
+
 ### COPY
 `COPY <src> ... <dst>` can be used to copy files from the host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
 
