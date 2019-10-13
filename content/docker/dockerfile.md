@@ -151,7 +151,7 @@ Syntax for this form is `CMD ["<arg-1>", ..., "<arg-n>"]` and this form is used 
 `ENTRYPOINT <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`.
 
 #### Exec Form
-`ENTRYPOINT ["<exec", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the prefered form__.
+`ENTRYPOINT ["<exec>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the prefered form__.
 
 ### Understanding ENTRYPOINT and CMD
 Refresh your memory by looking at [this](https://docs.docker.com/v17.12/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact) page over and over.
