@@ -72,7 +72,7 @@ docker run --rm --env msg="Bye Bye" alpine-hello
 # Bye Bye
 ```
 
-Environmental substitution 
+Environmental substitution works for instructions: `ENV`, `ADD`, `COPY`, `LABEL`, `WORKDIR`, `VOLUME`, `EXPOSE` and `USER`.
 
 ### WORKDIR
 `WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN`, `CMD` and `ENTRYPOINT` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
