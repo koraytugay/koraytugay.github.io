@@ -65,12 +65,14 @@ docker run --rm alpine-hello
 # Hello World
 ```
 
-You can also overridde the environmental variable `msg` as follows:
+You can also override the environmental variable `msg` as follows:
 
 ```bash
 docker run --rm --env msg="Bye Bye" alpine-hello
 # Bye Bye
 ```
+
+Environmental substitution 
 
 ### WORKDIR
 `WORKDIR` changes the current working directory from `/` to path specified. This will affect `RUN`, `CMD` and `ENTRYPOINT` instructions. The path can be relative or absolute. In case it is relative, it is relative to the last `WORKDIR` set. If the directory does not exist, it will be created.
