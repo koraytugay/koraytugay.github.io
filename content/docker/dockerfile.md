@@ -114,6 +114,8 @@ WORKDIR /tmp
 ENTRYPOINT echo $PWD
 ```
 
+with only difference being: inspect resulting Cmd to be null but Entrypoint to be `["/bin/sh", "-c", "echo $PWD"]`.
+
 ### COPY
 `COPY <src> ... <dst>` can be used to copy files from the host environment to the image, as in `COPY html /var/www/html` or `COPY file1.txt file2.txt /`. The following Dockerfile will copy itself into the built image, and will print the contents when the image is run.
 
@@ -123,10 +125,19 @@ COPY Dockerfile /
 CMD cat Dockerfile
 ```
 
-with only difference being, inspect resulting Cmd to be null but Entrypoint to be `["/bin/sh", "-c", "echo $PWD"]`.
+`COPY` can also be used using the exec style as follows:
+
+```dockerfile
+COPY ["<file-0>", "<file-1>", "<file-n>", .., "<destination>"]
+```
+
+If any of the arguments contain whitespace, only possibility to make us of the exec form. Using the exec form wherever possible is the best practice. 
 
 ### ADD
 Please see [this](https://stackoverflow.com/questions/24958140) question on Stackoverflow for the differences between `COPY` and `ADD`.
+
+### VOLUME
+`VOLUME` is more useful and powerful when used at container spin-up time, however it has uses in a Dockerfile as well. See [this](https://stackoverflow.com/a/58248523) answer for more information. 
 
 ### EXPOSE
 > The `EXPOSE` instruction does not actually publish the port. 
