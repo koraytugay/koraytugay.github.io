@@ -136,9 +136,7 @@ Please see [this](https://stackoverflow.com/questions/24958140) question on Stac
 > To actually publish the port when running the container, use the `-p` flag on docker run to publish and map one or more ports, or the `-P` flag to publish all exposed ports and map them to high-order ports.
 
 ### RUN
-`RUN` is executed when an image is being built and can be used to run any command. Best practice is to execute multiple commands using one `RUN` instruction since every execution adds a new layer to the image. 
-
-Installing software packages is one of the most common use cases for the `RUN` instruction. 
+`RUN` is executed when an image is being built and can be used to run any command. Installing software packages is one of the most common use cases for the `RUN` instruction. 
 
 `RUN` has two forms: Shell Form and Exec Form.
 
@@ -185,7 +183,7 @@ Syntax for this form is `CMD ["<arg-1>", ..., "<arg-n>"]` and this form is used 
 `ENTRYPOINT` command has two forms:
 
 #### Shell Form
-`ENTRYPOINT <command>` is the shell command to be executed. The shell form prevents any `CMD` or run command line arguments from being used.
+`ENTRYPOINT <command>` is the shell command to be executed. A command specified using the shell form would be executed as an argument to the default shell. The shell form prevents any `CMD` or run command line arguments from being used. In other words, if the shell form is used for `ENTRYPOINT`, then all other arguments provided by the CMD instruction or at runtime as extra arguments to docker container run will be ignored.
 
 #### Exec Form
 `ENTRYPOINT ["<exec>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the prefered form__.
