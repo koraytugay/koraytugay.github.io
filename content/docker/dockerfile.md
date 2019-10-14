@@ -180,12 +180,12 @@ CMD ["/usr/bin/wc","--help"]
 Syntax for this form is `CMD ["<arg-1>", ..., "<arg-n>"]` and this form is used for setting the default parameters to the `ENTRYPOINT` instructions instead of providing an executable. If this form is used, both the `CMD` and `ENTRYPOINT` instructions should be specified with the exec form.
 
 ### ENTRYPOINT
-`ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT` instead of overriding as it was the case for `CMD`. `ENTRYPOINT` can also be overridden by `docker run --entrypoint <sub-command>`.
+`ENTRYPOINT` is similar to `CMD`, however the sub-commands following `docker run` are treated as arguments to `ENTRYPOINT`. `ENTRYPOINT` can also be overridden by `docker run --entrypoint <command>`.
 
 `ENTRYPOINT` command has two forms:
 
 #### Shell Form
-`ENTRYPOINT <command>` is the shell command to be executed. This type is executed using `/bin/sh -c`.
+`ENTRYPOINT <command>` is the shell command to be executed. The shell form prevents any `CMD` or run command line arguments from being used.
 
 #### Exec Form
 `ENTRYPOINT ["<exec>", "<arg-1>", ..., "<arg-n>"]` where `exec` is the executable to run followed by any number of arguments. __This is the prefered form__.
