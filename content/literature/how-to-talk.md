@@ -72,7 +72,7 @@ Try to sympathise with the kid, show them you understand:
     <dt>Put some effort in.</dt>
     <dd>Do not simply say "I agree with you." or "I understand you.". Also, do not simply repeat what they say. There is also no point saying "Seems like you do not like David." when a kid approaches you telling "I do not like David.". You must put some effort in, at least put yourself in the child's shoes and tell how you would have felt.</dd>
     <dt>Accepting feelings does not mean accepting behaviour.</dt>
-    <dd>Take away the butter from their hands as you say _I can see that you are having fun making designs in the butter with your fork. Butter is not for playing with. If you want to make designs, you can use your play-dohs._.</dd>
+    <dd>Take away the butter from their hands as you say <em>I can see that you are having fun making designs in the butter with your fork. Butter is not for playing with. If you want to make designs, you can use your play-dohs.</em>.</dd>
 </dl>
 
 ### Things to Try
