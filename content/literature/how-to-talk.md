@@ -15,16 +15,27 @@ The techniques introduced in this book are not exact solutions and science but r
 ## Helping Children Deal with Their Feelings
 One of the biggest and the most common mistakes is to deny (or refuse) children's feelings. Here are some common examples of denying feelings of a child:
 
-> You don't really feel that way, you are just saying it. You must be tired.
-
-> Are you really upset for this? There is nothing to be upset here.
+- <em>You don't really feel that way, you are just saying it. You must be tired.</em>
+- <em>Are you really upset for this? There is nothing to be upset here.</em>
 
 Instead of denying the feelings, it usually helps a lot to help the children with their feelings. To help with their feelings..
 
 1. Listen with full attention.
-1. Acknowledge their feelings with expressions such as: "I see", or "I understand".
-1. Name the feeling, such as "That is frustrating!" or "This sounds so disappointing.".
+1. Acknowledge their feelings with expressions such as: <em>I see..</em>, or <em>I understand..</em>.
+1. Name the feeling, such as <em>That is frustrating!</em> or <em>This sounds so disappointing.</em>.
 1. Try to fulfill their wishes, either in fantasy or at least making a note to be fulfilled when it is possible in the future.
+
+Imagine a kid who needs to get some shots regularly for a while, here is a list of statements that will not be very helpful:
+
+- Come on now, it can't hurt that much.
+- You're making a big fuss over nothing.
+- You better get used to those shots. After all, you're goung to have to get them every week.
+
+Try to sympathise with the kid, show them you understand:
+
+- Sounds as it really hurts!
+- It cannot be easy to get that shots every week, I am sure you are looking forward for it to end, I know I would have!
+- They really look painful, how long does the pain last after it is over? 
 
 ### Name the Feeling
 What is much more important than following this receipe is our attitude. It takes a lot of concentration and requires a lot of focus to listen with full attention and naming the feeling. Here are some examples:
@@ -49,28 +60,16 @@ What is much more important than following this receipe is our attitude. It take
 </table>
 
 ### Hold the Advise
-Try not to make things better immediatly. Do not respond with "Then lie down and rest." to a kid saying you "I am tired.". Try accepting the feeling, letting the kid finding a solution.
-
-Imagine a kid who needs to get some shots regularly for a while, here is a list of statements that will not be very helpful:
-
-- Come on now, it can't hurt that much.
-- You're making a big fuss over nothing.
-- You better get used to those shots. After all, you're goung to have to get them every week.
-
-Try to sympathise with the kid, show them you understand:
-
-- Sounds as it really hurts!
-- It cannot be easy to get that shots every week, I am sure you are looking forward for it to end, I know I would have!
-- They really look painful, how long does the pain last after it is over? 
+Try not to make things better immediatly. Do not respond with <em>Then lie down and rest.</em> to a kid saying you <em>I am tired.</em>. Try accepting the feeling, letting the kid finding a solution.
 
 ### Mistakes to Avoid
 <dl>
     <dt>Do not exaggerate it.</dt>
-    <dd>There is no reason to answer a kid saying "It seems like you want to go to your Michael's." when he says "Dad, can I go to Michael's?". Reflecting the feelings is a helpful way for a child to discover what they are going through, not a recepie to follow blindly.</dd>
+    <dd>There is no reason to answer a kid saying <em>It seems like you want to go to your Michael's.</em> when he says <em>Dad, can I go to Michael's?</em>. Reflecting the feelings is a helpful way for a child to discover what they are going through, not a recepie to follow blindly.</dd>
     <dt>Do not ask how they feel.</dt>
     <dd>Since they are already struggling with a situation, this will only add yet another task on their shoulders. It is totally normal they might not know how they feel, this is why you listen and name the feeling for them.</dd>
     <dt>Put some effort in.</dt>
-    <dd>Do not simply say "I agree with you." or "I understand you.". Also, do not simply repeat what they say. There is also no point saying "Seems like you do not like David." when a kid approaches you telling "I do not like David.". You must put some effort in, at least put yourself in the child's shoes and tell how you would have felt.</dd>
+    <dd>Do not simply say <em>I agree with you.</em> or <em>I understand you.</em> Also, do not simply repeat what they say. There is also no point saying <em>Seems like you do not like David.</em> when a kid approaches you telling <em>I do not like David.</em>. You must put some effort in, at least put yourself in the child's shoes and tell how you would have felt.</dd>
     <dt>Accepting feelings does not mean accepting behaviour.</dt>
     <dd>Take away the butter from their hands as you say <em>I can see that you are having fun making designs in the butter with your fork. Butter is not for playing with. If you want to make designs, you can use your play-dohs.</em>.</dd>
 </dl>
@@ -78,7 +77,7 @@ Try to sympathise with the kid, show them you understand:
 ### Things to Try
 - Try making a list of things your child asks for. For example when your child is having a tantrum in a store, instead of trying to explain everything, take out a pencil and a notebook and add the items to their wish list. It does not mean you will buy those items, it shows you care, and you might as well on a special occassion or if you find appropriate.
 - Give a pencil and a notebook to your child, ask them to draw how furious, how mad they are. Acknowledge their feelings as you watch they draw.
-
+- Do not just grant their wishes in fantasy by saying things, take imaginary actions. One time, one of my sons were having a tantrum wanting green socks. There were no green socks at home, and he had gray socks on his feet. I said, <em>OK, let me make them green for you!</em> and started painting them with my imaginary brush! You know what? It worked! He was so happy he had imaginary green socks. I understood what he wanted, and did my best to bring it to life, and it was enough for him!
 
 ### Exercises
 <table>
