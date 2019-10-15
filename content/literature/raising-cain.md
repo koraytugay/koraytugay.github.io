@@ -95,11 +95,11 @@ title:  "Raising Cain"
   - The difference between an act of violence and holding back is usually very thin and can depend on a start of a conversation 
   
 ### Diffusing Angery in Boys
-- It is our responsibility to teach that
-  - __Life is not always fair, deal with it__
-  - You can not go around punching people everytime you get angry
-  - You must consider how your actions affects others
-  - Do not see threats where they do not exist
-  - Controlling your anger and walking away does not make you a punk or a sissy
+- It is our responsibility to teach that:
+  - __Life is not always fair, deal with it__.
+  - You can not go around punching people everytime you get angry.
+  - You must consider how your actions affects others.
+  - Do not see threats where they do not exist.
+  - Controlling your anger and walking away does not make you a punk or a sissy.
   
 Getting a boy to talk about about his anger, weakens the intensity of the anger. If you can get a boy to talk, violence will not be the first approach when he is angry. As the boy talks about the anger, he will be able to find the real source and it will be much easier to confront the source and work on it.
