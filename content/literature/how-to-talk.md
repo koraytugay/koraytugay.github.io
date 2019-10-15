@@ -69,7 +69,7 @@ Try not to make things better immediatly. Do not respond with <em>Then lie down 
     <dt>Do not ask how they feel.</dt>
     <dd>Since they are already struggling with a situation, this will only add yet another task on their shoulders. It is totally normal they might not know how they feel, this is why you listen and name the feeling for them.</dd>
     <dt>Put some effort in.</dt>
-    <dd>Do not simply say <em>I agree with you</em> or <em>I understand you</em> Also, do not simply repeat what they say. There is no point saying <em>Seems like you do not like David</em> when a kid approaches you telling <em>I do not like David</em>. You must put some effort in, at least put yourself in the child's shoes and tell how you would have felt.</dd>
+    <dd>Do not simply say <em>I agree with you</em> or <em>I understand you</em>. Also, do not simply repeat what they say. There is no point saying <em>Seems like you do not like David</em> when a kid approaches you telling <em>I do not like David</em>. You must put some effort in, at least put yourself in the child's shoes and tell how you would have felt.</dd>
     <dt>Accepting feelings does not mean accepting behaviour.</dt>
     <dd>Take away the butter from their hands as you say <em>I can see that you are having fun making designs in the butter with your fork, but butter is not for playing with, that is what play-doh is for</em>.</dd>
 </dl>
