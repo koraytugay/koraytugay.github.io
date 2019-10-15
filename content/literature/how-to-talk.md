@@ -31,11 +31,11 @@ What is much more important than following this receipe is our attitude. It take
 
 <dl>
     <dt>The bus driver yelled at me and everybody laughed.</dt>
-    <dd>That must be _embarrassing_.</dd>
+    <dd><em>That must be embarrassing.</em></dd>
     <dt>I would like to punch that Micael in the nose!</dt>
-    <dd>Wow, you sound mad! You sound really mad at Michael!</dd>
+    <dd><em>Wow, you sound mad! You sound really mad at Michael!</em></dd>
     <dt>Janey is moving away and she is my best friend.</dt>
-    <dd>Distance is rough, sounds like you are going to miss her.</dd>
+    <dd><em>Distance is rough, sounds like you are going to miss her.</em></dd>
 </dl>
 
 ### Hold the Advise
