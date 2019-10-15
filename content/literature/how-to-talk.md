@@ -62,7 +62,7 @@ Do not simply say "I agree with you." or "I understand you.". Also, do not simpl
 
 Remember, accepting feelings is not same as letting them do everything. Take away the butter from their hands as you say _I can see that you are having fun making designs in the butter with your fork. Butter is not for playing with. If you want to make designs, you can use your play-dohs._.
 
-Do not repeat the names child put them. If a kid tells you he looks like a dork or is fat or dumb or whatever, steer away from the naming and focus on the reason and the feelings..
+Do not repeat the names child call themselves. If a kid tells you he looks like a dork or is fat or dumb or whatever, steer away from the naming and focus on the reason and the feelings..
 
 ### Things to Try
 - Try making a list of things your child asks for. For example when your child is having a tantrum in a store, instead of trying to explain everything, take out a pencil and a notebook and add the items to their wish list. It does not mean you will buy those items, it shows you care, and you might as well on a special occassion or if you find appropriate.
