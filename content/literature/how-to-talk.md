@@ -24,7 +24,7 @@ Instead of denying the feelings, it usually helps a lot to help the children wit
 1. Listen with full attention.
 1. Acknowledge their feelings with expressions such as: "I see", or "I understand".
 1. Name the feeling, such as "That is frustrating!" or "This sounds so disappointing.".
-1. Try to fulfil their wishes, either in fantasy or at least making a note to be fulfilled when it is possible in the future.
+1. Try to fulfill their wishes, either in fantasy or at least making a note to be fulfilled when it is possible in the future.
 
 ### Name the Feeling
 What is much more important than following this receipe is our attitude. It takes a lot of concentration and requires a lot of focus to listen with full attention and naming the feeling. Here are some examples:
