@@ -71,33 +71,29 @@ Do not repeat the names child call themselves. If a kid tells you he looks like 
 
 ### Exercises
 <table>
-    <thead>
-        <tr>
-            <td style="width: 33%">Child</td>
-            <td style="width: 33%">Denying the Feeling</td>
-            <td style="width: 33%">Acknowledging the Feeling</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>I don't like the new baby.</td>
-            <td>This cannot be true, you are just saying that!</td>
-            <td>Sounds like sometimes the baby annoys you, are you sure it is not just that? You seem to play with him and have a lot of fun too!</td>
-        </tr>
-        <tr>
-            <td>I had a dumb birthday party.</td>
-            <td>It was one of the best parties I have seen ever! I never even had a party for myself!</td> 
-            <td>You were not fully satisfied with your birthday party.. Were there things you wished they existed?</td>
-        </tr>
-        <tr>
-            <td>I am not wearing these braces anymore! I do not care what the dentist says!</td>
-            <td>You are whether you like it or not, and you will care what the dentist says.</td>
-            <td>They sure seem uncomfortable. Are they hurting you?</td>
-        </tr>
-        <tr>
-            <td>I am so mad! Just because I was two minutes late, the teacher kicked me off the team.</td>
-            <td>Rules are rules! Get used to not being late!</td>
-            <td>I know I would have been very disappointed if I was kicked out off the team. I wonder if there would be a way back in.</td>
-        </tr>
-    </tbody>
+    <tr>
+        <th style="width: 33%">Child</th>
+        <th style="width: 33%">Denying the Feeling</th>
+        <th style="width: 33%">Acknowledging the Feeling</th>
+    </tr>
+    <tr>
+        <td>I don't like the new baby.</td>
+        <td>This cannot be true, you are just saying that!</td>
+        <td>Sounds like sometimes the baby annoys you, are you sure it is not just that? You seem to play with him and have a lot of fun too!</td>
+    </tr>
+    <tr>
+        <td>I had a dumb birthday party.</td>
+        <td>It was one of the best parties I have seen ever! I never even had a party for myself!</td> 
+        <td>You were not fully satisfied with your birthday party.. Were there things you wished they existed?</td>
+    </tr>
+    <tr>
+        <td>I am not wearing these braces anymore! I do not care what the dentist says!</td>
+        <td>You are whether you like it or not, and you will care what the dentist says.</td>
+        <td>They sure seem uncomfortable. Are they hurting you?</td>
+    </tr>
+    <tr>
+        <td>I am so mad! Just because I was two minutes late, the teacher kicked me off the team.</td>
+        <td>Rules are rules! Get used to not being late!</td>
+        <td>I know I would have been very disappointed if I was kicked out off the team. I wonder if there would be a way back in.</td>
+    </tr>
 </table>
