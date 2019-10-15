@@ -60,7 +60,7 @@ What is much more important than following this receipe is our attitude. It take
 </table>
 
 ### Hold the Advise
-Try not to make things better immediatly. Do not respond with <em>Then lie down and rest.</em> to a kid saying you <em>I am tired.</em>. Try accepting the feeling, letting the kid finding a solution.
+Try not to make things better immediatly. Do not respond with <em>Then lie down and rest</em> to a kid saying you <em>I am tired</em>. Try accepting the feeling, letting the kid finding a solution.
 
 ### Mistakes to Avoid
 <dl>
