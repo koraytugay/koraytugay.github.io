@@ -10,7 +10,7 @@ title:  "How to Talk so Kids Will Listen"
 {:toc}
 
 ## Overview
-The techniques introduced in this book are not exact solutions and science but rather an art and only a pointer. 
+The techniques introduced in this book are not exact solutions and science but rather an art and only a pointer. You cannot just keep going around repeating things like <em>You are furious!</em> or <em>That sounds rough!</em> and hope no tantrums or crisis will happen. 
 
 ## Helping Children Deal with Their Feelings
 One of the biggest and the most common mistakes is to deny (or refuse) children's feelings. Here are some common examples of denying feelings of a child:
