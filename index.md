@@ -31,6 +31,7 @@ title:  "Koray Tugay"
 - [Be the Parent Please](content/literature/be-the-parent-please.md)
 - [Fathers And Sons](content/literature/fathers-and-sons.md)
 - [Feeling Good](content/literature/feeling-good.md)
+- [How to Talk so Kids Will Listen](content/literature/how-to-talk.md)
 - [Raising Cain](content/literature/raising-cain.md)
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
 
