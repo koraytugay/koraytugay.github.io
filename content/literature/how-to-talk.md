@@ -27,9 +27,9 @@ Instead of denying the feelings, it usually helps a lot to help the children wit
 
 Imagine a kid who needs to get some shots regularly for a while, here is a list of statements that will not be very helpful:
 
-- Come on now, it can't hurt that much.
-- You're making a big fuss over nothing.
-- You better get used to those shots. After all, you're goung to have to get them every week.
+- <em>Come on now, it can't hurt that much.</em>
+- <em>You're making a big fuss over nothing.</em>
+- <em>You better get used to those shots. After all, you're goung to have to get them every week.</em>
 
 Try to sympathise with the kid, show them you understand:
 
