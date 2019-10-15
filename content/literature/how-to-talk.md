@@ -33,9 +33,9 @@ Imagine a kid who needs to get some shots regularly for a while, here is a list 
 
 Try to sympathise with the kid, show them you understand:
 
-- Sounds as it really hurts!
-- It cannot be easy to get that shots every week, I am sure you are looking forward for it to end, I know I would have!
-- They really look painful, how long does the pain last after it is over? 
+- <em>Sounds as it really hurts!</em>
+- <em>It cannot be easy to get that shots every week, I am sure you are looking forward for it to end, I know I would have!</em>
+- <em>They really look painful, how long does the pain last after it is over?</em>
 
 ### Name the Feeling
 What is much more important than following this receipe is our attitude. It takes a lot of concentration and requires a lot of focus to listen with full attention and naming the feeling. Here are some examples:
