@@ -31,6 +31,10 @@ What is much more important than following this receipe is our attitude. It take
 
 <table>
     <tr>
+        <th style="width: 50%">Child Struggling</th>
+        <th style="width: 50%">Naming the Feeling</th>
+    </tr>
+    <tr>
         <td style="width: 50%">The bus driver yelled at me and everybody laughed.</td>
         <td>That must be embarrassing.</td>
     </tr>
