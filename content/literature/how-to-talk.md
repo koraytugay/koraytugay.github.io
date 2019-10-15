@@ -25,6 +25,7 @@ Instead of denying the feelings, it usually helps a lot to help the children wit
 1. Name the feeling, such as <em>That is frustrating!</em> or <em>This sounds so disappointing.</em>.
 1. Try to fulfill their wishes, either in fantasy or at least making a note to be fulfilled when it is possible in the future.
 
+### Name the Feeling
 Imagine a kid who needs to get some shots regularly for a while, here is a list of statements that will not be very helpful:
 
 - <em>Come on now, it can't hurt that much.</em>
@@ -37,7 +38,6 @@ Try to sympathise with the kid, show them you understand:
 - <em>It cannot be easy to get that shots every week, I am sure you are looking forward for it to end, I know I would have!</em>
 - <em>They really look painful, how long does the pain last after it is over?</em>
 
-### Name the Feeling
 What is much more important than following this receipe is our attitude. It takes a lot of concentration and requires a lot of focus to listen with full attention and naming the feeling. Here are some examples:
 
 <table>
