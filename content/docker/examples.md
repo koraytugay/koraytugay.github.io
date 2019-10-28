@@ -142,7 +142,6 @@ Build an image that will allow us to run git making use of the following Dockerf
 ```dockerfile
 FROM alpine:3.10
 RUN apk add --no-cache git
-
 ```
 
 Cloning and updating a git repository using the container:

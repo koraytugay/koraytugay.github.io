@@ -47,5 +47,5 @@ However, using the `-v` flag is discourged by Docker, and using the more verbose
 docker run --rm -it --mount type=bind,source=/Users/kt/my-docker,target=/my-docker busybox
 ```
 
-### Behaviour Difference Between -v and --mount
+## Volume vs Mount
 `-v` will create a directory on the host if it does not exist, where as `--mount` will generate an error if the directory being mounted does not already exist.
