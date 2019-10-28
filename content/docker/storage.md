@@ -1,21 +1,15 @@
 ---
 layout: default
-title:  "Docker Volumes"
+title:  "Managing Storage"
 ---
 
-# Volumes
+# Managing Storage
 {:.no_toc}
 
 * TOC
 {:toc}
 
-## Overview
-Volumes are used for decoupling containers from storage and sharing data between containers. When volumes are _properly_ used, data is not lost upon container removal.
-
-## Using the VOLUME Instruction in Dockerfile
-The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
-
-## Sharing Data Between Containers With Docker Volumes
+## Volumes
 Start by creating a volume:
 
 ```bash
@@ -34,7 +28,10 @@ exit
 
 Spin up a new container by `docker run -it --rm -v data-volume:/data busybox` and you will be able to verify that your data is not lost. You can even spin up an `ubuntu` image and the `data` directory will still be accessible. 
 
-## Attaching a Directory From Host to a Container
+### Using the VOLUME Instruction in Dockerfile
+The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
+
+## Bind Mounts
 Mounting a local directory is very much same with attaching a volume to a container. Here is an example:
 
 ```bash
@@ -43,21 +40,12 @@ docker run -it --rm -v /Users/kt/delete-me:/data busybox
 
 The host path must be an absolute path. You can use `$(pwd)` or (`"$PWD"`) to start from the working path, as in `$(pwd)/resources`. 
 
-## Related Commands
+### Using --mount instead of -v
+However, using the `-v` flag is discourged by Docker, and using the more verbose `--mount` syntax is encourged. 
 
 ```bash
-# Create a volume
-docker volume create <volume-name>
-
-# Inspect a volume
-docker volume inspect <volume-name>
-
-# List volumes
-docker volume ls
-
-# Remove a volume
-docker volume rm <volume-name>
-
-# Prune volumes
-docker volume prune
+docker run --rm -it --mount type=bind,source=/Users/kt/my-docker,target=/my-docker busybox
 ```
+
+### Behaviour Difference Between -v and --mount
+`-v` will create a directory on the host if it does not exist, where as `--mount` will generate an error if the directory being mounted does not already exist.

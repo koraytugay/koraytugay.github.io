@@ -13,7 +13,7 @@ title:  "Koray Tugay"
 - [Images](content/docker/images.md)
 - [Containers](content/docker/containers.md)
 - [Dockerfile](content/docker/dockerfile.md)
-- [Volumes](content/docker/volumes.md)
+- [Storage](content/docker/storage.md)
 - [Networks](content/docker/networks.md)
 - [Examples](content/docker/examples.md)
 

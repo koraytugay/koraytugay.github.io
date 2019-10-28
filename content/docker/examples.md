@@ -131,7 +131,9 @@ Java is supposed to be _compile once, run anywhere_ but sometimes it is just not
 ## Using ffmpeg in a Container
 
 ```bash
-docker run -v $PWD:/tmp jrottenberg/ffmpeg -i /tmp/a.mov /tmp/a.mp4
+docker run --rm \
+    --mount type=bind,source=$(PWD),target=/tmp 
+    jrottenberg/ffmpeg -i /tmp/a.mov /tmp/a.mp4
 ```
 
 ## Using Git in a Container
