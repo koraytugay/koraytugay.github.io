@@ -47,19 +47,25 @@ Docker volumes are named filesystem trees managed by Docker. They can be impleme
 
 Using volumes is a method of decoupling storage from specialized locations on the filesystem that one might specify with bind mounts.
 
-Creating a volume:
+Using Docker volumes is a way of sayinig
+
+> I need a place to put some data that I’m working with. 
+
+This is a requirement that Docker can fill on any machine with Docker installed, which means containers are de-coupled from the host filesystem, in contrast to bind mounts.
+
+A volume can be created as follows: 
 
 ```bash
 docker volume create my-volume
 ```
 
-Inspecting the created volume:
+And the created volume can be inspected as follows:
 
 ```bash
 docker volume inspect my-volume
 ```
 
-will return a result akin to:
+which will return a result akin to:
 
 ```json
 [
