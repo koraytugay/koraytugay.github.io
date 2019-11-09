@@ -9,6 +9,29 @@ title:  "Managing Storage"
 * TOC
 {:toc}
 
+## Overview
+Docker containers can have storage mounted to them, either in-memory storages, from the host file system or from docker volumes. 
+
+## Bind Mounts
+The following will start a busybox container where `/Users/kt/my-docker` is mounted to `/my-docker` in the running container.
+
+```bash
+docker run \
+  --rm -it \
+  --mount type=bind,source=/Users/kt/my-docker,target=/my-docker \
+  busybox
+```
+
+The host path must be an absolute path. You can use `$PWD` to start from the working path, as in `$PWD/my-docker`. 
+
+The same behaviour can be achieved using the `-v` flag:
+
+```bash
+docker run -it --rm -v /Users/kt/my-docker:/my-docker busybox
+```
+
+Using the `-v` flag is discourged by Docker for bind mounts in favor of using the more verbose `--mount` synax.
+
 ## Volumes
 Start by creating a volume:
 
@@ -30,22 +53,6 @@ Spin up a new container by `docker run -it --rm -v data-volume:/data busybox` an
 
 ### Using the VOLUME Instruction in Dockerfile
 The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
-
-## Bind Mounts
-Mounting a local directory is very much same with attaching a volume to a container. Here is an example:
-
-```bash
-docker run -it --rm -v /Users/kt/delete-me:/data busybox
-```
-
-The host path must be an absolute path. You can use `$(pwd)` or (`"$PWD"`) to start from the working path, as in `$(pwd)/resources`. 
-
-### Using --mount instead of -v
-However, using the `-v` flag is discourged by Docker, and using the more verbose `--mount` syntax is encourged. 
-
-```bash
-docker run --rm -it --mount type=bind,source=/Users/kt/my-docker,target=/my-docker busybox
-```
 
 ## Volume vs Mount
 `-v` will create a directory on the host if it does not exist, where as `--mount` will generate an error if the directory being mounted does not already exist.
