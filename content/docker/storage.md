@@ -92,16 +92,13 @@ echo Hello > hello.txt
 
 Spin up a new container by `docker run -it --rm -v my-volume:/data busybox` and you will be able to verify that your data is not lost.
 
+### Automatic Creation of Volumes
+Creation of a volume is not required before using it. If the volume does not already exist, it will be created when a volume mapping is done. The following example uses this approach
+
 ### Serving an Application from a Tomcat Container using Volumes
 Imagine we have a `sample.war` file we want to deploy to Tomcat, and we want our application to live on a volume and Tomcat to run in a container. Here is a possible approach to achieve this. 
 
-Create the required volume:
-
-```bash
-docker volume create mywar
-```
-
-Start a `busybox` container and copy the `sample.war` you have as follows:
+Start a `busybox` container as follows, where a volume named `mywar` is mapped to the `/war` folder in the container. Also a bind mount mapping is done from the host system so we can copy the `sample.war` file to `/war` directory, hence to the `mywar` volume.
 
 ```bash
 docker run --rm -it -v /Users/kt/warfile:/warfile -v mywar:/war busybox
@@ -119,6 +116,26 @@ docker run \
 ```
 
 What is important in this example is, we are overriding a folder in the Tomcat container with a volume. Application will be available at `localhost:8080/sample`.
+
+### Anonymous Volumes
+If different containers use volumes with same names, a volume conflict and unwanted behaviour will be witnessed. This conflict can be solved by using anonymous volumes. When a volume is created without a specific name, a volume will be created with a unique id.
+
+```bash
+docker volume create
+# 98a5edfe209b4a1c04e2a768f2db50263294e0c49862d98b0bf1e4c8ea970c1a
+```
+
+Anonymous volumes can be shared between containers using `--volumes-from`. The following starts a `busybox` container with an anonymous volume mapped to `/shared` folder within the container.
+
+```bash
+docker run --name busy-box-one -v /shared -it --rm busybox
+```
+
+For another `busybox` to share the same anonymous volume, the second container can be started as follows:
+
+```bash
+docker run --name busy-box-two --volumes-from busy-box-one -it --rm busybox
+```
 
 ### Using the VOLUME Instruction in Dockerfile
 The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
