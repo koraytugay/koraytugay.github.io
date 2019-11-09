@@ -10,10 +10,12 @@ title:  "Managing Storage"
 {:toc}
 
 ## Overview
-Docker containers can have storage mounted to them, either in-memory storages, from the host file system or from docker volumes. 
+Docker containers can have storage mounted to them, either in-memory storages, from the host file system or from docker volumes. All three types of mount points can be created using the `--mount` flag on the `docker run` and `docker create` subcommands.
 
 ## Bind Mounts
-The following will start a busybox container where `/Users/kt/my-docker` is mounted to `/my-docker` in the running container.
+Bind mounts are useful when the container creates log files, or needs to operate on a file on the host system, or needs to produce a file that will be stored on the host system after container stops.
+
+The following will start a busybox container where `/Users/kt/my-docker` is mounted to `/my-docker` in the running container. Paths must be absolute. You can use `$PWD` to start from the working path, as in `$PWD/my-docker`. 
 
 ```bash
 docker run \
@@ -22,8 +24,17 @@ docker run \
   busybox
 ```
 
-The host path must be an absolute path. You can use `$PWD` to start from the working path, as in `$PWD/my-docker`. 
+Directories can also be mounted with readonly by providing `readonly=true` as follows:
 
+```bash
+docker run \
+  --rm -it \
+  --mount type=bind,source=/Users/kt/my-docker,target=/my-docker,readonly=true \
+  busybox
+```
+
+
+### Using the `-v` flag for Bind Mounts
 The same behaviour can be achieved using the `-v` flag:
 
 ```bash
