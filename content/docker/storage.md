@@ -92,7 +92,7 @@ echo Hello > hello.txt
 
 Spin up a new container by `docker run -it --rm -v my-volume:/data busybox` and you will be able to verify that your data is not lost.
 
-### Serving a WAR from Tomcat using Volumes
+### Serving an Application from a Tomcat Container using Volumes
 Imagine we have a `sample.war` file we want to deploy to Tomcat, and we want our application to live on a volume and Tomcat to run in a container. Here is a possible approach to achieve this. 
 
 Create the required volume:
