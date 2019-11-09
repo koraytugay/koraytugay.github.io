@@ -81,17 +81,44 @@ which will return a result akin to:
 ]
 ```
 
-Spin up a `busybox` container that will be removed upon completion, attaching the `data` directory to the volume you just created. Create a file in the `data` folder and stop the container:
+To make use of the volume we created, lets spin up a `busybox` container that will be removed upon completion, attaching the `data` directory to this volume and lets create a file in the `data` folder and stop the container:
 
 ```bash
-docker run -it --rm -v data-volume:/data busybox
+docker run -it --rm -v my-volume:/data busybox
 cd data
 touch hello.txt
 echo Hello > hello.txt
-exit
 ```
 
-Spin up a new container by `docker run -it --rm -v data-volume:/data busybox` and you will be able to verify that your data is not lost. You can even spin up an `ubuntu` image and the `data` directory will still be accessible. 
+Spin up a new container by `docker run -it --rm -v my-volume:/data busybox` and you will be able to verify that your data is not lost.
+
+### Serving a WAR from Tomcat using Volumes
+Imagine we have a `sample.war` file we want to deploy to Tomcat, and we want our application to live on a volume and Tomcat to run in a container. Here is a possible approach to achieve this. 
+
+Create the required volume:
+
+```bash
+docker volume create mywar
+```
+
+Start a `busybox` container and copy the `sample.war` you have as follows:
+
+```bash
+docker run --rm -it -v /Users/kt/warfile:/warfile -v mywar:/war busybox
+cp /warfile/sample.war /war
+```
+
+Now that we have our war file in `mywar` volume, start Tomcat:
+
+```bash
+docker run \
+  -p 8080:8080 \
+  -it --rm \
+  -v mywar:/usr/local/tomcat/webapps \
+  tomcat:7-jdk8
+```
+
+What is important in this example is, we are overriding a folder in the Tomcat container with a volume. Application will be available at `localhost:8080/sample`.
 
 ### Using the VOLUME Instruction in Dockerfile
 The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
