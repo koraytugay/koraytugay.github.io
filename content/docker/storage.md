@@ -13,7 +13,7 @@ title:  "Managing Storage"
 Docker containers can have storage mounted to them, either in-memory storages, from the host file system or from docker volumes. All three types of mount points can be created using the `--mount` flag on the `docker run` and `docker create` subcommands.
 
 ## Bind Mounts
-This approach mounts a directory in the host filesystem to the container. Bind mounts are useful in development environments when the container creates log files, needs to operate on a file on the host system or needs to produce a file that will be stored on the host system after container stops. However but this approach has its own problems such as depending on a specific location on the host container is running. They also create an opportunity for conflict with other containers.
+This approach mounts a directory in the host filesystem to the container. Bind mounts are useful in development environments when the container creates log files, needs to operate on a file on the host system or needs to produce a file that will be stored on the host system after container stops. However this approach has its own problems such as depending on a specific location on the host container is running. They also create an opportunity for conflict with other containers.
 
 The following will start a busybox container where `/Users/kt/my-docker` is mounted to `/my-docker` in the running container. Paths must be absolute. You can use `$PWD` to start from the working path, as in `$PWD/my-docker`. 
 
