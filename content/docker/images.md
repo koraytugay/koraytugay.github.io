@@ -65,6 +65,9 @@ docker pull hello-world # equivalent to :latest
 # Listing images
 docker image ls
 
+# Filtering images
+docker image ls | grep tomcat
+
 # Removing an image
 docker image rm image-id
 ```

@@ -137,6 +137,14 @@ For another `busybox` to share the same anonymous volume, the second container c
 docker run --name busy-box-two --volumes-from busy-box-one -it --rm busybox
 ```
 
+### Cleaning Up Volumes
+Anonymous volumes are automatically deleted when the container they were created for are automatically cleaned up. Unlike anonymous volumes, named volumes must always be deleted manually. The following commands come to help when removing volumes:
+
+```bash
+docker volume rm my-volume
+docker volume prune
+```
+
 ### Using the VOLUME Instruction in Dockerfile
 The `VOLUME` instruction does not do much by itself, and it is questionable how useful it is. See [this](https://stackoverflow.com/a/49620544), [this](https://stackoverflow.com/a/46992367/1173112) and [this](https://stackoverflow.com/a/58248523) answers for further information.
 
