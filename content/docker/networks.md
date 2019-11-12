@@ -25,7 +25,7 @@ docker run -it -p 5000:6000 --rm --name=my-bb busybox
 docker inspect my-bb
 ```
 
-With some noise removed, a sample information returned will be as follows:
+With some noise removed, portion of the returned information will be as follows:
 
 ```json
 "NetworkSettings": {
@@ -59,6 +59,65 @@ The container can connect to the host by using the the hosts IP address. Assume 
 
 ### Container to Container Connection
 If we spin up yet another `busybox` container, the two containers can communicate with each other by directly using the IP addresses. Given the second container has the IP address: `172.17.0.3` and listening on port `7000` with: `nc -l -p 7000`, the first container can simply connect with `telnet 172.17.0.3 7000`.
+
+## Communication Between Containers via Name Resolution
+When containers are deployed to same network, except the default bridge network, they can communicate with each other using the container names. 
+
+### Python - Redis Container Communication Example
+Given the following simple python file:
+
+```python
+import time
+import redis
+from flask import Flask
+
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+
+def get_hit_count():
+    return cache.incr('hits')
+
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return "Visit count: {}".format(count)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
+```
+
+and having `flask` as the only dependency in `requirements.txt` and the following Dockerfile:
+
+```dockerfile
+FROM python:3.4-alpine
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
+```
+
+Build an image named `a-python-app` with `docker build -t a-python-app .`.
+
+Now, if we start a `redis` image and this python application as follows..
+
+```bash
+docker run --rm -d --name=redis redis
+docker run --rm -d -p 5000:5000 --name=a-python-app a-python-app
+```
+
+..when we visit `localhost:5000`, we will see an error saying:
+
+```plaintext
+connecting to redis:6379. Name does not resolve.
+```
+
+For Docker containers to be able to resolve each other with name, they need to be on a network defined by us. Creating a network with `docker network create my-network` and starting the images with the following commands will allow `a-python-app` to be able to connect to the redis container using the containers name as the host name:
+
+```bash
+docker run --rm -d --name=redis --network=my-network redis
+docker run --rm -d -p 5000:5000 \
+  --name=a-python-app --network=my-network a-python-app
+```
 
 ## Related Commands
 
