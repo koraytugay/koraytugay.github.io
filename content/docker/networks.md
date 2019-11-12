@@ -123,6 +123,8 @@ docker run --rm -d -p 5000:5000 \
   --name=a-python-app --network=my-network a-python-app
 ```
 
+Visiting `localhost:5000` should now print the visit counts properly.
+
 ## Related Commands
 
 ```bash
