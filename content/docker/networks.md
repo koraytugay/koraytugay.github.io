@@ -96,7 +96,11 @@ RUN pip install -r requirements.txt
 CMD ["python", "app.py"]
 ```
 
-Build an image named `a-python-app` with `docker build -t a-python-app .`.
+Build an image named `a-python-app` with 
+
+```bash
+docker build -t a-python-app .
+```
 
 Now, if we start a `redis` image and this python application as follows..
 
