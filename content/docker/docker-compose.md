@@ -10,9 +10,7 @@ title:  "Docker Compose"
 {:toc}
 
 ## Overview
-Docker Compose is a tool for defining and running multiple containers. Docker Compose uses `yml` (`docker-compose.yml` being the standard) files to configure services. Using Docker Compose services can be started, stopped or scaled with single commands.
-
-When you need to model a whole environment of services, you should use a stack. A stack describes collections of services, volumes, networks, and other configurations. Stacks are created from a declarative description of an entire environment. These environments are described using the Docker Compose file format.
+Docker Compose is a tool for defining and running multiple containers. See [Overview of Docker Compose](https://docs.docker.com/compose/) for more details.
 
 ## Hello World Example
 The following `docker-compose.yml` file can be used by Docker Compose to start multiple nginx servers:
