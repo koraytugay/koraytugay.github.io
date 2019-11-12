@@ -28,16 +28,13 @@ services:
       - 8090:80
 ```
 
-Starting services can be achieved via `docker-compose up` (`-d` for deamon) and stopping the services can be achieved via `docker-compose down`.
-
-When the services above is running, `docker-compose images` will print something akin to:
+Starting containers can be achieved via `docker-compose up` (`-d` for deamon). When the containers above is running, `docker-compose images` will print something akin to:
 
 ```plaintext
              Container                 Repository    Tag     Id      Size 
 --------------------------------------------------------------------------
 my-docker-compose_back-end-server_1    nginx        latest   6d63   120 MB
 my-docker-compose_front-end-server_1   nginx        latest   6d63   120 MB
-
 ```
 
 `docker-compose stop` will stop multiple containers, and `docker-compose down` will stop and remove all the containers.
