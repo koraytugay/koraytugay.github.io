@@ -18,13 +18,11 @@ Resources are POJOs annotated with the [Path](https://jax-rs.github.io/apidocs/2
 ```java
 @Path("resources")
 public class MyResource {
-  
     @GET
     @Path("greet/{name}")
     public String hello(@PathParam("name") String name) {
         return "Hello " + name;
     }
-
 }
 ```
 
