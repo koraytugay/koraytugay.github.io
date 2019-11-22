@@ -45,5 +45,6 @@ title:  "Koray Tugay"
 
 ##### Draft
 - [http](content/draft/http.md)
+- [jax-rs](content/draft/jax-rs.md)
 - [An Overview of HTTP](content/draft/http-overview.md)
 - [Proxy Servers](content/draft/proxy-servers.md)
