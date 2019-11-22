@@ -10,11 +10,12 @@ title:  "About"
 {:toc}
 
 ## About This Page
-I like taking notes, it helps me keep in several ways: It motivates me and avoids procrastination. I also like going back to my own notes, I realised reading my own notes is very helpful in refreshing my knowledge on a topic. It is also very nice to share knowledge and writing is like a theraphy. 
+I like taking notes, it helps me in a few ways: 
 
-And last but not least, lets not forget..
-
-> Idle hands are The Devil's playground.
+1. It motivates me and avoids procrastination. 
+1. I also like going back to my own notes, I realised reading my own notes is very helpful in refreshing my knowledge on a topic. 
+1. It is also very nice to share knowledge and writing is like a theraphy. 
+1. And last but not least, lets not forget: _Idle hands are The Devil's playground_.
 
 ### Navigation
 Hit `H` on your keyboard to go back to homepage.
