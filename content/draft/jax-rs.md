@@ -116,7 +116,7 @@ public class EmployeeResource
 }
 ```
 
-This works out of the box, since it seems like `jersey-server` has a dependency to `org.glassfish.jersey.media:jersey-media-jaxb` which provides `MessageBodyReader`s and `MessageBodyWriter`s for XML that implements JAXB. When I exclude this dependency as follows..
+This works out of the box, since it seems like `jersey-server` has a dependency to `org.glassfish.jersey.media:jersey-media-jaxb` which provides `MessageBodyReader`s and `MessageBodyWriter`s for XML that implements JAXB. When I exclude this dependency:
 
 ```xml
 <dependency>
@@ -133,7 +133,7 @@ This works out of the box, since it seems like `jersey-server` has a dependency 
 </dependency>
 ```
 
-.. I started getting the `MessageBodyWriter not found for media type=application/xml` error.
+I started getting the `MessageBodyWriter not found for media type=application/xml` error.
 
 
 #### Working with JSON
