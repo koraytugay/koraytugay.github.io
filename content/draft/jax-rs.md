@@ -43,7 +43,7 @@ public class MyResource {
 Methods in resource classes are annotated with `GET`, `POST`, `DELETE` and so on for finding the matching method to accept the request. The example above is an example of a `GET` endpoint.
 
 ### MediaTypes
-Both annotations, `Produces` and `Consumes` can be applied at class and method levels, and used with a `MediaType`. These annotations can be used to narrow down the matching of methods and transforing DTOs to approprirate types by `MessageBodyWriter`s. This depends heavily on the JAX-RS implementation you are using, and I am using the reference implementation: Jersey.
+Both annotations, `Produces` and `Consumes` can be applied at class and method levels, and used with a `MediaType`. These annotations can be used to narrow down the matching of methods and transforing DTOs to appropriate types by `MessageBodyWriter`s. This depends heavily on the JAX-RS implementation you are using, and I am using the reference implementation: Jersey.
 
 #### Working with XML
 The following example works with XML out of the box, without the need of any additional libraries, considering you have the following already:
