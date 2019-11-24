@@ -244,5 +244,18 @@ public class MySubResource {
 }
 ```
 
+And here is a sample invocation:
+
+```bash
+kt$ curl -i http://localhost:8080/api/myResource/sub
+# HTTP/1.1 200 OK
+# Date: Sun, 24 Nov 2019 03:11:22 GMT
+# Content-Type: text/plain
+# Content-Length: 24
+# Server: Jetty(9.4.22.v20191022)
+# 
+# Hello from SubResource!
+```
+
 ## Random Notes
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
