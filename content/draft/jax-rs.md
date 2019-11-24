@@ -52,25 +52,25 @@ Considering the following dependencies:
 
 ```xml
 <dependencies>
-  <dependency>
-    <groupId>jakarta.ws.rs</groupId>
-    <artifactId>jakarta.ws.rs-api</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>org.glassfish.jersey.core</groupId>
-    <artifactId>jersey-server</artifactId>
-    <scope>runtime</scope>
-  </dependency>
-  <dependency>
-    <groupId>org.glassfish.jersey.containers</groupId>
-    <artifactId>jersey-container-servlet</artifactId>
-    <scope>runtime</scope>
-  </dependency>
-  <dependency>
-    <groupId>org.glassfish.jersey.inject</groupId>
-    <artifactId>jersey-hk2</artifactId>
-    <scope>runtime</scope>
-  </dependency>
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-server</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.inject</groupId>
+      <artifactId>jersey-hk2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
 </dependencies>
 ```
 
@@ -85,9 +85,8 @@ import lombok.Setter;
 @XmlRootElement
 @Getter
 @Setter
-public class Employee
-{
-  String name;
+public class Employee {
+    String name;
 }
 ```
 
@@ -100,21 +99,20 @@ import javax.ws.rs.core.MediaType;
 import biz.tugay.pg.jaxrs.modal.Employee;
 
 @Path("employee")
-public class EmployeeResource
-{
-  private static Employee onlyEmployee;
-
-  @POST
-  @Consumes(MediaType.APPLICATION_XML)
-  public void addEmployee(Employee employee) {
-    onlyEmployee = employee;
-  }
-
-  @GET
-  @Produces(MediaType.APPLICATION_XML)
-  public Employee getEmployee() {
-    return onlyEmployee;
-  }
+public class EmployeeResource {
+    private static Employee onlyEmployee;
+  
+    @POST
+    @Consumes(MediaType.APPLICATION_XML)
+    public void addEmployee(Employee employee) {
+      onlyEmployee = employee;
+    }
+  
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public Employee getEmployee() {
+      return onlyEmployee;
+    }
 }
 ```
 
@@ -122,16 +120,16 @@ This works out of the box, since it seems like `jersey-server` has a dependency 
 
 ```xml
 <dependency>
-  <groupId>org.glassfish.jersey.core</groupId>
-  <artifactId>jersey-server</artifactId>
-  <version>2.29.1</version>
-  <scope>runtime</scope>
-  <exclusions>
-    <exclusion>
-      <groupId>org.glassfish.jersey.media</groupId>
-      <artifactId>jersey-media-jaxb</artifactId>
-    </exclusion>
-  </exclusions>
+    <groupId>org.glassfish.jersey.core</groupId>
+    <artifactId>jersey-server</artifactId>
+    <version>2.29.1</version>
+    <scope>runtime</scope>
+    <exclusions>
+      <exclusion>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-jaxb</artifactId>
+      </exclusion>
+    </exclusions>
 </dependency>
 ```
 
@@ -146,10 +144,10 @@ For whatever reason, Jersey seems to not include any writers that would work wit
 
 ```xml
 <dependency>
-  <groupId>org.glassfish.jersey.media</groupId>
-  <artifactId>jersey-media-json-jackson</artifactId>
-  <version>2.29.1</version>
-  <scope>runtime</scope>
+    <groupId>org.glassfish.jersey.media</groupId>
+    <artifactId>jersey-media-json-jackson</artifactId>
+    <version>2.29.1</version>
+    <scope>runtime</scope>
 </dependency>
 ```
 
@@ -168,19 +166,18 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("query")
-public class QueryResource
-{
-  private static final String JOHN_DOE = "John Doe";
-
-  @GET
-  @Produces(MediaType.TEXT_PLAIN)
-  public String greet(@QueryParam("name") @DefaultValue(JOHN_DOE) String name) {
-    return greetPerson(name.isEmpty() ? JOHN_DOE : name);
-  }
-
-  private String greetPerson(String name) {
-    return String.format("Greetings %s\n", name);
-  }
+public class QueryResource {
+    private static final String JOHN_DOE = "John Doe";
+  
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String greet(@QueryParam("name") @DefaultValue(JOHN_DOE) String n) {
+      return greetPerson(n.isEmpty() ? JOHN_DOE : n);
+    }
+  
+    private String greetPerson(String name) {
+      return String.format("Greetings %s\n", name);
+    }
 }
 
 ```
@@ -225,12 +222,11 @@ Sub-resources can be used to further organize the design, if there are several m
 import javax.ws.rs.Path;
 
 @Path("myResource")
-public class MyResource
-{
-  @Path("sub")
-  public MySubResource greet() {
-    return new MySubResource();
-  }
+public class MyResource {
+    @Path("sub")
+    public MySubResource greet() {
+      return new MySubResource();
+    }
 }
 
 package biz.tugay.pg.jaxrs.resource;
@@ -239,13 +235,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-public class MySubResource
-{
-  @GET
-  @Produces(MediaType.TEXT_PLAIN)
-  public String hello() {
-    return "Hello from SubResource!\n";
-  }
+public class MySubResource {
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+      return "Hello from SubResource!\n";
+    }
 }
 ```
 
