@@ -42,7 +42,7 @@ public class MyResource {
 ### HTTP Methods
 Methods in resource classes are annotated with `GET`, `POST`, `DELETE` and so on for finding the matching method to accept the request. The example above is an example of a `GET` endpoint.
 
-### MediaTypes
+### Producting and Consuming MediaTypes
 Both annotations, `Produces` and `Consumes` can be applied at class and method levels, and used with a [MediaType](https://jax-rs.github.io/apidocs/2.0/javax/ws/rs/core/MediaType.html). These annotations can be used to narrow down the matching of methods and transforing DTOs to appropriate types by an appropriate [MessageBodyWriter](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/ext/MessageBodyWriter.html) implementation or a [MessageBodyReader](https://jax-rs.github.io/apidocs/2.0/javax/ws/rs/ext/MessageBodyReader.html) implementation.
 
 #### Working with XML
