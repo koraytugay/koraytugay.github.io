@@ -167,6 +167,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("query")
 public class QueryResource {
+    
     private static final String JOHN_DOE = "John Doe";
   
     @GET
@@ -178,8 +179,8 @@ public class QueryResource {
     private String greetPerson(String name) {
       return String.format("Greetings %s\n", name);
     }
-}
 
+}
 ```
 
 and a few runs:
