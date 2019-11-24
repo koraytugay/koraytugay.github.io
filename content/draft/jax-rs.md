@@ -100,6 +100,7 @@ import biz.tugay.pg.jaxrs.modal.Employee;
 
 @Path("employee")
 public class EmployeeResource {
+    
     private static Employee onlyEmployee;
   
     @POST
@@ -113,6 +114,7 @@ public class EmployeeResource {
     public Employee getEmployee() {
       return onlyEmployee;
     }
+    
 }
 ```
 
