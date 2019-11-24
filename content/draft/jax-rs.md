@@ -160,8 +160,6 @@ There is a lot more going on with MediaTypes, such as being able to consume or p
 [QueryParam](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/QueryParam.html) annotation can be used to capture, well the query parameters from the URI. Here is an example:
 
 ```java
-package biz.tugay.pg.jaxrs.resource;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -228,8 +226,6 @@ public class MyResource {
       return new MySubResource();
     }
 }
-
-package biz.tugay.pg.jaxrs.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
