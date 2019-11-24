@@ -10,7 +10,7 @@ title:  "JAX-RS"
 {:toc}
 
 ## Overview
-[JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services) is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning!
+[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), shorter for _Jakarta RESTful Web Services_ is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning!
 
 ## Resources
 Resources are POJOs annotated with the [Path](https://jax-rs.github.io/apidocs/2.1/) annotation. Here is a resource that does nothing:
@@ -217,6 +217,37 @@ kt$ curl -i http://localhost:8080/api/query
 ```
 
 The [official Jersey documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2271) has very clear and detailed information on the rest of the lesser used possibitiles such as `MatrixParam`, `HeadParam`, `CookieParam` and `FormParam`.
+
+### Sub-Resources
+Sub-resources can be used to further organize the design, if there are several method-level resources in a resource class that all are a part of a particular path. 
+
+```java
+import javax.ws.rs.Path;
+
+@Path("myResource")
+public class MyResource
+{
+  @Path("sub")
+  public MySubResource greet() {
+    return new MySubResource();
+  }
+}
+
+package biz.tugay.pg.jaxrs.resource;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+public class MySubResource
+{
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public String hello() {
+    return "Hello from SubResource!\n";
+  }
+}
+```
 
 ## Random Notes
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
