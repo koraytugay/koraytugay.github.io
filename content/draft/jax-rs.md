@@ -114,7 +114,7 @@ public class EmployeeResource {
     public Employee getEmployee() {
       return onlyEmployee;
     }
-    
+
 }
 ```
 
@@ -254,6 +254,9 @@ kt$ curl -i http://localhost:8080/api/myResource/sub
 # 
 # Hello from SubResource!
 ```
+
+## Representations and Responses
+To be continued from: https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html
 
 ## Random Notes
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
