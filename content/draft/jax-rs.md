@@ -172,12 +172,12 @@ public class QueryResource {
   
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String greet(@QueryParam("name") @DefaultValue(JOHN_DOE) String n) {
-      return greetPerson(n.isEmpty() ? JOHN_DOE : n);
+    public String greet(@QueryParam("name") @DefaultValue(JOHN_DOE) String s) {
+      return greetPerson(s.isEmpty() ? JOHN_DOE : s);
     }
   
-    private String greetPerson(String name) {
-      return String.format("Greetings %s\n", name);
+    private String greetPerson(String s) {
+      return String.format("Greetings %s\n", s);
     }
 
 }
