@@ -43,10 +43,12 @@ public class MyResource {
 Methods in resource classes are annotated with `GET`, `POST`, `DELETE` and so on for finding the matching method to accept the request. The example above is an example of a `GET` endpoint.
 
 ### MediaTypes
-Both annotations, `Produces` and `Consumes` can be applied at class and method levels, and used with a `MediaType`. These annotations can be used to narrow down the matching of methods and transforing DTOs to appropriate types by `MessageBodyWriter`s. This depends heavily on the JAX-RS implementation you are using, and I am using the reference implementation: Jersey.
+Both annotations, `Produces` and `Consumes` can be applied at class and method levels, and used with a [MediaType](https://jax-rs.github.io/apidocs/2.0/javax/ws/rs/core/MediaType.html). These annotations can be used to narrow down the matching of methods and transforing DTOs to appropriate types by an appropriate [MessageBodyWriter](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/ext/MessageBodyWriter.html) implementation or a [MessageBodyReader](https://jax-rs.github.io/apidocs/2.0/javax/ws/rs/ext/MessageBodyReader.html) implementation.
 
 #### Working with XML
-The following example works with XML out of the box, without the need of any additional libraries, considering you have the following already:
+The following example works with XML out of the box with Jersey, without the need of any additional libraries. 
+
+Considering the following dependencies:
 
 ```xml
 <dependencies>
@@ -133,11 +135,14 @@ This works out of the box, since it seems like `jersey-server` has a dependency 
 </dependency>
 ```
 
-I started getting the `MessageBodyWriter not found for media type=application/xml` error.
+I started getting the following error:
 
+```plaintext
+MessageBodyWriter not found for media type=application/xml
+``` 
 
 #### Working with JSON
-For whatever reason, Jersey seems to not include any `JSON` writers, so once the following dependency is included..
+For whatever reason, Jersey seems to not include any writers that would work with JSON out of the box. However, once the following dependency is included:
 
 ```xml
 <dependency>
@@ -148,10 +153,10 @@ For whatever reason, Jersey seems to not include any `JSON` writers, so once the
 </dependency>
 ```
 
-the very same example starts working with JSON format by changing the MediaTypes as `@Produces|Consumes(MediaType.APPLICATION_JSON)`. At this point the `XmlRootElement` annotation is also not needed anymore.
+the very same example starts working with JSON format by changing the MediaType to `(MediaType.APPLICATION_JSON)`. At this point the `XmlRootElement` annotation is also not needed anymore.
 
 #### A Note On MediaTypes
-There is a lot more going on with MediaTypes, such as being able to consume or produce different MediaTypes from a single method, based on the preference of the client. However, the key information to take here is that JAX-RS, and Jersey as we use here, is kind of agnostic and kind of not when it comes to `MessageBodyWriter|Reader`s. I wonder why they included XML support out of the box but not JSON..
+There is a lot more going on with MediaTypes, such as being able to consume or produce different MediaTypes from a single method, based on the preference of the client. For further details please see the [official documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2167).
 
 Continue from: https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html
 
