@@ -118,7 +118,7 @@ public class EmployeeResource
 }
 ```
 
-This works out of the box, since it seems like `jersey-server` has a dependency to `org.glassfish.jersey.media:jersey-media-jaxb` which provides `MessageBodyReader`s and `MessageBodyWriter`s for XML that implements JAXB. When I exclude this dependency:
+This works out of the box, since it seems like `jersey-server` has a dependency to `jersey-media-jaxb` which provides `MessageBodyReader`s and `MessageBodyWriter`s for XML that implements JAXB. When I exclude this dependency:
 
 ```xml
 <dependency>
