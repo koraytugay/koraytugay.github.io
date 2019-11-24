@@ -159,9 +159,7 @@ the very same example starts working with JSON format by changing the MediaType 
 There is a lot more going on with MediaTypes, such as being able to consume or produce different MediaTypes from a single method, based on the preference of the client. For further details please see the [official documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2167).
 
 ### Query Parameters
-[QueryParam](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/QueryParam.html) annotation can be used to capture, well the query parameters from the URI. 
-
-Here is an example:
+[QueryParam](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/QueryParam.html) annotation can be used to capture, well the query parameters from the URI. Here is an example:
 
 ```java
 package biz.tugay.pg.jaxrs.resource;
