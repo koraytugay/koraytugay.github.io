@@ -160,5 +160,67 @@ There is a lot more going on with MediaTypes, such as being able to consume or p
 
 Continue from: https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html
 
+### Query Parameters
+[QueryParam](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/QueryParam.html) annotation can be used to capture, well the query parameters from the URI. 
+
+Here is an example:
+
+```java
+package biz.tugay.pg.jaxrs.resource;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+@Path("query")
+public class QueryResource
+{
+  private static final String JOHN_DOE = "John Doe";
+
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public String greet(@QueryParam("name") @DefaultValue(JOHN_DOE) String name) {
+    return greetPerson(name.isEmpty() ? JOHN_DOE : name);
+  }
+
+  private String greetPerson(String name) {
+    return String.format("Greetings %s\n", name);
+  }
+}
+
+```
+
+and a few runs:
+
+```bash
+kt$ curl -i http://localhost:8080/api/query?name=Koray
+# HTTP/1.1 200 OK
+# Date: Sun, 24 Nov 2019 02:52:26 GMT
+# Content-Type: text/plain
+# Content-Length: 16
+# Server: Jetty(9.4.22.v20191022)
+# 
+# Greetings Koray
+
+kt$ curl -i http://localhost:8080/api/query?name=
+# HTTP/1.1 200 OK
+# Date: Sun, 24 Nov 2019 02:52:50 GMT
+# Content-Type: text/plain
+# Content-Length: 19
+# Server: Jetty(9.4.22.v20191022)
+
+# Greetings John Doe
+
+kt$ curl -i http://localhost:8080/api/query
+# HTTP/1.1 200 OK
+# Date: Sun, 24 Nov 2019 02:52:57 GMT
+# Content-Type: text/plain
+# Content-Length: 19
+# Server: Jetty(9.4.22.v20191022)
+# 
+# Greetings John Doe
+```
+
+The [official Jersey documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2271) has very clear and detailed information on the rest of the lesser used possibitiles such as `MatrixParam`, `HeadParam`, `CookieParam` and `FormParam`.
+
 ## Random Notes
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml? [closed]?_
