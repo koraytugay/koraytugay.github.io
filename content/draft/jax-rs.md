@@ -219,4 +219,4 @@ kt$ curl -i http://localhost:8080/api/query
 The [official Jersey documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2271) has very clear and detailed information on the rest of the lesser used possibitiles such as `MatrixParam`, `HeadParam`, `CookieParam` and `FormParam`.
 
 ## Random Notes
-- [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml? [closed]?_
+- [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
