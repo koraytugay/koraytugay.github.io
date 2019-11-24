@@ -77,11 +77,6 @@ Considering the following dependencies:
 A very simple `Employee` modal:
 
 ```java
-import javax.xml.bind.annotation.XmlRootElement;
-
-import lombok.Getter;
-import lombok.Setter;
-
 @XmlRootElement
 @Getter
 @Setter
@@ -93,11 +88,6 @@ public class Employee {
 and an `EmployeeResource`:
 
 ```java
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-
-import biz.tugay.pg.jaxrs.modal.Employee;
-
 @Path("employee")
 public class EmployeeResource {
     
@@ -162,9 +152,6 @@ There is a lot more going on with MediaTypes, such as being able to consume or p
 [QueryParam](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/QueryParam.html) annotation can be used to capture, well the query parameters from the URI. Here is an example:
 
 ```java
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-
 @Path("query")
 public class QueryResource {
     
@@ -220,8 +207,6 @@ The [official Jersey documentation](https://eclipse-ee4j.github.io/jersey.github
 [Sub-resources](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2542) can be used to further organize the design, if there are several method-level resources in a resource class that all are a part of a particular path. 
 
 ```java
-import javax.ws.rs.Path;
-
 @Path("myResource")
 public class MyResource {
     @Path("sub")
@@ -229,10 +214,6 @@ public class MyResource {
       return new MySubResource();
     }
 }
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 public class MySubResource {
     @GET
@@ -257,7 +238,45 @@ kt$ curl -i http://localhost:8080/api/myResource/sub
 ```
 
 ## Representations and Responses
-To be continued from: https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html
+So far we have been returning `200 Success` in our responses, but we can do better. Following is an example that returns a `201 Created`:
+
+```java
+@Path("employee")
+public class EmployeeResource {
+
+    static List<Employee> employees = new ArrayList<>();
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("{name}")
+    public Response createEmployee(@PathParam("name") String name) {
+        Employee e = new Employee(employees.size() + 1, name);
+        employees.add(e);
+        return Response.status(Response.Status.CREATED).entity(e).build();
+        // An entity need not to be included, the following is also fine:
+        // which would return no body:
+        // return Response.status(Response.Status.CREATED).build();
+    }
+
+}
+```
+
+And an example invocation:
+
+```bash
+kt$ curl -i -X POST http://localhost:8080/api/employee/koray
+# HTTP/1.1 201 Created
+# Date: Sun, 24 Nov 2019 23:18:05 GMT
+# Content-Type: application/json
+# Content-Length: 23
+# Server: Jetty(9.4.22.v20191022)
+# 
+# {"id":1,"name":"koray"}
+```
+
+Response building provides other functionality such as setting the entity tag and last modified date of the representation.
+
+[Continue](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html)
 
 ## Random Notes
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
