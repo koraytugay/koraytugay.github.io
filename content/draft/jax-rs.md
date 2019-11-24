@@ -10,7 +10,7 @@ title:  "JAX-RS"
 {:toc}
 
 ## Overview
-[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), i.e. _Jakarta RESTful Web Services_, is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning!
+[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), _Jakarta RESTful Web Services_, is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning!
 
 ## Resources
 Resources are POJOs annotated with the [Path](https://jax-rs.github.io/apidocs/2.1/) annotation. Here is a resource that does nothing:
