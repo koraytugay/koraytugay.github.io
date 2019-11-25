@@ -277,17 +277,6 @@ Response building provides other functionality such as adding header values in r
 The `Response.ResponseBuilder` has some shortcuts, here is an example:
 
 ```java
-package biz.tugay.pg.jaxrs.resource;
-
-import biz.tugay.pg.jaxrs.modal.Employee;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.lang.String.valueOf;
-
 @Path("employee")
 public class EmployeeResource {
 
