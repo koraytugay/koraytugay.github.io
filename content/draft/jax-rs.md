@@ -274,7 +274,7 @@ kt$ curl -i -X POST http://localhost:8080/api/employee/koray
 Response building provides other functionality such as adding header values in responses, setting the entity tag and last modified date of the representation.
 
 ### Response Builder Shortcuts and the Location Header
-The `Response.ResponseBuilder` has some shortcuts, here is an example:
+The [Response](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html) class has some shortcuts, here is an example:
 
 ```java
 @Path("employee")
