@@ -201,7 +201,7 @@ kt$ curl -i http://localhost:8080/api/query
 # Greetings John Doe
 ```
 
-The [official Jersey documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2271) has very clear and detailed information on the rest of the lesser used possibitiles such as `MatrixParam`, `HeadParam`, `CookieParam` and `FormParam`.
+The [official Jersey documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2271) has very clear and detailed information on the rest of the lesser used possibitiles such as `MatrixParam`, `HeadParam`, `CookieParam`, `FormParam`, and my personal favorite [BeanParam](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/BeanParam.html).
 
 ### Sub-Resources
 [Sub-resources](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html#d0e2542) can be used to further organize the design, if there are several method-level resources in a resource class that all are a part of a particular path. 
