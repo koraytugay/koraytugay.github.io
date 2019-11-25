@@ -325,7 +325,7 @@ kt$ curl -i http://localhost:8080/api/employee/1
 # Content-Length: 23
 # Server: Jetty(9.4.22.v20191022)
 
-{"id":1,"name":"koray"}
+# {"id":1,"name":"koray"}
 ```
 
 Things to note in the example above:
