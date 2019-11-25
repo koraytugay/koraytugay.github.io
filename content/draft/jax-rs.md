@@ -43,7 +43,7 @@ public class MyResource {
 Methods in resource classes are annotated with `GET`, `POST`, `DELETE` and so on for finding the matching method to accept the request. The example above is an example of a `GET` endpoint.
 
 ### Producing and Consuming MediaTypes
-Both annotations, `Produces` and `Consumes` can be applied at class and method levels, and used with a [MediaType](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/MediaType.html). These annotations can be used to narrow down the matching of methods and transforing DTOs to appropriate types by an appropriate [MessageBodyWriter](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/ext/MessageBodyWriter.html) implementation or a [MessageBodyReader](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/ext/MessageBodyReader.html) implementation.
+Both annotations, [Produces](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/Produces.html) and [Consumes](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/Consumes.html) can be applied at class and method levels, and used with a [MediaType](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/MediaType.html). These annotations can be used to narrow down the matching of methods and transforing DTOs to appropriate types by an appropriate [MessageBodyWriter](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/ext/MessageBodyWriter.html) implementation or a [MessageBodyReader](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/ext/MessageBodyReader.html) implementation.
 
 #### Working with XML
 The following example works with XML out of the box with Jersey, without the need of any additional libraries. 
