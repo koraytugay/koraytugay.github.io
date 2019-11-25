@@ -344,7 +344,7 @@ Things to note in the example above:
 - We made use of the `created` method from `ResponseBuilder` class, passing in the path the resource that can be retrieved from. 
   - This ended up in including the `Location` header in the response automatically.
 
-Make sure to check other shortcuts such as: `accepted` and `noContent`.
+Make sure to check other shortcuts such as: [accepted](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#accepted), [ok](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#ok) and [noContent](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#noContent).
 
 [Continue](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html)
 
