@@ -10,7 +10,7 @@ title:  "JAX-RS"
 {:toc}
 
 ## Overview
-[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), _Jakarta RESTful Web Services_, is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning!
+[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), _Jakarta RESTful Web Services_, is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning, and do not forget to check the [API docs](https://jax-rs.github.io/apidocs/2.1/)!
 
 ## Resources
 Resources are POJOs annotated with the [Path](https://jax-rs.github.io/apidocs/2.1/) annotation. Here is a resource that does nothing:
@@ -238,7 +238,7 @@ kt$ curl -i http://localhost:8080/api/myResource/sub
 ```
 
 ## Representations and Responses
-So far we have been returning `200 Success` in our responses, but we can do better. Following is an example that returns a `201 Created`:
+So far we have been returning `200 OK` in our responses, but we can do better. Following is an example that returns a `201 Created`:
 
 ```java
 @Path("employee")
@@ -253,9 +253,6 @@ public class EmployeeResource {
         Employee e = new Employee(employees.size() + 1, name);
         employees.add(e);
         return Response.status(Response.Status.CREATED).entity(e).build();
-        // An entity need not to be included, the following is also fine:
-        // which would return no body:
-        // return Response.status(Response.Status.CREATED).build();
     }
 
 }
@@ -274,7 +271,80 @@ kt$ curl -i -X POST http://localhost:8080/api/employee/koray
 # {"id":1,"name":"koray"}
 ```
 
-Response building provides other functionality such as setting the entity tag and last modified date of the representation.
+Response building provides other functionality such as adding header values in responses, setting the entity tag and last modified date of the representation.
+
+### Response Builder Shortcuts and the Location Header
+The `Response.ResponseBuilder` has some shortcuts, here is an example:
+
+```java
+package biz.tugay.pg.jaxrs.resource;
+
+import biz.tugay.pg.jaxrs.modal.Employee;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.String.valueOf;
+
+@Path("employee")
+public class EmployeeResource {
+
+    static List<Employee> employees = new ArrayList<>();
+
+    @POST
+    @Path("{name}")
+    public Response createEmployee(@PathParam("name") String name,
+                                   @Context UriInfo uriInfo) {
+        Employee e = new Employee(employees.size() + 1, name);
+        employees.add(e);
+        UriBuilder path = uriInfo
+                .getBaseUriBuilder()
+                .path(EmployeeResource.class)
+                .path(valueOf(e.getId()));
+        return Response.created(path.build()).build();
+    }
+
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response employee(@PathParam("id") int id) {
+        return Response
+                .status(Response.Status.FOUND)
+                .entity(employees.get(id - 1))
+                .build();
+    }
+
+}
+```
+
+with a sample run:
+
+```bash
+kt$ curl -i -X POST  http://localhost:8080/api/employee/koray
+# HTTP/1.1 201 Created
+# Date: Mon, 25 Nov 2019 02:21:45 GMT
+# Location: http://localhost:8080/api/employee/1
+# Content-Length: 0
+# Server: Jetty(9.4.22.v20191022)
+
+kt$ curl -i http://localhost:8080/api/employee/1
+# HTTP/1.1 302 Found
+# Date: Mon, 25 Nov 2019 02:21:54 GMT
+# Content-Type: application/json
+# Content-Length: 23
+# Server: Jetty(9.4.22.v20191022)
+
+{"id":1,"name":"koray"}
+```
+
+Things to note in the example above:
+- We made use of the `Context` annotation, and retrieved the absolute path of the resource itself.
+- We made use of the `created` method from `ResponseBuilder` class, passing in the path the resource that can be retrieved from. 
+  - This ended up in including the `Location` header in the response automatically.
+
+Make sure to check other shortcuts such as: `accepted` and `noContent`.
 
 [Continue](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html)
 
