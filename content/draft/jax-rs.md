@@ -337,5 +337,7 @@ Make sure to check other shortcuts such as: [accepted](https://jax-rs.github.io/
 
 [Continue](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html)
 
-## Random Notes
+## References
+- [Jersey User Guide](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
+- [Developing RESTful APIs with JAX-RS](https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZh5U8RbdXq0WaYvZBz2rbn)
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
