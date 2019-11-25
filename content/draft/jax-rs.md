@@ -330,7 +330,7 @@ kt$ curl -i http://localhost:8080/api/employee/1
 
 Things to note in the example above:
 - We made use of the [Context](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Context.html) annotation, and retrieved the absolute path of the resource itself.
-- We made use of the `created` method from `ResponseBuilder` class, passing in the path the resource that can be retrieved from. 
+- We made use of the [created](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#created-java.net.URI-) method from `Response` class, passing in the path the resource that can be retrieved from. 
   - This ended up in including the `Location` header in the response automatically.
 
 Make sure to check other shortcuts such as: [accepted](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#accepted), [ok](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#ok) and [noContent](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#noContent).
