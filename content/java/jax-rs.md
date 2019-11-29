@@ -362,24 +362,16 @@ public class RestApiClient {
         message.setContent("From JAX-RS client!");
 
         Response response = MESSAGES.request().post(Entity.json(message));
-        System.out.println(response);
-        // {method=POST, uri=http://localhost:8080/api/messages, status=201, reason=Created}
-
         response = MESSAGES.request(MediaType.APPLICATION_JSON).get();
-        System.out.println(response);
-        // {method=GET, uri=http://localhost:8080/api/messages, status=200, reason=OK}
 
         // Handling Generic Types, such as List<Message>
-        List<Message> messages = response.readEntity(new GenericType<List<Message>>() {});
-        for (Message m : messages) {
-            System.out.println(m);
-        }
-
+        List<Message> messages = 
+            response.readEntity(new GenericType<List<Message>>() {});
+        
+        // resolveTemplate example
         message = BY_ID.resolveTemplate("id", 1)
                        .request(MediaType.APPLICATION_JSON)
                        .get(Message.class);
-        System.out.println(message);
-        // Message(id=1, author=Koray Tugay, content=Hello World!, created=Mon Nov 25)
     }
 }    
 ```
