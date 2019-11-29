@@ -348,11 +348,11 @@ JAX-RS also provides an API for the client side, i.e. for making requests. The f
 ```java
 public class RestApiClient
 {
-  private static final WebTarget BASE_TARGET = ClientBuilder.newClient().target("http://localhost:8080/api");
+  final WebTarget BASE_TARGET = ClientBuilder.newClient().target("http://localhost:8080/api");
 
-  private static final WebTarget MESSAGES = BASE_TARGET.path("messages");
+  private  WebTarget MESSAGES = BASE_TARGET.path("messages");
 
-  private static final WebTarget BY_ID = MESSAGES.path("{id}");
+  final WebTarget BY_ID = MESSAGES.path("{id}");
 
   public static void main(String[] args) {
     Message message = new Message();
@@ -361,11 +361,11 @@ public class RestApiClient
 
     Response response = MESSAGES.request().post(Entity.json(message));
     System.out.println(response);
-    // {context=ClientResponse{method=POST, uri=http://localhost:8080/api/messages, status=201, reason=Created}}
+    // {method=POST, uri=http://localhost:8080/api/messages, status=201, reason=Created}
 
     response = MESSAGES.request(MediaType.APPLICATION_JSON).get();
     System.out.println(response);
-    // {context=ClientResponse{method=GET, uri=http://localhost:8080/api/messages, status=200, reason=OK}}
+    // {method=GET, uri=http://localhost:8080/api/messages, status=200, reason=OK}
 
     // Handling Generic Types, such as List<Message>
     List<Message> messages = response.readEntity(new GenericType<List<Message>>(){});
