@@ -10,7 +10,7 @@ title:  "JAX-RS"
 {:toc}
 
 ## Overview
-[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), _Jakarta RESTful Web Services_, is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey/) is the reference implementation, which I also happen to use. I also have some [sample code in GitHub](https://github.com/koraytugay/pg-jaxrs) to easily play and experiment with JAX-RS. Happy learning, and do not forget to check the [API docs](https://jax-rs.github.io/apidocs/2.1/)!
+[JAX-RS](https://projects.eclipse.org/projects/ee4j.jaxrs), _Jakarta RESTful Web Services_, is an API for creating RESTful Java applications and [Jersey](https://eclipse-ee4j.github.io/jersey/) is the reference implementation, Happy learning.
 
 ## Resources
 Resources are POJOs annotated with the [Path](https://jax-rs.github.io/apidocs/2.1/) annotation. Here is a resource that does nothing:
@@ -389,7 +389,16 @@ public Invocation getMessageInvocation(int id) {
 }
 ```
 
-## References
+## Further Topics To Study
+- [ContainerRequestFilter](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/container/ContainerRequestFilter.html) and [ContainerResponseFilter](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/container/ContainerResponseFilter.html)
+- [NameBinding](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/NameBinding.html)
+- [ExceptionMapper](https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/ext/ExceptionMapper.html)
+
+I have examples to above topics in JAX-RS Playground listed in the References section.
+
+## References and Useful Resources
+- [API docs](https://jax-rs.github.io/apidocs/2.1/)
 - [Jersey Official Documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
-- [Developing RESTful APIs with JAX-RS](https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZh5U8RbdXq0WaYvZBz2rbn)
-- [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
+- Youtube Playlist - [Developing RESTful APIs with JAX-RS](https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZh5U8RbdXq0WaYvZBz2rbn)
+- Stackoverflow - [What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?](https://stackoverflow.com/a/36033943)
+- [JAX-RS Playground](https://github.com/koraytugay/pg-jaxrsq)
