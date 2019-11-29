@@ -336,9 +336,62 @@ Things to note in the example above:
 
 Make sure to check other shortcuts such as: [accepted](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#accepted) and [noContent](https://jax-rs.github.io/apidocs/2.1/javax/ws/rs/core/Response.html#noContent).
 
-[Continue](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/representations.html)
+## JAX-RS in Client Side
+JAX-RS also provides an API for the client side, i.e. for making requests. The following example demonstrates several features of JAX-RS in client side including:
+
+- Building `WebTarget`s by chaining `path` calls.
+- Sending a `POST` request with an entity in the body.
+- Sending a `GET` request and declaring the accepted `MediaType`.
+- Handling generic types while reading responses.
+- Dynamically populating parameterized URIs by `resolveTemplate`.
+
+```java
+public class RestApiClient
+{
+  private static final WebTarget BASE_TARGET = ClientBuilder.newClient().target("http://localhost:8080/api");
+
+  private static final WebTarget MESSAGES = BASE_TARGET.path("messages");
+
+  private static final WebTarget BY_ID = MESSAGES.path("{id}");
+
+  public static void main(String[] args) {
+    Message message = new Message();
+    message.setAuthor("koraytugay");
+    message.setContent("From JAX-RS client!");
+
+    Response response = MESSAGES.request().post(Entity.json(message));
+    System.out.println(response);
+    // {context=ClientResponse{method=POST, uri=http://localhost:8080/api/messages, status=201, reason=Created}}
+
+    response = MESSAGES.request(MediaType.APPLICATION_JSON).get();
+    System.out.println(response);
+    // {context=ClientResponse{method=GET, uri=http://localhost:8080/api/messages, status=200, reason=OK}}
+
+    // Handling Generic Types, such as List<Message>
+    List<Message> messages = response.readEntity(new GenericType<List<Message>>(){});
+    for (Message m: messages) {
+      System.out.println(m);
+    }
+
+    message = BY_ID.resolveTemplate("id", 1).request(MediaType.APPLICATION_JSON).get(Message.class);
+    System.out.println(message);
+    // Message(id=1, author=Koray Tugay, content=Hello World!, created=Mon Nov 25 20:33:38 EST 2019)
+  }
+}
+```
+
+### Invocations
+JAX-RS also has a concept that is called invocations: where you prepare an object that is ready to make the request, that includes all the requiered information, which can be invoked at any time.
+
+Here is an example:
+```java
+public Invocation getMessageInvocation(int id) {
+  Invocation byId = BY_ID.resolveTemplate("id", 1).request(MediaType.APPLICATION_JSON).buildGet();
+  return byId;  // Call anytime with byId.invoke();
+}
+```
 
 ## References
-- [Jersey User Guide](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
+- [Jersey Official Documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
 - [Developing RESTful APIs with JAX-RS](https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZh5U8RbdXq0WaYvZBz2rbn)
 - [Answer](https://stackoverflow.com/a/36033943) on Stackoverflow to question: _What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?_
