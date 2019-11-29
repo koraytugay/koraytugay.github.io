@@ -346,38 +346,42 @@ JAX-RS also provides an API for the client side, i.e. for making requests. The f
 - Dynamically populating parameterized URIs by `resolveTemplate`.
 
 ```java
-public class RestApiClient
-{
-  final WebTarget BASE_TARGET = ClientBuilder.newClient().target("http://localhost:8080/api");
+public class RestApiClient {
 
-  private  WebTarget MESSAGES = BASE_TARGET.path("messages");
+    static String BASE_URL = "http://localhost:8080/api";
+    
+    static WebTarget BASE_TARGET = ClientBuilder.newClient().target(BASE_URL);
 
-  final WebTarget BY_ID = MESSAGES.path("{id}");
+    static WebTarget MESSAGES = BASE_TARGET.path("messages");
 
-  public static void main(String[] args) {
-    Message message = new Message();
-    message.setAuthor("koraytugay");
-    message.setContent("From JAX-RS client!");
+    static WebTarget BY_ID = MESSAGES.path("{id}");
 
-    Response response = MESSAGES.request().post(Entity.json(message));
-    System.out.println(response);
-    // {method=POST, uri=http://localhost:8080/api/messages, status=201, reason=Created}
+    public static void main(String[] args) {
+        Message message = new Message();
+        message.setAuthor("koraytugay");
+        message.setContent("From JAX-RS client!");
 
-    response = MESSAGES.request(MediaType.APPLICATION_JSON).get();
-    System.out.println(response);
-    // {method=GET, uri=http://localhost:8080/api/messages, status=200, reason=OK}
+        Response response = MESSAGES.request().post(Entity.json(message));
+        System.out.println(response);
+        // {method=POST, uri=http://localhost:8080/api/messages, status=201, reason=Created}
 
-    // Handling Generic Types, such as List<Message>
-    List<Message> messages = response.readEntity(new GenericType<List<Message>>(){});
-    for (Message m: messages) {
-      System.out.println(m);
+        response = MESSAGES.request(MediaType.APPLICATION_JSON).get();
+        System.out.println(response);
+        // {method=GET, uri=http://localhost:8080/api/messages, status=200, reason=OK}
+
+        // Handling Generic Types, such as List<Message>
+        List<Message> messages = response.readEntity(new GenericType<List<Message>>() {});
+        for (Message m : messages) {
+            System.out.println(m);
+        }
+
+        message = BY_ID.resolveTemplate("id", 1)
+                       .request(MediaType.APPLICATION_JSON)
+                       .get(Message.class);
+        System.out.println(message);
+        // Message(id=1, author=Koray Tugay, content=Hello World!, created=Mon Nov 25)
     }
-
-    message = BY_ID.resolveTemplate("id", 1).request(MediaType.APPLICATION_JSON).get(Message.class);
-    System.out.println(message);
-    // Message(id=1, author=Koray Tugay, content=Hello World!, created=Mon Nov 25 20:33:38 EST 2019)
-  }
-}
+}    
 ```
 
 ### Invocations
@@ -386,10 +390,8 @@ JAX-RS also has a concept that is called invocations: where you prepare an objec
 Here is an example:
 ```java
 public Invocation getMessageInvocation(int id) {
-  Invocation byId = BY_ID.resolveTemplate("id", 1)
-                         .request(MediaType.APPLICATION_JSON)
-                         .buildGet();
-  return byId;  // Call anytime with byId.invoke();
+    Invocation byId = BY_ID.resolveTemplate("id", 1).request(MediaType.APPLICATION_JSON).buildGet();
+    return byId;  // Call anytime with byId.invoke();
 }
 ```
 
