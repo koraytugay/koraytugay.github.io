@@ -26,6 +26,7 @@ title:  "Koray Tugay"
 #### Java
 - [Threads](content/java/threads.md)
 - [Concurrency](content/java/concurrency.md)
+- [JAX-RS](content/java/jax-rs.md)
 
 #### Literature
 - [1984](content/literature/1984.md)
@@ -45,6 +46,5 @@ title:  "Koray Tugay"
 
 ##### Draft
 - [http](content/draft/http.md)
-- [jax-rs](content/draft/jax-rs.md)
 - [An Overview of HTTP](content/draft/http-overview.md)
 - [Proxy Servers](content/draft/proxy-servers.md)
