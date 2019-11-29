@@ -386,7 +386,9 @@ JAX-RS also has a concept that is called invocations: where you prepare an objec
 Here is an example:
 ```java
 public Invocation getMessageInvocation(int id) {
-  Invocation byId = BY_ID.resolveTemplate("id", 1).request(MediaType.APPLICATION_JSON).buildGet();
+  Invocation byId = BY_ID.resolveTemplate("id", 1)
+                         .request(MediaType.APPLICATION_JSON)
+                         .buildGet();
   return byId;  // Call anytime with byId.invoke();
 }
 ```
