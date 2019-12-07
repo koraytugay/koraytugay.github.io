@@ -45,9 +45,10 @@ The solution I believe is asking questions in a supportive manner..
 
 - Are there any new technologies or subjects you want to learn or currently experimenting with?
 - Do you have a schedule, a deadline to keep you motivated?
-  - Are you planning on building a toy project?
-  - Are you planning on building some documentation on it?
-  - Are you planning on taking a certification exam?
+  - Are you planning on..
+    - building a toy project?
+    - building some documentation on it?
+    - taking a certification exam?
 - Would you like to make a "tech talk", a presentation about it?
 - Is there anything we can help with? 
   - Would you need funding?
