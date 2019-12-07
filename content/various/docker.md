@@ -1,5 +1,3 @@
-# Docker
-
 ---
 layout: default
 title:  "Docker"
