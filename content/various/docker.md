@@ -13,6 +13,7 @@ title:  "Docker"
 A Docker Image is a collection of all the required files for an executable. Docker Images are layered with the base image having no parent images. Docker images can be downloaded from registires, Docker Hub being an example, built from Dockerfiles or from existing containers.
 
 ### Related Commands
+
 ```bash
 # Pulling an image
 docker pull repository-name:tag

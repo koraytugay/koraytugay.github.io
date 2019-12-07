@@ -14,6 +14,7 @@ title:  "Koray Tugay"
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
 #### Java
+- [Streams](content/java/streams.md)
 - [Threads](content/java/threads.md)
 - [Concurrency](content/java/concurrency.md)
 - [JAX-RS](content/java/jax-rs.md)
