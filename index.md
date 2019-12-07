@@ -9,16 +9,6 @@ title:  "Koray Tugay"
 #### Cryptography
 - [Sending a Signed Message](content/cryptography/sending-a-signed-message.md)
 
-#### Docker
-- [Images](content/docker/images.md)
-- [Containers](content/docker/containers.md)
-- [Dockerfile](content/docker/dockerfile.md)
-- [Storage](content/docker/storage.md)
-- [Networks](content/docker/networks.md)
-- [Compose](content/docker/docker-compose.md)
-- [Services](content/docker/services.md)
-- [Examples](content/docker/examples.md)
-
 #### Git
 - [Git Cheat Sheet](content/cheat-sheets/git-cheat-sheet.md)
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
@@ -43,6 +33,9 @@ title:  "Koray Tugay"
 
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
+
+#### Various
+- [Docker](content/various/docker.md)
 
 ##### Draft
 - [http](content/draft/http.md)
