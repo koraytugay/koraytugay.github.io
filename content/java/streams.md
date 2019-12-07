@@ -121,18 +121,22 @@ class Foo {
 ```
 
 ## Intermediate Operations on Streams
+
 ### Filtering
 ```java
 Stream.of(1, 2).filter(i -> i < 2); // Only Integer[1] remains
 ```
+
 ### Mapping
 - Transforms each element of the `Stream` using the provided `Function`
 - Returns a new `Stream` with the return type of the provided `Function`
+
 ```java
 Stream.of(1, 2).map(i -> String.valueOf(i)); // Stream<String>
 ```
 
 ### FlatMapping
+
 ```java
 import java.util.stream.Stream;
 
@@ -141,25 +145,29 @@ class Foo {
     
     Foo(String foo, String bar) {this.foo = foo; this.bar = bar;}
     
-    void foo() {
+    void flatMap() {
+        // returns Stream<String> : ["foo", "bar", "baz", "qux"]
         Stream.of(new Foo("foo", "bar"), new Foo("baz", "qux"))
-              .flatMap(f -> Stream.of(f.foo, f.bar));  // Stream<String> : ["foo", "bar", "baz", "qux"]
+              .flatMap(f -> Stream.of(f.foo, f.bar));
     }
 }
 ```
  
 ### Skipping and Limiting
+
 ```java
 Stream.iterate(new Integer(1), i -> new Integer(i.val + 1)).skip(2).limit(2);
 ```
 
 ### Removing Duplicates
+
 ```java
 Stream.of(1, 2).distinct();
 ```
 
 ### Sorting
-[Stream.sorted(Comparator)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#sorted-java.util.Comparator-)
+Reference: [Stream.sorted(Comparator)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#sorted-java.util.Comparator-)
+
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
@@ -211,13 +219,16 @@ class Foo {
     }
 }
 ```
+
 ## Terminal Operations
 ### Simple Reductions
 #### Number of Elements
+
 ```java
 // Do not try on an infinite stream!
 Stream.of(1, 2).count(); // 2
 ```
+
 #### Finding the minimum and the maximum
 ```java
 import java.util.Comparator;
@@ -227,7 +238,8 @@ class Foo implements Comparable<Foo> {
     int foo;
     Foo(int foo) {this.foo = foo;}
     void foo() {
-        Stream<Foo> fooStream = Stream.of(new Foo(1), new Foo(2), new Foo(3), new Foo(4));
+        Stream<Foo> fooStream = 
+            Stream.of(new Foo(1), new Foo(2), new Foo(3), new Foo(4));
         // Using Comparator.naturalOrder
         fooStream.min(Comparator.naturalOrder()); // Optional[Foo[1]]
     }
@@ -237,7 +249,9 @@ class Foo implements Comparable<Foo> {
     }
 }
 ```
+
 #### Finding the maximum
+
 ```java
 import java.util.Comparator;
 import java.util.stream.Stream;
@@ -251,7 +265,9 @@ class Foo {
     }
 }
 ```
+
 #### Example demonstrating various possibilities for generating Comparator arguments  
+
 ```java
 import java.util.Comparator;
 import java.util.stream.Stream;
@@ -269,40 +285,38 @@ class Foo {
     }
 }
 ```
-### Querying Streams
-#### Finding Any
-```java
-Stream.of(1, 2, 3 ,4).findAny(); // Optional[1-4], seems to return Optional[1] all the time..
-```
-#### Finding Any Mathching a Predicate
-```java
-import java.util.stream.Stream;
 
-class Foo {
-    int foo;
-    Foo(int foo) {this.foo = foo;}
-    void foo() {
-        Stream<Foo> fooStream = Stream.of(new Foo(1), new Foo(2), new Foo(3), new Foo(4));
-        fooStream.anyMatch(f -> f.foo < 2); // true
-    }
-}
+### Querying Streams
+
+```java
+// findAny
+Stream.of(1, 2, 3 ,4).findAny();  // Optional[1|2|3|4]
+
+// anyMatch
+Stream.of(new Foo(1), new Foo(2), new Foo(3), new Foo(4))
+    .anyMatch(f -> f.foo < 2); // true
 ```
+
 ### Collecting Streams
 #### Collecting Into Arrays
+
 ```java
 Stream.of(1).toArray(Integer[]::new); // Integer[]{1}
 ```
+
 #### Collecting Using Collectors
+
 ```java
 Stream.of(1).collect(Collectors.toList()); // List<Integer>
 ```
-See also: [collectors](https://www.koraytugay.com/java/collectors.md)
 
 ## Parallel Streams
 - It is your responsibility to ensure any operations you pass to parallel streams are safe to execute in parallel
 - Some operations can be more effectively parallelised when ordering is dropped using `Stream.unordered()`
+
 ```java
-import java.util.concurrent.ThreadLocalRandom;
+import static java.util.concurrent.ThreadLocalRandom.current;
+import static java.lang.Integer.MAX_VALUE;
 import java.util.stream.Stream;
 
 /**
@@ -311,46 +325,47 @@ import java.util.stream.Stream;
 */
 class App {
     public static void main(String[] args) {
-        int divideBy = 32;
+        int div = 32;
         long start;
         
         // Initial..
         start = System.currentTimeMillis();
-        Stream.generate(() -> ThreadLocalRandom.current().nextInt(0, Math.floorDiv(Integer.MAX_VALUE, 4)))
-              .limit(Integer.MAX_VALUE / divideBy).distinct().count();
+        Stream.generate(() -> current().nextInt(0, Math.floorDiv(MAX_VALUE, 4)))
+              .limit(MAX_VALUE / div).distinct().count();
         log(start, System.currentTimeMillis());
         // Took 71467 milliseconds.
 
         // unordered
         start = System.currentTimeMillis();
-        Stream.generate(() -> ThreadLocalRandom.current().nextInt(0, Math.floorDiv(Integer.MAX_VALUE, 4)))
-              .limit(Integer.MAX_VALUE / divideBy).unordered().distinct().count();
+        Stream.generate(() -> current().nextInt(0, Math.floorDiv(MAX_VALUE, 4)))
+              .limit(MAX_VALUE / div).unordered().distinct().count();
         log(start, System.currentTimeMillis());
         // Took 59521 milliseconds.
 
         // parallel
         start = System.currentTimeMillis();
-        Stream.generate(() -> ThreadLocalRandom.current().nextInt(0, Math.floorDiv(Integer.MAX_VALUE, 4)))
-              .limit(Integer.MAX_VALUE / divideBy).parallel().distinct().count();
+        Stream.generate(() -> current().nextInt(0, Math.floorDiv(MAX_VALUE, 4)))
+              .limit(MAX_VALUE / div).parallel().distinct().count();
         log(start, System.currentTimeMillis());
         // Took 47279 milliseconds.
 
         // unordered and parallel
         start = System.currentTimeMillis();
-        Stream.generate(() -> ThreadLocalRandom.current().nextInt(0, Math.floorDiv(Integer.MAX_VALUE, 4)))
-              .limit(Integer.MAX_VALUE / divideBy).unordered().parallel().distinct().count();
+        Stream.generate(() -> current().nextInt(0, Math.floorDiv(MAX_VALUE, 4)))
+              .limit(MAX_VALUE / div).unordered().parallel().distinct().count();
         log(start, System.currentTimeMillis());
         // Took 31375 milliseconds.
     }
 
     static void log(long start, long end) {
-        System.out.println(String.join(" ", "Took", String.valueOf((end - start)), "milliseconds."));
+        println(join(" ", "Took", valueOf((end - start)), "milliseconds."));
     }
 }
 ```
 
 ## Examples
 ### Random Walk
+
 ```java
 import java.util.List;
 import java.util.stream.Collectors;
