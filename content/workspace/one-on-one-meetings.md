@@ -32,7 +32,7 @@ Asking questions based on assumptions may put pressure on the employee, or may l
 
 As an example consider the following question: 
 
-> What do you think of doing Individual Objectives and Key Results for this quarter?"
+> What do you think of doing Individual Objectives and Key Results for this quarter?
 
 The employee may wonder what makes the engineer think they have _OKR_ s. 
 
