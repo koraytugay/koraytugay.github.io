@@ -199,9 +199,11 @@ class Foo {
         // [[foo, bar, baz, qux], [foo, bar, baz], [foo, bar], [foo]]
         
         // Sort by length of strings
-        sorted = fooList.stream()
-                        .sorted(Comparator.comparing(Foo::getStrings, Comparator.comparing(List::size)))
-                        .collect(Collectors.toList());
+        sorted = fooList
+            .stream()
+            .sorted(Comparator.comparing(Foo::getStrings, 
+                                         Comparator.comparing(List::size)))
+            .collect(Collectors.toList());
         System.out.println(sorted);
         // [[foo], [foo, bar], [foo, bar, baz], [foo, bar, baz, qux]]        
     }
