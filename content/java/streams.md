@@ -27,15 +27,15 @@ Compared to collections..
 
 ### Cheat Sheet
 
-```xml 
-<!-- Creating Streams -->
+```java 
+// Creating Streams
 Collection.stream()
 Stream.of(T...)
 Stream.generate(Supplier)
 Stream.iterate(T, UnaryOperator)
 Arrays.stream(T[])
 
-<!-- Transformations -->
+// Transformations
 Stream.filter(Predicate)
 Stream.map(Function)
 Stream.flatMap(Function)
@@ -46,7 +46,7 @@ Stream.sorted(Comparator)
 Stream.mapToInt(ToIntFunction)
 Stream.flatMapToInt(Function)
 
-<!-- Terminations -->
+// Terminations
 Stream.count()
 Stream.min(Comparator)
 Stream.max(Comparator)
