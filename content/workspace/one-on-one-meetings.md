@@ -24,10 +24,15 @@ It is of course also a good opportunity to see the work enviornment from the emp
 ## Can a One on One Meeting Backfire?
 I believe so. 
 
+### Too Much Braging
+Braging about how company is doing, how great everything is can be tedious for an employee after a while. If one-on-one meetings become meetings where every single time a manager just talks about how exciting and successful the company is (maybe to make the employee stay?), it might just become a burden for the employee.
+
 ### Too Much Pressure
 Asking questions based on assumptions may put pressure on the employee, or may let them think they are falling behind or their manager is unhappy with their performance. (Of course, if that is the case, the best thing would be to share the situation openly.) 
 
-As an example consider the following question: _"What do you think of doing Individual Objectives and Key Results for this quarter?"_. 
+As an example consider the following question: 
+
+> What do you think of doing Individual Objectives and Key Results for this quarter?"
 
 The employee may wonder what makes the engineer think they have _OKR_ s. 
 
@@ -53,4 +58,4 @@ The solution I believe is asking questions in a supportive manner..
 #### Vision and Suggestions
 Another good practice would be to make a direct suggestion to the employee.
 
-A manager should have a better vision of the company, where the company is headed. Instead of just asking what the employee is up to, making a suggestion to the employee, something in the lines of _"So we are planning on supporting Mongo Database"_ or _"There are plans ahead to make use of Kubernetes.."_, _"..would you be interested in taking part when it is time? We will need people familiar with this technology."_ would give the hint and the motivation to the employee.
+A manager should have a better vision of the company, where the company is headed. Instead of just asking what the employee is up to, making a suggestion to the employee, something in the lines of: _"So we are planning on supporting Mongo Database"_ or _"There are plans ahead to make use of Kubernetes.."_, _"..would you be interested in taking part when it is time? We will need people familiar with this technology."_ would give the hint and the motivation to the employee.
