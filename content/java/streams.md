@@ -374,10 +374,11 @@ import static java.util.stream.IntStream.iterate;
 
 class RandomWalk {
     void randomWalk() {
-        List<Integer> randomWalk = iterate(0, i -> current().nextBoolean() ? i - 1 : i + 1)
-                                  .boxed()
-                                  .limit(10)
-                                  .collect(Collectors.toList()); // [0, -1, 0, 1, 2, 3, 4, 5, 4, 5]
+        List<Integer> randomWalk = 
+            iterate(0, i -> current().nextBoolean() ? i - 1 : i + 1)
+            .boxed()
+            .limit(10)
+            .collect(Collectors.toList()); // [0, -1, 0, 1, 2, 3, 4, 5, 4, 5]
     }
 }
 ```
@@ -389,7 +390,7 @@ class RandomWalk {
 IntStream.generate(() -> ThreadLocalRandom.current().nextInt(0, 100))
          .limit(1000)
          .boxed()
-         .collect(Collectors.toCollection(LinkedList::new));  // LinkedList<Integer>
+         .collect(Collectors.toCollection(LinkedList::new));
 ``` 
 
 ## References
