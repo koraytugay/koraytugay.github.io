@@ -321,7 +321,7 @@ import java.util.stream.Stream;
 
 /**
 * A program demonstrating the execution times of parallel and unordered streams
-* by finding number of distinct integers in a randomly generated stream of integers
+* by finding number of distinct integers in a randomly generated stream of ints
 */
 class App {
     public static void main(String[] args) {
