@@ -188,8 +188,8 @@ class Foo {
         Foo foo = new Foo(4, Arrays.asList("foo"));
         Foo fooBar = new Foo(3, Arrays.asList("foo", "bar"));
         Foo fooBarBaz = new Foo(2, Arrays.asList("foo", "bar", "baz"));
-        Foo fooBarBazQux = new Foo(1, Arrays.asList("foo", "bar", "baz", "qux"));
-        List<Foo> fooList = Arrays.asList(foo, fooBarBazQux, fooBarBaz, fooBar);
+        Foo fooBarBazQx = new Foo(1, Arrays.asList("foo", "bar", "baz", "qux"));
+        List<Foo> fooList = Arrays.asList(foo, fooBarBazQx, fooBarBaz, fooBar);
 
         // Sort by value
         List<Foo> sorted = fooList.stream()
