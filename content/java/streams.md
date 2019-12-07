@@ -274,14 +274,16 @@ import java.util.stream.Stream;
 
 class Foo {
     void foo() {
+        // All of the examples above return Optional[foo]
         // Using Comparator.comparing
-        Stream.of("foo", "bar").max(Comparator.comparing(s -> s.toLowerCase())); // Optional[foo]
+        Stream.of("foo", "bar")
+            .max(Comparator.comparing(s -> s.toLowerCase()));
         
         // Using Method References
-        Stream.of("foo", "bar").max(String::compareToIgnoreCase); // Optional[foo]
+        Stream.of("foo", "bar").max(String::compareToIgnoreCase);
         
         // Providing custom method definition with Lambdas
-        Stream.of("foo", "bar").max((o1, o2) -> o1.compareToIgnoreCase(o2)); // Optional[foo]
+        Stream.of("foo", "bar").max((o1, o2) -> o1.compareToIgnoreCase(o2));
     }
 }
 ```
