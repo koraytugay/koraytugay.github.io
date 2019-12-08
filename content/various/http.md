@@ -280,5 +280,5 @@ SSL connection can be possible in the existence of proxy servers by turning the 
 ## Random Notes
 - [SSL Labs](https://www.ssllabs.com/ssltest/viewMyClient.html) offers a webpage where you can check what SSL/TLS protocols your browser supports.
 - [curl](https://curl.haxx.se/) and [wget](https://www.gnu.org/software/wget/) are useful tools for playing with HTTP APIs.
-- [netcat](http://netcat.sourceforge.net/) is very useful for listening on ports. To listen on port 5000: `netcat -l -p 5000`.
+- [netcat](http://netcat.sourceforge.net/) is very useful for listening TCP ports.
 - [howhttps.works](https://howhttps.works/) is fun to go through.
