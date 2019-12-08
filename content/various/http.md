@@ -114,7 +114,7 @@ The significant differences that were introduced with HTTP/1.1 were the mandator
 
 Making the host header mandatory was important for virtual servers, since servers were hosting multiple web pages, a connection was not enough to distinguish from which application a resource was being requested.
 
-Eventhough it is the default behaviour, still many http clients and server exchange the `connection: keep-alive` header in HTTP messages.
+Eventhough it is the default behaviour, still many HTTP clients and server exchange the `connection: keep-alive` header in HTTP messages.
 
 Other important features introduced with this version are:
 - New methods such as `PUT`, `OPTIONS`, `CONNECT`, `TRACE` and `DELETE`
