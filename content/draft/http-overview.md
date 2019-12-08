@@ -56,7 +56,7 @@ X-Items-To-Buy: Banana
 ```
 
 ### HTTP/1.1
-The significant differences that were introduced with HTTP/1.1 were the mandatory host header and making persistent connections the defult which was introduced with HTTP/1.0 yet being optional. 
+The significant differences that were introduced with HTTP/1.1 were the mandatory host header and making persistent connections the default which was introduced with HTTP/1.0 yet being optional. 
 
 Making the host header mandatory was important for virtual servers, since servers were hosting multiple web pages, a connection was not enough to distinguish from which application a resource was being requested.
 
