@@ -37,6 +37,7 @@ title:  "Koray Tugay"
 
 #### Various
 - [Docker](content/various/docker.md)
+- [HTTP] (content/various/http.md)
 
 ##### Draft
 - [http](content/draft/http.md)
