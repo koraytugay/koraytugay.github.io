@@ -14,31 +14,48 @@ HTTP stands for Hypertext Transfer Protocol but is used for transferring all kin
 
 __HTTP Requests__ are composed of a domain (or an IP address), a resource, a method and usually a bunch of headers. Requests, in addition to headers, can have body too. A hello world in HTTP can be demonstrated by using `telnet example.com 80`:
 
-```plaintext
-Trying 93.184.216.34...
-Connected to example.com.
-Escape character is '^]'.
-GET / HTTP/1.1
-host: example.com
-connection: close
-
-HTTP/1.1 200 OK
-Cache-Control: max-age=604800
-Content-Type: text/html; charset=UTF-8
-Date: Sun, 29 Sep 2019 21:53:24 GMT
-Etag: "1541025663+ident"
-Expires: Sun, 06 Oct 2019 21:53:24 GMT
-Last-Modified: Fri, 09 Aug 2013 23:54:35 GMT
-Server: ECS (ord/573A)
-Vary: Accept-Encoding
-X-Cache: HIT
-Content-Length: 1270
-Connection: close
-
-<!doctype html>
-<html>
-..
-</html>
+```bash
+telnet example.com 80
+# Trying 2606:2800:220:1:248:1893:25c8:1946...
+# Connected to example.com.
+# Escape character is '^]'.
+# GET / HTTP/1.1
+# host: example.com
+# connection: close
+# 
+# HTTP/1.1 200 OK
+# Cache-Control: max-age=604800
+# Content-Type: text/html; charset=UTF-8
+# Date: Sun, 08 Dec 2019 19:06:34 GMT
+# Etag: "3147526947+gzip+ident"
+# Expires: Sun, 15 Dec 2019 19:06:34 GMT
+# Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+# Server: ECS (dcb/7EEE)
+# Vary: Accept-Encoding
+# X-Cache: HIT
+# Content-Length: 1256
+# Connection: close
+# 
+# <!doctype html>
+# <html>
+# <head>
+#     <title>Example Domain</title>
+# 
+#     <meta charset="utf-8" />
+#     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+#     <meta name="viewport" content="width=device-width, initial-scale=1" />
+# </head>
+# 
+# <body>
+# <div>
+#     <h1>Example Domain</h1>
+#     <p>This domain is for use in illustrative examples in documents. You may # use this
+#     domain in literature without prior coordination or asking for # permission.</p>
+#     <p><a href="https://www.iana.org/domains/example">More # information...</a></p>
+# </div>
+# </body>
+# </html>
+# Connection closed by foreign host.
 ```
 
 The example above shows `host` and `connection` headers. HTTP headers are __not__ case sensitive. There are many other HTTP headers. Following the domain comes the path and the query parameters. For example `/foo/bar/baz?q=1&t=2` consists of the path `/foo/bar/baz` and query parameters `q=1` and `t=2`.
