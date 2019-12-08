@@ -9,6 +9,7 @@ title:  "HTTP"
 * TOC
 {:toc}
 
+## Overview
 HTTP stands for Hypertext Transfer Protocol but is used for transferring all kinds of data and it is a protocol based on plain text.
 
 __HTTP Requests__ are composed of a domain (or an IP address), a resource, a method and usually a bunch of headers. Requests, in addition to headers, can have body too. A hello world in HTTP can be demonstrated by using `telnet example.com 80`:
