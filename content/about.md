@@ -38,6 +38,7 @@ I was unfortunately unable to find a dev-buddy, with whom I would like to attemp
 - [Julia Evans](https://jvns.ca/)
 - [Martin Fowler](https://martinfowler.com/) 
 - [The Codist](http://thecodist.com/)
+- [Tania Rascia](https://www.taniarascia.com/)
 
 #### Blog Posts
 - [Coconut Headphones: Why Agile Has Failed](http://mikehadlow.blogspot.com/2014/03/coconut-headphones-why-agile-has-failed.html)
