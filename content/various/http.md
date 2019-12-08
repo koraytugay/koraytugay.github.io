@@ -235,6 +235,14 @@ A client can intentionally configure a proxy server for whatever reason. A proxy
 #### SSL Connection Behind a Proxy Server
 We can observe this behaviour by the following. Start listening on port `8443` using netcat:
 
+### Interceptors (aka Transparent Proxies)
+There are several techniques where the network infrastructure intercepts and steers web traffic into a proxy, without the client’s knowledge or participation. This interception typically relies on switching and routing devices that watch for HTTP traffic, intercept it, and shunt the traffic into a proxy, without the client’s knowledge.
+
+In such cases, clients computers also have certificates installed that trust the proxy server, and the proxy server becomes a man-in-the-middle. See [this](https://crypto.stackexchange.com/a/76232) answer for details.
+
+### Reverse Proxies
+Servers (instead of the clients) can be behind proxy servers for again, whatever reason, such as load-balancing, filtering or authentication. In this case the client again would be unaware of being connected to a proxy server, but it is much more innocent compared to interceptors.
+
 ```bash
 nc -l -p 8843
 ``` 
