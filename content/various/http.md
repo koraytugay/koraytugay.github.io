@@ -65,6 +65,35 @@ As per methods, here is a summary: `GET` usually does not have any body and used
 
 __HTTP Responses__ are very similar to HTTP Requests in the sense of they also have headers and a body but instead of methods, responses has statuses such as `200` or `404`.
 
+## A Brief Overview of TCP Connections
+Before HTTP requests and responses can be sent back and forth, a TCP connection must be opened between the client and the server. TCP gives HTTP a reliable bit pipe. _Bytes stuffed in one side of a TCP connection come out the other side correctly, and in the right order._
+
+A computer might have several TCP connections open at any one time. TCP keeps all these connections straight through port numbers. A TCP connection is distinguished by four values:
+
+- Source IP address
+- Source port number
+- Destination IP address
+- Destination port number
+
+Together, these four values uniquely define a connection. Two different TCP connections are not allowed to have the same values for all four address components, but _different connections can have the same values for some of the components_.
+
+### Parallel Connections
+Concurrent HTTP requests across multiple TCP connections. In practice, browsers do use parallel connections, but they limit the total number of parallel connections to a small number (often four). Servers are free to close excessive connections from a particular client.
+
+### Persistent Connections
+Reusing TCP connections to eliminate connect/close delays. TCP connections that are kept open after transactions complete are called persistent connections. Nonpersistent connections are closed after each transaction. Persistent connections stay open across transactions, until either the client or the server decides to close them.
+
+### Parallel vs Persistent Connections
+Parallel connections can speed up the transfer of composite pages but have some disadvantages:
+
+- Each transaction opens/closes a new connection, costing time and bandwidth.
+- Each new connection has reduced performance because of TCP slow start.
+- There is a practical limit on the number of open parallel connections.
+
+Persistent connections offer some advantages over parallel connections: They reduce the delay and overhead of connection establishment, keep the connections in a tuned state, and reduce the potential number of open connections. However, persistent connections need to be managed with care, or you may end up accumulating a large number of idle connections, consuming local resources and resources on remote clients and servers. Persistent connections can be most effective when used in conjunction with parallel connections. _Today, many web applications open a small number of parallel connections, each persistent._ 
+
+### Pipelined connections
+HTTP/1.1 permits optional request pipelining over persistent connections. This is a further performance optimization over keep-alive connections. Multiple requests can be enqueued before the responses arrive. While the first request is streaming across the network to a server on the other side of the globe, the second and third requests can get underway.
 
 ## A Brief History of HTTP Versions
 ### HTTP/0.9
