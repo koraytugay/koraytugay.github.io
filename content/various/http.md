@@ -143,7 +143,7 @@ will successfuly handle the required SSL handshake by the server:
 # verify return:1
 # depth=1 C = US, O = DigiCert, CN = DigiCert SHA2 Secure Server CA
 # verify return:1
-# depth=0 L = San Francisco, O = "NetlifyInc", CN = *# .netlify.com
+# depth=0 C = US, ST = ca, L = San Francisco, O = "Netlify", CN = *.netlify.com
 # verify return:1
 # ---
 # Certificate chain
