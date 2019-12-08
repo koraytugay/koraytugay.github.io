@@ -37,9 +37,4 @@ title:  "Koray Tugay"
 
 #### Various
 - [Docker](content/various/docker.md)
-- [HTTP] (content/various/http.md)
-
-##### Draft
-- [http](content/draft/http.md)
-- [An Overview of HTTP](content/draft/http-overview.md)
-- [Proxy Servers](content/draft/proxy-servers.md)
+- [HTTP](content/various/http.md)
