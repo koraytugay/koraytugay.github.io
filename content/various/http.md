@@ -72,7 +72,7 @@ The first published specification for HTTP was version 0.9. This specification b
 
 There was no concept of HTTP headers or any other media, such as images. A typical HTTP/0.9 request would then be as follows:
 
-```plaintext
+```bash
 GET /page.html
 
 ```
@@ -96,10 +96,10 @@ HTTP headers are specified by with a header name, a colon and then the value. Th
 
 Here is a typical HTTP/1.0 request:
 
-```plaintext
+```bash
 GET /page.html HTTP/1.0
 Accept: text/html
-Accept-Language: en-GB,en-US;q=0.8,en;q=0.6
+Accept-Language: en-GB
 Connection: keep-alive
 Host: www.cat.com
 User-Agent: Netscape-Navigator
