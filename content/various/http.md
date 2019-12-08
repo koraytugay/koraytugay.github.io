@@ -129,7 +129,7 @@ HTTPS works by using public key encryption, which allows servers to provide publ
 When the client connects to an HTTPS server, a TLS handshake takes place consisting of agreeing on the encryption method to use and exchanging an encryption key. The public key cryptography is only used during the TLS handshake, once it is complete, a faster encryption is used.
 
 ### SSL Connection with openssl
-`telnet` does not support secure connections, however `open_ssl` can be used from terminals to connect to web servers that require the handshake.
+telnet does not support secure connections, however open_ssl can be used from terminals to connect to web servers that require the handshake.
 
 ```bash
 openssl s_client -connect examplecat.com:443
