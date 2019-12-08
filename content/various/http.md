@@ -19,10 +19,10 @@ telnet example.com 80
 # Trying 2606:2800:220:1:248:1893:25c8:1946...
 # Connected to example.com.
 # Escape character is '^]'.
-# GET / HTTP/1.1
-# host: example.com
-# connection: close
-# 
+GET / HTTP/1.1
+host: example.com
+connection: close
+ 
 # HTTP/1.1 200 OK
 # Cache-Control: max-age=604800
 # Content-Type: text/html; charset=UTF-8
