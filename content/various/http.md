@@ -65,36 +65,6 @@ As per methods, here is a summary: `GET` usually does not have any body and used
 
 __HTTP Responses__ are very similar to HTTP Requests in the sense of they also have headers and a body but instead of methods, responses has statuses such as `200` or `404`.
 
-## A Brief Overview of TCP Connections
-Before HTTP requests and responses can be sent back and forth, a TCP connection must be opened between the client and the server. TCP gives HTTP a reliable bit pipe. _Bytes stuffed in one side of a TCP connection come out the other side correctly, and in the right order._
-
-A computer might have several TCP connections open at any one time. TCP keeps all these connections straight through port numbers. A TCP connection is distinguished by four values:
-
-- Source IP address
-- Source port number
-- Destination IP address
-- Destination port number
-
-Together, these four values uniquely define a connection. Two different TCP connections are not allowed to have the same values for all four address components, but _different connections can have the same values for some of the components_.
-
-### Parallel Connections
-Concurrent HTTP requests across multiple TCP connections. In practice, browsers do use parallel connections, but they limit the total number of parallel connections to a small number (often four). Servers are free to close excessive connections from a particular client.
-
-### Persistent Connections
-Reusing TCP connections to eliminate connect/close delays. TCP connections that are kept open after transactions complete are called persistent connections. Nonpersistent connections are closed after each transaction. Persistent connections stay open across transactions, until either the client or the server decides to close them.
-
-### Parallel vs Persistent Connections
-Parallel connections can speed up the transfer of composite pages but have some disadvantages:
-
-- Each transaction opens/closes a new connection, costing time and bandwidth.
-- Each new connection has reduced performance because of TCP slow start.
-- There is a practical limit on the number of open parallel connections.
-
-Persistent connections offer some advantages over parallel connections: They reduce the delay and overhead of connection establishment, keep the connections in a tuned state, and reduce the potential number of open connections. However, persistent connections need to be managed with care, or you may end up accumulating a large number of idle connections, consuming local resources and resources on remote clients and servers. Persistent connections can be most effective when used in conjunction with parallel connections. _Today, many web applications open a small number of parallel connections, each persistent._ 
-
-### Pipelined connections
-HTTP/1.1 permits optional request pipelining over persistent connections. This is a further performance optimization over keep-alive connections. Multiple requests can be enqueued before the responses arrive. While the first request is streaming across the network to a server on the other side of the globe, the second and third requests can get underway.
-
 ## A Brief History of HTTP Versions
 ### HTTP/0.9
 The first published specification for HTTP was version 0.9. This specification basically stated a connection would be made over TCP/IP or a simmilar protocol to a server on an optional port, 80 being the default if no port is specified. A single line of ASCII text should be sent consisting of `GET` and the document address, followed by a new line. It is also mentioned that _Requests are idempotent. The server need not store any information about the request after connection is closed._ This part is what makes HTTP _stateless_. 
@@ -149,6 +119,36 @@ Other important features introduced with this version are:
 - New methods such as `PUT`, `OPTIONS`, `CONNECT`, `TRACE` and `DELETE`
 - Proxy support
 - Authentication
+
+## A Brief Overview of TCP Connections
+Before HTTP requests and responses can be sent back and forth, a TCP connection must be opened between the client and the server. TCP gives HTTP a reliable bit pipe. _Bytes stuffed in one side of a TCP connection come out the other side correctly, and in the right order._
+
+A computer might have several TCP connections open at any one time. TCP keeps all these connections straight through port numbers. A TCP connection is distinguished by four values:
+
+- Source IP address
+- Source port number
+- Destination IP address
+- Destination port number
+
+Together, these four values uniquely define a connection. Two different TCP connections are not allowed to have the same values for all four address components, but _different connections can have the same values for some of the components_.
+
+### Parallel Connections
+Concurrent HTTP requests across multiple TCP connections. In practice, browsers do use parallel connections, but they limit the total number of parallel connections to a small number (often four). Servers are free to close excessive connections from a particular client.
+
+### Persistent Connections
+Reusing TCP connections to eliminate connect/close delays. TCP connections that are kept open after transactions complete are called persistent connections. Nonpersistent connections are closed after each transaction. Persistent connections stay open across transactions, until either the client or the server decides to close them.
+
+### Parallel vs Persistent Connections
+Parallel connections can speed up the transfer of composite pages but have some disadvantages:
+
+- Each transaction opens/closes a new connection, costing time and bandwidth.
+- Each new connection has reduced performance because of TCP slow start.
+- There is a practical limit on the number of open parallel connections.
+
+Persistent connections offer some advantages over parallel connections: They reduce the delay and overhead of connection establishment, keep the connections in a tuned state, and reduce the potential number of open connections. However, persistent connections need to be managed with care, or you may end up accumulating a large number of idle connections, consuming local resources and resources on remote clients and servers. Persistent connections can be most effective when used in conjunction with parallel connections. _Today, many web applications open a small number of parallel connections, each persistent._ 
+
+### Pipelined connections
+HTTP/1.1 permits optional request pipelining over persistent connections. This is a further performance optimization over keep-alive connections. Multiple requests can be enqueued before the responses arrive. While the first request is streaming across the network to a server on the other side of the globe, the second and third requests can get underway.
 
 ## Introduction to HTTPS
 HTTPS instead of using TCP connections directly, uses TLS (also widely refered as SSL or SSL/TLS) on top of TCP. HTTPS adds encryption of the data being exchanged, integrity of the data being exchanged and authentication of the server being connected to.
@@ -257,20 +257,12 @@ A forward proxy server is usually found at the exit point of a local network to 
 ### Reverse Proxy Servers
 A reverse proxy server (also named as a surrogate) typically assumes the name and IP address of the web server directly. In case of reverse proxy servers, a client would not be aware of connecting to a reverse proxy. 
 
-## How a Proxy Server Gets a Traffic
-### Client Configured Proxy
+### How a Proxy Server Gets a Traffic
+#### Client Configured Proxy
 A client can intentionally configure a proxy server for whatever reason. A proxy server at the operating system level can be configured for a client, in which case all the HTTP traffic, including any browser running on the computer will use. In this situation, clients will be aware that they are behind a proxy server, and will act differently in some situations: For example, for a secure HTTP connection via HTTPS, client will first send a `CONNECT` to the Proxy Server, instead of a HTTP request.
 
-#### SSL Connection Behind a Proxy Server
+##### SSL Connection Behind a Proxy Server
 We can observe this behaviour by the following. Start listening on port `8443` using netcat:
-
-### Interceptors (aka Transparent Proxies)
-There are several techniques where the network infrastructure intercepts and steers web traffic into a proxy, without the client’s knowledge or participation. This interception typically relies on switching and routing devices that watch for HTTP traffic, intercept it, and shunt the traffic into a proxy, without the client’s knowledge.
-
-In such cases, clients computers also have certificates installed that trust the proxy server, and the proxy server becomes a man-in-the-middle. See [this](https://crypto.stackexchange.com/a/76232) answer for details.
-
-### Reverse Proxies
-Servers (instead of the clients) can be behind proxy servers for again, whatever reason, such as load-balancing, filtering or authentication. In this case the client again would be unaware of being connected to a proxy server, but it is much more innocent compared to interceptors.
 
 ```bash
 nc -l -p 8843
@@ -305,6 +297,14 @@ Again, try establishing an HTTPS connection using your browser. This time you sh
 Knowing being behind a proxy server, the browser sends a `CONNECT` request first, to the proxy server, demanding the proxy server to act as a TCP tunnel instead of an HTTP proxy. 
 
 SSL connection can be possible in the existence of proxy servers by turning the server into a TCP tunnel with `CONNECT`. More detailed answer can be found in [this](https://stackoverflow.com/a/40885184) answer and in [Section 4.3.6](https://tools.ietf.org/html/rfc7231#section-4.3.6) of Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content RFC. [Wikipedia](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_method) also explains and gives examples on how `CONNECT` works.
+
+#### Interceptors (aka Transparent Proxies)
+There are several techniques where the network infrastructure intercepts and steers web traffic into a proxy, without the client’s knowledge or participation. This interception typically relies on switching and routing devices that watch for HTTP traffic, intercept it, and shunt the traffic into a proxy, without the client’s knowledge.
+
+In such cases, clients computers also have certificates installed that trust the proxy server, and the proxy server becomes a man-in-the-middle. See [this](https://crypto.stackexchange.com/a/76232) answer for details.
+
+#### Reverse Proxies
+Servers (instead of the clients) can be behind proxy servers for again, whatever reason, such as load-balancing, filtering or authentication. In this case the client again would be unaware of being connected to a proxy server, but it is much more innocent compared to interceptors.
 
 ## Random Notes
 - [SSL Labs](https://www.ssllabs.com/ssltest/viewMyClient.html) offers a webpage where you can check what SSL/TLS protocols your browser supports.
