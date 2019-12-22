@@ -47,3 +47,6 @@ title:  "Koray Tugay"
 #### Various
 - [Docker](content/various/docker.md)
 - [HTTP](content/various/http.md)
+- [Design Patterns](content/various/design-patterns.md)
+- [Terminology](content/various/terminology.md)
+- [vs](content/various/vs.md)
