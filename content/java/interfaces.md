@@ -327,11 +327,11 @@ class FooImpl implements Foo {
 Predicates can be chained with `and`, `or` and `negate` as seen below.
 
 ```java
-List<String> strings = new ArrayList<>(Arrays.asList("foo", "foof", "boo", "boob"));
-Predicate<String> startsWithF = s -> s.toLowerCase().charAt(0) == 'f';
-Predicate<String> endsWithF = s -> s.toLowerCase().charAt(s.length() - 1) == 'f';
+List<String> s = new ArrayList<>(Arrays.asList("foo", "foof", "boo", "boob"));
+Predicate<String> startsF = s -> s.toLowerCase().charAt(0) == 'f';
+Predicate<String> endsF = s -> s.toLowerCase().charAt(s.length() - 1) == 'f';
 
-strings.removeIf(startsWithF.and(endsWithF).negate()); // [foof]
+s.removeIf(startsF.and(endsF).negate()); // [foof]
 ```
 
 ### Chaining Consumers and Functions
