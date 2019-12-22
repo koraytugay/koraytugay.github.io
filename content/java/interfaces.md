@@ -361,7 +361,8 @@ class FooBar {
         return biPredicate.test(t, u);
     }
     public static void main(String[] args) {
-        foo(new Foo(), new Bar(), (foo, bar) -> foo.foo == 42 && bar.bar == 42); // true
+        foo(new Foo(), new Bar(), (foo, bar) -> foo.foo == 42 && bar.bar == 42);
+        // true
     }
 }
 ```
