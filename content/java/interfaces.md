@@ -276,7 +276,7 @@ class FooImpl implements Foo {
 #### Primitive Specializations of Functional Interfaces in JDK 8
 <small>__* Purely Primitive Interfaces are Printed in Bold__</small>
 <table>
-    <tr><th>Interface</th><th>SAM</th><th>Arguments</th><th>Returns</th>
+    <tr><th>Interface</th><th>SAM</th><th>Arguments</th><th>Returns</th></tr>
     <tr><td align="center" colspan="4">Predicate</td></tr>
     <tr><td><strong>IntPredicate</strong></td><td>test</td><td>int</td><td>boolean</td></tr>
     <tr><td><strong>LongPredicate</strong></td><td>test</td><td>long</td><td>boolean</td></tr>
