@@ -19,7 +19,7 @@ title:  "Koray Tugay"
 - [Collections](content/java/collections.md)
 - [Exception Handling](content/java/exception-handling.md)
 - [Date & Time](content/java/date-time.md)
-- [Lambda Expressions](content/javalambda-expressions.md)
+- [Lambda Expressions](content/java/lambda-expressions.md)
 - [Collectors](content/java/collectors.md)
 - [Streams](content/java/streams.md)
 - [Primitive Streams](content/java/primitive-streams.md)
