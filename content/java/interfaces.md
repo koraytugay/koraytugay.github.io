@@ -334,7 +334,7 @@ Predicate<String> endsWithF = s -> s.toLowerCase().charAt(s.length() - 1) == 'f'
 strings.removeIf(startsWithF.and(endsWithF).negate()); // [foof]
 ```
 
-### Chaining Consumers and Functions with `andThen`
+### Chaining Consumers and Functions
 You can __not__ chain `Consumer`s with `BiConsumer`s, but you __can__ chain `Function`s with `BiFunction`s.
 ```java
 // An example of chaining a BiFunction with a Function
