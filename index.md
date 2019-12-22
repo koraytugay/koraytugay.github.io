@@ -14,9 +14,18 @@ title:  "Koray Tugay"
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
 #### Java
+- [Interfaces](content/java/interfaces.md)
+- [Nested Classes](content/java/nested-classes.md)
+- [Collections](content/java/collections.md)
+- [Exception Handling](content/java/exception-handling.md)
+- [Date & Time](content/java/date-time.md)
+- [Lambda Expressions](content/javalambda-expressions.md)
+- [Collectors](content/java/collectors.md)
 - [Streams](content/java/streams.md)
+- [Primitive Streams](content/java/primitive-streams.md)
 - [Threads](content/java/threads.md)
 - [Concurrency](content/java/concurrency.md)
+- [JDBC](content/java/jdbc.md)
 - [JAX-RS](content/java/jax-rs.md)
 
 #### Literature
