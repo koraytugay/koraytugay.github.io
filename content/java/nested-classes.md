@@ -6,6 +6,9 @@ title:  "Nested Classes"
 # Nested Classes
 {:.no_toc}
 
+* TOC
+{:toc}
+
 ## Static Nested Classes
 ```java
 class A {

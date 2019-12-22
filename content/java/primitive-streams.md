@@ -6,6 +6,9 @@ title:  "Primitive Streams"
 # Primitive Streams
 {:.no_toc}
 
+* TOC
+{:toc}
+
 ## Overview 
 - [IntStream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html)
 - [LongStream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html)

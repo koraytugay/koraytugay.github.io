@@ -3,7 +3,6 @@ layout: default
 title:  "vs"
 ---
 
-
 # vs
 
 ## Dynamically Typed vs Statically Typed
