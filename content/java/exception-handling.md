@@ -70,9 +70,9 @@ void bar() throws A, B {
 void foo() throws A {}
 
 void bar() throws A, B {     // B is never thrown, but it is legal to declare
-    try {                    // At least compile does not fail just because foo removed throws B
+    try {
         foo();
-    } catch (Exception e) {  // Remember catch (A | B e) was causing a compilation error
+    } catch (Exception e) {
         throw e;
     }
 }
@@ -113,7 +113,8 @@ class A {
 }
 
 class B extends A {
-    void f() throws RuntimeException {}  // this is fine
-                                         // throwing a CheckedException would not compile 
+    // this is fine
+    // throwing a CheckedException would not compile
+    void f() throws RuntimeException {}  
 }
 ```  
