@@ -11,6 +11,7 @@ title:  "Collections"
 
 ## Arrays
 ### Creating an Empty Array
+
 ```java
 int[] foo = new int[0];
 int []bar = new int[0];
@@ -18,6 +19,7 @@ int baz[] = new int[0];
 ```
 
 ### Creating an Array with Initial Values
+
 ```java
 int[] foo = {};
 int[] bar = {1};
@@ -25,6 +27,7 @@ int[] baz = new int[]{1};
 ```
 
 ### Mixing Arrays In to Multiple Variable Declarations
+
 ```java
 int[] foo, bar; // both arrays
 int []foo, bar; // both arrays
@@ -32,6 +35,7 @@ int foo[], bar; // foo is an array bar is an int
 ```
 
 ### Passing an Initalised Array to a Method
+
 ```java
 void arr(int[] arr) {};
 
@@ -60,6 +64,7 @@ list.add("baz");  // throws UnsupportedOperationException
 - `element` throws Exception if no element exists, `peek` returns null
 
 ### First In First Out Queue Example
+
 ```java
 Queue<Integer> iq = new LinkedList<>();
 boolean itemadded;
@@ -72,6 +77,7 @@ System.out.println(iq.poll());  // null
 ```
 
 ### First In Last Out Queue Example
+
 ```java
 Queue<Integer> iq = Collections.asLifoQueue(new LinkedList<Integer>());
 boolean itemadded;
@@ -84,6 +90,7 @@ System.out.println(iq.poll());  // null
 ```
 
 #### Interactive FIFO / LIFO Queue Example
+
 ```java
 // If you want a FIFO Queue use this:
 Queue<Integer> queue = new LinkedList<>();
@@ -117,7 +124,9 @@ while (true) {
     }
 }
 ```
+
 Sample run with First In First Out Behavior
+
 ```text
 Command: (add, element, remove, print, q)
 add
@@ -139,6 +148,7 @@ q
 ```
 
 Sample run with First In Last Out Behavior
+
 ```text
 Command: (add, element, remove, print, q)
 add
@@ -161,31 +171,40 @@ q
 
 ## Collections Features Related to Java 8
 [Iterable.forEach(Consumer)](https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html#forEach-java.util.function.Consumer-)
+
 ```java
 Consumer<Integer> integerConsumer = i -> {}; // no-op consumer
 Arrays.asList(1, 2).forEach(integerConsumer);
 ```
+
 __Heads Up!__ `IntConsumer` does not extend `Consumer<Integer>`
+
 ```java
 IntConsumer intConsumer = i -> {};
 // This will not compile:
 // Arrays.asList(1, 2).forEach(intConsumer);
 ```
+
 [Collection.removeIf(Predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html#removeIf-java.util.function.Predicate-)
+
 ```java
 List<String> list = new ArrayList<>();
 list.add("foo");
 list.add("bar");
 list.removeIf(s -> s.startsWith("f")); // foo is removed. list only contains [bar]
 ```
+
 [List.replaceAll(UnaryOperator)](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#replaceAll-java.util.function.UnaryOperator-)
+
 ```java
 List<String> list = new ArrayList<>();
 list.add("foo");
 list.add("bar");
 list.replaceAll(s -> s.toUpperCase()); // [FOO, BAR]
 ```
+
 [List.sort(Comparator)](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#sort-java.util.Comparator-)
+
 ```java
 List<String> list = new ArrayList<>();
 list.add("foobarbaz");
@@ -195,6 +214,7 @@ list.sort((o1, o2) -> o1.length() - o2.length()); // [foo, foobar, foobarbaz]
 ```
 
 [Map.computeIfPresent(BiFunction)](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfPresent-K-java.util.function.BiFunction-)
+
 ```java
 static Map<String, Integer> nameAge = new HashMap<>();
 static {
@@ -207,6 +227,7 @@ System.out.println(nameAge);                                // {koray=44}
 ```
 
 [Map.putIfAbsent](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#putIfAbsent-K-V-) and [Map.computeIfAbsent](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfAbsent-K-java.util.function.Function-)
+
 ```java
 Map<String, Integer> nameAge = new HashMap<>();
 
@@ -220,12 +241,14 @@ nameAge.clear();
 nameAge.computeIfAbsent("kt", key -> 34); // value inserted, 34 returned
 nameAge.computeIfAbsent("kt", key -> 35); // value not inserted, 34 returned
 ```
+
 - Further reading: [here](https://stackoverflow.com/a/48184207)
 
 ## Concurrent Collections
 ### BlockingQueue
 - Found in [java.util.concurrent.BlockingQueue](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html)
 #### First In First Out Blocking Queue Example
+
 ```java
 BlockingQueue<String> bq = new LinkedBlockingQueue<>(2); // Initial capacity
 
@@ -262,7 +285,9 @@ Runnable userInputReader = () -> {
 new Thread(letterCounter).start();
 new Thread(userInputReader).start();
 ```
+
 Sample Output
+
 ```bash
 Enter a sentence please:
 koray
@@ -282,6 +307,7 @@ Number of letters: 15
 Your input: lay lay lay lom is in queue!
 Enter a sentence please:
 ```
+
 Notes
 - Remember `put` and `take` blocks
 - You can `offer` to see if value got accepted or not
@@ -295,6 +321,7 @@ Notes
 - The following method 
   - throws `ConcurrentModificationException` when called with `new HashMap<Integer, Integer>();`
   - returns `0` as expected when called with `new ConcurrentHashMap<Integer, Integer>();`
+
 ```java
 int emptyMapConcurrent(Map<Integer, Integer> integerMap) {
     // Add some data in the map first
