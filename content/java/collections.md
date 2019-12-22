@@ -48,6 +48,7 @@ arr(new int[]{}); // This is fine
 ### Arrays to Lists
 - `Arrays.asList` returns a fixed-size List
   - Trying to add or remove elements throws a RuntimeException
+
 ```java
 String[] arr = {"foo", "bar"};
 List<String> list = Arrays.asList(arr);
@@ -116,7 +117,9 @@ while (true) {
         break;
 
         case "print":
-        System.out.println(queue.stream().map(val -> String.valueOf(val)).collect(Collectors.joining(" ")));
+        System.out.println(queue.stream()
+                                .map(val -> valueOf(val))
+                                .collect(joining(" ")));
         break;
         
         case "q":
@@ -191,7 +194,7 @@ IntConsumer intConsumer = i -> {};
 List<String> list = new ArrayList<>();
 list.add("foo");
 list.add("bar");
-list.removeIf(s -> s.startsWith("f")); // foo is removed. list only contains [bar]
+list.removeIf(s -> s.startsWith("f")); // foo is removed.
 ```
 
 [List.replaceAll(UnaryOperator)](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#replaceAll-java.util.function.UnaryOperator-)
@@ -221,9 +224,14 @@ static {
     nameAge.put("koray", 34);
     nameAge.put("deniz", 1);
 }
-nameAge.computeIfPresent("koray", (name, age) -> age + 10); // assigns a new value to the key
-nameAge.computeIfPresent("deniz", (name, age) -> null);     // returning null removes the key from the map
-System.out.println(nameAge);                                // {koray=44}
+// assigns a new value to the key
+nameAge.computeIfPresent("koray", (name, age) -> age + 10);
+
+// returning null removes the key from the map
+nameAge.computeIfPresent("deniz", (name, age) -> null);
+
+// {koray=44}
+System.out.println(nameAge);
 ```
 
 [Map.putIfAbsent](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#putIfAbsent-K-V-) and [Map.computeIfAbsent](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfAbsent-K-java.util.function.Function-)
@@ -272,7 +280,7 @@ Runnable userInputReader = () -> {
         System.out.println("Enter a sentence please:");
         String input = scanner.nextLine();
         if (!bq.offer(input)) {
-            System.out.println("Blocked! We will add the sentence once queue is available!");
+            System.out.println("Full! Will be added once queue is available!");
             try {
                 bq.put(input);
                 Thread.sleep(2000);  // Inform the user a little later
