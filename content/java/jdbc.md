@@ -87,6 +87,7 @@ ID	NAME	LASTNAME
 - `CONCUR_UPDATABLE`
 
 #### Finding Number of Rows Using TYPE_SCROLL_INSENSITIVE
+
 ```java
 Connection con = DriverManager.getConnection("jdbc:derby:mydb;create=true");
 
@@ -101,9 +102,12 @@ st.execute("INSERT INTO person VALUES(3, 'Toprak')");
 st.execute("INSERT INTO person VALUES(4, 'Pinar')");
 st.close();
 
-// ResultSet.TYPE_SCROLL_INSENSITIVE lets you move cursor around contrary to FORWARD_ONLY
-// ResultSet.CONCUR_READ_ONLY is the default where we can only read data and not update it
-st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+// ResultSet.TYPE_SCROLL_INSENSITIVE lets you move cursor around 
+// contrary to FORWARD_ONLY
+// ResultSet.CONCUR_READ_ONLY is the default where we can only read data 
+// and not update it
+st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                         ResultSet.CONCUR_READ_ONLY);
 ResultSet rs = st.executeQuery("SELECT * FROM person");
 rs.last();                  // Move to last row
 int count = rs.getRow();    // Get row number, in this example 4
@@ -115,11 +119,13 @@ con.close();
 
 ## Transaction Isolation
 - Constants found in [java.sql.Connection](https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html#field.summary)
+
 ### Transaction Isolation Levels Example with Derby
 - Make sure you have `derby.jar` in the folder
 - Run either by passing the argument true or not
   - `killall -9 java; clear; javac App.java; java -cp ".:derby.jar" App;`
   - `killall -9 java; clear; javac App.java; java -cp ".:derby.jar" App true;`
+
 ```java
 import java.sql.*;
 import java.util.*;
@@ -127,8 +133,10 @@ import java.util.*;
 class App {
     static Map<Integer, String> isolationLevels = new HashMap<>();
     static {
-        isolationLevels.put(Connection.TRANSACTION_READ_COMMITTED, "Connection.TRANSACTION_READ_COMMITTED");
-        isolationLevels.put(Connection.TRANSACTION_READ_UNCOMMITTED, "Connection.TRANSACTION_READ_UNCOMMITTED");
+        isolationLevels.put(Connection.TRANSACTION_READ_COMMITTED, 
+          "Connection.TRANSACTION_READ_COMMITTED");
+        isolationLevels.put(Connection.TRANSACTION_READ_UNCOMMITTED, 
+          "Connection.TRANSACTION_READ_UNCOMMITTED");
     }
 
     public static void main(String[] args) throws SQLException {
@@ -136,7 +144,7 @@ class App {
         Connection con = DriverManager.getConnection(url);
         
         // Default for Derby is Connection.TRANSACTION_READ_COMMITTED
-        System.out.println("Default: " + isolationLevels.get(con.getTransactionIsolation()));
+        println("Def: " + isolationLevels.get(con.getTransactionIsolation()));
 
         Statement st = con.createStatement();
         try {
@@ -144,27 +152,31 @@ class App {
         } catch (Exception ignored) {}
 
         st.execute("CREATE TABLE coffee(Type VARCHAR(255), Price INT)");
-        st.executeUpdate("INSERT INTO coffee VALUES ('Blonde', 10)");
+        st.executeUpdate("INSERT INTO coffee VALUES ('Blonde', 1)");
 
         st.close();
         con.close();
 
-        // Example
+        // Example starts here
         Connection supplier = DriverManager.getConnection(url);
         Connection consumer = DriverManager.getConnection(url);
 
         supplier.setAutoCommit(false);
-        supplier.createStatement().executeUpdate("UPDATE coffee SET Price = 20");
+        supplier.createStatement().executeUpdate("UPDATE coffee SET Price = 2");
 
         if (args.length > 0 && args[0].equals("true")) {
             // Allow consumer to read uncommitted data
-            consumer.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
+            consumer
+            .setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
         }
-        // Application blocks here if consumers transaction isolation is TRANSACTION_READ_COMMITTED
-        ResultSet rs = consumer.createStatement().executeQuery("SELECT Price FROM coffee");
+        // Application blocks here 
+        // if consumers transaction isolation is TRANSACTION_READ_COMMITTED
+        ResultSet rs 
+        = consumer.createStatement().executeQuery("SELECT Price FROM coffee");
         rs.next();
         
-        // Prints 10 if consumers transaction isolation is TRANSACTION_READ_UNCOMMITTED
+        // Prints 10 
+        // if consumers transaction isolation is TRANSACTION_READ_UNCOMMITTED
         // This is potentially dirty data since supplier may choose to rollback
         System.out.println(rs.getInt("Price")); 
 
@@ -174,6 +186,7 @@ class App {
     }
 }
 ```
+
 #### Notes on the Example
 - Default isolation level for Derby is `TRANSACTION_READ_COMMITTED`
 - When you run the program above without true, this isolation level is kept intact
