@@ -12,6 +12,7 @@ title:  "Exception Handling"
 
 ## Handle and Declare Pattern
 - Catching `Exception` and rethrowing is not really catching any `Exception` 
+
 ```java
 void f() throws IOException {
     try {
@@ -21,6 +22,7 @@ void f() throws IOException {
     }                        // Actually catching only types declared in method signature
 }
 ```
+
 - Note how it _looks like_ we are catching and re-throwing an `Exception`
   - In reality we are only catching and re-throwing an `IOException`
   - If we were actually catching and re-throwing an `Exception` the code would not have compiled since method is declaring only an `IOException`
@@ -28,15 +30,18 @@ void f() throws IOException {
 - The following code does __not__ compile, where we in fact are throwing an `Exception`
   - This is not allowed, you can not declare a narrow type and throw a broader type
   - Remember `IOException` is narrow compared to `Exception`
+
 ```java
 // does not compile
 void f() throws IOException {
     throw new Exception();
 }
 ```
+
 __How This Feature Prevents Compilation Failures__
 
 Imagine the following scenario:
+
 ```java
 class A extends Exception {}
 class B extends Exception {}
@@ -51,6 +56,7 @@ void bar() throws A, B {
     }
 }
 ``` 
+
 - We did not use `catch (Exception e)`, instead we used `catch (A |B e)`
 - Imagine foo gets _less brittle_ by not throwing `B` anymore
   - Signature becomes `void foo() throws A`
@@ -59,6 +65,7 @@ void bar() throws A, B {
   - Further reading [here]()
 - By using `catch (Exception e)` where we still have `throws A, B` in method `bar`, we are only left with `throws B` which is never thrown in `bar`
   - That is not a compilation error cause, it is just an info
+
 ```java
 void foo() throws A {}
 
@@ -73,6 +80,7 @@ void bar() throws A, B {     // B is never thrown, but it is legal to declare
 
 ## Exceptions in Inheriting Methods
 - Inheriting method does not need to declare the Exception from parent if no Exception is actually thrown
+
 ```java
 class MyException extends Exception {}
 
@@ -86,6 +94,7 @@ class B extends A {
 ```
 
 - Exception must be handled based on the type
+
 ```java
 A a = new B();
 try {
@@ -97,6 +106,7 @@ try {
 
 - Inheriting methods can not declare broader or new _checked_ Exceptions
   - However declaring _unchecked_ Exceptions is allowed
+
 ```java
 class A {
     void f() {}
