@@ -212,7 +212,8 @@ class FooImpl implements Foo {
     <th>SAM</th>
     <th>Arguments</th>
     <th>Returns</th>
-<tr>
+</tr>
+  <tr>
     <td>Predicate</td>
     <td>test</td>
     <td>T</td>
