@@ -123,8 +123,11 @@ con.close();
 ### Transaction Isolation Levels Example with Derby
 - Make sure you have `derby.jar` in the folder
 - Run either by passing the argument true or not
-  - `killall -9 java; clear; javac App.java; java -cp ".:derby.jar" App;`
-  - `killall -9 java; clear; javac App.java; java -cp ".:derby.jar" App true;`
+
+```bash
+killall -9 java; clear; javac App.java; java -cp ".:derby.jar" App;
+killall -9 java; clear; javac App.java; java -cp ".:derby.jar" App true;
+```
 
 ```java
 import java.sql.*;
