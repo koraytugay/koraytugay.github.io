@@ -15,6 +15,7 @@ title:  "Interfaces"
 - All methods of an interface without an implementation are `abstract` by default
   - An implementing class must either be `abstract` itself or must provide an implementation
 - Any variable defined in an interface is automatically `public static final`
+
 ```java
 interface Foo {
     int foo();     // public abstract
@@ -34,6 +35,7 @@ class FooImpl implements Foo {
 - Classes implementing interfaces do not need to provide implementation for default methods
 - Used extensively in the Java 8 standard library
   - Examples from the Java Standard Library: [Collection.removeIf(Predicate)](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html#removeIf-java.util.function.Predicate-), [List.sort(Comparator)](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#sort-java.util.Comparator-)
+
 ```java
 interface Foo {
     default int foo() {
@@ -48,11 +50,11 @@ class FooImpl implements Foo {
     }
 }
 ```
+
 - default methods are `public` by default
   - default methods can be marked `public` although it is simply redundant
   - default methods can not be marked as `private` or `protected`
 - default methods can not be `static`, `final` or `abstract`
-
 
 ### Default Method Conflicts
 - Any class wins over any interface. If there is either an abstract or a concrete method in the inheritance tree of the class, any default methods in any Interface is ignored.
@@ -62,6 +64,7 @@ class FooImpl implements Foo {
 #### Examples
 - If a class inherits the same method from multiple interfaces, an implementation must be provided
   - Does not matter if both methods are default or only one of them is
+
 ```java
 interface Foo {
     default int foo() {
@@ -80,7 +83,9 @@ class FooBar implements Foo, Bar {
     // It would not make any difference if either Foo.foo or Bar.foo was abstract
 }
 ```
+
 - The implementing class can still delegate to a default implementation of one of the interfaces
+
 ```java
 class FooBar implements Foo, Bar {
     public int foo() {
@@ -88,7 +93,9 @@ class FooBar implements Foo, Bar {
     }
 }
 ```
+
 - If a class extends another concrete class and implements an interface, the super class implementation overrides the default implementation in the inherited interface
+
 ```java
 interface Foo {
     default int foo() {
@@ -110,6 +117,7 @@ class FooBar extends Bar implements Foo  {
 ## Static Methods in Interfaces
 ### Calling a static method of a not-inherited interface
 - When invoking a static interface method, the methods type (interface name) must be included in the invocation
+
 ```java
 interface Bar {
     static void bar() {}
@@ -123,6 +131,7 @@ class Foo {
 ```
 
 ### Calling a static method of an inherited interface
+
 ```java
 interface Foo {
     static void foo() {}
@@ -145,6 +154,7 @@ With the support for static methods the such verbosity can be eliminated.
 
 ### Inheritance in Static Methods in Interfaces
 - Static methods are not inherited in interface inheritance trees
+
 ```java
 interface Foo {
     static void foo() {}
@@ -155,7 +165,9 @@ interface Bar extends Foo {}
 // This will not compile:
 // Bar.foo();
 ```
+
 - Static methods are visible (though can not be overridden, can only be hidden) in class inheritance trees
+
 ```java
 class Foo {
     static void foo() {}
@@ -312,6 +324,7 @@ class FooImpl implements Foo {
 
 ### Predicate Default Methods
 Predicates can be chained with `and`, `or` and `negate` as seen below.
+
 ```java
 List<String> strings = new ArrayList<>(Arrays.asList("foo", "foof", "boo", "boob"));
 Predicate<String> startsWithF = s -> s.toLowerCase().charAt(0) == 'f';
