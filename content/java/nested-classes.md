@@ -10,6 +10,7 @@ title:  "Nested Classes"
 {:toc}
 
 ## Static Nested Classes
+
 ```java
 class A {
     static class B {
@@ -17,7 +18,9 @@ class A {
 }
 A.B ab = new A.B();
 ```
+
 - Static Nested Classes __can not__ access the outer class fields
+
 ```java
 class A {
     int a;
@@ -27,8 +30,10 @@ class A {
     }
 }
 ```
+
 - Static Nested Classes can access the outer class private constructor or private static methods
   - Static Nested Classes can also access the outer classes private fields via its own instance of the outer class
+
 ```java
 class F {
     private F() {}
@@ -40,8 +45,10 @@ class F {
     }
 }
 ```
+
 - Static Nested Classes can be private
   - In that case only the enclosing class can access the class or the fields
+
 ```java
 class A {
     private static class B {
@@ -69,6 +76,7 @@ new A().getB();
 
 ## Inner Classes
 - Can only live together with an instance of the enclosing class
+
 ```java
 class A {
     class B {
@@ -76,7 +84,9 @@ class A {
 }
 A.B ab = new A().new B();
 ```
+
 - Inner Classes __can__ access the outer class fields (including private)
+
 ```java
 class A {
     private int a;
@@ -87,7 +97,9 @@ class A {
     }
 }
 ```
+
 - Outer classes __can__ access the inner class field (including private)
+
 ```java
 class A {
     class B {
@@ -101,6 +113,7 @@ class A {
 
 - Inner classes can __not__ declare static fields
   - Except final static fields
+
 ```java
 class A {
     class B {
@@ -114,6 +127,7 @@ class A {
 
 ## Local Classes
 - A class declared within a block of code
+
 ```java
 class A {
     void a() {
@@ -122,6 +136,7 @@ class A {
 }
 ```
 - In addition to all instance fields including private fields, Local Classes can access effectively final local variables
+
 ```java
 class A {
     void a(int x) {
@@ -135,13 +150,16 @@ class A {
 ```
 
 ## Anonymous Classes
+
 ```java
 interface A {}
 class B {
     A a = new A(){};
 }
 ```
+
 - Anonymous Classes can capture values from surroundings
+
 ```java
 interface A {
     int a ();
@@ -157,7 +175,9 @@ class B {
     };
 }
 ```
+
 - Above example can be written as
+
 ```java
 interface A {
     int a ();
@@ -170,6 +190,7 @@ class B {
 ```
 
 ## Examples
+
 ```java
 class Foo {
     class Bar {
