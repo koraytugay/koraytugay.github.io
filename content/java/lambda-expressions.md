@@ -11,14 +11,19 @@ title:  "Lambda Expressions"
 
 ## Definition
 Implementation of the Single Abstract Method (SAM) of a Functional Interface.
+
 ```java
 BinaryOperator<Long> longAdder = (Long x, Long y) -> {return x + y;};
 ```
+
 This line of code does not add two `long` values. `longAdder` is the implemention of the `apply` method in `BinaryOperator` interface. When the `apply` method is called on `longAdder`, two `long` values will be summed.
+
 ```java
 longAdder.apply(Long.valueOf(1), Long.valueOf(2)); // Long[3]
 ```
+
 ## Syntax
+
 ```
 (parameters) -> {lambda-body} // -> is the lambda operator
 ```
@@ -26,6 +31,7 @@ longAdder.apply(Long.valueOf(1), Long.valueOf(2)); // Long[3]
 
 ### Syntax for Parameters
 - Parameters must be surrounded by parenthesis
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -44,8 +50,10 @@ class App {
     }
 }
 ``` 
+
 - Parameters can be declared without types
   - Either all parameter types must be omitted or none
+
 ```java
 @FunctionalInterface
 interface Baz {
@@ -60,9 +68,11 @@ class App {
     }
 }
 ``` 
+
 - Parameters can be modified in the same way as method parameters
   - They can be final
   - They can be annotated
+
 ```java
 @FunctionalInterface
 interface Baz {
@@ -75,9 +85,11 @@ class App {
     }
 }
 ```
+
 - Parenthesis can be omitted for single parameter lambdas
   - If parenthesis are omitted, type information for the single parameter can not be included
   - If parenthesis are omitted, the single parameter can not have any modifiers
+
 ```java
 @FunctionalInterface
 interface FooTest {
@@ -94,6 +106,7 @@ class App {
 
 ### Syntax for Lambda-Body
 - Method body must be enclosed by curly braces
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -112,7 +125,9 @@ class App {
     }
 }
 ```
+
 - Method body can be empty for lambdas with `void` return
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -125,8 +140,10 @@ class App {
     }
 }
 ```
+
 - Enclosing curly braces can be omitted in case body consists of a single expression
   - In case curly braces are omitted, `return` keyword must be omitted as well
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -145,7 +162,9 @@ class App {
     }
 }
 ```
+
 - Returning `null` or chained method calls are fine when curly braces are omitted
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -164,7 +183,9 @@ class App {
     }
 }
 ```
+
 - Calling another method is just fine
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -188,40 +209,53 @@ Runnable r  = () -> {}; // Runnable here is the Target Type
 
 ### Lambda Expression Contexts
 - Method / Constructor Argument
+
 ```java
 new Thread(() -> {});
 ```
+
 - Variable Assignment
+
 ```java
 Runnable r = () -> {};
 ```
+
 - Return Statement
+
 ```java
 Runnable runnable() {
     return () -> {};
 }
 ```
+
 - Ternary Conditional Expression
+
 ```java
 Runnable r = aBoolean ? () -> {} : () -> {};
 ```
+
 - Body of Another Lambda Expression
   - Pretty much same with method return statement
+
 ```java
 Supplier<Runnable> runnableSupplier = () -> () -> {};
 ```
+
 - With Explicit Casting
+
 ```java
 Object o = (Runnable) () -> {};
 ```
 
 - Array Initializers
+
 ```java
 Runnable[] arr = new Runnable[]{() -> {}, () -> {}};
 ```
 
 ## Scoping Rules
 - No inheritance from super types
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -236,7 +270,9 @@ class FooTest {
     }
 }
 ```
+
 - It is illegal to redeclare a locale variable in lambda
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -253,8 +289,10 @@ class FooTest {
     }
 }
 ```
+
 - Shadowing instance fields is possible
   - Also in parameter list
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -274,7 +312,9 @@ class FooTest {
     }
 }
 ```
+
 - `this` refers to enclosing object
+
 ```java
 @FunctionalInterface
 interface Foo {
@@ -291,7 +331,9 @@ class FooTest {
     }
 }
 ```
+
 - Accessing private methods is fine
+
 ```java
 import java.util.function.IntSupplier;
 
@@ -305,8 +347,10 @@ class Foo {
     }
 }
 ```
+
 ## Value Capture
 - Lambda Expressions can capture _effectively final_ variables
+
 ```java
 // aLong here is effectively final, this code compiles fine
 long aLong = 1L;
@@ -317,7 +361,9 @@ anotherLong = 2L; // not effectively final!
 // This code will not compile
 // LongUnaryOperator op = l -> anotherLong;
 ```
+
 - Captured local variables can not be modified 
+
 ```java
 void foo() {
     int i = 10;
@@ -325,7 +371,9 @@ void foo() {
     // IntSupplier is = () -> i++;    
 }
 ```
+
 - Captured instance variables can be modified
+
 ```java
 class Foo {
     int i;
@@ -335,7 +383,9 @@ class Foo {
     }
 }
 ```
+
 - If instance variable is explicitly declared final, it can not be modified
+
 ```java
 class Foo {
     final int i = -1;
@@ -348,6 +398,7 @@ class Foo {
 
 ## Void Compatibility Rule
 If the body of the lambda is a statement expression, the lambda can still be assigned to a Functional Interface that has a void return type, even if the statement expression has a return type.
+
 ```java
 // Single Abstract Method in the Consumer interface is `void accept(T t)` 
 // Boolean.valueOf(true) actually returns a Boolean object
@@ -365,6 +416,7 @@ Consumer<Integer> ic = i -> Boolean.valueOf(true);
 ```
 
 ## Recursion with Lambda Expressions
+
 ```java
 import java.util.function.IntUnaryOperator;
 
@@ -388,6 +440,7 @@ class Factorial {
     }
 }
 ```
+
 ## References
 - [Oracle by Example](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)
 - [The Java™ Tutorials - Lambda Expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
