@@ -164,7 +164,7 @@ Another example can be using the `clean` goal from the [clean plug-in](https://m
 mvn clean:clean
 ```
 
-Maven comes with a `help` plug-in that can be used to list available goals in a given plug-in:
+Maven comes with a [help plug-in](https://maven.apache.org/plugins/maven-help-plugin/) that can be used to list available goals in a given plug-in:
 
 ```bash
 mvn help:describe -Dplugin=surefire
