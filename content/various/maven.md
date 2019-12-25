@@ -150,7 +150,7 @@ To access properties from the `settings.xml` file, the `settings.` prefix is use
 Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
 
 ## Plug-Ins and Goals
-Graunlar task are represented by __goal__ s in maven. Several goals are packaged into a __plug-in__.
+Graunlar task are represented by __goal__s in maven. Several goals are packaged into a __plug-in__.
 
 To compile a project, the `compile` goal from the `compiler` plug-in can be used as follows:
 
