@@ -38,13 +38,11 @@ title:  "Koray Tugay"
 - [Raising Cain](content/literature/raising-cain.md)
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
 
-#### Maven
-- [Maven Cheat Sheet](content/cheat-sheets/maven-cheat-sheet.md)
-
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
 
 #### Various
+- [Maven](content/various/maven.md)
 - [Docker](content/various/docker.md)
 - [HTTP](content/various/http.md)
 - [Design Patterns](content/various/design-patterns.md)
