@@ -147,7 +147,7 @@ Maven exposes properties of `pom.xml` using the `project.` prefix. To access the
 To access properties from the `settings.xml` file, the `settings.` prefix is used. For accessing environmental variable values, `env.` prefix can be used. For example, `${env.PATH}` would return the value of the `PATH` environmental variable.
 
 #### User-Defined Properties
-Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions. For example:
+Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
 
 ## Build Cycle
 ### Plug-Ins and Goals
