@@ -81,7 +81,7 @@ A brief explanation of these root elements are as follows:
 </dl>
 
 ## Dependency Management
-
+Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `.m2/repository`.
 
 ## Cheat Sheet
 
