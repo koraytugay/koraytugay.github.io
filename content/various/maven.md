@@ -150,7 +150,7 @@ To access properties from the `settings.xml` file, the `settings.` prefix is use
 Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
 
 ## Plug-Ins and Goals
-A __goal__ is an implementation that does a unit of work that is found in a __plug-in__.
+A __goal__ is an implementation that does a unit of work that is found in a __plug-in__. There are many [available plug-ins](https://maven.apache.org/plugins/index.html).
 
 For example, to compile a project, the `compile` goal from the [compiler plug-in](https://maven.apache.org/plugins/maven-compiler-plugin/) can be used as follows:
 
@@ -188,7 +188,9 @@ mvn help:describe -Dplugin=surefire
 ```
 
 #### Configuring Plug-Ins in pom
-Plug-ins and their behavior can be configured using within the pom. Consider the case where you want to enforce that your project must be compiled with Java 8. The following example configures the `compiler` plug-in:
+The configuration of a plug-in depends of what type it is. If a plug-in is a __build plug-in__, the configuration is done under the `build` element in `pom`. If it is a __reporting plug-in__, the configuration is done under the __reporting__ element.
+
+Consider the case where you want to enforce that your project must be compiled with Java 8. The following example configures the [compiler plug-in](https://maven.apache.org/plugins/maven-compiler-plugin/), which is a build plug-in:
 
 ```xml
 <build>
