@@ -46,19 +46,19 @@ A brief explanation of these root elements are as follows:
         localRepository
     </dt>
     <dd>
-        The default local folder for storing downloaded artifacts is <code>.m2/repository</code>. This folder can be overridden with providing another path here.
+        The default local folder for storing downloaded artifacts is <code class="language-plaintext highlighter-rouge">.m2/repository</code>. This folder can be overridden with providing another path here.
     </dd>
     <dt>
         interactiveMode
     </dt>
     <dd>
-        Default is <code>true</code>. If switched to <code>false</code> maven does not ask for any input and tries to use sensible defaults.
+        Default is <code class="language-plaintext highlighter-rouge">true</code>. If switched to <code>false</code> maven does not ask for any input and tries to use sensible defaults.
     </dd>
     <dt>
         offline
     </dt>
     <dd>
-        Default is <code>false</code>. Used to force maven to <strong>not</strong> download any dependencies and work in offline mode.
+        Default is <code class="language-plaintext highlighter-rouge">false</code>. Used to force maven to <strong>not</strong> download any dependencies and work in offline mode.
     </dd>
     <dt>
         servers
@@ -79,6 +79,8 @@ A brief explanation of these root elements are as follows:
         Contains the proxy server settings.
     </dd>
 </dl>
+
+## Dependency Management
 
 
 ## Cheat Sheet
