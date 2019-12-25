@@ -149,7 +149,7 @@ To access properties from the `settings.xml` file, the `settings.` prefix is use
 #### User-Defined Properties
 Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
 
-## Build Cycle
+## Build Lifecycle
 ### Plug-Ins and Goals
 Build processes generating artifacts such as JAR or WAR files typically require several steps to be completed, such as compiling the code and packaging the artifact. Such a graunlar task is represented by a __goal__ in maven. Several goals are packaged into a __plug-in__.
 
@@ -250,7 +250,7 @@ Every lifecycle has several phases. For example, phases of the __default__ lifec
     </dd>
 </dl>
 
-__Heads Up!__ A maven lifecycle is an abstract concept and __cannot__ be directly executed. What can be executed is either a __lifecycle phase__ or a __goal__.
+__Heads Up!__ A build lifecycle is an abstract concept and __cannot__ be directly executed. What can be executed is either a __lifecycle phase__ or a __goal__.
 
 ```bash
 mvn default
