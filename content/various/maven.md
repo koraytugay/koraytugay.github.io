@@ -16,7 +16,7 @@ title:  "Apache Maven"
 - Supports archetypes. Maven archetypes are predefined project templates that can be used to generate new projects which contain all of the folders and files needed to get started.
 
 ## Settings
-Maven has a global `settings.xml` and a user-specific `settings.xml` that are used for configuration. Installing maven via homebrew, the global `settings.xml` ends up in `/usr/local/Cellar/maven/3.6.1/libexec/conf` and is basically an empty file with documenting the structure of the file. The individiual settings file is found under the `.m2` folder. 
+Maven has a global `settings.xml` and a user-specific `settings.xml` that are used for configuration. Installing maven via homebrew, the global `settings.xml` ends up in `/usr/local/Cellar/maven/3.6.1/libexec/conf` and is basically an empty file with documenting the structure of the file. The user-specific settings file is found under the `.m2` folder. 
 
 When both files exist, maven merge the contents, user-specific settings taking precedence. 
 
