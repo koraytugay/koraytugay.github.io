@@ -258,6 +258,14 @@ mvn default
 # <plugin-prefix>:<goal> 
 # or 
 # <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>.
+
+# Available lifecycle phases are: validate, initialize, generate-sources, 
+# process-sources, generate-resources, process-resources, compile, 
+# process-classes, generate-test-sources, process-test-sources, 
+# generate-test-resources, process-test-resources, test-compile, 
+# process-test-classes, test, prepare-package, package, pre-integration-test, 
+# integration-test, post-integration-test, verify, install, deploy, pre-clean, 
+# clean, post-clean, pre-site, site, post-site, site-deploy.
 ```
 
 `mvn package` will execute the `package` phase of the `default` lifecycle. In addition to clearly defining the ordering of phases in a lifecycle, maven also automatically executes all the phases prior to a requested phase. When `mvn package` is run all prior phases also run such as `compile` and `test`.
