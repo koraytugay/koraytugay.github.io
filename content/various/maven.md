@@ -152,15 +152,13 @@ Custom properties can be declared within the `<properties />` element. Such prop
 ## Plug-Ins and Goals
 A __goal__ is an implementation that does a unit of work that is found in a __plug-in__.
 
-
-
-To compile a project, the `compile` goal from the `compiler` plug-in can be used as follows:
+For example, to compile a project, the `compile` goal from the [compiler plug-in](https://maven.apache.org/plugins/maven-compiler-plugin/) can be used as follows:
 
 ```bash
 mvn compiler:compile
 ```
 
-Another example can be using the `clean` goal from the `clean` plug-in, which deletes the `target` folder.
+Another example can be using the `clean` goal from the [clean plug-in](https://maven.apache.org/plugins/maven-clean-plugin/), which deletes the `target` folder.
 
 ```bash
 mvn clean:clean
