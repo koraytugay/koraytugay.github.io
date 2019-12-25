@@ -47,7 +47,8 @@ class Foo {
     int foo;
 }
 
-Stream.of(new Foo(1), new Foo(2)).collect(Collectors.maxBy(Comparator.comparing(Foo::getFoo))); // Optional[Foo[2]]
+Stream.of(new Foo(1), new Foo(2)).collect(
+  Collectors.maxBy(Comparator.comparing(Foo::getFoo))); // Optional[Foo[2]]
 ```
 ### Collecting to a sum
 [Collectors.summingInt(ToIntFunction)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summingInt-java.util.function.ToIntFunction-)
@@ -93,27 +94,6 @@ class Foo {
 }
 ```
 
-### Collecting to SummaryStatistics
-[Collectors.summarizingInt(ToIntFunction)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summarizingInt-java.util.function.ToIntFunction-)
-```java
-import java.util.stream.Stream;
-import java.util.stream.Collectors;
-import java.util.IntSummaryStatistics;
-import java.util.concurrent.ThreadLocalRandom;
-
-class Foo {
-    int val;
-
-    Foo(int val) {this.val = val;}
-
-    void foo() {
-        IntSummaryStatistics iss = Stream.generate(() -> new Foo(ThreadLocalRandom.current().nextInt(0, 10)))
-                                         .limit(10)
-                                         .collect(Collectors.summarizingInt(f -> f.val));
-        // IntSummaryStatistics{count=10, sum=34, min=0, average=3.400000, max=7}
-    } 
-}
-```
 ## Collecting into Collections
 ### Collecting into an ArrayList
 [Collectors.toCollection(Supplier)](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toCollection-java.util.function.Supplier-)
