@@ -211,6 +211,7 @@ Plug-ins and their behavior can be configured using within the pom. Consider the
 Every maven project has the following built-in lifecycles: __default__, __clean__ and __site__.
 
 Every lifecycle has several phases. For example, phases of the __default__ lifecycle are as follows:
+
 <dl>
     <dt>
         validate
@@ -251,6 +252,8 @@ Every lifecycle has several phases. For example, phases of the __default__ lifec
 </dl>
 
 __Heads Up!__ A build lifecycle is an abstract concept and __cannot__ be directly executed. What can be executed is either a __lifecycle phase__ or a __goal__.
+
+For all phases of the lifecycles, see the [Lifecycle Reference](http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference).
 
 ```bash
 mvn default
