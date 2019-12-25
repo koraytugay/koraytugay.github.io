@@ -83,6 +83,33 @@ A brief explanation of these root elements are as follows:
 ## Dependency Management
 Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `.m2/repository`.
 
+Dependencies are uniquely identified using __GAV__ coordinates: `groupId`, `artifactId` and `version`.
+
+### Using Different Remote Repositories
+Not every artifact is available in the maven central repository and the user may need to define additional repositories. Additional repositories can be defined both in `settings.xml` and in `pom.xml`. In corporate environments, there is almost always a shared repository for artifacts that are not published but required for development. 
+
+### Transitive Dependencies
+Transitive dependencies are the dependencies of the dependencies declared in `pom.xml`. For example for a single declared dependency as follows
+
+```xml
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+```
+
+we can find out the transitive dependencies via `mvn dependency:tree`:
+
+```bash
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ my-artifact ---
+[INFO] biz.tugay:my-artifact:jar:1.0-SNAPSHOT
+[INFO] \- junit:junit:jar:4.12:test
+[INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
+```
+
+
 ## Cheat Sheet
 
 ```bash
