@@ -19,7 +19,7 @@ void f() throws IOException {
         throw new IOException();
     } catch (Exception e) {  // Not really!
         throw e;             // Due to this guy here!
-    }                        // Actually catching only types declared in method signature
+    }                        // Catching only types declared in method signature
 }
 ```
 
