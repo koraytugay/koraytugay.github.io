@@ -149,9 +149,8 @@ To access properties from the `settings.xml` file, the `settings.` prefix is use
 #### User-Defined Properties
 Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
 
-## Build Lifecycle
-### Plug-Ins and Goals
-Build processes generating artifacts such as JAR or WAR files typically require several steps to be completed, such as compiling the code and packaging the artifact. Such a graunlar task is represented by a __goal__ in maven. Several goals are packaged into a __plug-in__.
+## Plug-Ins and Goals
+Graunlar task are represented by __goal__ s in maven. Several goals are packaged into a __plug-in__.
 
 To compile a project, the `compile` goal from the `compiler` plug-in can be used as follows:
 
@@ -207,6 +206,7 @@ Plug-ins and their behavior can be configured using within the pom. Consider the
 </build>
 ```
 
+## Build Lifecycle
 ### Lifecycle and Phases
 Every maven project has the following built-in lifecycles: __default__, __clean__ and __site__.
 
