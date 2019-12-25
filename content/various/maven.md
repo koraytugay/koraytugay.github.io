@@ -100,13 +100,15 @@ Transitive dependencies are the dependencies of the dependencies declared in `po
 </dependency>
 ```
 
-we can find out the transitive dependencies via `mvn dependency:tree`:
+we can find out the transitive dependencies as follows:
 
 ```bash
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ my-artifact ---
-[INFO] biz.tugay:my-artifact:jar:1.0-SNAPSHOT
-[INFO] \- junit:junit:jar:4.12:test
-[INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
+mvn dependency:tree
+
+# [INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ my-artifact ---
+# [INFO] biz.tugay:my-artifact:jar:1.0-SNAPSHOT
+# [INFO] \- junit:junit:jar:4.12:test
+# [INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
 ```
 
 ## Project Object Model - pom
