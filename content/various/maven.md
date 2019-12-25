@@ -109,6 +109,160 @@ we can find out the transitive dependencies via `mvn dependency:tree`:
 [INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
 ```
 
+## Project Object Model - pom
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>my-artifact</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>
+```
+
+### Properties
+Maven provides placheloders that can be used inside the `pom.xml`. There are two types of properties: implicit properties and user-defined properties.
+
+#### Implicit Properties
+Maven exposes properties of `pom.xml` using the `project.` prefix. To access the `artifactId` inside the file, `${project.artifactId}` placeholder can be used. Here is an example:
+
+```xml
+<build>
+    <finalName>${project.artifactId}</finalName>
+</build>
+```
+
+To access properties from the `settings.xml` file, the `settings.` prefix is used. For accessing environmental variable values, `env.` prefix can be used. For example, `${env.PATH}` would return the value of the `PATH` environmental variable.
+
+#### User-Defined Properties
+Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions. For example:
+
+## Build Cycle
+### Plug-Ins and Goals
+Build processes generating artifacts such as JAR or WAR files typically require several steps to be completed, such as compiling the code and packaging the artifact. Such a graunlar task is represented by a __goal__ in maven. Several goals are packaged into a __plug-in__.
+
+To compile a project, the `compile` goal from the `compiler` plug-in can be used as follows:
+
+```bash
+mvn compiler:compile
+```
+
+Another example can be using the `clean` goal from the `clean` plug-in, which deletes the `target` folder.
+
+```bash
+mvn clean:clean
+```
+
+Maven comes with a `help` plug-in that can be used to list available goals in a given plug-in:
+
+```bash
+mvn help:describe -Dplugin=surefire
+
+# Name: Maven Surefire Plugin
+# Description: Surefire is a test framework project.
+# Group Id: org.apache.maven.plugins
+# Artifact Id: maven-surefire-plugin
+# Version: 2.12.4
+# Goal Prefix: surefire
+# 
+# This plugin has 2 goals:
+# 
+# surefire:help
+#   Description: Display help information on maven-surefire-plugin.
+#     Call mvn surefire:help -Ddetail=true -Dgoal=<goal-name> to display
+#     parameter details.
+# 
+# surefire:test
+#   Description: Run tests using Surefire.
+```
+
+#### Configuring Plug-Ins in pom
+Plug-ins and their behavior can be configured using within the pom. Consider the case where you want to enforce that your project must be compiled with Java 8. The following example configures the `compiler` plug-in:
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+### Lifecycle and Phases
+Every maven project has the following built-in lifecycles: __default__, __clean__ and __site__.
+
+Every lifecycle has several phases. For example, phases of the __default__ lifecycle are as follows:
+<dl>
+    <dt>
+        validate
+    </dt>
+    <dd>
+        Runs checks to ensure that the project is correct and all dependencies are downloaded and available.
+    </dd>
+    <dt>
+        compile
+    </dt>
+    <dd>
+        Compiles the source code.
+    </dd>
+    <dt>
+        test
+    </dt>
+    <dd>
+        Runs tests.
+    </dd>
+    <dt>
+        package
+    </dt>
+    <dd>
+        Assembles compiled code into a distributable format such as JAR or WAR.
+    </dd>
+    <dt>
+        install
+    </dt>
+    <dd>
+        Installs the packaged archive into a local repository. This archive is now available for use by any project sharing the same repository.
+    </dd>
+    <dt>
+        deploy
+    </dt>
+    <dd>
+        Pushes the built archive into a remote repository.
+    </dd>
+</dl>
+
+__Heads Up!__ A maven lifecycle is an abstract concept and __cannot__ be directly executed. What can be executed is either a __lifecycle phase__ or a __goal__.
+
+```bash
+mvn default
+
+# Unknown lifecycle phase "default". 
+# You must specify a valid lifecycle phase or a goal in the format 
+# <plugin-prefix>:<goal> 
+# or 
+# <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>.
+```
+
+`mvn package` will execute the `package` phase of the `default` lifecycle. In addition to clearly defining the ordering of phases in a lifecycle, maven also automatically executes all the phases prior to a requested phase. When `mvn package` is run all prior phases also run such as `compile` and `test`.
+
+A number of tasks need to be performed in each phase. For that to happen, each `phase` is associated with a zero or more `goal`s.
 
 ## Cheat Sheet
 
@@ -123,33 +277,4 @@ mvn archetype:generate                               \
 # Creating the standard directory layout
 mkdir -p src/main/java/biz/tugay
 mkdir -p src/test/java/biz/tugay
-```
-
-pom.xml
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>biz.tugay</groupId>
-    <artifactId>my-artifact</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-</project>
 ```
