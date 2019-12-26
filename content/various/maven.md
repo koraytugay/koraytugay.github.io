@@ -83,10 +83,130 @@ A brief explanation of these root elements are as follows:
 ## Dependency Management
 Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `.m2/repository`.
 
+### Maven Coordinates
 Dependencies are uniquely identified using __GAV__ coordinates: `groupId`, `artifactId` and `version`.
 
 ### Using Different Remote Repositories
 Not every artifact is available in the maven central repository and the user may need to define additional repositories. Additional repositories can be defined both in `settings.xml` and in `pom.xml`. In corporate environments, there is almost always a shared repository for artifacts that are not published but required for development. 
+
+## Project Object Model - pom
+`pom.xml` files maintain a parent-child relationship between them where a child pom inherits all elements from its parent element. Reference for this file can be found [here](http://maven.apache.org/ref/3.6.3/maven-model/maven.html).
+
+If a pom does not have an explicit parent, the system-wide __super pom__ becomes the parent. Ultimately, all maven projects get extended from the super pom. To see the effective pom, craete a minimal pom as below and execute the `effective-pom` goal of `help` plugin. 
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>my-artifact</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</project>
+```
+
+__Heads Up!__ A valid Maven POM file must have `groupId`, `artifactId`, and `version`. The `groupId` and the `version` elements can be inherited from the parent POM file. There is one exception to this: plug-ins. A plug-in can be declared without a groupId as follows:
+
+```xml
+<plugin>
+    <artifactId>maven-antrun-plugin</artifactId>
+    <version>1.3</version>
+</plugin>
+```
+
+By default, Maven uses `org.apache.maven.plugins`, which can be configured from the `settings.xml` mention before.
+
+### Properties
+Maven provides placheloders that can be used inside the pom. There are two types of properties: __implicit properties__ and __user-defined properties__.
+
+#### Implicit Properties
+Maven exposes properties of the pom using the `project.` prefix. To access the `artifactId` inside the file, `${project.artifactId}` placeholder can be used. Here is an example:
+
+```xml
+<build>
+    <finalName>${project.artifactId}</finalName>
+</build>
+```
+
+To access properties from the `settings.xml` file, the `settings.` prefix is used. For accessing environmental variable values, `env.` prefix can be used. For example, `${env.PATH}` would return the value of the `PATH` environmental variable.
+
+#### User-Defined Properties
+Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
+
+### Notes on Super POM
+- The Maven central is the only repository defined under the repositories section. It will be inherited by all the Maven application modules.
+- Plugin repositories define where to find Maven plugins and it also points to https://repo.maven.apache.org/maven2.
+- Pretty much everything else is nested under `build`.
+- `pluginManagement` and `plugins` are interesting, see [this](https://stackoverflow.com/a/10483294) answer for details.
+
+### Extending the POM
+Adding new elements will simply extend the inherited pom. Here is an example to add anothe repository alongside the maven central inhereted from the suprt pom:
+
+```xml
+<repositories>
+    <repository>
+        <id>wso2-nexus</id>
+        <name>WSO2 internal Repository</name>
+        <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+            <checksumPolicy>ignore</checksumPolicy>
+        </releases>
+    </repository>
+</repositories>
+```
+
+### Overriding the POM
+If you want to override any of the configuration elements corresponding to the Maven central repository, inherited from the super POM file, then you have to define a repository in your application POM with the same repository id (as of the Maven central repository) and override the configuration element you need.
+
+The example below overrides the `maven-compiler` plugin version that is inherited from the super pom:
+
+```xml
+<build>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+</build>
+```
+
+### Managing POM Dependencies using Inheritance
+[dependencyManagement](http://maven.apache.org/ref/3.6.3/maven-model/maven.html#class_dependencyManagement) element can be used to declare dependencies to be shared among various children pom files in a given project. Given a parent pom declares a dependency as follows:
+
+```xml
+<properties>
+    <slf4j.version>1.7.29</slf4j.version>
+</properties>
+
+<dependencyManagement>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+    </dependency>
+</dependencyManagement>    
+```
+
+Inheriting pom files can simply make use of this dependency as follows:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+    </dependency>
+</dependencies>    
+```
+
+We did not need the `version` element anymore. This is useful when we have a project with many children modules that make use of the same dependency. This way, we do not need to bump version in every children, but rather only in the parent pom.
 
 ### Transitive Dependencies
 Transitive dependencies are the dependencies of the dependencies declared in `pom.xml`. For example for a single declared dependency as follows
@@ -110,44 +230,6 @@ mvn dependency:tree
 # [INFO] \- junit:junit:jar:4.12:test
 # [INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
 ```
-
-## Project Object Model - pom
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>biz.tugay</groupId>
-    <artifactId>my-artifact</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-</project>
-```
-
-### Properties
-Maven provides placheloders that can be used inside the `pom.xml`. There are two types of properties: implicit properties and user-defined properties.
-
-#### Implicit Properties
-Maven exposes properties of `pom.xml` using the `project.` prefix. To access the `artifactId` inside the file, `${project.artifactId}` placeholder can be used. Here is an example:
-
-```xml
-<build>
-    <finalName>${project.artifactId}</finalName>
-</build>
-```
-
-To access properties from the `settings.xml` file, the `settings.` prefix is used. For accessing environmental variable values, `env.` prefix can be used. For example, `${env.PATH}` would return the value of the `PATH` environmental variable.
-
-#### User-Defined Properties
-Custom properties can be declared within the `<properties />` element. Such properties are usually used for dependency versions.
 
 ## Plug-Ins and Goals
 A __goal__ is an implementation that does a unit of work that is found in a __plug-in__. There are many [available plug-ins](https://maven.apache.org/plugins/index.html).
@@ -292,4 +374,13 @@ mvn archetype:generate                               \
 # Creating the standard directory layout
 mkdir -p src/main/java/biz/tugay
 mkdir -p src/test/java/biz/tugay
+
+# Effective pom
+mvn help:effective-pom
+
+# Seeing goals of a specific plugin
+mvn help:describe -Dplugin=surefire
+
+# Dependency tree
+mvn dependency:tree
 ```
