@@ -69,7 +69,7 @@ Instead of executing a goal, a phase of a lifecycle can also be  executed via `m
 ## Plugins
 Maven does not try to do everything itself, but rather delegate the work to to plugins. When you download Maven from its website, it's only the core framework. Plugins are downloaded on demand. __All the useful functionalities in the build process are developed as Maven plugins__. Maven plugins can be executed on their own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of maven plugin is: `mvn plugin-prefix:goal`.
 
-Reading the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plguin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal of plugin.
+Reading the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal of plugin.
 
 ### Configuring a Plugin in pom
 This is an example on how the `compiler` plugin can be configured:
