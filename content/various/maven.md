@@ -10,7 +10,7 @@ title:  "Apache Maven"
 {:toc}
 
 ## Overview
-Maven is a __goal__ execution software. The goals are executed against a `pom.xml` file, which is mandatory for any project to be processed by maven. Every goal is found in a __plug-in__. A plug-in can contain one to many goals. A goal can do many things, be it resolve / download 3rd party libraries declared in the pom, compile source code, run tests or package files.
+Maven is a __goal__ execution software. The goals are executed against a `pom.xml` file, which is mandatory for any project to be processed by maven. Every goal is found in a __plugin__. A plugin can contain one to many goals. A goal can do many things, be it resolve / download 3rd party libraries declared in the pom, compile source code, run tests or package files.
 
 A minimal pom file would be as follows:
 
@@ -62,7 +62,7 @@ which will produce:
         └── App.class
 ```
 
-Maven also defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plug-ins are bound to phases of a lifecycle__. 
+Maven also defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. 
 
 Instead of executing a goal, a phase of a lifecycle can also be  executed via `mvn <phase-name>`.
 
