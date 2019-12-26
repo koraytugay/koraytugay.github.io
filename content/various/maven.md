@@ -66,7 +66,6 @@ Maven also defines a concept called __lifecycle__. A lifecycle would run a singl
 
 Instead of executing a goal, a phase of a lifecycle can also be  executed via `mvn <phase-name>`.
 
-
 ## Plugins
 Start by reading the [Maven Plugins](https://maven.apache.org/plugins/) page. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goals documentation.
 
