@@ -70,7 +70,7 @@ Instead of executing a goal, a phase of a lifecycle can also be  executed via `m
 In maven what matters is not just the projects pom file but the effective pom file which is constructed by the project pom file, and the parent pom file hierarchy up to the super pom.
 
 ## Plugins
-Maven does not try to do everything itself, but rather delegate the work to to plugins. When you download Maven from its website, it's only the core framework. Plugins are downloaded on demand. __All the useful functionalities in the build process are developed as Maven plugins__. 
+Maven does not try to do everything itself, but rather delegate the work to to plugins. __All the useful functionalities in the build process are developed as Maven plugins__. 
 
 Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`. However, for plugins, groupId is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
