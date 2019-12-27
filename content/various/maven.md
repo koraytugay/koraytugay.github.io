@@ -130,6 +130,8 @@ Most likely in the parent (or the super) POM. Check the effective pom to find fo
 </build>    
 ```
 
+This is also where plugins are bound to phases.
+
 ### Configuring a Plugin in pom
 This is an example on how the `compiler` plugin can be configured:
 
