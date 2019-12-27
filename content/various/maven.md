@@ -9,10 +9,10 @@ title:  "Apache Maven"
 * TOC
 {:toc}
 
-## Overview
-Maven is a __goal__ execution software. The goals are executed against a `pom.xml` file, which is mandatory for any project to be processed by maven. Every goal is found in a __plugin__. A plugin can contain one to many goals. A goal can do many things, be it resolve / download 3rd party libraries declared in the pom, compile source code, run tests or package files.
+## POM
+In maven what matters is not just the projects pom file but the effective pom file which is constructed by the project pom file, and the parent pom file hierarchy up to the super pom.
 
-A minimal pom file would be as follows:
+A minimal valid pom file would be as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -27,50 +27,8 @@ A minimal pom file would be as follows:
 </project>
 ```
 
-Given the following directory layout:
-
-```plaintext
-.
-├── pom.xml
-└── src
-    └── main
-        └── java
-            └── biz
-                └── tugay
-                    └── App.java
-```
-
-We can compile our source code using the `compile` goal from the `compiler` plugin:
-
-```bash
-mvn compiler:compile
-```
-
-which will produce:
-
-```
-.
-├── pom.xml
-├── src
-│   └── main
-│       └── java
-│           └── biz
-│               └── tugay
-│                   └── App.java
-└── target
-    └── classes
-        └── App.class
-```
-
-Maven also defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. 
-
-Instead of executing a goal, a phase of a lifecycle can also be  executed via `mvn <phase-name>`.
-
-## POM
-In maven what matters is not just the projects pom file but the effective pom file which is constructed by the project pom file, and the parent pom file hierarchy up to the super pom.
-
-## Plugins
-Maven does not try to do everything itself, but rather delegate the work to to plugins. __All the useful functionalities in the build process are developed as Maven plugins__. 
+## Plugins and Goals
+Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3rd party libraries declared in the pom, compile source code, run tests or package files.
 
 Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`. However, for plugins, groupId is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
@@ -105,7 +63,7 @@ The `clean` goal of the maven `clean` plugin is associated with the `clean` phas
 mvn clean
 ```
 
-One difference here is that when you execute a goal on its own, it only runs the goal specified in the command.When you run it as a part of a lifecycle, all the plugins associated with the corresponding lifecycle up until the specified phase including that phase gets executed.
+One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run it as a part of a lifecycle, all the plugins associated with the corresponding lifecycle up until the specified phase including that phase gets executed.
 
 ### Where are the Plugins Defined?
 Most likely in the parent (or the super) POM. Check the effective pom to find for example:
@@ -165,6 +123,9 @@ A friendly reminider: The `compile` goal is bound to the `compile` phase of the 
 
 ### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
+
+## Lifecycle
+Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. 
 
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
