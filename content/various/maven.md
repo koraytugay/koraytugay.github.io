@@ -163,6 +163,7 @@ This is an example on how the `compiler` plugin can be configured:
 
 A friendly reminider: The `compile` goal is bound to the `compile` phase of the `default` lifecycle.
 
+### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal of plugin.
 
 ## Settings
