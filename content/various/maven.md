@@ -182,6 +182,14 @@ __Heads Up!__ You do not actually need to include `exec-maven-plugin` in the pom
 mvn -q exec:java -Dexec.mainClass=biz.tugay.App
 ```
 
+This, however, does not work with 
+
+```bash
+mvn jetty:run
+```
+
+Why? I do not know..
+
 ### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
 
