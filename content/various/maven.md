@@ -51,19 +51,19 @@ Maven downloads plugins on demand when it cannot find a plugin in its local repo
 ```
 
 ### Executing a Plugin
-Plugins can be executed on their own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
+A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
 
 ```bash
 mvn clean:clean
 ```
 
-The `clean` goal of the maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` lifecycle as follows:
+The `clean` goal of the maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` lifecycle as follows, which is somewhat confusing:
 
 ```bash
 mvn clean
 ```
 
-One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run it as a part of a lifecycle, all the plugins associated with the corresponding lifecycle up until the specified phase including that phase gets executed.
+One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run it as a part of a lifecycle, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed.
 
 ### Where are the Plugins Defined?
 Most likely in the parent (or the super) POM. Check the effective pom to find for example:
