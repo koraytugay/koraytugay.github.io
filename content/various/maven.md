@@ -122,9 +122,6 @@ This is an example on how the `compiler` plugin can be configured:
 
 A friendly reminider: The `compile` goal is bound to the `compile` phase of the `default` lifecycle.
 
-### Further Reading
-Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
-
 ### Exec Maven Plugin
 [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/index.html) is a very useful for plugin that can be used to quickly run Maven projects in development environment. This section is a showcase on how such an external plugin can be used. Given the following directory layout:
 
@@ -186,6 +183,9 @@ mvn exec:java
 This plugin also comes with another goal: `exec`. The official documentation clearly explains the usage, and this is what basically maven is about actually. Finding plugins, the relevant goals, and configuring / invoking them.
 
 Another super helpful plugin is the [Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/), check it out!
+
+### Further Reading
+Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
 
 ## Lifecycle
 Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. 
