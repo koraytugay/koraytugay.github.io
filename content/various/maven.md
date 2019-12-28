@@ -30,7 +30,7 @@ A minimal valid pom file would be as follows:
 ## Plugins and Goals
 Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the pom, compile source code, run tests or package files.
 
-Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`. However, for plugins, groupId is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
+Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`, a.k.a. __GAV__. However, for plugins, groupId is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
 Maven downloads plugins on demand when it cannot find a plugin in its local repository. By default, maven looks for any plugin that is not available locally in the plugin repository defined by the super POM file.
 
