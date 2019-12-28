@@ -10,7 +10,7 @@ title:  "Apache Maven"
 {:toc}
 
 ## POM
-In maven what matters is not just the projects pom file but the effective pom file which is constructed by the project pom file, and the parent pom file hierarchy up to the super pom.
+In Maven what matters is not just the projects pom file but the effective pom file which is constructed by the project pom file, and the parent pom file hierarchy up to the super pom.
 
 A minimal valid pom file would be as follows:
 
@@ -32,7 +32,7 @@ Maven does not try to do everything itself, but rather delegate the work to to p
 
 Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`, a.k.a. __GAV__. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
-Maven downloads plugins on demand when it cannot find a plugin in its local repository. By default, maven looks for any plugin that is not available locally in the plugin repository,defined in the super POM file:
+Maven downloads plugins on demand when it cannot find a plugin in its local repository. By default, Maven looks for any plugin that is not available locally in the plugin repository,defined in the super POM file:
 
 ```xml
 <pluginRepositories>
@@ -51,13 +51,13 @@ Maven downloads plugins on demand when it cannot find a plugin in its local repo
 ```
 
 ### Executing a Plugin
-A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
+A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
 
 ```bash
 mvn clean:clean
 ```
 
-The `clean` goal of the maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` lifecycle as follows, which is somewhat confusing:
+The `clean` goal of the Maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` lifecycle as follows, which is somewhat confusing:
 
 ```bash
 mvn clean
