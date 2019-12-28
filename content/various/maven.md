@@ -206,6 +206,8 @@ validate -> initialize -> generate-sources -> process-sources
 ```
 
 - What is the difference between `-DskipTests` and `-Dmaven.test.skip=true`? Visit [this](https://maven.apache.org/surefire/maven-surefire-plugin/examples/skipping-tests.html) page to find out.
+- Do you want to create a jar with dependencies. Start [here](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html).
+
 
 ## Cheat Sheet
 
