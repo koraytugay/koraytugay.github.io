@@ -186,7 +186,7 @@ Maven defines a concept called __lifecycle__. A lifecycle would run a single or 
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
 ## Random Notes
-- If you have any import statements in a Java class, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
+- If you are importing any 3<sup>rd</sup> party libraries explicitly via `import` statements in your source code, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
 - To speed up your build, try `mvn install -T 2C -DskipTests`.
 - The Maven default lifecycle includes the phases: validate -> initialize -> generate-sources -> process-sources -> generate-resources -> process-resources -> compile -> process-classes -> generate-test-sources -> process-test-sources -> generate-test-resources -> process-test- resources -> test-compile -> process-test-classes -> test -> prepare- package -> package -> pre-integration-test -> integration-test -> post- integration-test -> verify -> install -> deploy.
 - What is the difference between `-DskipTests` and `-Dmaven.test.skip=true`? Visit [this](https://maven.apache.org/surefire/maven-surefire-plugin/examples/skipping-tests.html) page to find out.
