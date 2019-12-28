@@ -227,6 +227,9 @@ mvn help:effective-pom
 # Seeing goals of a specific plugin
 mvn help:describe -Dplugin=surefire
 
+# Full information on a plugin
+mvn help:describe -Dplugin=exec -Dfull
+
 # Detailed information on a specific goal
 mvn help:describe -Dcmd=compiler:compile -Ddetail
 
