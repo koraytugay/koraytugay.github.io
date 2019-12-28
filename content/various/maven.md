@@ -172,7 +172,7 @@ and the following pom:
 mvn exec:java
 ```
 
-This plugin also comes with another goal: `exec`. The official documentation clearly explains the usage, and this is what basically maven is about actually. Finding plugins, the relevant goals, and configuring / invoking them.
+This plugin also comes with another goal: `exec`. The official documentation clearly explains the usage, and __this is pretty much what Maven is all about__. Finding plugins, the relevant goals, and configuring / invoking them.
 
 Another super helpful plugin is the [Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/), check it out!
 
