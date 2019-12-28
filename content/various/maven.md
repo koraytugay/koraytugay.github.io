@@ -94,14 +94,7 @@ This is also where plugins are bound to phases.
 This is an example on how the `compiler` plugin can be configured:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
-    <!-- Elements ommitted for brevity -->
-
+<project>
     <build>
         <plugins>
             <plugin>
@@ -139,7 +132,6 @@ A friendly reminider: The `compile` goal is bound to the `compile` phase of the 
 and the following pom:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <project>
 
     <modelVersion>4.0.0</modelVersion>
