@@ -32,7 +32,7 @@ Maven does not try to do everything itself, but rather delegate the work to to p
 
 Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`, a.k.a. __GAV__. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
-Maven downloads plugins on demand when it cannot find a plugin in its local repository. By default, Maven looks for any plugin that is not available locally in the plugin repository,defined in the super POM file:
+Maven downloads plugins on demand when it cannot find a plugin in its local repository. By default, Maven looks for any plugin that is not available locally in the plugin repository, defined in the super POM file:
 
 ```xml
 <pluginRepositories>
