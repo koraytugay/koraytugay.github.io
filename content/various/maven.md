@@ -176,6 +176,12 @@ This plugin also comes with another goal: `exec`. The official documentation cle
 
 Another super helpful plugin is the [Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/), check it out!
 
+__Heads Up!__ You do not actually need to include `exec-maven-plugin` in the pom. The following works in that case:
+
+```bash
+mvn -q exec:java -Dexec.mainClass=biz.tugay.App
+```
+
 ### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
 
@@ -220,6 +226,9 @@ mvn help:effective-pom
 
 # Seeing goals of a specific plugin
 mvn help:describe -Dplugin=surefire
+
+# Detailed information on a specific goal
+mvn help:describe -Dcmd=compiler:compile -Ddetail
 
 # Dependency tree
 mvn dependency:tree
