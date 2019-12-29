@@ -27,6 +27,9 @@ A minimal valid pom file would be as follows:
 </project>
 ```
 
+### Random Notes on POM
+- `dependencyManagement` element is used to define dependency versions in a single, top level POM.
+
 ## Plugins and Goals
 Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the pom, compile source code, run tests or package files.
 
