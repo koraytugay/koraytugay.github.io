@@ -49,10 +49,15 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
 
 Arbitrary properties can also be set using the `properties` element in the POM and then by simply referencing them via `${property}`.
 
-### Dependencies
+## Dependencies
 When a project depends on an artifact produced by another project we say that this artifact is a dependency.
 
-#### Transitive Dependencies
+Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](http://repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
+
+### Maven Coordinates
+Dependencies are uniquely identified using __GAV__ coordinates: `groupId`, `artifactId` and `version`.
+
+### Transitive Dependencies
 A transitive dependency is a dependency of a dependency. If project-a depends on project-b, which in turn depends on project-c, _project-c is considered a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application. Maven accomplishes this by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
 
 Transitive dependencies can be excluded and/or replaced as follows:
@@ -75,9 +80,6 @@ Transitive dependencies can be excluded and/or replaced as follows:
     <version>1.1</version>
 </dependency>
 ```
-
-### Random Notes on POM
-- `dependencyManagement` element is used to define dependency versions in a single, top level POM.
 
 ## Plugins and Goals
 Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
