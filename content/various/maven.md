@@ -365,4 +365,4 @@ mvn dependency:tree
 
 ## References
 - [Maven Official Reference](https://maven.apache.org/ref/current/)
-- [Default Remote Repository: Maven Central](repo.maven.apache.org)
+- [Default Remote Repository: Maven Central](http://repo.maven.apache.org)
