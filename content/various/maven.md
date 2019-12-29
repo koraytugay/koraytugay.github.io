@@ -47,6 +47,8 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
     <dd>The settings variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in the settings file.</dd>
 </dl>
 
+Arbitrary properties can also be set using the `properties` element in the POM and then by simply referencing them via `${property}`.
+
 ### Random Notes on POM
 - `dependencyManagement` element is used to define dependency versions in a single, top level POM.
 
