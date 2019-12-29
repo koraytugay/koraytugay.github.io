@@ -270,7 +270,7 @@ The specific goals bound to each phase default to a set of goals specific to a p
             </td>
         </tr>
     </thead>
-    <tbod>
+    <tbody>
         <tr>
             <td>process-resources</td>
             <td>resources:resources</td>
@@ -311,7 +311,7 @@ The specific goals bound to each phase default to a set of goals specific to a p
             <td>deploy:deploy</td>
             <td>deploy:deploy</td>
         </tr>
-    </tbod>
+    </tbody>
 </table>
 
 ## Settings
