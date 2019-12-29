@@ -28,7 +28,7 @@ A minimal valid POM would be as follows:
 ```
 
 ### Super POM
-All Maven project POMs extend the Super POM, which defines a set of defaults shared by all projects.
+All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM.
 
 Super POM defines a default remote Maven repository, the central Maven repository, that all Maven clients are configured to read from by default. The central Maven repository also contains Maven plugins. The default plugin repository is the central Maven repository.
 
@@ -50,6 +50,8 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
 Arbitrary properties can also be set using the `properties` element in the POM and then by simply referencing them via `${property}`.
 
 ### Dependencies
+When a project depends on an artifact produced by another project we say that this artifact is a dependency.
+
 #### Transitive Dependencies
 A transitive dependency is a dependency of a dependency. If project-a depends on project-b, which in turn depends on project-c, _project-c is considered a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application. Maven accomplishes this by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
 
