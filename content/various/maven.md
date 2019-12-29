@@ -52,7 +52,7 @@ Arbitrary properties can also be set using the `properties` element in the POM a
 ## Dependencies
 When a project depends on an artifact produced by another project we say that this artifact is a dependency.
 
-Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](http://repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
+Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](https://repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
 
 ### Maven Coordinates
 Dependencies are uniquely identified using __GAV__ coordinates: `groupId`, `artifactId` and `version`.
@@ -367,4 +367,4 @@ mvn dependency:tree
 
 ## References
 - [Maven Official Reference](https://maven.apache.org/ref/current/)
-- [Default Remote Repository: Maven Central](http://repo.maven.apache.org)
+- [Default Remote Repository: Maven Central](https://repo.maven.apache.org)
