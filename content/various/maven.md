@@ -10,9 +10,11 @@ title:  "Apache Maven"
 {:toc}
 
 ## POM
-In Maven what matters is not just the projects pom file but the effective pom file which is constructed by the project pom file, and the parent pom file hierarchy up to the super pom.
+The POM is where a projects identity is declared, builds are configured, and dependencies are defined. __The presence of a `pom.xml` defines a Maven project__.
 
-A minimal valid pom file would be as follows:
+In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM.
+
+A minimal valid POM would be as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -31,7 +33,7 @@ A minimal valid pom file would be as follows:
 - `dependencyManagement` element is used to define dependency versions in a single, top level POM.
 
 ## Plugins and Goals
-Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the pom, compile source code, run tests or package files.
+Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
 
 Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`, a.k.a. __GAV__. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
@@ -54,7 +56,7 @@ Maven downloads plugins on demand when it cannot find a plugin in its local repo
 ```
 
 ### Where are the Plugins Defined?
-The super pom already defines several default plugins, such as the `clean` or the `compiler` plugin. Any other plugins are again defined by the user in pom. Check the effective pom to find for example:
+The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any other plugins are again defined by the user in POM. Check the effective POM to find for example:
 
 ```xml
 <build>
@@ -93,7 +95,7 @@ mvn clean
 
 One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run it as a part of a lifecycle, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed.
 
-### Configuring a Plugin in pom
+### Configuring a Plugin in POM
 This is an example on how the `compiler` plugin can be configured:
 
 ```xml
@@ -132,7 +134,7 @@ A friendly reminider: The `compile` goal is bound to the `compile` phase of the 
                     └── App.java
 ```
 
-and the following pom:
+and the following POM:
 
 ```xml
 <project>
@@ -179,7 +181,7 @@ This plugin also comes with another goal: `exec`. The official documentation cle
 
 Another super helpful plugin is the [Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/), check it out!
 
-__Heads Up!__ You do not actually need to include `exec-maven-plugin` in the pom. The following works in that case:
+__Heads Up!__ You do not actually need to include `exec-maven-plugin` in the POM. The following works in that case:
 
 ```bash
 mvn -q exec:java -Dexec.mainClass=biz.tugay.App
@@ -234,7 +236,7 @@ mvn archetype:generate                               \
 mkdir -p src/main/java/biz/tugay
 mkdir -p src/test/java/biz/tugay
 
-# Effective pom
+# Effective POM
 mvn help:effective-pom
 
 # Seeing goals of a specific plugin
