@@ -263,10 +263,10 @@ The specific goals bound to each phase default to a set of goals specific to a p
                 Lifecycle Phase
             </td>
             <td>
-                JAR Goal
+                Goals bound to JAR
             </td>
             <td>
-                War Goal
+                Goals bound to WAR
             </td>
         </tr>
     </thead>
