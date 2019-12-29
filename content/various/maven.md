@@ -333,7 +333,7 @@ validate -> initialize -> generate-sources -> process-sources
 
 - What is the difference between `-DskipTests` and `-Dmaven.test.skip=true`? Visit [this](https://maven.apache.org/surefire/maven-surefire-plugin/examples/skipping-tests.html) page to find out.
 - Do you want to create a jar with dependencies. Start [here](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html).
-
+- The Surefire plugin is Maven's unit testing plugin, the default behavior of Surefire is to look for all classes ending in `Test` in the test source directory and to run them as JUnit tests. The Surefire plugin can also be configured to run TestNG unit tests.
 
 ## Cheat Sheet
 
