@@ -10,9 +10,7 @@ title:  "Apache Maven"
 {:toc}
 
 ## POM
-The POM is where a projects identity is declared, builds are configured, and dependencies are defined. __The presence of a `pom.xml` defines a Maven project__.
-
-In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM.
+The POM is where a projects identity is declared, builds are configured, and dependencies are defined. __The presence of a `pom.xml` defines a Maven project__. POM tells Maven how to modify default behavior to generate output from source.
 
 A minimal valid POM would be as follows:
 
@@ -28,6 +26,26 @@ A minimal valid POM would be as follows:
     <version>1.0-SNAPSHOT</version>
 </project>
 ```
+
+### Super POM
+All Maven project POMs extend the Super POM, which defines a set of defaults shared by all projects.
+
+Super POM defines a default remote Maven repository, the central Maven repository, that all Maven clients are configured to read from by default. The central Maven repository also contains Maven plugins. The default plugin repository is the central Maven repository.
+
+### Effective POM
+In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
+
+### Properties in POM
+Maven properties are variables enclosed in curly braces, prefixed with a dollar sign, as follows: `${property}`. Maven provides three implicit variables which can be used to access environment variables, POM information, and Maven Settings.
+
+<dl>
+    <dt>env</dt>
+    <dd>The env variable exposes environment variables exposed by your operating system or shell. For example, a reference to <span class="embedCode">${env.PATH}</span> in a Maven POM would be replaced by the <span class="embedCode">${PATH}</span> environment variable</dd>
+    <dt>project</dt>
+    <dd>The project variable exposes the POM. You can use a dot-notated (.) path to reference the value of a POM element. For example <span class="embedCode">${project.groupId}</span> can be used to reference the <span class="embedCode">groupId</span>element.</dd>
+    <dt>settings</dt>
+    <dd>The settings variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in <span class="embedCode">~/.m2/settings.xml</span>.</dd>
+</dl>
 
 ### Random Notes on POM
 - `dependencyManagement` element is used to define dependency versions in a single, top level POM.
