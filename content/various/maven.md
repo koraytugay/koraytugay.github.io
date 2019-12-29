@@ -49,6 +49,31 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
 
 Arbitrary properties can also be set using the `properties` element in the POM and then by simply referencing them via `${property}`.
 
+### Dependencies
+#### Transitive Dependencies
+A transitive dependency is a dependency of a dependency. If project-a depends on project-b, which in turn depends on project-c, _project-c is considered a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application. Maven accomplishes this by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
+
+Transitive dependencies can be excluded and/or replaced as follows:
+
+```xml
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate</artifactId>
+    <version>3.2.5</version>
+    <exclusions>
+        <exclusion>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.apache.geronimo.specs</groupId>
+    <artifactId>geronimo-jta_1.1</artifactId>
+    <version>1.1</version>
+</dependency>
+```
+
 ### Random Notes on POM
 - `dependencyManagement` element is used to define dependency versions in a single, top level POM.
 
