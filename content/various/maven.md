@@ -248,9 +248,7 @@ Why? I do not know..
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
 
 ## Lifecycle
-Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. 
-
-There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. build) and __site__.
+Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. build) and __site__.
 
 ### Clean Lifecycle as an Example
 This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. The Clean plugin's clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. The clean:clean goal deletes the output of a build by deleting the build directory.
