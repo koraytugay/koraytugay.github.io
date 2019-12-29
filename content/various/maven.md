@@ -259,15 +259,15 @@ The specific goals bound to each phase default to a set of goals specific to a p
 <table>
     <tbody>
         <tr>
-            <td>
+            <th>
                 Lifecycle Phase
-            </td>
-            <td>
+            </th>
+            <th>
                 Goals bound to JAR
-            </td>
-            <td>
+            </th>
+            <th>
                 Goals bound to WAR
-            </td>
+            </th>
         </tr>
         <tr>
             <td>process-resources</td>
