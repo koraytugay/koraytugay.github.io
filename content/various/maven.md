@@ -257,7 +257,7 @@ This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. 
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar has a different set of default goals from a project with a packaging of war. Default goals for JAR and WAR packaging for example are as follows:
 
 <table>
-    <thead>
+    <tbody>
         <tr>
             <td>
                 Lifecycle Phase
@@ -269,8 +269,6 @@ The specific goals bound to each phase default to a set of goals specific to a p
                 Goals bound to WAR
             </td>
         </tr>
-    </thead>
-    <tbody>
         <tr>
             <td>process-resources</td>
             <td>resources:resources</td>
