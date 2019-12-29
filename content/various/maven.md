@@ -248,6 +248,72 @@ Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overa
 ## Lifecycle
 Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. 
 
+There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. build) and __site__.
+
+### Clean Lifecycle as an Example
+This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. The Clean plugin's clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. The clean:clean goal deletes the output of a build by deleting the build directory.
+
+### Package-Specific Lifecycles
+The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar has a different set of default goals from a project with a packaging of war. Default goals for JAR and WAR packaging for example are as follows:
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                Lifecycle Phase
+            </td>
+            <td>
+                JAR Goal
+            </td>
+            <td>
+                War Goal
+            </td>
+        </tr>
+    </thead>
+    <tbod>
+        <tr>
+            <td>process-resources</td>
+            <td>resources:resources</td>
+            <td>resources:resources</td>
+        </tr>
+        <tr>
+            <td>compile</td>
+            <td>compiler:compile</td>
+            <td>compiler:compile</td>
+        </tr>
+        <tr>
+            <td>process-test-resources</td>
+            <td>resources:testResources</td>
+            <td>resources:testResources</td>
+        </tr>
+        <tr>
+            <td>test-compile</td>
+            <td>compiler:testCompile</td>
+            <td>compiler:testCompile</td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>surefire:test</td>
+            <td>surefire:test</td>
+        </tr>
+        <tr>
+            <td>package</td>
+            <td>jar:jar</td>
+            <td>war:war</td>
+        </tr>
+        <tr>
+            <td>install</td>
+            <td>install:install</td>
+            <td>install:install</td>
+        </tr>
+        <tr>
+            <td>deploy</td>
+            <td>deploy:deploy</td>
+            <td>deploy:deploy</td>
+        </tr>
+    </tbod>
+</table>
+
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
