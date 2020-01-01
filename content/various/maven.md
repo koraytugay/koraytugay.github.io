@@ -38,6 +38,7 @@ In Maven what matters is not just the projects POM but the effective POM which i
 ### Properties in POM
 Maven properties are variables enclosed in curly braces, prefixed with a dollar sign, as follows: `${property}`. Maven provides three implicit variables which can be used to access environment variables, POM information, and Maven Settings.
 
+#### Impliciit Properties
 <dl>
     <dt><span class="embedCode">env</span></dt>
     <dd>The <span class="embedCode">env</span> variable exposes environment variables exposed by your operating system or shell. For example, a reference to <span class="embedCode">${env.PATH}</span> in POM would be replaced by the <span class="embedCode">${PATH}</span> environment variable.</dd>
@@ -47,6 +48,7 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
     <dd>The <span class="embedCode">settings</span> variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in the settings file.</dd>
 </dl>
 
+#### Arbitrary properties
 Arbitrary properties can also be set using the `properties` element in the POM and then by simply referencing them via `${property}`.
 
 ## Dependencies
