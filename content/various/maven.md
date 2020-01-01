@@ -273,6 +273,7 @@ A common practice is to have __development__ and __production__ profiles. For ex
             <build>
                 <plugins>
                     <plugin>
+                        <!-- groupId and version are not needed -->
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <skipTests>true</skipTests>
