@@ -330,6 +330,118 @@ Take a look at [Introduction to Build Profiles](https://maven.apache.org/guides/
 </profiles>
 ```
 
+## Multi-Module Projects
+Multi-module projects are common in enterprise environments. Here is a sample multi-module project layout, and some related notes.
+
+Directory layout:
+
+```plaintext
+.
+├── multi-module-cli
+│   └── pom.xml
+├── multi-module-service
+│   └── pom.xml
+└── pom.xml
+```
+
+pom.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>biz.tugay</groupId>
+    <artifactId>multi-module</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>multi-module-service</module>
+        <module>multi-module-cli</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
+```
+
+multi-module-service/pom.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>biz.tugay</groupId>
+        <artifactId>multi-module</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <!-- groupId from parent -->
+    <artifactId>multi-module-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>jar</packaging>
+
+</project>
+```
+
+multi-module-cli/pom.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+   
+    <parent>
+        <groupId>biz.tugay</groupId>
+        <artifactId>multi-module</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <!-- groupId from parent -->
+    <artifactId>multi-module-cli</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
+    <packaging>jar</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>biz.tugay</groupId>
+            <artifactId>multi-module-service-override</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>                    
+    </dependencies>
+
+</project> 
+```
+
+### Notes on Multi-Module Projects
+- A multi-module project is a defined by a parent POM referencing one or more submodules.
+- The packaging of the parent pom is of type `pom`.
+- Each submodule lives in the directory found in `module` element.
+- Parent POM is the perfect place for declaring dependency management, shared dependencies or plug-in versions.
+- When Maven is executed against a project with submodules, Maven first loads the parent POM and locates all of the submodules. All of the modules are put in something called the __Reactor__. Reactor takes care of ordering components to ensure that interdependenct modules are compilet and installed in the proper order.
+  - Once the Reactor figures out the order in which projects must be built, Maven then executes the specified goals for every module in a multi-module build. 
+
+
 ## Random Notes
 - If you are importing any 3<sup>rd</sup> party libraries explicitly via `import` statements in your source code, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
 - To speed up your build, try `mvn install -T 2C -DskipTests`.
