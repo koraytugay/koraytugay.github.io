@@ -251,7 +251,7 @@ Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overa
 Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
 
 ### Clean Lifecycle as an Example
-This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. The Clean plugin's clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. The clean:clean goal deletes the output of a build by deleting the build directory.
+This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
 
 ### Package-Specific Lifecycles
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar has a different set of default goals from a project with a packaging of war. Default goals for JAR and WAR packaging for example are as follows:
