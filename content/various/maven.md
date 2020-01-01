@@ -40,7 +40,7 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
 
 <dl>
     <dt>env</dt>
-    <dd>The env variable exposes environment variables exposed by your operating system or shell. For example, a reference to <span class="embedCode">${env.PATH}</span> in a Maven POM would be replaced by the <span class="embedCode">${PATH}</span> environment variable</dd>
+    <dd>The env variable exposes environment variables exposed by your operating system or shell. For example, a reference to <span class="embedCode">${env.PATH}</span> in POM would be replaced by the <span class="embedCode">${PATH}</span> environment variable.</dd>
     <dt>project</dt>
     <dd>The project variable exposes the POM. You can use a dot-notated (.) path to reference the value of a POM element. For example <span class="embedCode">${project.groupId}</span> can be used to reference the <span class="embedCode">groupId</span> element.</dd>
     <dt>settings</dt>
