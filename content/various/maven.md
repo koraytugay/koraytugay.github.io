@@ -262,7 +262,34 @@ Start by reading the [Settings Reference](https://maven.apache.org/settings.html
 ## Build Profiles
 Profiles allow for the ability to customize a particular build for a particular environment; profiles enable portability between different build environments. Close to everything can be customized / overridden in profiles.
 
-A common practice is to have __development__ and __production__ profiles. For example, the production build may have a specific build name pattern, may skip tests and so on and so forth.
+A common practice is to have __development__ and __production__ profiles. For example, the production build may have a specific build name pattern, may skip tests and so on and so forth. The following is an example where profile __prod__ configures the tests to be skipped:
+
+
+```xml
+<project>
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
+```
+
+Profile can be activated simply via command line as follows:
+
+```bash
+mvn clean install -P=prod
+```
 
 ## Random Notes
 - If you are importing any 3<sup>rd</sup> party libraries explicitly via `import` statements in your source code, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
