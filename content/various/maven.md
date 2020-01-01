@@ -315,6 +315,11 @@ The specific goals bound to each phase default to a set of goals specific to a p
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
+## Build Profiles
+Profiles allow for the ability to customize a particular build for a particular environment; profiles enable portability between different build environments. Close to everything can be customized / overridden in profiles.
+
+A common practice is to have __development__ and __production__ profiles. For example, the production build may have a specific build name pattern, may skip tests and so on and so forth.
+
 ## Random Notes
 - If you are importing any 3<sup>rd</sup> party libraries explicitly via `import` statements in your source code, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
 - To speed up your build, try `mvn install -T 2C -DskipTests`.
