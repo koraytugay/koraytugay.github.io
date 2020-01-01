@@ -273,8 +273,8 @@ A common practice is to have __development__ and __production__ profiles. For ex
             <build>
                 <plugins>
                     <plugin>
-                        <!-- groupId and version are not needed -->
                         <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.12.4</version>
                         <configuration>
                             <skipTests>true</skipTests>
                         </configuration>
@@ -289,7 +289,7 @@ A common practice is to have __development__ and __production__ profiles. For ex
 Profile can be activated simply via command line as follows:
 
 ```bash
-mvn clean install -P=prod
+mvn clean install -P=prod  ## or -Pprod
 ```
 
 ## Random Notes
