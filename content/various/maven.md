@@ -49,7 +49,7 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
 </dl>
 
 #### Arbitrary properties
-Arbitrary properties can also be set using the `properties` element in the POM and then by simply referencing them via `${property}`.
+Arbitrary properties can also be set using the `properties` element in the POM and can be simply referenced via `${property}`.
 
 ## Dependencies
 When a project depends on an artifact produced by another project we say that this artifact is a dependency.
