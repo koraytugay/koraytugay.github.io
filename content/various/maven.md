@@ -290,7 +290,44 @@ A common practice is to have __development__ and __production__ profiles. For ex
 Profiles can be activated via command line:
 
 ```bash
-mvn clean install -P=prod  ## or -Pprod
+mvn clean install -P=prod  ## or -P prod
+```
+
+Profiles can also be activated in settings.xml file:
+
+```xml
+<settings>
+    <activeProfiles>
+        <activeProfile>prod</activeProfile>
+    </activeProfiles>
+</settings>
+```
+
+A profile can also be active by default by having:
+
+```xml
+<activation>
+    <activeByDefault>true</activeByDefault>
+</activation>
+```
+
+### Further Reading
+Take a look at [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html) to learn more about activation configuration. Profiles can be activated based on different properties, here is an example:
+
+```xml
+<profiles>
+    <profile>
+        <id>dev</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+            <jdk>1.5</jdk>
+            <file>
+                <exists>file2.properties</exists>
+                <missing>file1.properties</missing>
+            </file>
+        </activation>
+    </profile>
+</profiles>
 ```
 
 ## Random Notes
@@ -336,6 +373,9 @@ mvn help:describe -Dplugin=exec -Dfull
 
 # Detailed information on a specific goal
 mvn help:describe -Dcmd=compiler:compile -Ddetail
+
+# Printing active profiles
+mvn help:active-profiles
 
 # Dependency tree
 mvn dependency:tree
