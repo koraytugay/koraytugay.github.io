@@ -124,7 +124,7 @@ When a project depends on an artifact produced by another project, this artifact
 Maven downloads artifacts and related metadata from remote repositories and places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
 
 ### Maven Coordinates
-Dependencies are uniquely identified using __GAV__ coordinates: `groupId`, `artifactId` and `version`.
+Dependencies are uniquely identified using coordinates named __GAV__: `groupId`, `artifactId` and `version`.
 
 ### Transitive Dependencies
 A transitive dependency is a dependency of a dependency. If project-a depends on project-b, which in turn depends on project-c, _project-c is considered a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application. Maven accomplishes this by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
