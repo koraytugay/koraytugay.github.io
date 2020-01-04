@@ -317,6 +317,8 @@ Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overa
 ## Lifecycle
 Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
 
+A lifecycle on its own cannot be invoked but a phase of a lifecycle can be. Invoking a phase such as `install` will invoke all goals bound to the phases including the `install` phase of the default lifecycle for example.
+
 ### Clean Lifecycle as an Example
 This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
 
@@ -324,9 +326,6 @@ __Heads Up!__ If you bind a goal to `pre-clean` phase of the clean build, and si
 
 ### Package-Specific Lifecycles
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar for example has the `jar:jar` bound to the package phase where as a project with packaging war has `war:war` bound.
-
-## Settings
-Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
 ## Build Profiles
 Profiles allow for the ability to customize a particular build for a particular environment profiles.
@@ -510,6 +509,8 @@ multi-module-cli/pom.xml
 - When Maven is executed against a project with submodules, Maven first loads the parent POM and locates all of the submodules. All of the modules are put in something called the __Reactor__. Reactor takes care of ordering components to ensure that interdependenct modules are compilet and installed in the proper order.
   - Once the Reactor figures out the order in which projects must be built, Maven then executes the specified goals for every module in a multi-module build. 
 
+## Settings
+Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
 ## Random Notes
 - If you are importing any 3<sup>rd</sup> party libraries explicitly via `import` statements in your source code, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
