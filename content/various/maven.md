@@ -121,7 +121,7 @@ Finished at: 2020-01-04T11:02:00-05:00
 ## Dependencies
 When a project depends on an artifact produced by another project, this artifact is said to be a __dependency__.
 
-Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](https://repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
+Maven downloads artifacts and related metadata from remote repositories and places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
 
 ### Maven Coordinates
 Dependencies are uniquely identified using __GAV__ coordinates: `groupId`, `artifactId` and `version`.
