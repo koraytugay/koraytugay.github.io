@@ -30,7 +30,7 @@ A minimal valid POM would be as follows:
 ### Super POM
 All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM.
 
-Super POM defines a default remote Maven repository, the central Maven repository, that all Maven clients are configured to read from by default. The central Maven repository also contains Maven plugins. The default plugin repository is the central Maven repository.
+Super POM defines a default remote Maven repository which is the [central Maven repository](http://repo.maven.apache.org/maven2/), that all Maven clients are configured to read from by default. The central Maven repository also contains Maven plugins, in other words: the default repository for plugins is also the central Maven repository.
 
 ### Effective POM
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
