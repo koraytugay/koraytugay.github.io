@@ -327,77 +327,6 @@ __Heads Up!__ If you bind a goal to `pre-clean` phase of the clean build, and si
 ### Package-Specific Lifecycles
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar for example has the `jar:jar` bound to the package phase where as a project with packaging war has `war:war` bound.
 
-## Build Profiles
-Profiles allow for the ability to customize a particular build for a particular environment profiles.
-
-A common practice is to have __development__ and __production__ profiles. For example, the production build may have a specific build name pattern, may skip tests and so on and so forth. The following is an example where profile __prod__ configures the tests to be skipped:
-
-
-```xml
-<project>
-    <profiles>
-        <profile>
-            <id>prod</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.12.4</version>
-                        <configuration>
-                            <skipTests>true</skipTests>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-</project>
-```
-
-### Activating Profiles
-Profiles can be activated via command line:
-
-```bash
-mvn clean install -P=prod  ## or -P prod
-```
-
-Profiles can also be activated in settings.xml file:
-
-```xml
-<settings>
-    <activeProfiles>
-        <activeProfile>prod</activeProfile>
-    </activeProfiles>
-</settings>
-```
-
-A profile can also be active by default by having:
-
-```xml
-<activation>
-    <activeByDefault>true</activeByDefault>
-</activation>
-```
-
-### Further Reading
-Take a look at [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html) to learn more about activation configuration. Profiles can be activated based on different properties, here is an example:
-
-```xml
-<profiles>
-    <profile>
-        <id>dev</id>
-        <activation>
-            <activeByDefault>false</activeByDefault>
-            <jdk>1.5</jdk>
-            <file>
-                <exists>file2.properties</exists>
-                <missing>file1.properties</missing>
-            </file>
-        </activation>
-    </profile>
-</profiles>
-```
-
 ## Multi-Module Projects
 Multi-module projects are common in enterprise environments. Here is a sample multi-module project layout, and some related notes.
 
@@ -508,6 +437,77 @@ multi-module-cli/pom.xml
 - Parent POM is the perfect place for declaring dependency management, shared dependencies or plug-in versions.
 - When Maven is executed against a project with submodules, Maven first loads the parent POM and locates all of the submodules. All of the modules are put in something called the __Reactor__. Reactor takes care of ordering components to ensure that interdependenct modules are compilet and installed in the proper order.
   - Once the Reactor figures out the order in which projects must be built, Maven then executes the specified goals for every module in a multi-module build. 
+
+## Build Profiles
+Profiles allow for the ability to customize a particular build for a particular environment profiles.
+
+A common practice is to have __development__ and __production__ profiles. For example, the production build may have a specific build name pattern, may skip tests and so on and so forth. The following is an example where profile __prod__ configures the tests to be skipped:
+
+
+```xml
+<project>
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.12.4</version>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
+```
+
+### Activating Profiles
+Profiles can be activated via command line:
+
+```bash
+mvn clean install -P=prod  ## or -P prod
+```
+
+Profiles can also be activated in settings.xml file:
+
+```xml
+<settings>
+    <activeProfiles>
+        <activeProfile>prod</activeProfile>
+    </activeProfiles>
+</settings>
+```
+
+A profile can also be active by default by having:
+
+```xml
+<activation>
+    <activeByDefault>true</activeByDefault>
+</activation>
+```
+
+### Further Reading
+Take a look at [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html) to learn more about activation configuration. Profiles can be activated based on different properties, here is an example:
+
+```xml
+<profiles>
+    <profile>
+        <id>dev</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+            <jdk>1.5</jdk>
+            <file>
+                <exists>file2.properties</exists>
+                <missing>file1.properties</missing>
+            </file>
+        </activation>
+    </profile>
+</profiles>
+```
 
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
