@@ -32,6 +32,22 @@ All Maven POMs inherit values from a parent POM. If a POM does not specify a dir
 
 Super POM defines a default remote Maven repository which is the [central Maven repository](http://repo.maven.apache.org/maven2/), that all Maven clients are configured to read from by default. The central Maven repository also contains Maven plugins, in other words: the default repository for plugins is also the central Maven repository.
 
+```xml
+<pluginRepositories>
+    <pluginRepository>
+        <releases>
+            <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>Central Repository</name>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+</pluginRepositories>
+```
+
 ### Effective POM
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
 
@@ -154,24 +170,6 @@ Transitive dependencies can be excluded and/or replaced as follows:
 Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
 
 Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`, a.k.a. __GAV__. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
-
-Maven downloads plugins on demand when it cannot find a plugin in its local repository. By default, Maven looks for any plugin that is not available locally in the plugin repository, defined in the super POM file:
-
-```xml
-<pluginRepositories>
-    <pluginRepository>
-        <releases>
-            <updatePolicy>never</updatePolicy>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>Central Repository</name>
-        <url>https://repo.maven.apache.org/maven2</url>
-    </pluginRepository>
-</pluginRepositories>
-```
 
 ### Where are the Plugins Defined?
 The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any other plugins are again defined by the user in POM. Check the effective POM to find for example:
