@@ -94,7 +94,7 @@ The following POM demonstarates:
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <message>Java HOME: </message>
+        <message>Java HOME:</message>
     </properties>
 </project>
 ```
