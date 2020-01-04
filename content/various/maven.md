@@ -315,7 +315,7 @@ Why? I think because jetty-plugin has a different `groupId`.
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
 
 ## Lifecycle
-Maven defines a concept called __lifecycle__. A lifecycle would run a single or more __phase__. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
+Maven defines a concept called __lifecycle__. A lifecycle has many __phase__. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
 
 A lifecycle on its own cannot be invoked but a phase of a lifecycle can be. Invoking a phase such as `install` will invoke all goals bound to the phases including the `install` phase of the default lifecycle for example.
 
