@@ -169,7 +169,7 @@ Transitive dependencies can be excluded and/or replaced as follows:
 ## Plugins
 Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
 
-Similar to any other dependency in Maven, a plugin is uniquely identified by three coordinates: `groupId`, `artifactId`, and `version`, a.k.a. __GAV__. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
+Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
 ### Where are the Plugins Defined?
 The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any other plugins are again defined by the user in POM. Check the effective POM to find for example:
@@ -194,7 +194,7 @@ The super POM already defines several default plugins, such as the `clean` or th
 </build>    
 ```
 
-This is also where plugins are bound to phases.
+The `plugin` element is also where plugins are bound to phases.
 
 ### Executing a Plugin Goal
 A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
