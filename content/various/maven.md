@@ -120,7 +120,7 @@ When invoked via `mvn pre-clean` in my environment, I see:
 ```
 
 ## Dependencies
-When a project depends on an artifact produced by another project we say that this artifact is a dependency.
+When a project depends on an artifact produced by another project, this artifact is said to be a __dependency__.
 
 Maven downloads artifacts and related metadata from remote repositories. The default remote repository is called _Maven Central_ and it is located at [repo.maven.apache.org](https://repo.maven.apache.org). Maven places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
 
