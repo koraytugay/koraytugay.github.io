@@ -320,6 +320,8 @@ Maven defines a concept called __lifecycle__. A lifecycle would run a single or 
 ### Clean Lifecycle as an Example
 This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
 
+__Heads Up!__ If you bind a goal to `pre-clean` phase of the clean build, and simply call `mvn clean`, your goal will not get executed, which is super weird. I think instead of being able to invoke a phase, a lifecycle should have been possible to invoke. In other words, I think it would make much more sense had `mvn clean` invoked the `clean` lifecycle, instead of invoking the `pre-clean` and the `clean` phases only, skipping `post-clean`. This, I find super confusing and 😬. 
+
 ### Package-Specific Lifecycles
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar for example has the `jar:jar` bound to the package phase where as a project with packaging war has `war:war` bound.
 
