@@ -309,7 +309,7 @@ This, however, does not work with
 mvn jetty:run
 ```
 
-Why? I do not know..
+Why? I think because jetty-plugin has a different `groupId`.
 
 ### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
