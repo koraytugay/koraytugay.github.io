@@ -101,22 +101,21 @@ The following POM demonstarates:
 
 When invoked via `mvn pre-clean` in my environment, I see:
 
-```bash
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -----------------------< biz.tugay:my-artifact >------------------------
-[INFO] Building my-artifact 1.0-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- echo-maven-plugin:1.2.0:echo (default) @ my-artifact ---
-[INFO] Java HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.245 s
-[INFO] Finished at: 2020-01-04T11:02:00-05:00
-[INFO] ------------------------------------------------------------------------
+```plaintext
+Scanning for projects...
 
+-----------------------< biz.tugay:my-artifact >------------------------
+Building my-artifact 1.0-SNAPSHOT
+--------------------------------[ jar ]---------------------------------
+
+--- echo-maven-plugin:1.2.0:echo (default) @ my-artifact ---
+Java HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time:  0.245 s
+Finished at: 2020-01-04T11:02:00-05:00
+------------------------------------------------------------------------\
 ```
 
 ## Dependencies
