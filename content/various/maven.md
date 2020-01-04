@@ -51,6 +51,72 @@ Maven properties are variables enclosed in curly braces, prefixed with a dollar 
 #### Arbitrary properties
 Arbitrary properties can also be set using the `properties` element in the POM and can be simply referenced via `${property}`.
 
+### Using Properties Example
+The following POM demonstarates: 
+
+- Declaring a custom property
+- Using the implicit property: `env`
+- Binding a custom plugin to `pre-clean` phase
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>my-artifact</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.ekryd.echo-maven-plugin</groupId>
+                <artifactId>echo-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>pre-clean</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>${message} ${env.JAVA_HOME}</message>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <message>Java HOME: </message>
+    </properties>
+</project>
+```
+
+When invoked via `mvn pre-clean` in my environment, I see:
+
+```bash
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< biz.tugay:my-artifact >------------------------
+[INFO] Building my-artifact 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- echo-maven-plugin:1.2.0:echo (default) @ my-artifact ---
+[INFO] Java HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.245 s
+[INFO] Finished at: 2020-01-04T11:02:00-05:00
+[INFO] ------------------------------------------------------------------------
+
+```
+
 ## Dependencies
 When a project depends on an artifact produced by another project we say that this artifact is a dependency.
 
