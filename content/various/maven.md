@@ -197,19 +197,19 @@ The super POM already defines several default plugins, such as the `clean` or th
 The `plugin` element is also where plugins are bound to phases.
 
 ### Executing a Plugin Goal
-A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
+A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle phase. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
 
 ```bash
 mvn clean:clean
 ```
 
-The `clean` goal of the Maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` lifecycle as follows, which is somewhat confusing:
+The `clean` goal of the Maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` as follows, which is somewhat confusing:
 
 ```bash
 mvn clean
 ```
 
-One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run it as a part of a lifecycle, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed.
+We are invoking the `clean` phase here (which is a part of the `clean` lifecycle).One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run a phase, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed, which means in our case all plugins bound to `pre-clean` would be executed.
 
 ### Configuring a Plugin in POM
 This is an example on how the `compiler` plugin can be configured:
