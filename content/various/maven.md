@@ -236,7 +236,7 @@ This is an example on how the `compiler` plugin can be configured:
 
 A friendly reminider: The `compile` goal is bound to the `compile` phase of the `default` lifecycle.
 
-### Exec Maven Plugin
+#### Plugin Configuration Example with Exec Plugin
 [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/index.html) is a very useful for plugin that can be used to quickly run Maven projects in development environment. This section is a showcase on how such an external plugin can be used. Given the following directory layout:
 
 ```bash
