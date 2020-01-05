@@ -524,6 +524,44 @@ Take a look at [Introduction to Build Profiles](https://maven.apache.org/guides/
 </profiles>
 ```
 
+## Resource Filtering
+Maven can replace variables on arbitrary resource files during a build, given it is configured. See [filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) to get started. Here is an example, given the following layout:
+
+```bash
+.
+├── pom.xml
+└── src
+    └── main
+        └── resources
+            └── application.properties
+```
+
+and a single entry in `application.properties`
+
+```properties
+foo=${foo}
+```
+
+Resource filtering in POM can be configured as follows:
+
+```xml
+<project>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>    
+    <properties>
+        <foo>This is foo!</foo>
+    </properties>
+</project>
+```
+
+When the goal itself is explicitly invoked via `mvn resources:resources` or the default lifecycle phase is invoked via `mvn process-resources`, `application.properties` will be in `target/classes` with _This is foo!_ being replaced for `${foo}`.
+
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
