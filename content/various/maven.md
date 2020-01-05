@@ -66,10 +66,10 @@ Maven provides three implicit variables which can be used to access environment 
     <dd>The <span class="embedCode">settings</span> variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in the settings file.</dd>
 </dl>
 
-#### Arbitrary properties
+#### User Defined Properties
 Arbitrary properties can also be set using the `properties` element in the POM and can be simply referenced via `${property}`.
 
-### Using Properties Example
+### Properties Example
 The following POM demonstarates: 
 
 - Declaring a custom property
