@@ -295,8 +295,6 @@ mvn exec:java
 
 This plugin also comes with another goal: `exec`. The official documentation clearly explains the usage, and __this is pretty much what Maven is all about__. Finding plugins, the relevant goals, and configuring / invoking them.
 
-Another super helpful plugin is the [Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/), check it out!
-
 __Heads Up!__ You do not actually need to include `exec-maven-plugin` in the POM. The following works in that case:
 
 ```bash
@@ -310,6 +308,23 @@ mvn jetty:run
 ```
 
 Why? I think because jetty-plugin has a different `groupId`.
+
+#### Investigating a Plugin using the Help Plugin
+[Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/) can be used to learn more about goals and configuration options of a selected plugin. Here is the cheat sheet you need:
+
+```bash
+# Describe a plugin
+mvn help:describe -Dplugin=jetty
+
+# Describe a plugin detailed
+mvn help:describe -Dplugin=jetty -Ddetail
+
+# Describe a specific goal
+mvn help:describe -Dcmd=jetty:run
+
+# Describe a specific goal in detail
+mvn help:describe -Dcmd=jetty:run -Ddetail
+``` 
 
 ### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
@@ -546,15 +561,6 @@ mkdir -p src/test/java/biz/tugay
 
 # Effective POM
 mvn help:effective-pom
-
-# Seeing goals of a specific plugin
-mvn help:describe -Dplugin=surefire
-
-# Full information on a plugin
-mvn help:describe -Dplugin=exec -Dfull
-
-# Detailed information on a specific goal
-mvn help:describe -Dcmd=compiler:compile -Ddetail
 
 # Printing active profiles
 mvn help:active-profiles
