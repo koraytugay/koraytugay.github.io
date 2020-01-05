@@ -609,4 +609,5 @@ mvn dependency:tree
 
 ## References
 - [Maven Official Reference](https://maven.apache.org/ref/current/)
-- [Default Remote Repository: Maven Central](https://repo.maven.apache.org)
+- [POM Reference](https://maven.apache.org/pom.html)
+- [Settings Reference](https://maven.apache.org/settings.html)
