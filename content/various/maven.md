@@ -51,7 +51,7 @@ Super POM defines a default remote repository: the [Maven Central Repository](ht
 ### Effective POM
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
 
-## POM Properties
+## Properties
 Maven properties are variables enclosed in curly braces, prefixed with a dollar sign: `${property}`. 
 
 ### Implicit Properties
