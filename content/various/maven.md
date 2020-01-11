@@ -519,7 +519,7 @@ Another common approach for activating a profile is depending on existence or ab
 </profile>
 ```
 
-`docker-functional-tests` profile can be activated via
+docker-functional-tests profile declared above can be activated via
 
 ```bash
 mvn -Drun-functional-tests=docker
