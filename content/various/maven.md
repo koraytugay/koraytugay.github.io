@@ -203,7 +203,7 @@ A goal from a plugin can be executed on its own or can be executed as a part of 
 mvn clean:clean
 ```
 
-The `clean` goal of the Maven `clean` plugin is associated with the `clean` phase of the `clean` lifecycle, therefore the same `clean` goal can be executed via the `clean` as follows, which is somewhat confusing:
+The `clean` goal of the Maven `clean` plugin is bound with the `clean` phase of the `clean` lifecycle by default, therefore the same `clean` goal can be executed via the `clean` as follows, which is somewhat confusing:
 
 ```bash
 mvn clean
