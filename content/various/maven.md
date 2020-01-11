@@ -525,24 +525,7 @@ docker-functional-tests profile declared above can be activated via
 mvn -Drun-functional-tests=docker
 ```
 
-### Further Reading
-Take a look at [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html) to learn more about activation configuration. Profiles can be activated based on different properties, here is an example:
-
-```xml
-<profiles>
-    <profile>
-        <id>dev</id>
-        <activation>
-            <activeByDefault>false</activeByDefault>
-            <jdk>1.5</jdk>
-            <file>
-                <exists>file2.properties</exists>
-                <missing>file1.properties</missing>
-            </file>
-        </activation>
-    </profile>
-</profiles>
-```
+Further reading is here: [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html).
 
 ## Resource Filtering
 Maven can replace variables on arbitrary resource files during a build, given it is configured. See [filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) to get started. Here is an example, given the following layout:
