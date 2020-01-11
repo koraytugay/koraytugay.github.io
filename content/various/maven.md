@@ -30,24 +30,6 @@ A minimal valid POM would be as follows:
 ### Super POM
 All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM.
 
-Super POM defines a default remote repository: the [Maven Central Repository](http://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
-
-```xml
-<pluginRepositories>
-    <pluginRepository>
-        <releases>
-            <updatePolicy>never</updatePolicy>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>Central Repository</name>
-        <url>https://repo.maven.apache.org/maven2</url>
-    </pluginRepository>
-</pluginRepositories>
-```
-
 ### Effective POM
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
 
@@ -138,6 +120,24 @@ Finished at: 2020-01-04T11:02:00-05:00
 When a project depends on an artifact produced by another project, this artifact is said to be a __dependency__.
 
 Maven downloads artifacts and related metadata from remote repositories and places a copy of the downloaded artifacts in users local repository, default path being `~/.m2/repository`.
+
+Super POM defines a default remote repository: the [Maven Central Repository](http://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
+
+```xml
+<pluginRepositories>
+    <pluginRepository>
+        <releases>
+            <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>Central Repository</name>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+</pluginRepositories>
+```
 
 ### Maven Coordinates
 Dependencies are uniquely identified using coordinates named __GAV__: `groupId`, `artifactId` and `version`.
