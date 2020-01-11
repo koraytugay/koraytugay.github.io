@@ -52,7 +52,7 @@ Super POM defines a default remote repository: the [Maven Central Repository](ht
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
 
 ### Properties in POM
-Maven properties are variables enclosed in curly braces, prefixed with a dollar sign, as follows: `${property}`. 
+Maven properties are variables enclosed in curly braces, prefixed with a dollar sign: `${property}`. 
 
 #### Implicit Properties
 Maven provides three implicit variables which can be used to access environment variables, POM information, and Maven Settings.
@@ -143,7 +143,7 @@ Maven downloads artifacts and related metadata from remote repositories and plac
 Dependencies are uniquely identified using coordinates named __GAV__: `groupId`, `artifactId` and `version`.
 
 ### Transitive Dependencies
-A transitive dependency is a dependency of a dependency. If project-a depends on project-b, which in turn depends on project-c, _project-c is considered a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application. Maven accomplishes this by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
+A transitive dependency is a dependency of a dependency. If project-a depends on project-b, which in turn depends on project-c, _project-c is considered to be a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application. Maven accomplishes this by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
 
 Transitive dependencies can be excluded and/or replaced as follows:
 
@@ -167,9 +167,9 @@ Transitive dependencies can be excluded and/or replaced as follows:
 ```
 
 ## Plugins
-Maven does not try to do everything itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
+Maven does not do much itself, but rather delegate the work to to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
 
-Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
+Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following for plugins by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
 ### Where are the Plugins Defined?
 The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any other plugins are again defined by the user in POM. Check the effective POM to find for example:
@@ -194,7 +194,7 @@ The super POM already defines several default plugins, such as the `clean` or th
 </build>    
 ```
 
-The `plugin` element is also where plugins are bound to phases.
+__The `plugin` element is also where a plugin is bound to a phase.__
 
 ### Executing a Plugin Goal
 A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle phase. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
