@@ -51,10 +51,10 @@ Super POM defines a default remote repository: the [Maven Central Repository](ht
 ### Effective POM
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
 
-### Properties in POM
+## POM Properties
 Maven properties are variables enclosed in curly braces, prefixed with a dollar sign: `${property}`. 
 
-#### Implicit Properties
+### Implicit Properties
 Maven provides three implicit variables which can be used to access environment variables, POM information, and Maven Settings.
 
 <dl>
@@ -66,7 +66,7 @@ Maven provides three implicit variables which can be used to access environment 
     <dd>The <span class="embedCode">settings</span> variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in the settings file.</dd>
 </dl>
 
-#### User Defined Properties
+### User Defined Properties
 Arbitrary properties can also be set using the `properties` element in the POM and can be simply referenced via `${property}`.
 
 ### Properties Example
