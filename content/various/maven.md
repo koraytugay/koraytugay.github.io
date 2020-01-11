@@ -484,7 +484,7 @@ A common practice is to have __development__ and __production__ profiles. For ex
 Profiles can be activated via command line:
 
 ```bash
-mvn clean install -P=prod  ## or -P prod
+mvn clean install -P prod
 ```
 
 Profiles can also be activated in settings.xml file:
@@ -503,6 +503,26 @@ A profile can also be active by default by having:
 <activation>
     <activeByDefault>true</activeByDefault>
 </activation>
+```
+
+Another common approach for activating a profile is depending on existence or absence of a system property. Given the following profile declaration:
+
+```xml
+<profile>
+  <id>docker-functional-tests</id>
+  <activation>
+    <property>
+      <name>run-functional-tests</name>
+      <value>docker</value>
+    </property>
+  </activation>
+</profile>
+```
+
+`docker-functional-tests` profile can be activated via
+
+```bash
+mvn -Drun-functional-tests=docker
 ```
 
 ### Further Reading
