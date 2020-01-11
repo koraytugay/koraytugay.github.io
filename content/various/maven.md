@@ -30,7 +30,7 @@ A minimal valid POM would be as follows:
 ### Super POM
 All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM.
 
-Super POM defines a default remote Maven repository which is the [central Maven repository](http://repo.maven.apache.org/maven2/), that all Maven clients are configured to read from by default. The central Maven repository also contains Maven plugins, in other words: the default repository for plugins is also the central Maven repository.
+Super POM defines a default remote repository: the [Maven Central Repository](http://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
 
 ```xml
 <pluginRepositories>
