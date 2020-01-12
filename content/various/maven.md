@@ -31,7 +31,7 @@ A minimal valid POM would be as follows:
 All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM.
 
 ### Effective POM
-In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM and can always be printed with `mvn help:effective-pom`.
+In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM. 
 
 ## Dependencies
 When a project depends on an artifact produced by another project, this artifact is said to be a __dependency__.
