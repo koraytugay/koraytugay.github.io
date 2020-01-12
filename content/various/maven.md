@@ -438,7 +438,7 @@ Resource filtering in POM can be configured as follows:
 When the goal itself is explicitly invoked via `mvn resources:resources` or the default lifecycle phase is invoked via `mvn process-resources`, `application.properties` will be in `target/classes` with _This is foo!_ being replaced for `${foo}`.
 
 ### Resource Filtering From External Files
-The example above replaces values hard-coded into POM in the resources being filtered. Configuration can be made to fetch the values from external files using the `filter` element. Here is an example. Given the following directory layout:
+The example above replaces values hard-coded into POM in the resources being filtered. Values can be fetched from external files using the `filter` element. Here is an example. Given the following directory layout:
 
 ```plaintext
 .
