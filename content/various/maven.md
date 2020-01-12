@@ -400,7 +400,7 @@ Finished at: 2020-01-04T11:02:00-05:00
 ```
 
 ## Resource Filtering
-Maven can replace variables on arbitrary resource files during a build, given it is configured. See [Filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) to get started. Here is an example, given the following layout:
+Maven can be configured to replace variables on arbitrary resource files during a build. See [Filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) to get started. Here is an example, given the following layout:
 
 ```bash
 .
