@@ -437,6 +437,79 @@ Resource filtering in POM can be configured as follows:
 
 When the goal itself is explicitly invoked via `mvn resources:resources` or the default lifecycle phase is invoked via `mvn process-resources`, `application.properties` will be in `target/classes` with _This is foo!_ being replaced for `${foo}`.
 
+### Resource Filtering From External Files
+The example above replaces values hard-coded into POM in the resources being filtered. Configuration can be made to fetch the values from external files using the `filter` element. Here is an example. Given the following directory layout:
+
+```plaintext
+.
+├── pom.xml
+├── profiles
+│   ├── dev
+│   │   └── config.properties
+│   └── prod
+│       └── config.properties
+└── src
+    └── main
+        └── resources
+            └── application.properties
+```
+
+Contents of the `profiles/dev/config.properties`
+
+```properties
+config.val=dev-value
+```
+
+And his sibling in `prod` folder is as follows:
+
+```properties
+config.val=prod-value
+```
+
+And `application-properties` as follows:
+
+```properties
+app.prop=${config.val}
+```
+
+Here is how POM can be configured to whether replace the `app.prop` from the configuration file found in `dev` or `prod` folder depending on the profile being used:
+
+```xml
+<project>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <config.dir>dev</config.dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <config.dir>prod</config.dir>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <filters>
+            <filter>profiles/${config.dir}/config.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+</project>
+```
+
+Try building the project with `-P dev` and `-P prod` to see the difference for yourself!
+
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
 
