@@ -31,90 +31,7 @@ A minimal valid POM would be as follows:
 All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM.
 
 ### Effective POM
-In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM.
-
-## Properties
-Maven properties are variables enclosed in curly braces, prefixed with a dollar sign: `${property}`. 
-
-### Implicit Properties
-Maven provides three implicit variables which can be used to access environment variables, POM information, and Maven Settings.
-
-<dl>
-    <dt><span class="embedCode">env</span></dt>
-    <dd>The <span class="embedCode">env</span> variable exposes environment variables exposed by your operating system or shell. For example, a reference to <span class="embedCode">${env.PATH}</span> in POM would be replaced by the <span class="embedCode">${PATH}</span> environment variable.</dd>
-    <dt><span class="embedCode">project</span></dt>
-    <dd>The <span class="embedCode">project</span> variable exposes the POM. You can use a dot-notated (.) path to reference the value of a POM element. For example <span class="embedCode">${project.groupId}</span> can be used to reference the <span class="embedCode">groupId</span> element.</dd>
-    <dt><span class="embedCode">settings</span></dt>
-    <dd>The <span class="embedCode">settings</span> variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in the settings file.</dd>
-</dl>
-
-### User Defined Properties
-Arbitrary properties can also be set using the `properties` element in the POM and can be simply referenced via `${property}`.
-
-### Properties Example
-The following POM demonstarates: 
-
-- Declaring a custom property
-- Using the implicit property: `env`
-- Binding a custom plugin to `pre-clean` phase
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>biz.tugay</groupId>
-    <artifactId>my-artifact</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.github.ekryd.echo-maven-plugin</groupId>
-                <artifactId>echo-maven-plugin</artifactId>
-                <version>1.2.0</version>
-                <executions>
-                    <execution>
-                        <phase>pre-clean</phase>
-                        <goals>
-                            <goal>echo</goal>
-                        </goals>
-                        <configuration>
-                            <message>${message} ${env.JAVA_HOME}</message>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <message>Java HOME:</message>
-    </properties>
-</project>
-```
-
-When invoked via `mvn pre-clean` in my environment, I see:
-
-```plaintext
-Scanning for projects...
-
------------------------< biz.tugay:my-artifact >------------------------
-Building my-artifact 1.0-SNAPSHOT
---------------------------------[ jar ]---------------------------------
-
---- echo-maven-plugin:1.2.0:echo (default) @ my-artifact ---
-Java HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-------------------------------------------------------------------------
-BUILD SUCCESS
-------------------------------------------------------------------------
-Total time:  0.245 s
-Finished at: 2020-01-04T11:02:00-05:00
-------------------------------------------------------------------------
-```
+In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM and can always be printed with `mvn help:effective-pom`.
 
 ## Dependencies
 When a project depends on an artifact produced by another project, this artifact is said to be a __dependency__.
@@ -415,6 +332,89 @@ mvn -Drun-functional-tests=docker
 ```
 
 Further reading is here: [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html).
+
+## Properties
+Maven properties are variables enclosed in curly braces, prefixed with a dollar sign: `${property}`. 
+
+### Implicit Properties
+Maven provides three implicit variables which can be used to access environment variables, POM information, and Maven Settings.
+
+<dl>
+    <dt><span class="embedCode">env</span></dt>
+    <dd>The <span class="embedCode">env</span> variable exposes environment variables exposed by your operating system or shell. For example, a reference to <span class="embedCode">${env.PATH}</span> in POM would be replaced by the <span class="embedCode">${PATH}</span> environment variable.</dd>
+    <dt><span class="embedCode">project</span></dt>
+    <dd>The <span class="embedCode">project</span> variable exposes the POM. You can use a dot-notated (.) path to reference the value of a POM element. For example <span class="embedCode">${project.groupId}</span> can be used to reference the <span class="embedCode">groupId</span> element.</dd>
+    <dt><span class="embedCode">settings</span></dt>
+    <dd>The <span class="embedCode">settings</span> variable exposes Maven settings information. You can use a dot-notated (.) path to reference the value of an element in a settings.xml file. <span class="embedCode">${settings.offline}</span> would reference the value of the <span class="embedCode">offline</span> element in the settings file.</dd>
+</dl>
+
+### User Defined Properties
+Arbitrary properties can also be set using the `properties` element in the POM and can be simply referenced via `${property}`.
+
+### Properties Example
+The following POM demonstarates: 
+
+- Declaring a custom property
+- Using the implicit property: `env`
+- Binding a custom plugin to `pre-clean` phase
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>my-artifact</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.ekryd.echo-maven-plugin</groupId>
+                <artifactId>echo-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>pre-clean</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>${message} ${env.JAVA_HOME}</message>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <message>Java HOME:</message>
+    </properties>
+</project>
+```
+
+When invoked via `mvn pre-clean` in my environment, I see:
+
+```plaintext
+Scanning for projects...
+
+-----------------------< biz.tugay:my-artifact >------------------------
+Building my-artifact 1.0-SNAPSHOT
+--------------------------------[ jar ]---------------------------------
+
+--- echo-maven-plugin:1.2.0:echo (default) @ my-artifact ---
+Java HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time:  0.245 s
+Finished at: 2020-01-04T11:02:00-05:00
+------------------------------------------------------------------------
+```
 
 ## Resource Filtering
 Maven can replace variables on arbitrary resource files during a build, given it is configured. See [filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) to get started. Here is an example, given the following layout:
