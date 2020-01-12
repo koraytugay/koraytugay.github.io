@@ -72,8 +72,7 @@ Maven does not do much itself, but rather delegate the work to plugins (and goal
 
 Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following for plugins by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
-### Where are the Plugins Defined?
-The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any other plugins are again defined by the user in POM. Check the effective POM to find for example:
+The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any further plugins can be further defined by the user in POM. Check the effective POM to find for example:
 
 ```xml
 <build>
@@ -95,7 +94,7 @@ The super POM already defines several default plugins, such as the `clean` or th
 </build>    
 ```
 
-__The `plugin` element is also where a plugin is bound to a phase.__
+_The `plugin` element is also where a plugin is bound to a phase of lifecycle. More on this later._
 
 ### Executing a Plugin Goal
 A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle phase. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
