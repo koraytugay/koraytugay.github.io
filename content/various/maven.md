@@ -44,7 +44,7 @@ Super POM defines a default remote repository: the [Maven Central Repository](ht
 Dependencies are uniquely identified using coordinates named __GAV__: `groupId`, `artifactId` and `version`.
 
 ### Transitive Dependencies
-__A transitive dependency is a dependency of a dependency.__ If project-a depends on project-b, which in turn depends on project-c, _project-c is considered to be a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application by building a graph of dependencies and dealing with any conflicts and overlaps that might occur. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
+__A transitive dependency is a dependency of a dependency.__ If project-a depends on project-b, which in turn depends on project-c, _project-c is considered to be a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application by building a graph of dependencies and dealing with any conflicts and overlaps. If two projects depend on the same `groupId` and `artifactId`, Maven will sort out which dependency to use always favoring the more recent version.
 
 Transitive dependencies can be excluded and/or replaced as follows:
 
