@@ -40,22 +40,6 @@ Maven downloads artifacts and related metadata from remote repositories and plac
 
 Super POM defines a default remote repository: the [Maven Central Repository](http://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
 
-```xml
-<pluginRepositories>
-    <pluginRepository>
-        <releases>
-            <updatePolicy>never</updatePolicy>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>Central Repository</name>
-        <url>https://repo.maven.apache.org/maven2</url>
-    </pluginRepository>
-</pluginRepositories>
-```
-
 ### Maven Coordinates
 Dependencies are uniquely identified using coordinates named __GAV__: `groupId`, `artifactId` and `version`.
 
