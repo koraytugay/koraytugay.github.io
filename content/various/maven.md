@@ -633,9 +633,9 @@ multi-module-cli/pom.xml
 validate -> initialize -> generate-sources -> process-sources 
 -> generate-resources -> process-resources -> compile -> process-classes 
 -> generate-test-sources -> process-test-sources -> generate-test-resources 
--> process-test- resources -> test-compile -> process-test-classes -> test 
--> prepare- package -> package -> pre-integration-test -> integration-test 
--> post- integration-test -> verify -> install -> deploy
+-> process-test-resources -> test-compile -> process-test-classes -> test 
+-> prepare-package -> package -> pre-integration-test -> integration-test 
+-> post-integration-test -> verify -> install -> deploy
 ```
 
 - What is the difference between `-DskipTests` and `-Dmaven.test.skip=true`? Visit [this](https://maven.apache.org/surefire/maven-surefire-plugin/examples/skipping-tests.html) page to find out.
