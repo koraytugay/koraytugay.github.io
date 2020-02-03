@@ -140,15 +140,12 @@ This is an example on how the __compiler__ plugin can be configured:
 </project>
 ```
 
-### Configuring a Plugin in `pluginManagement`
+#### Configuring a Plugin using `pluginManagement`
 Another possibility to configure / specify versions for plugins in POM is to use the `pluginManagement` section:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>biz.tugay</groupId>
@@ -294,7 +291,29 @@ mvn help:describe -Dcmd=jetty:run
 
 # Describe a specific goal in detail
 mvn help:describe -Dcmd=jetty:run -Ddetail
-``` 
+```
+
+### Binding a Plugin to a Phase
+Binding a goal of a plugin to a lifecycle phase is as easy as adding the `execution` element in the `plugin`. The following binds the __exec plugin__ to __verify__ phase of the default lifecycle:
+
+```xml
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.6.0</version>
+    <configuration>
+        <mainClass>biz.tugay.App</mainClass>
+    </configuration>
+    <executions>
+        <execution>
+            <phase>verify</phase>
+            <goals>
+                <goal>java</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
 
 ### Further Reading
 Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
