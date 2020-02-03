@@ -118,7 +118,7 @@ mvn clean
 We are invoking the __clean__ phase here (which is a part of the __clean__ lifecycle).One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run a phase, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed, which means in our case all plugins bound to __pre-clean__ would be executed.
 
 ### Configuring a Plugin in POM
-This is an example on how the `compiler` plugin can be configured:
+This is an example on how the __compiler__ plugin can be configured:
 
 ```xml
 <project>
@@ -140,7 +140,61 @@ This is an example on how the `compiler` plugin can be configured:
 </project>
 ```
 
-__Friendly reminder!__ The __compile__ goal is bound to the __compile__ phase of the __default__ lifecycle.
+### Configuring a Plugin in PluginManagement
+Another possibility to configure / specify versions for plugins in POM is to use the `pluginManagement` section:
+
+```xml
+<project>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <!-- groupId not needed for plugins -->
+                    <!-- <groupId>org.apache.maven.plugins</groupId> -->
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
+```
+
+According to [Maven Documentation - Plugin Management Section](https://maven.apache.org/pom.html#Plugin_Management) the above configuration should only work for child projects. The description in the documentation is unfortunately quite poor. For me a simple Maven project with the following POM seems to actually configure the compiler plugin, without the need of having a child pom or requiring to reference the plugin again in __build/plugins/plugin__.
+
+```xml
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>delete-me</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>
+```
 
 #### Plugin Configuration Example with Exec Plugin
 [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/index.html) is a very useful for plugin that can be used to quickly run Maven projects in development environment. Given the following directory layout:
