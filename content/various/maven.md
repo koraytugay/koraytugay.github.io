@@ -144,31 +144,12 @@ This is an example on how the __compiler__ plugin can be configured:
 Another possibility to configure / specify versions for plugins in POM is to use the `pluginManagement` section:
 
 ```xml
-<project>
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <!-- groupId not needed for plugins -->
-                    <!-- <groupId>org.apache.maven.plugins</groupId> -->
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
-                    <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                        <verbose>true</verbose>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-</project>
-```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-According to [Maven Documentation - Plugin Management Section](https://maven.apache.org/pom.html#Plugin_Management) the above configuration should only work for child projects. The description in the documentation is unfortunately quite poor. For me a simple Maven project with the following POM seems to actually configure the compiler plugin, without the need of having a child pom or requiring to reference the plugin again under `build/plugins/plugin`.
-
-```xml
-<project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>biz.tugay</groupId>
     <artifactId>delete-me</artifactId>
@@ -186,15 +167,44 @@ According to [Maven Documentation - Plugin Management Section](https://maven.apa
                         <verbose>true</verbose>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <configuration>
+                        <mainClass>biz.tugay.App</mainClass>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>java</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 </project>
 ```
+
+The `pluginManagement` is a bit messy and the [official documentation](https://maven.apache.org/pom.html#Plugin_Management) does not help much and unfortunately is quite poor. Here is what I think is happening:
+
+The __compiler plugin__ above does not need to be declared under `build/plugins` because it is already defined in the super POM. However, the __exec plugin__ is not found by default in the super POM, hence it must be re-declared in the very same POM.
 
 #### Plugin Configuration Example with Exec Plugin
 [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/index.html) is a very useful for plugin that can be used to quickly run Maven projects in development environment. Given the following directory layout:
