@@ -72,7 +72,7 @@ Maven does not do much itself, but rather delegate the work to plugins (or goals
 
 Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following for plugins by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
-The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any further plugins can be further defined by the user in POM. Check the effective POM to find for example:
+The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any further plugins can be defined by user in POM. Check the effective POM to find for example:
 
 ```xml
 <build>
