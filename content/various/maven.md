@@ -97,19 +97,25 @@ The super POM already defines several default plugins, such as the `clean` or th
 _The `plugin` element is also where a plugin is bound to a phase of lifecycle. More on this later._
 
 ### Executing a Plugin Goal
-A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle phase. The syntax to execute a goal of Maven plugin is: `mvn plugin-prefix:goal`. The `clean` goal of the `clean` plugin can be executed as follows:
+A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle phase. The syntax to execute a goal of Maven plugin is: 
+
+```bash
+mvn plugin-prefix:goal
+```
+
+The __clean__ goal of the __clean__ plugin can be executed as follows:
 
 ```bash
 mvn clean:clean
 ```
 
-The `clean` goal of the Maven `clean` plugin is bound with the `clean` phase of the `clean` lifecycle by default, therefore the same `clean` goal can be executed via the `clean` as follows:
+The __clean__ goal of the Maven __clean__ plugin is bound with the __clean__ phase of the __clean__ lifecycle by default, therefore the same __clean__ goal can be executed as follows:
 
 ```bash
 mvn clean
 ```
 
-We are invoking the `clean` phase here (which is a part of the `clean` lifecycle).One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run a phase, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed, which means in our case all plugins bound to `pre-clean` would be executed.
+We are invoking the __clean__ phase here (which is a part of the __clean__ lifecycle).One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run a phase, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed, which means in our case all plugins bound to __pre-clean__ would be executed.
 
 ### Configuring a Plugin in POM
 This is an example on how the `compiler` plugin can be configured:
