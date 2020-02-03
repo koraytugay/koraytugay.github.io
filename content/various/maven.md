@@ -165,7 +165,7 @@ Another possibility to configure / specify versions for plugins in POM is to use
 </project>
 ```
 
-According to [Maven Documentation - Plugin Management Section](https://maven.apache.org/pom.html#Plugin_Management) the above configuration should only work for child projects. The description in the documentation is unfortunately quite poor. For me a simple Maven project with the following POM seems to actually configure the compiler plugin, without the need of having a child pom or requiring to reference the plugin again in __build/plugins/plugin__.
+According to [Maven Documentation - Plugin Management Section](https://maven.apache.org/pom.html#Plugin_Management) the above configuration should only work for child projects. The description in the documentation is unfortunately quite poor. For me a simple Maven project with the following POM seems to actually configure the compiler plugin, without the need of having a child pom or requiring to reference the plugin again under `build/plugins/plugin`.
 
 ```xml
 <project>
