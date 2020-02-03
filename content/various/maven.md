@@ -144,7 +144,6 @@ This is an example on how the __compiler__ plugin can be configured:
 Another possibility to configure / specify versions for plugins in POM is to use the `pluginManagement` section:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <project>
 
     <modelVersion>4.0.0</modelVersion>
