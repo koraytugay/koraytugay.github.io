@@ -68,7 +68,7 @@ Transitive dependencies can be excluded and/or replaced as follows:
 ```
 
 ## Plugins
-Maven does not do much itself, but rather delegate the work to plugins (and goals). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
+Maven does not do much itself, but rather delegate the work to plugins (or goals in plugins to be more precise). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
 
 Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following for plugins by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
