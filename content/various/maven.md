@@ -140,7 +140,7 @@ This is an example on how the __compiler__ plugin can be configured:
 </project>
 ```
 
-### Configuring a Plugin in PluginManagement
+### Configuring a Plugin in `pluginManagement`
 Another possibility to configure / specify versions for plugins in POM is to use the `pluginManagement` section:
 
 ```xml
