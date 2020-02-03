@@ -234,6 +234,16 @@ Maven defines a concept called __lifecycle__. A lifecycle has many <strong>phase
 
 A lifecycle on its own cannot be invoked but a phase of a lifecycle can be. For example: invoking `mvn install` will invoke all goals bound to the phases until (and including) the __install__ phase of the __default lifecycle__.
 
+__Friendly Reminder!__ You can either invoke a specific goal of a plugin, or a phase of a lifecycle. Here are two examples:
+
+```bash
+# Invokes clean goal from clean plugin
+mvn clean:clean
+
+# Invokes goals bound to pre-clean and clean phases of the clean lifecycle
+mvn clean
+```
+
 ### Clean Lifecycle as an Example
 This lifecycle consists of three phases: __pre-clean__, __clean__ and __post-clean__. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
 
