@@ -232,12 +232,12 @@ Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overa
 ## Lifecycle
 Maven defines a concept called __lifecycle__. A lifecycle has many <strong>phase</strong>s. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
 
-A lifecycle on its own cannot be invoked but a phase of a lifecycle can be. Invoking a phase such as `install` will invoke all goals bound to the phases including the `install` phase of the default lifecycle for example.
+A lifecycle on its own cannot be invoked but a phase of a lifecycle can be. Invoking a phase such as __install__ will invoke all goals bound to the phases including the __install__ phase of the default lifecycle for example.
 
 ### Clean Lifecycle as an Example
-This lifecycle consists of three phases: `pre-clean`, `clean` and `post-clean`. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal (`clean:clean`) is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
+This lifecycle consists of three phases: __pre-clean__, __clean__ and __post-clean__. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
 
-__Heads Up!__ If you bind a goal to `post-clean` phase of the clean build, and simply call `mvn clean`, your goal will not get executed, which is super weird. I think instead of being able to invoke a phase, a lifecycle should have been possible to invoke. In other words, I think it would make much more sense had `mvn clean` invoked the `clean` lifecycle, instead of invoking the `pre-clean` and the `clean` phases only, skipping `post-clean`. This way it would have also been possible to for example invoke `mvn build` and invoke the whole build lifecycle.
+__Heads Up!__ If you bind a goal to __post-clean__ phase of the clean build, and simply call `mvn clean`, your goal will not get executed, which is super weird. I think instead of being able to invoke a phase, a lifecycle should have been possible to invoke. In other words, I think it would make much more sense had `mvn clean` invoked the whole __clean lifecycle__, instead of invoking __pre-clean__ and __clean__ phases only, (skipping __post-clean__). This way it would have also been possible to for example invoke `mvn build` and invoke the whole __build lifecycle__.
 
 ### Package-Specific Lifecycles
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar for example has the `jar:jar` bound to the package phase where as a project with packaging war has `war:war` bound. In other words: `packaging` element has an impact on the default plugins that are bound to the lifecycle. 
