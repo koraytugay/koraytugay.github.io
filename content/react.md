@@ -60,4 +60,4 @@ class Counter extends Component {
     )
   }
 }
-````
+```
