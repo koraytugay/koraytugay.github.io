@@ -48,3 +48,6 @@ title:  "Koray Tugay"
 - [Design Patterns](content/various/design-patterns.md)
 - [Terminology](content/various/terminology.md)
 - [vs](content/various/vs.md)
+
+#### Drafts
+- [React](content/react.md)
