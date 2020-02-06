@@ -10,7 +10,7 @@ title:  "React"
 {:toc}
 
 ## Overview
-This page is a draft and is a work in progress.
+This page is a draft and is a work in progress...
 
 ## Notes
 - What is Webpack?
