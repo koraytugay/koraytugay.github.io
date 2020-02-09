@@ -41,7 +41,7 @@ Maven downloads artifacts and related metadata from remote repositories and plac
 Super POM defines a default remote repository: the [Maven Central Repository](https://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
 
 ### Maven Coordinates
-Dependencies are uniquely identified using coordinates named __GAV__: __groupId__, __artifactId__ and __version__. Adding a dependency to a Maven project is as simple as follows:
+Dependencies are uniquely identified using coordinates named __GAV__: __Group ID__, __Artifact ID__ and __Version__. Adding a dependency to a Maven project is as simple as follows:
 
 ```xml
 <dependencies>
