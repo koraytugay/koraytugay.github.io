@@ -726,7 +726,7 @@ multi-module-cli/pom.xml
 - The packaging of the parent pom is of type `pom`.
 - Each submodule lives in the directory found in `module` element.
 - Parent POM is the perfect place for declaring dependency management, shared dependencies or plug-in versions.
-- When Maven is executed against a project with submodules, Maven first loads the parent POM and locates all of the submodules. All of the modules are put in something called the __Reactor__. Reactor takes care of ordering components to ensure that interdependent modules are compilet and installed in the proper order.
+- When Maven is executed against a project with submodules, Maven first loads the parent POM and locates all of the submodules. All of the modules are put in something called the __Reactor__. Reactor takes care of ordering components to ensure that interdependent modules are compiled and installed in the proper order.
   - Once the Reactor figures out the order in which projects must be built, Maven then executes the specified goals for every module in a multi-module build. 
 
 ## Random Notes
