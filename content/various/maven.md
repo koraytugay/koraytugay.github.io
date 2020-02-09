@@ -292,7 +292,7 @@ mvn jetty:run
 
 Why? I think because jetty-plugin has a different `groupId`.
 
-### Investigating a Plugin using the Help Plugin
+### Investigating Plugins using the Help Plugin
 [Apache Maven Help Plugin](https://maven.apache.org/plugins/maven-help-plugin/) can be used to learn more about goals and configuration options of a selected plugin. Here is the cheat sheet you need:
 
 ```bash
