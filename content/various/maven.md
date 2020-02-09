@@ -266,7 +266,7 @@ and the following POM:
 mvn exec:java
 ```
 
-This plugin also comes with another goal: `exec`. The official documentation clearly explains the usage, and __this is pretty much what Maven is all about__. Finding plugins, the relevant goals, and configuring / invoking them.
+This plugin also comes with another goal: `exec`. The official documentation clearly explains the usage, and __this is pretty much what Maven is all about__. Finding plugins, the relevant goals, configuring them and then either invoking them or attaching them to lifecycle phases.
 
 __Heads Up!__ You do not actually need to include `exec-maven-plugin` in the POM. The following works in that case:
 
@@ -299,6 +299,29 @@ mvn help:describe -Dcmd=jetty:run
 mvn help:describe -Dcmd=jetty:run -Ddetail
 ```
 
+### Further Reading
+Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
+
+## Lifecycle
+Maven defines a concept called __lifecycle__. A lifecycle has many <strong>phase</strong>s. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
+
+__A lifecycle on its own cannot be invoked but a phase of a lifecycle can be.__ For example: invoking `mvn install` will invoke all goals bound to the phases until (and including) the __install__ phase of the __default lifecycle__.
+
+__Friendly Reminder!__ You can either invoke a specific goal of a plugin, or a phase of a lifecycle. Here are two examples:
+
+```bash
+# Invokes clean goal from clean plugin
+mvn clean:clean
+
+# Invokes goals bound to pre-clean and clean phases of the clean lifecycle
+mvn clean
+```
+
+### Clean Lifecycle as an Example
+This lifecycle consists of three phases: __pre-clean__, __clean__ and __post-clean__. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
+
+__Heads Up!__ If you bind a goal to __post-clean__ phase of the clean build, and simply call `mvn clean`, your goal will not get executed, which is super weird. I think instead of being able to invoke a phase, a lifecycle in complete should have been possible to invoke. In other words, I think it would have made much more sense had `mvn clean` invoked the whole __clean lifecycle__, instead of invoking __pre-clean__ and __clean__ phases only, (skipping __post-clean__). This way it would have also been possible to for example invoke `mvn build` and invoke the whole __build lifecycle__.
+
 ### Binding a Plugin to a Phase
 Binding a goal of a plugin to a lifecycle phase is as easy as adding the `execution` element in the `plugin`. The following binds the __exec plugin__ to __verify__ phase of the default lifecycle:
 
@@ -320,29 +343,6 @@ Binding a goal of a plugin to a lifecycle phase is as easy as adding the `execut
     </executions>
 </plugin>
 ```
-
-### Further Reading
-Read the [Maven Plugins](https://maven.apache.org/plugins/) page to get an overall understanding of plugins. Read the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) documentation to get a better understanding of a specific plugin and the [compile](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html) goal documentation to get a better understanding of a specific goal.
-
-## Lifecycle
-Maven defines a concept called __lifecycle__. A lifecycle has many <strong>phase</strong>s. __Goals from plugins are bound to phases of a lifecycle__. There are three standard lifecycles in Maven: __clean__, __default__ (a.k.a. __build__) and __site__.
-
-A lifecycle on its own cannot be invoked but a phase of a lifecycle can be. For example: invoking `mvn install` will invoke all goals bound to the phases until (and including) the __install__ phase of the __default lifecycle__.
-
-__Friendly Reminder!__ You can either invoke a specific goal of a plugin, or a phase of a lifecycle. Here are two examples:
-
-```bash
-# Invokes clean goal from clean plugin
-mvn clean:clean
-
-# Invokes goals bound to pre-clean and clean phases of the clean lifecycle
-mvn clean
-```
-
-### Clean Lifecycle as an Example
-This lifecycle consists of three phases: __pre-clean__, __clean__ and __post-clean__. The interesting phase in the clean lifecycle is the clean phase. [Apache Maven Clean Plugin](https://maven.apache.org/plugins/maven-clean-plugin/)s clean goal is bound to the clean phase in the clean lifecycle. This goal deletes the output of a build by deleting the build directory.
-
-__Heads Up!__ If you bind a goal to __post-clean__ phase of the clean build, and simply call `mvn clean`, your goal will not get executed, which is super weird. I think instead of being able to invoke a phase, a lifecycle should have been possible to invoke. In other words, I think it would make much more sense had `mvn clean` invoked the whole __clean lifecycle__, instead of invoking __pre-clean__ and __clean__ phases only, (skipping __post-clean__). This way it would have also been possible to for example invoke `mvn build` and invoke the whole __build lifecycle__.
 
 ### Package-Specific Lifecycles
 The specific goals bound to each phase default to a set of goals specific to a project's packaging. A project with packaging jar for example has the `jar:jar` bound to the package phase where as a project with packaging war has `war:war` bound. In other words: `packaging` element has an impact on the default plugins that are bound to the lifecycle. 
