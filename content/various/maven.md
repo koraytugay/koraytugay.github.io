@@ -38,7 +38,7 @@ When a project depends on an artifact produced by another project, this artifact
 
 Maven downloads artifacts and related metadata from remote repositories and places a copy of the downloaded artifacts in users local repository, default path being __~/.m2/repository__.
 
-Super POM defines a default remote repository: the [Maven Central Repository](http://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
+Super POM defines a default remote repository: the [Maven Central Repository](https://repo.maven.apache.org/maven2/), that all clients are configured to read from by default. The central repository also contains Maven plugins, in other words: the default repository for plugins is also the Maven Central Repository.
 
 ### Maven Coordinates
 Dependencies are uniquely identified using coordinates named __GAV__: __groupId__, __artifactId__ and __version__.
