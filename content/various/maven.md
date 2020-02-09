@@ -132,7 +132,7 @@ mvn clean
 
 We are invoking the __clean__ phase here (which is a part of the __clean__ lifecycle).One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run a phase, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed, which means in our case all plugins bound to __pre-clean__ would be executed.
 
-### Configuring a Plugin in POM
+### Configuring a Plugin
 Very often plugins will have options to configure them on have they behave. This is an example on how the __compiler__ plugin can be configured:
 
 ```xml
