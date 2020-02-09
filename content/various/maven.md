@@ -28,7 +28,7 @@ A minimal valid POM would be as follows:
 ```
 
 ### Super POM
-All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the parent element, that POM will inherit values from the Super POM. Whatever configuration you need to override, you can do it by redefining the same section in your application POM file.
+All Maven POMs inherit values from a parent POM. If a POM does not specify a direct parent using the `parent` element, that POM will inherit values from the Super POM. Whatever configuration you need to override, you can do it by redefining the same section in your application POM file.
 
 ### Effective POM
 In Maven what matters is not just the projects POM but the effective POM which is constructed by the project POM, and the parent POM file hierarchy up to the super POM. This is called the effective POM. 
