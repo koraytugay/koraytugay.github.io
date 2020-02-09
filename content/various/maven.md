@@ -731,7 +731,7 @@ multi-module-cli/pom.xml
 
 ## Random Notes
 - If you are importing any 3<sup>rd</sup> party libraries explicitly via `import` statements in your source code, you need to make sure that the dependency JAR file corresponding to this is being added to the project POM file. You must not rely on transitive dependencies. You can analyze your project using `mvn dependency:analyze`.
-- To speed up your build, try `mvn install -T 2C -DskipTests`.
+- To speed up your build, try using multiple cores: `mvn install -T 2C`.
 - For future reference, the Maven default lifecycle includes the following phases: 
 
 ```
