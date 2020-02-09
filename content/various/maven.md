@@ -623,7 +623,7 @@ Here is how POM can be configured to whether replace the `app.prop` from the con
 </project>
 ```
 
-Try building the project with `-P dev` and `-P prod` to see the difference for yourself!
+Try building the project with `-P dev` and `-P prod` to see the difference for yourself.
 
 ## Settings
 Start by reading the [Settings Reference](https://maven.apache.org/settings.html).
