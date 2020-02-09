@@ -44,7 +44,7 @@ Super POM defines a default remote repository: the [Maven Central Repository](ht
 Dependencies are uniquely identified using coordinates named __GAV__: __groupId__, __artifactId__ and __version__.
 
 ### Transitive Dependencies
-__A transitive dependency is a dependency of a dependency.__ If project-a depends on project-b, which in turn depends on project-c, _project-c is considered to be a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application by building a graph of dependencies and dealing with any conflicts and overlaps. If two projects depend on the same groupId and artifactId, Maven will sort out which dependency to use always favoring the more recent version.
+__A transitive dependency is a dependency of a dependency.__ If project-a depends on project-b, which in turn depends on project-c, _project-c is considered to be a transitive dependency of project-a_. Maven manages transitive dependencies and keeps track of all of the dependencies required to compile and run an application by building a graph of dependencies and dealing with any conflicts and overlaps. If two projects depend on the same `groupId` and `groupId`, Maven will sort out which dependency to use always favoring the more recent version.
 
 Transitive dependencies can be excluded and/or replaced as follows:
 
@@ -68,11 +68,16 @@ Transitive dependencies can be excluded and/or replaced as follows:
 ```
 
 ## Plugins
-Maven does not do much itself, but rather delegate the work to plugins (or goals in plugins to be more precise). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks, be it resolve / download 3<sup>rd</sup> party libraries declared in the POM, compile source code, run tests or package files.
+Maven does not do much itself, but rather delegate the work to plugins (or goals in plugins to be more precise). __All the useful functionalities in the build process are developed as plugins__. A plugin can contain one to many goals. Goals do specific tasks such as:
+
+- Resolve / download dependencies declared in the POM
+- Compile source code
+- Run tests 
+- Package files
 
 Similar to any other dependency in Maven, plugins are also identified via GAV. However, for plugins, `groupId` is __not__ needed. Maven assumes the following for plugins by default: `org.apache.maven.plugins` and `org.codehaus.mojo`.
 
-The super POM already defines several default plugins, such as the `clean` or the `compiler` plugin. Any further plugins can be defined by user in POM. Check the effective POM to find for example:
+The super POM already defines several default plugins, such as the __clean__ or the __compiler__ plugins. Any further plugins can be defined by user in POM. Check the effective POM to find for example:
 
 ```xml
 <build>
@@ -97,19 +102,19 @@ The super POM already defines several default plugins, such as the `clean` or th
 _The `plugin` element is also where a plugin is bound to a phase of lifecycle. More on this later._
 
 ### Executing a Plugin Goal
-A goal from a plugin can be executed on its own or can be executed as a part of a Maven lifecycle phase. The syntax to execute a goal of Maven plugin is: 
+A goal from a plugin can be executed on using the following syntax:
 
 ```bash
 mvn plugin-prefix:goal
 ```
 
-The __clean__ goal of the __clean__ plugin can be executed as follows:
+For example, the __clean__ goal of the __clean__ plugin can be executed as follows:
 
 ```bash
 mvn clean:clean
 ```
 
-The __clean__ goal of the Maven __clean__ plugin is bound with the __clean__ phase of the __clean__ lifecycle by default, therefore the same __clean__ goal can be executed as follows:
+__Getting a little ahead of ourselves here:__ The __clean__ goal of the Maven __clean__ plugin is bound with the __clean__ phase of the __clean__ lifecycle by default, therefore the same __clean__ goal can be executed as follows:
 
 ```bash
 mvn clean
@@ -118,7 +123,7 @@ mvn clean
 We are invoking the __clean__ phase here (which is a part of the __clean__ lifecycle).One difference here is that when you execute a goal on its own, it only runs the goal specified in the command. When you run a phase, all the goals associated with the corresponding lifecycle phases up until the specified phase including that phase gets executed, which means in our case all plugins bound to __pre-clean__ would be executed.
 
 ### Configuring a Plugin in POM
-This is an example on how the __compiler__ plugin can be configured:
+Very often plugins will have options to configure them on have they behave. This is an example on how the __compiler__ plugin can be configured:
 
 ```xml
 <project>
@@ -197,6 +202,8 @@ Another possibility to configure / specify versions for plugins in POM is to use
     </properties>
 </project>
 ```
+
+In the example above, the configuration for __compiler__ plugin is immediatly effective by only configuring in `pluginManagement` section. It is, however, not the case for the __exec__ plugin, it must be declared under `plugins`.
 
 The `pluginManagement` is a bit messy and the [official documentation](https://maven.apache.org/pom.html#Plugin_Management) does not help much and unfortunately is quite poor. Here is what I think is happening:
 
