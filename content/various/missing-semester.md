@@ -16,6 +16,8 @@ Notes to my self from [The Missing Semester of Your CS Education](https://missin
 - Most platforms provide some kind of shell.
   - [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
 - Shell searches locations of programs to execute by looking at the paths defined in the `$PATH` <strong>environmental variable</strong>.
+- Most programs take arguments, and mostly they start with `-`.
+  - 
 
 ```bash
 # Calling programs with arguments that have white space
@@ -37,4 +39,7 @@ pwd
 
 # Switching between previous folders
 cd -
+
+# Listing invisible files with ls
+ls -f
 ```
