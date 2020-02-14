@@ -47,6 +47,7 @@ title:  "Koray Tugay"
 - [HTTP](content/various/http.md)
 - [Design Patterns](content/various/design-patterns.md)
 - [Terminology](content/various/terminology.md)
+- [The Missing Semester of Your CS Education](/content/various/missing-semester.md)
 - [vs](content/various/vs.md)
 
 #### Drafts
