@@ -14,7 +14,7 @@ Notes to my self from [The Missing Semester of Your CS Education](https://missin
 
 ## Lecture 1: The Shell
 - Most platforms provide some kind of shell.
-- __bash__ is a very famous shell.
+  - [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
 - Shell searches locations of programs to execute by looking at the paths defined in the `$PATH` <strong>environmental variable</strong>.
 
 ```bash
