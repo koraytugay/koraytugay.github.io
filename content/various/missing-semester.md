@@ -40,4 +40,7 @@ which mvn
 
 # Printing the current directory
 pwd
+
+# Switching between previous folders
+cd -
 ```
