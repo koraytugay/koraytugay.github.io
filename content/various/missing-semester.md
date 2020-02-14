@@ -29,12 +29,6 @@ env
 echo $PATH
 
 # Finding the location of a program in case an executable would be called
-which echo
-# /bin echo
-
-which java
-# /usr/bin/java
-
 which mvn
 # /usr/local/bin/mvn
 
