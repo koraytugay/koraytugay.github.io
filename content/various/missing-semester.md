@@ -19,7 +19,7 @@ Notes to my self from [The Missing Semester of Your CS Education](https://missin
 - Most programs take arguments, and mostly they start with a dash (`-`).
 
 ### Redirection
-Programs (by default?) have 2 default streams: __input__ and __output__. By default the input is the __keyboard__ and the output is the __console__. These streams can be redirected to other files or streams as follows:
+Programs have 3 default streams: __input__, __output__ and __error__. By default the input is the __keyboard__ and the output is the __console__. These streams can be redirected to other files or streams as follows:
 
 ```bash
 # Instead of outputting to console, output to this file
