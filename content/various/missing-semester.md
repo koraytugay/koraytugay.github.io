@@ -106,7 +106,7 @@ Defining a variable is as easy as:
 foo=bar
 ```
 
-Note, this is very different to the following, where a program `foo` is being called with two arguments: `=` and `bar`.
+Note, the following example with spaces is very different. In the following example a program `foo` is being called with two arguments: `=` and `bar`.
 
 ```bash
 foo = bar
