@@ -95,7 +95,7 @@ echo My\ Name\ is:$myName
 echo "My Name is: $myName"
 
 # The following will print: My name is: $myName
-echo 'My Name is: $myName' # Variables in single quotes are not processedp
+echo 'My Name is: $myName' # Variables in single quotes are not processed
 ```
 
 ### Variables
