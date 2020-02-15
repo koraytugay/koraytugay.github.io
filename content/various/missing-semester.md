@@ -33,7 +33,7 @@ cat < hello.txt > goodbye.txt # Input from hello.txt, output to goodbye.txt
 ```
 
 ### Piping
-Pipe is just `|` and what it says is: _Take the output of the program to the left and make it the input to the program to the right_.
+Piping between programs can be achieved by the pipe character, `|`, and what it says is: _Take the output of the program to the left and make it the input to the program to the right_.
 
 ```bash
 # The following first lists all files and then pipes the output to grep zaa
