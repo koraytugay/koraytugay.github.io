@@ -74,8 +74,6 @@ ls -f
 sudo -i
 # When shell is running as root, it starts with a #
 # When shell is not running as root, it starts with a $
-<<<<<<< HEAD
-
 ```
 
 ## Lecture 2: Shell Tools and Scripting
