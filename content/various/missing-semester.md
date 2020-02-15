@@ -45,7 +45,7 @@ curl --head --silent http://www.google.com | grep --ignore-case content-type
 # Content-Type: text/html; charset=ISO-8859-1
 ```
 
-### Cheat Sheet
+### Cheat Sheet from Lecture 1
 ```bash
 # Calling programs with arguments that have white space
 echo Hello\ World  # Escaping
@@ -74,7 +74,6 @@ ls -f
 sudo -i
 # When shell is running as root, it starts with a #
 # When shell is not running as root, it starts with a $
-
 ```
 
 ## Lecture 2: Shell Tools and Scripting
