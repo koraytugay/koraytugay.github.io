@@ -150,8 +150,8 @@ mcd my-new-folder
 ### Cheat Sheet
 
 ```bash
-# Last exit code: $?
-test -d Applications # Is Applications a directory? For more try: man test
+# Accessing last exit code: $?
+test -d Applications # Is Applications a directory? 
 echo $? # Prints 0 in case true, 1 in case false
 
 # Chaining conditions
