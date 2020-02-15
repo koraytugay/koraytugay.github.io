@@ -18,17 +18,17 @@ Notes to my self from [The Missing Semester of Your CS Education](https://missin
 - Shell searches locations of programs to execute by looking at the paths defined in the `$PATH` <strong>environmental variable</strong>.
 - Most programs take arguments, and mostly they start with a dash (`-`).
 
-### Rewiring Input/Output Streams
-Programs (by default?) have 2 default streams: __input__ and __output__. By default the input is the __keyboard__ and the output is the __console__. These streams can be re-wired as follows:
+### Redirection
+Programs (by default?) have 2 default streams: __input__ and __output__. By default the input is the __keyboard__ and the output is the __console__. These streams can be redirected to other files or streams as follows:
 
 ```bash
 # Instead of outputting to console, output to this file
-echo hello > hello.txt # Rewire output to hello.txt
+echo hello > hello.txt # Redirect standard output to hello.txt
 
-# Rewire the input for a program as follows
+# Redirect the input for a program as follows
 cat < hello.txt # Rewire input to hello.txt
 
-# Rewire both
+# Redirect both
 cat < hello.txt > goodbye.txt # Input from hello.txt, output to goodbye.txt
 ```
 
