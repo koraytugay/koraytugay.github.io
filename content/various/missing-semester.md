@@ -296,7 +296,7 @@ done
 Sample run:
 
 ```bash
-kt$ ./bashScript.sh foo bar baz Koray
+./bashScript.sh foo bar baz Koray
 # Executing program at: Sat 15 Feb 2020 10:53:56 EST.
 # Running program: ./bashScript.sh with 4 number of arguments.
 # Process ID is: 48732
