@@ -130,7 +130,7 @@ Functions defined in files can be imported to shell using the `source` command a
 
 ```bash
 mcd() {
-    mkdir -p "$1"  # Create a directory
+    mkdir -p "$1"  # Create directory
     cd "$1"        # Change directory
 }
 ```
