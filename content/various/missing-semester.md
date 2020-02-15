@@ -19,7 +19,7 @@ Notes to my self from [The Missing Semester of Your CS Education](https://missin
 - Most programs take arguments, and mostly they start with a dash (`-`).
 
 ### Rewiring Input/Output Streams
-Most programs have 2 default streams: input and output. By default the input is the keyboard and the output is the screen. These streams can be re-wired as follows:
+Programs (by default?) have 2 default streams: __input__ and __output__. By default the input is the __keyboard__ and the output is the __console__. These streams can be re-wired as follows:
 
 ```bash
 # Instead of outputting to console, output to this file
