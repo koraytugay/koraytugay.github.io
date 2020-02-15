@@ -53,6 +53,7 @@ __Repository__
 > "A Repository represents all objects of a certain type as a conceptual set. It acts like a collection, except with more elaborate querying capability."
 >
 > Eric Evans, Domain Driven Design
+
 ```java
 class EmployeeRepository {
    DataSource ds;

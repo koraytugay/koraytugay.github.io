@@ -149,6 +149,7 @@ mcd my-new-folder
 ```
 
 ### Cheat Sheet
+
 ```bash
 # Last exit code: $?
 test -d Applications # Is Applications a directory? For more try: man test
@@ -156,4 +157,37 @@ echo $? # Prints 0 in case true, 1 in case false
 
 # Chaining conditions
 test -d Applications && echo "Applications is a directory" 
+```
+
+### Examples
+#### For-Each with Conditional
+
+```bash
+#!/bin/bash
+
+echo "Executing program at: $(date)."
+echo "Running program: $0 with $# number of arguments." # $0 is program itself
+echo "Process ID is: $$" # $$ is the process id
+
+for name in "$@"; do  # $@ is all arguments passed in
+    if [[ $name == Koray ]]; 
+    then
+        echo "Hello, you.."
+    else
+        echo "Hello $name!"
+    fi
+done
+```
+
+Sample run:
+
+```bash
+kt$ ./bashScript.sh foo bar baz Koray
+# Executing program at: Sat 15 Feb 2020 10:53:56 EST.
+# Running program: ./bashScript.sh with 4 number of arguments.
+# Process ID is: 48732
+# Hello foo!
+# Hello bar!
+# Hello baz!
+# Hello, you..
 ```
