@@ -12,7 +12,7 @@ title:  "The Missing Semester of Your CS Education"
 ## Overview
 Notes to my self from [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/).
 
-## Lecture 1: The Shell
+## The Shell
 - Most platforms provide some kind of shell. [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
 
 ### Environmental Variables
@@ -103,7 +103,7 @@ sudo -i
 # When shell is not running as root, it starts with a $
 ```
 
-## Lecture 2: Shell Tools and Scripting
+## Shell Tools and Scripting
 
 ### Strings in Bash
 Strings in bash can be confusing since double quotes and single quotes are more or less the same but not exactly the same. Follow the example:
