@@ -13,10 +13,35 @@ title:  "The Missing Semester of Your CS Education"
 Notes to my self from [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/).
 
 ## Lecture 1: The Shell
-- Most platforms provide some kind of shell.
-  - [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
-- Shell searches locations of programs to execute by looking at the paths defined in the `$PATH` <strong>environmental variable</strong>.
-- Most programs take arguments, and mostly they start with a dash (`-`).
+- Most platforms provide some kind of shell. [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
+
+### Environmental Variables
+Shell searches locations of programs to execute by looking at the paths defined in the `$PATH` <strong>environmental variable</strong>. To print all environmental variables:
+
+```bash
+env
+# SHELL=/bin/bash
+# USER=kt
+# PATH=/usr/local/opt/node@10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+# PWD=/Users/kt
+# JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+# LANG=en_CA.UTF-8
+# HOME=/Users/kt
+```
+
+`env` itself lives in `/usr/bin/env`, which can be verified by:
+
+```bash
+which env
+# /usr/bin/env
+```
+
+A single enviromental variable can be accessed via:
+
+```bash
+echo $PATH
+# /usr/local/opt/node@10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+```
 
 ### Redirection
 Programs have 3 default streams: __input__, __output__ and __error__. By default the input is the __keyboard__ and output and error is the __console__. These streams can be redirected to other files or streams as follows:
