@@ -19,7 +19,7 @@ Notes to my self from [The Missing Semester of Your CS Education](https://missin
 - Most programs take arguments, and mostly they start with a dash (`-`).
 
 ### Redirection
-Programs have 3 default streams: __input__, __output__ and __error__. By default the input is the __keyboard__ and the output is the __console__. These streams can be redirected to other files or streams as follows:
+Programs have 3 default streams: __input__, __output__ and __error__. By default the input is the __keyboard__ and output and error is the __console__. These streams can be redirected to other files or streams as follows:
 
 ```bash
 # Instead of outputting to console, output to this file
@@ -31,6 +31,8 @@ cat < hello.txt # Rewire input to hello.txt
 # Redirect both
 cat < hello.txt > goodbye.txt # Input from hello.txt, output to goodbye.txt
 ```
+
+The outputs can also be disgarded by redirecting them to `null` via `> null` for the standard output and `2> null` for the error output.
 
 ### Piping
 Piping between programs can be achieved by the pipe character, `|`, and what it says is: _Take the output of the program to the left and make it the input to the program to the right_.
@@ -150,11 +152,19 @@ mcd my-new-folder
 ### Cheat Sheet
 
 ```bash
-# Accessing last exit code: $?
+# Last exit code can be access via: $?
+# Example with test
 test -d Applications # Is Applications a directory? 
 echo $? # Prints 0 in case true, 1 in case false
 
-# Chaining conditions
+# Example with grep
+echo Hello | grep Hello > null; echo $?
+# 0
+echo Hello | grep Yello > null; echo $?
+# 1
+
+# Chaining conditions with boolean
+# The following echos only if test returns 0
 test -d Applications && echo "Applications is a directory" 
 ```
 
