@@ -327,7 +327,7 @@ class DebugSignalHandler implements SignalHandler {
 }
 ```
 
-And here is an example of sending `SIGINT` and `SIGKILL` signals 
+And here is an example of sending __SIGINT__ and __SIGKILL__ signals 
 
 ```bash
 $ java Main &
