@@ -348,7 +348,7 @@ The following command asks for a password from the user, from which it creates a
 openssl aes-256-cbc -salt -in hello-world.txt -out hello-world.enc.txt
 ```
 
-The very same encrypted file can be decrypted back via:
+The very same encrypted file can be decrypted back via, which of course also will ask for your password again, so that it can generate the same key and proceed with the operation:
 
 ```bash
 openssl aes-256-cbc -d -in hello-world.enc.txt -out hello-world.dec.txt
