@@ -306,7 +306,7 @@ to perform a clean exit.
     kill -SIGUSR1 -group_id
 ```
 
-Here is an example for a Java process. Remember `&` sends the execution to background. The Java program that handles `SIGINT` signals:
+Here is an example for a Java process. Remember `&` sends the execution to background. The following is a simple Java program that handles __SIGINT__ signals:
 
 ```java
 import sun.misc.Signal;
