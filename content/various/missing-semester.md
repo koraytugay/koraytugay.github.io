@@ -205,7 +205,7 @@ tldr grep
 # - Search in case-insensitive mode:
 #     grep -i search_string path/to/file
 # 
-# - Search recursively (ignoring non-text files) in current directory for an # exact string:
+# - Search recursively in current directory for an # exact string:
 #     grep -RI search_string .
 # 
 # - Use extended regular expressions (supporting `?`, `+`, `{}`, `()` and `|`):
