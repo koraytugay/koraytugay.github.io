@@ -256,3 +256,81 @@ Sample run:
 # Hello baz!
 # Hello, you..
 ```
+
+## Command Line Environment
+The shell sends a __SIGINT__ to the running program when you hit `CTRL+C` while a program is running. There are several signals which can be listed via `man signal`. Here are few:
+
+```
+No    Name         Default Action       Description                    Shortcut
+2     SIGINT       terminate process    interrupt program              CTRL + C
+3     SIGQUIT      create core image    quit program                   CTRL + \
+9     SIGKILL      terminate process    kill program
+15    SIGTERM      terminate process    software termination signal
+17    SIGSTOP      stop process         stop (cannot be caught)        CTRL + Z
+```
+
+### Using Kill Comamand
+Signals can be sent to processes running using the `kill` command. Here is the cheat sheat:
+
+```
+Sends a signal to a process, usually related to stopping the process.
+All signals except for SIGKILL and SIGSTOP can be intercepted by the process to perform a clean exit.
+
+- Terminate a program using the default SIGTERM (terminate) signal:
+    kill process_id
+
+- List available signal names (to be used without the `SIG` prefix):
+    kill -l
+
+- Terminate a background job:
+    kill %job_id
+
+- Terminate a program using the SIGHUP (hang up) signal. Many daemons will reload instead of terminating:
+    kill -1|HUP process_id
+
+- Terminate a program using the SIGINT (interrupt) signal. This is typically initiated by the user pressing `Ctrl + C`:
+    kill -2|INT process_id
+
+- Signal the operating system to immediately terminate a program (which gets no chance to capture the signal):
+    kill -9|KILL process_id
+
+- Signal the operating system to pause a program until a SIGCONT ("continue") signal is received:
+    kill -17|STOP process_id
+
+- Send a `SIGUSR1` signal to all processes with the given GID (group id):
+    kill -SIGUSR1 -group_id
+```
+
+Here is an example for a Java process. Remember `&` sends the execution to background. The Java program that handles `SIGINT` signals:
+
+```java
+import sun.misc.Signal;
+import sun.misc.SignalHandler;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Signal.handle(new Signal("INT"), new DebugSignalHandler());
+        Thread.sleep(60 * 1000 * 10); // Sleep 10 minutes
+    }
+}
+
+class DebugSignalHandler implements SignalHandler {
+    @Override
+    public void handle(Signal signal) {
+        System.out.println("Received: " + signal);
+    }
+}
+```
+
+And here is an example of sending `SIGINT` and `SIGKILL` signals 
+
+```bash
+$ java Main &
+# [1] 79925
+$ javapid=$!  # Returns the last background process's pid
+$ echo $javapid
+# 79925
+$ kill -2 $javapid
+# Received: SIGINT
+$ kill -9 $javapid
+```
