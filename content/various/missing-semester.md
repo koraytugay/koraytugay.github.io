@@ -332,7 +332,7 @@ And here is an example of sending __SIGINT__ and __SIGKILL__ signals
 ```bash
 $ java Main &
 # [1] 79925
-$ javapid=$!  # Returns the last background process's pid
+$ javapid=$!  # $! returns the last background process's pid
 $ echo $javapid
 # 79925
 $ kill -2 $javapid
