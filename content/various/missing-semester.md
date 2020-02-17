@@ -339,3 +339,17 @@ $ kill -2 $javapid
 # Received: SIGINT
 $ kill -9 $javapid
 ```
+
+## Security and Cryptography
+### Symmetrical Cryptography with OpenSSL Example
+The following command asks for a password from the user, from which it creates a key (so that you do not need to remember your key, but rather your password) and then uses the key to cipher the contents of the passed in file:
+
+```bash
+openssl aes-256-cbc -salt -in hello-world.txt -out hello-world.enc.txt
+```
+
+The very same encrypted file can be decrypted back via:
+
+```bash
+openssl aes-256-cbc -d -in hello-world.enc.txt -out hello-world.dec.txt
+```
