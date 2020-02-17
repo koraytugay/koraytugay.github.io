@@ -13,7 +13,7 @@ title:  "The Missing Semester of Your CS Education"
 Notes to my self from [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/).
 
 ## The Shell
-- Most platforms provide some kind of shell. [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
+Most platforms provide some kind of shell. [GNU bash](https://www.gnu.org/software/bash/) is a very famous one.
 
 ### Environmental Variables
 Shell searches locations of programs to execute by looking at the paths defined in the `$PATH` <strong>environmental variable</strong>. To print all environmental variables:
