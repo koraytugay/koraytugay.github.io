@@ -19,6 +19,32 @@ Webpack is responsible for the build process, and one of the key steps is code t
 - What is Babel?
 Babel has two important tasks in a React project: transforming JSX content and transforming JavaScript code that uses the latest JavaScript features into code that can be executed by older browsers.
 
+## Examples
+### Listening to Window Inner Width
+
+```javascript
+import React, {useState, useEffect} from 'react';
+
+export default function App() {
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  return (
+    <p>
+      {width}
+    </p>
+  )
+}
+```
+
 ### Redux in a Nutshell
 
 ```javascript
