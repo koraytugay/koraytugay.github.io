@@ -45,7 +45,7 @@ export default function App() {
 }
 ```
 
-### Redux in a Nutshell
+## Redux in a Nutshell
 
 ```javascript
 import React, { Component } from 'react';
