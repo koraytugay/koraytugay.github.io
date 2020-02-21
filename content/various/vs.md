@@ -62,3 +62,8 @@ __References__
 The internet is a collection of public computers linked through the shared use of the Internet Protocol (IP) to route messages. It’s made up of many services, including the World Wide Web, email, file sharing, and internet telephony.
 
 HTTP/2 In Action
+
+## null vs undefined
+Usually, null represents that some value is missing intentionally, and undefined represents that a value is missing unintentionally.
+
+Reference: https://overreacted.io/what-is-javascript-made-of/
