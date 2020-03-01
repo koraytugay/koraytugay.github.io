@@ -84,6 +84,29 @@ We can also delete properties from objects:
 delete employee.firstname; // Removes the property from the object
 ```
 
+### Functions Returning Objects
+Many times there will be functions that create objects to avoid code repetition.
+
+```javascript
+function newUser(name, age) {
+    return {
+        name: name,
+        age: age
+    };
+}
+```
+
+And there is a shorthand for this, in case the variables have same names with function properties:
+
+```javascript
+function newUser(name, age) {
+    return {
+        name,  // same with name: name
+        age    // same with age: age
+    };
+}
+```
+
 ### Flashy Property Names
 Objects can have flashy property names within quotes:
 
@@ -113,4 +136,3 @@ With square brackets, you can even have dynamic property names:
 let name = "firstname";
 let employee = {[name]: "Koray"};  // {firstname: "Koray"} - This is crazy..
 ```
-
