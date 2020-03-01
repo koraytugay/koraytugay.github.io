@@ -40,3 +40,9 @@ const variableSupport = `Hello ${myName}`!`;
 ```javascript
 let myName = null;
 ```
+
+`undefined` means _a value is not assigned_. If a variable is declared but not assigned a value, it is `undefined`.
+
+```javascript
+let myName;  // undefined
+```
