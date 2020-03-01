@@ -59,4 +59,58 @@ typeOfVar = typeof(var) // as a function
 ```
 
 - Result of `typeof null` is `"object"`. This is wrong, `null` is not an object, it is a special value with its special type. The error is kept in the language due to compatibility and was never fixed.
-- Result of `typeof alert` returns `"function"`. However, this is not strictly true, although `alert` is a function, it is still of type `"object"`. `typeof` treats functions differently for convenience. 
+- Result of `typeof alert` returns `"function"`. However, this is not strictly true, although `alert` is a function, it is still of type `"object"`. `typeof` treats functions differently for convenience.
+
+## Objects
+An object can be created using one of the two syntaxes:
+
+```javascript
+let foo = {};
+let bar = new Object();
+```
+
+Object are useful when they store properties:
+
+```javascript
+let employee = {
+    firstname: "Koray",
+    lastname: "Tugay"
+};
+```
+
+We can also delete properties from objects:
+
+```javascript
+delete employee.firstname; // Removes the property from the object
+```
+
+### Flashy Property Names
+Objects can have flashy property names within quotes:
+
+```javascript
+let foo = {
+    "flashy property name": "flash property value"
+};
+````
+
+### Square Brackets
+Such flash property names cannot be accessed using the dot notation, and must use square brackets:
+
+```javascript
+let val = foo["flashy property name"];
+```
+
+Square brackets also lets referencing property names that are not literals:
+
+```javascript
+let preferedName = "firstname";
+let name = employee[preferedName]; // not possible with name.preferedName
+```
+
+With square brackets, you can even have dynamic property names:
+
+```javascript
+let name = "firstname";
+let employee = {[name]: "Koray"};  // {firstname: "Koray"} - This is crazy..
+```
+
