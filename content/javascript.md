@@ -18,7 +18,7 @@ A String must be surrounded by quotes. There are 3 types of quotes:
 
 1. Double quotes: `"Hello World!"`
 1. Single quotes: `'Hello World!'`
-1. Backtics: ``Hello World!``
+1. Backtics: `\`Hello World!\``
 
 Backtics come with the following over single and double quotes. 
 
