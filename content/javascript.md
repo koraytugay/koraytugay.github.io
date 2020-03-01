@@ -138,4 +138,28 @@ let employee = {[name]: "Koray"};  // {firstname: "Koray"} - This is crazy..
 ```
 
 ### Functions in Objects
+Objects can have functions as properties too:
 
+```javascript
+let user = {
+    greet: function() {
+        return "Greetings!";
+    }
+};
+```
+
+The _method_ above can be called via:
+
+```javascript
+user.greet();
+```
+
+There is a shorthand form for functions in objects:
+
+```javascript
+let user = {
+    greet() {
+        return "Greetings!";
+    }
+};
+```
