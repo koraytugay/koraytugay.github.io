@@ -12,6 +12,9 @@ __Abstraction__ A simplification of something much more complicated that is goin
 ## D
 __DevOps__ DevOps is a cultural sensibility. It's a unified, metrics based approach to making software efficiently and fearlessly using as much automation as possible. _Some cartoon shared in a chat room_
 
+## E
+__Expression__ A fragment of code that produces a value is called an expression.
+
 ## S
 __Service__ Any processes, functionality, or data that must be discoverable and available over a network.
 
