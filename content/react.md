@@ -17,6 +17,8 @@ This page is a draft and is a work in progress...
 Webpack is responsible for the build process, and one of the key steps is code transformation performed by the Babel package. 
 
 - What is Babel?
+Babel is a transpiler. It rewrites modern JavaScript code into the previous standard.
+
 Babel has two important tasks in a React project: transforming JSX content and transforming JavaScript code that uses the latest JavaScript features into code that can be executed by older browsers.
 
 ### Redux in a Nutshell
