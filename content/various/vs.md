@@ -4,6 +4,10 @@ title:  "vs"
 ---
 
 # vs
+{:.no_toc}
+
+* TOC
+{:toc}
 
 ## Dynamically Typed vs Statically Typed
 __Dynamically Typed__
@@ -63,7 +67,7 @@ The internet is a collection of public computers linked through the shared use o
 
 HTTP/2 In Action
 
-## null vs undefined
-Usually, null represents that some value is missing intentionally, and undefined represents that a value is missing unintentionally.
+## JavaScript vs ECMAScript
+> After its adoption outside of Netscape, a standard document was written to describe the way the JavaScript language should work so that the various pieces of software that claimed to support JavaScript were actually talking about the same language. This is called the ECMAScript standard, after the Ecma International organization that did the standardization. In practice, the terms ECMAScript and JavaScript can be used interchangeably—they are two names for the same language.
 
-Reference: https://overreacted.io/what-is-javascript-made-of/
+Eloquant JavaScript
