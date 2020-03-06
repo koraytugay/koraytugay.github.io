@@ -163,3 +163,23 @@ let user = {
     }
 };
 ```
+
+## Functions
+JavaScript is very liberal in terms of calling functions. If you pass too many functions, extra ones will be ignored. If you pass too few, missing parameters get assigned `undefined`. This allow functions to be called with different number of arguments as follows:
+
+```javascript
+function minus(a, b) {
+    if (b === undefined)
+        return -a; 
+    else 
+        return a - b;
+}
+```
+
+### Default Value for Parameters in Functions
+
+```javascript
+function power(base, exponent = 2) {
+    // You already understand..
+}
+```
