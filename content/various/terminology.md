@@ -15,6 +15,9 @@ __DevOps__ DevOps is a cultural sensibility. It's a unified, metrics based appro
 ## E
 __Expression__ A fragment of code that produces a value is called an expression.
 
+## H
+__Higher Order Functions__ Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions. _[Eloquent JavaScript](https://eloquentjavascript.net/)_
+
 ## S
 __Service__ Any processes, functionality, or data that must be discoverable and available over a network.
 
