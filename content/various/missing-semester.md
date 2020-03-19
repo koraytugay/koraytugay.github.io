@@ -57,7 +57,7 @@ cat < hello.txt # Rewire input to hello.txt
 cat < hello.txt > goodbye.txt # Input from hello.txt, output to goodbye.txt
 ```
 
-The outputs can also be disgarded by redirecting them to `null` via `> null` for the standard output and `2> null` for the error output.
+The outputs can also be disgarded by redirecting them to `/dev/null`. See [this](https://askubuntu.com/a/350216) answer for details.
 
 ### Piping
 Piping between programs can be achieved by the pipe character, `|`, and what it says is: _Take the output of the program to the left and make it the input to the program to the right_.
