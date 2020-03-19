@@ -183,9 +183,9 @@ test -d Applications # Is Applications a directory?
 echo $? # Prints 0 in case true, 1 in case false
 
 # Example with grep
-echo Hello | grep Hello > null; echo $?
+echo Hello | grep Hello > /dev/null; echo $?
 # 0
-echo Hello | grep Yello > null; echo $?
+echo Hello | grep Yello > /dev/null; echo $?
 # 1
 
 # Chaining conditions with boolean
