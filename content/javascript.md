@@ -61,7 +61,7 @@ typeOfVar = typeof(var) // as a function
 ```
 
 - Result of `typeof null` is `"object"`. This is wrong, `null` is not an object, it is a special value with its special type. The error is kept in the language due to compatibility and was never fixed.
-- Result of `typeof alert` returns `"function"`. However, this is not strictly true, although `alert` is a function, it is still of type `"object"`. `typeof` treats functions differently for convenience.
+- Result of `typeof alert` returns `"function"` however this is not strictly true. Although `alert` is a function, it is still of type `"object"`. `typeof` treats functions differently for convenience.
 
 ## Objects
 An object can be created using one of the two syntaxes:
