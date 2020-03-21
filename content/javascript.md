@@ -47,6 +47,8 @@ let myName = null;
 let myName;  // undefined
 ```
 
+You should never explicitly set a variable to be `undefined`. The literal `undefined` value is provided mainly for comparison and wasn’t added until ECMA-262 3<sup>rd</sup> edition, to help formalize the difference between an empty object pointer, `null` and an uninitialized variable.
+
 ### Cheat Sheet
 - You can get a type of a variable using either of:
 
