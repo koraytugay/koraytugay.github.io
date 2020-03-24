@@ -182,6 +182,7 @@ function power(base, exponent = 2) {
 }
 ```
 
+## Dark Side of the JavaScript
 ### Rest Parameters
 To gather all passed arguments in an array, use the rest (`...`) operator. The dots literally mean _gather the remaining parameters into an array_.
 
