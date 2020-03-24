@@ -202,9 +202,8 @@ function authorTitles(firstname, lastname, ...titles) {
 A sample run for the example above can be:
 
 ```javascript
-let stephenKingTitles = 
-    authorTitles("Stephen", "King", "christine", "it", "shining");
-console.log(stephenKingTitles);
+let king = authorTitles("Stephen", "King", "christine", "it", "shining");
+console.log(king);
 
 // Prints the following, note how titles are in an array:
 // { 
@@ -213,3 +212,5 @@ console.log(stephenKingTitles);
 //     titles: [ 'christine', 'it', 'shining' ] 
 // }
 ```
+
+The rest parameters must always be at the very end, as the last function parameter.
