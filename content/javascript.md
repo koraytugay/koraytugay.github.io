@@ -185,3 +185,31 @@ function power(base, exponent = 2) {
     // You already understand..
 }
 ```
+
+### Rest Parameters
+To gather all passed arguments in an array, use the rest (`...`) operator. The dots literally mean _gather the remaining parameters into an array_.
+
+```javascript
+function authorTitles(firstname, lastname, ...titles) {
+    return {
+        firstname,
+        lastname,
+        titles
+    }
+}
+````
+
+A sample run for the example above can be:
+
+```javascript
+let stephenKingTitles = 
+    authorTitles("Stephen", "King", "christine", "it", "shining");
+console.log(stephenKingTitles);
+
+// Prints the following, note how titles are in an array:
+// { 
+//     firstname: 'Stephen',
+//     lastname: 'King',
+//     titles: [ 'christine', 'it', 'shining' ] 
+// }
+```
