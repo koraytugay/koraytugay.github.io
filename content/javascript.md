@@ -199,7 +199,7 @@ function authorTitles(firstname, lastname, ...titles) {
 }
 ````
 
-A sample run for the example above can be:
+Sample Run:
 
 ```javascript
 let king = authorTitles("Stephen", "King", "christine", "it", "shining");
@@ -214,3 +214,22 @@ console.log(king);
 ```
 
 The rest parameters must always be at the very end, as the last function parameter.
+
+### Spread Syntax
+Spread syntax looks very similar to the rest parameters, also using `...`, but does quite the opposite. It spreads the the values of an iterable to individual values:
+
+```javascript
+// This function expects any number of arguments
+function greet(firstname, lastname) {
+    console.log(`Hello ${lastname}. Can I call you ${firstname}?`);
+}
+```
+
+Sample Run:
+
+```javascript
+greet(...["Koray", "Tugay"]);
+// Hello Mr.Tugay. Can I call you Koray?
+```
+
+Note how values in the array has been expanded. 
