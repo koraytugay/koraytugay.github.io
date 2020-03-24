@@ -233,3 +233,10 @@ greet(...["Koray", "Tugay"]);
 ```
 
 Note how values in the array has been expanded. 
+
+## Global Object
+The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
+
+When you access the `Math` object directly in a browser environment, as in `Math.E`, you are actually accessing `window.Math`. 
+
+There are many other properties that are very useful that comes with the global object, simply type `window` or `globalThis` in the console and see for yourself.
