@@ -194,11 +194,7 @@ function authorTitles(firstname, lastname, ...titles) {
         titles
     }
 }
-````
 
-Sample Run:
-
-```javascript
 let king = authorTitles("Stephen", "King", "christine", "it", "shining");
 console.log(king);
 
@@ -220,11 +216,7 @@ Spread syntax looks very similar to the rest parameters, also using `...`, but d
 function greet(firstname, lastname) {
     console.log(`Hello ${lastname}. Can I call you ${firstname}?`);
 }
-```
 
-Sample Run:
-
-```javascript
 greet(...["Koray", "Tugay"]);
 // Hello Mr.Tugay. Can I call you Koray?
 ```
