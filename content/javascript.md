@@ -212,7 +212,6 @@ The rest parameters must always be at the very end, as the last function paramet
 Spread syntax looks very similar to the rest parameters, also using `...`, but does quite the opposite. It spreads the the values of an iterable to individual values:
 
 ```javascript
-// This function expects any number of arguments
 function greet(firstname, lastname) {
     console.log(`Hello ${lastname}. Can I call you ${firstname}?`);
 }
@@ -222,6 +221,26 @@ greet(...["Koray", "Tugay"]);
 ```
 
 Note how values in the array has been expanded. 
+
+### Array Destructuring
+Destructuring assignment is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables.
+
+```javascript
+let [firstname, lastname] = ["Koray", "Tugay"];
+// firstname is set to "Koray"
+// lastname is set to "Tugay"
+```
+
+Remember the example from spread syntax? Here is something similar to that:
+
+```javascript
+function greet([firstname, lastname]) {
+    console.log(`Hello ${lastname}. Can I call you ${firstname}?`);
+}
+
+greet(["Koray", "Tugay"]);
+// Hello Mr.Tugay. Can I call you Koray?
+```
 
 ## Global Object
 The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
