@@ -242,6 +242,21 @@ greet(["Koray", "Tugay"]);
 // Hello Mr.Tugay. Can I call you Koray?
 ```
 
+### Object destructuring
+We can also destructure objects.. 
+
+```javascript
+let kt = {
+    firstname: "Koray",
+    lastname: "Tugay"
+};
+
+let { firstname, lastname } = kt;
+
+// firstname is set to "Koray"
+// lastname is set to "Tugay"
+```
+
 ## Global Object
 The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
 
