@@ -14,12 +14,9 @@ This page is a draft and is a work in progress...
 
 ## Data Types
 ### Strings
-A String must be surrounded by quotes. There are 3 types of quotes: Double quotes, single quotes and backtics. Backtics come with fancy functionality following over single and double quotes. 
+Remember backticks support new lines and inline variables..
 
 ```javascript
-const doubleQuotes = "Hello World!";
-const singleQuotes = 'Hello World';
-
 const myVar = "foo";
 
 const backTicks = 
