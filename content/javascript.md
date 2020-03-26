@@ -253,6 +253,27 @@ let { firstname, lastname } = kt;
 // lastname is set to "Tugay"
 ```
 
+You can even destructure nested objects:
+
+```javascript
+let foo = {
+    bar: "immediate value",
+    nested: {
+        baz: "nested value"
+    }
+};
+
+let {
+    bar,
+    nested: {
+        baz
+    }
+} = foo;
+
+console.log(bar); // immediate value
+console.log(baz); // nested value
+```
+
 ## Global Object
 The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
 
