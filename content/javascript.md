@@ -111,7 +111,6 @@ let foo = {
 };
 ````
 
-### Square Brackets
 Flashy property names cannot be accessed using the dot notation, and must use square brackets:
 
 ```javascript
