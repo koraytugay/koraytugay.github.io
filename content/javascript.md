@@ -22,8 +22,8 @@ const backTicks =
 ```
 
 ### `null` and `undefined`
-- `null` represents that some value is missing intentionally.  
-- `undefined` represents that a value is missing unintentionally.
+- `null` represents that some value is missing intentionally
+- `undefined` represents that a value is missing unintentionally
 
 `null` is __not__ a _reference to a non-existing object_ or a _null pointer_. The code below represents that name is unknown for whatever reason:
 
