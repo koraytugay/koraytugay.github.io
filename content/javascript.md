@@ -178,6 +178,13 @@ function power(base, exponent = 2) {
 }
 ```
 
+## Global Object
+The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
+
+When you access the `Math` object directly in a browser environment, as in `Math.E`, you are actually accessing `window.Math`. 
+
+There are many other properties that are very useful that comes with the global object, simply type `window` or `globalThis` in the console and see for yourself.
+
 ## Dark Side of the JavaScript
 ### Rest Parameters
 To gather all passed arguments in an array, use the rest (`...`) operator. The dots literally mean _gather the remaining parameters into an array_.
@@ -273,10 +280,3 @@ let {
 console.log(bar); // immediate value
 console.log(baz); // nested value
 ```
-
-## Global Object
-The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
-
-When you access the `Math` object directly in a browser environment, as in `Math.E`, you are actually accessing `window.Math`. 
-
-There are many other properties that are very useful that comes with the global object, simply type `window` or `globalThis` in the console and see for yourself.
