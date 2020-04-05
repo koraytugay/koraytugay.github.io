@@ -175,6 +175,52 @@ function power(base, exponent = 2) {
 }
 ```
 
+### Functions are Values
+
+Functions are values in JavaScript, which makes them very powerful and in the same time somewhat confusing..
+
+```javascript
+// This is a function expression, semicolon at the end.
+let msgFormatter = function(from, msg) {
+    return `Message from ${from} : ${msg}`;
+};
+
+// This is a function declaration. No semicolon at the end.
+function fetchMessageFormatted(url, formatter) {
+    // fetch message from some remote service
+    let msg = fromRemoteService(url);
+    return formatter(msg, url);
+}
+
+// I can pass function itself to another function:
+fetchMessageFormatted('remote-service-url', msgFormatter);
+```
+
+Such functions are called __callback__ functions. The idea is that we pass a function and expect it to be "called back" later. We can pass anonymous functions as well, which is another powerful aspect of functions as values:
+
+```javascript
+fetchMessageFormatted(
+    'remote-service-url', 
+    function(from, msg) {
+        return `${msg} from: ${from}`;
+    }
+);
+```
+
+### Arrow Functions
+To make things even more confusing, there is yet another syntax for declaring functions.
+
+```javascript
+let myArrowFunct = (arg1, arg2, arg3) => functionBody;
+let numberMultiplier = (num, multiplier) => num * multiplier;
+```
+
+JavaScript is full of situations where we need to write a small function that’s executed somewhere else.
+
+```javascript
+myArr.forEach(myFunct);  // myFunct is executed for every item of myArr
+```
+
 ## Global Object
 The global object is provided by the runtime environment and it is the object accessed when you do not specify any specific objects. In browsers, global object is `window` whereas in node it is `global`. 
 
