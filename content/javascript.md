@@ -156,7 +156,7 @@ let user = {
 ```
 
 ## Functions
-JavaScript is very liberal in terms of calling functions. If you pass too many arguments, extra ones will be ignored. If you pass too few, missing parameters get assigned `undefined`. This allow functions to be called with different number of arguments:
+JavaScript is very liberal in terms of calling functions. If you pass too many arguments, extra ones will be ignored. If you pass too few, missing parameters get assigned `undefined`. This allow functions to be called with different number of arguments.
 
 ```javascript
 function minus(a, b) {
