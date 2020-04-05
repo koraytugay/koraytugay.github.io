@@ -9,9 +9,6 @@ title:  "JavaScript"
 * TOC
 {:toc}
 
-## Overview
-This page is a draft and is a work in progress...
-
 ## Data Types
 ### Strings
 Remember backticks support new lines and inline variables..
