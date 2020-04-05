@@ -323,3 +323,6 @@ let {
 console.log(bar); // immediate value
 console.log(baz); // nested value
 ```
+
+## References and Useful Tools
+- [Babel Transpiler](https://babeljs.io/repl)
