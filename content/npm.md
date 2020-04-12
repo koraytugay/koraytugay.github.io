@@ -82,6 +82,14 @@ npm list -depth=0
 
 ```bash
 npm list -g -depth=0
+```
+
+- Printing the location of the globally installed modules:
+
+```bash
+npm root -g
+
+# Unrelated but listing files in that folder
 ls $( npm root -g )
 npm root -g | xargs ls
 ```
