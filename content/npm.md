@@ -56,5 +56,16 @@ The application must be kept in repository without the `node_modules` folder. `n
 
 `require` is the way you import modules specific to `node.js`. The suggested way is to use `import` and `export` that come with ES6. 
 
+## Case Studies
+
+### nodemon
+
+
 ## Random Notes
 - What is the `main` in `package.json`? [Here](https://stackoverflow.com/a/40792477) is the answer.
+- Printing all globally installed modules, either of:
+
+```bash
+ls $( npm root -g )
+npm root -g | xargs ls
+```
