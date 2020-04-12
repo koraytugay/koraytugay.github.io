@@ -68,7 +68,7 @@ The application must be kept in repository without the `node_modules` folder. `n
 
 You can create artibrary scripts as seen above. In order to call `start` all you need to do is: `npm start`. However, `npm fire` will not work, it requires: `npm run fire`. With that said, you can also call `npm run start`.
 
-Some platforms such as Heroku will look at the `start` script. 
+Some platforms such as Heroku will look at the `start` script. You also will want to populate `start` so that you or any other developer can simply start your application with `npm start` instead of trying to figure out what the entry point is.
 
 ## Random Notes
 - What is the `main` in `package.json`? [Here](https://stackoverflow.com/a/40792477) is the answer.
