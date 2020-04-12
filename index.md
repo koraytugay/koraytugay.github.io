@@ -52,5 +52,5 @@ title:  "Koray Tugay"
 
 #### Drafts
 - [JavaScript](content/javascript.md)
-- [npm](content/)
+- [npm](content/npm.md)
 - [React](content/react.md)
