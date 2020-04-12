@@ -54,7 +54,13 @@ node index.js
 ### Notes on Hello World
 The application must be kept in repository without the `node_modules` folder. `node_modules` folder can always be re-constructed by npm with `npm install` on the root folder.
 
-`require` is the way you import modules specific to `node.js`. The suggested way is to use `import` and `export` that come with ES6. 
+Our toy implementation makes use of the `require` keyword:
+
+```javascript
+const _  = require('lodash');
+```
+
+`require` is the way you import modules specific in node.js runtime environment. The suggested way is to use `import` and `export` that come with ES6. There are ways to make use of `import` and `export` in node.js runtime environment as well, but not as straight forward as simply using `require`.
 
 ### Scripts
 `package.json` comes with a section called `scripts`. Add the following in `scripts` section:
