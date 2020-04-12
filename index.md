@@ -42,14 +42,15 @@ title:  "Koray Tugay"
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
 
 #### Various
-- [Maven](content/various/maven.md)
 - [Docker](content/various/docker.md)
-- [HTTP](content/various/http.md)
 - [Design Patterns](content/various/design-patterns.md)
+- [HTTP](content/various/http.md)
+- [Maven](content/various/maven.md)
 - [Terminology](content/various/terminology.md)
 - [The Missing Semester of Your CS Education](/content/various/missing-semester.md)
 - [vs](content/various/vs.md)
 
 #### Drafts
-- [React](content/react.md)
 - [JavaScript](content/javascript.md)
+- [npm](content/)
+- [React](content/react.md)
