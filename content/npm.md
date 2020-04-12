@@ -73,7 +73,6 @@ Some platforms such as Heroku will look at the `start` script.
 
 ## Random Notes
 - What is the `main` in `package.json`? [Here](https://stackoverflow.com/a/40792477) is the answer.
-
 - Printing modules for a project:
 
 ```bash
