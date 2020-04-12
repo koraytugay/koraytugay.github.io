@@ -61,7 +61,6 @@ The application must be kept in repository without the `node_modules` folder. `n
 
 ```json
 "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
   "start": "node index.js",
   "fire": "node index.js"
 }
