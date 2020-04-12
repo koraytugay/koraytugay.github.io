@@ -56,6 +56,21 @@ The application must be kept in repository without the `node_modules` folder. `n
 
 `require` is the way you import modules specific to `node.js`. The suggested way is to use `import` and `export` that come with ES6. 
 
+### Scripts
+`package.json` comes with a section called `scripts`. Add the following in `scripts` section:
+
+```json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node index.js",
+  "fire": "node index.js"
+}
+```
+
+You can create artibrary scripts as seen above. In order to call `start` all you need to do is: `npm start`. However, `npm fire` will not work, it requires: `npm run fire`. With that said, you can also call `npm run start`.
+
+Some platforms such as Heroku will look at the `start` script. 
+
 ## Random Notes
 - What is the `main` in `package.json`? [Here](https://stackoverflow.com/a/40792477) is the answer.
 
