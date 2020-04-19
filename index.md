@@ -54,3 +54,4 @@ title:  "Koray Tugay"
 - [JavaScript](content/javascript.md)
 - [npm](content/npm.md)
 - [React](content/react.md)
+- [webpack](content/webpack.md)
