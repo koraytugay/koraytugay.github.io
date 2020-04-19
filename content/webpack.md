@@ -56,6 +56,22 @@ package.json
 }
 ```
 
+webpack.config.js
+
+```javascript
+const path = require("path");
+
+module.exports = {
+  mode: "development",
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
+    library: "ui"
+  }
+};
+```
+
 index.html
 
 ```html
@@ -71,22 +87,6 @@ index.html
     <script src="./dist/main.js"></script>
 </body>
 </html>
-```
-
-webpack.config.js
-
-```javascript
-const path = require("path");
-
-module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    library: "ui"
-  }
-};
 ```
 
 ### Variation Using ES6 Import - Export
