@@ -10,7 +10,7 @@ title:  "webpack"
 {:toc}
 
 ## Hello World
-The following are examples that can both be called via `node ./dist/main` or by opening up the browser. 
+The following are examples that can both be called via `node ./dist/main` or by opening the `index.html` in the browser. 
 
 ```bash
 npm install      # install webpack
