@@ -116,6 +116,8 @@ module.exports = function a() {
 };
 ```
 
+index.js
+
 ```javascript
 let a = require('./a.js');
 
