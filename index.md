@@ -37,6 +37,7 @@ title:  "Koray Tugay"
 - [How to Talk so Kids Will Listen](content/literature/how-to-talk.md)
 - [Raising Cain](content/literature/raising-cain.md)
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
+- [Cracking the Coding Interview](content/literature/cracking-the-coding-interview.md)
 
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
