@@ -186,9 +186,9 @@ public class QuartzHelloWorld {
                     .withIdentity("trigger1", "group1")
                     .startNow()
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInMilliseconds(2000)
-                            .withMisfireHandlingInstructionNextWithExistingCount()
-                            .repeatForever())
+                        .withIntervalInMilliseconds(2000)
+                        .withMisfireHandlingInstructionNextWithExistingCount()
+                        .repeatForever())
                     .build();
 
             scheduler.scheduleJob(job, trigger);
