@@ -9,16 +9,6 @@ title:  "Quartz"
 * TOC
 {:toc}
 
-## Overview
-<dl>
-    <dt>Scheduler</dt><dd>The main API for interacting with the scheduler.</dd>
-    <dt>Job</dt><dd>An interface to be implemented by components that you wish to have executed by the scheduler.</dd>
-    <dt>JobDetail</dt><dd>Used to define instances of Jobs.</dd>
-    <dt>JobBuilder</dt><dd>Used to define/build JobDetail instances, which define instances of Jobs.</dd>
-    <dt>Trigger</dt><dd>A component that defines the schedule upon which a given Job will be executed.</dd>
-    <dt>TriggerBuilder</dt><dd>Used to define/build Trigger instances.</dd>
-</dl>
-
 ## Hello World
 
 Directory Layout
@@ -93,3 +83,13 @@ public class QuartzHelloWorld {
     }
 }
 ```
+
+## Terminology
+<dl>
+    <dt>Scheduler</dt><dd>The main API for interacting with the scheduler.</dd>
+    <dt>Job</dt><dd>An interface to be implemented by components that you wish to have executed by the scheduler.</dd>
+    <dt>JobDetail</dt><dd>Used to define instances of Jobs.</dd>
+    <dt>JobBuilder</dt><dd>Used to define/build JobDetail instances, which define instances of Jobs.</dd>
+    <dt>Trigger</dt><dd>A component that defines the schedule upon which a given Job will be executed.</dd>
+    <dt>TriggerBuilder</dt><dd>Used to define/build Trigger instances.</dd>
+</dl>
