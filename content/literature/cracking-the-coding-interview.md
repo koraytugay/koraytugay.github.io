@@ -32,7 +32,6 @@ function isUnique(str) {
 }
 ```
 
-#### Notes
 My approach is somewhat poor and can be improved in several ways. 
 
 The first things to ask is: _Is the character set limited to ASCII?_ If then, we can shortcut the function by returning `false` if string length is greater than 128.
@@ -79,7 +78,6 @@ function isPermutation(str, otherStr) {
 }
 ```
 
-#### Notes
 Another solution that can be optimised and/or made cleaner and requires clarifications to be asked:
 
 - Are white spaces considered? Is `go to` a permutation of `goot`?
