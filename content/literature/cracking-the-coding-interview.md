@@ -127,3 +127,39 @@ module.exports = {
     urlify
 };
 ```
+
+### Palindrome Permutation
+
+#### Clarification Questions
+
+- Is the characterset limited?
+- Are all characters lowercase or not? 
+- Is palindrome calculation case-sensitive or not?
+
+Since we are only practicing, lets assume all characters are already lowercase and the character set is limited to ASCII characters.
+
+My solution is quite different than the ones in the book since I used a `Set`. 
+
+```javascript
+function palindromePermutation(string) {
+    let chars = new Set();
+
+    for (let c of string) {
+        if (c === ' ') {
+            continue;
+        }
+        if (chars.has(c)) {
+            chars.delete(c);
+        } else {
+            chars.add(c);
+        }
+    }
+
+    return chars.size < 2;
+}
+
+module.exports = {
+    palindromePermutation
+};
+
+```
