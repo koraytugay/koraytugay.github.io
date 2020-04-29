@@ -10,9 +10,9 @@ title:  "Cracking the Coding Interview"
 {:toc}
 
 ## Overview
-Please do **not** see my notes or solutions before attempting the challenges yourself. These notes are for my own use and for possible discussions with people who have already solved them.
+**Do not see these notes or solutions before attempting the challenges yourself.** These notes are for my own use and for possible discussions with people who have already solved them.
 
-I will not be adding the problem definitions, and I must note the book itself has much more additional information compared to what I note here. I would highly recommend this book.
+I do not include the problem statements here anyway hence this page itself can have very little value if you do not have the book anyway. Note the book itself has much more additional information compared to my own poor attempts here. I would highly recommend this book. 
 
 ## Chapter 1
 ### Is Unique
@@ -88,3 +88,42 @@ Another solution that can be optimised and/or made cleaner and requires clarific
 Assuming whitespace is significant (which means `go to` is **not** a permutation of `goot`) and the characters are case-sensitive, the first check would be to compare string lengths. If strings are not the same length, they cannot be permutations. 
 
 A cleaner (yet less optimized) way then to implement this requirement would be to sort the character array of the strings and then comparing the two arrays. 
+
+### URLify
+
+This one is pretty straight forward. Things to keep in mind:
+
+- Sometimes you should be looping from end to start. 
+- The last element of a string is at index `length - 1`.
+- You should loop while `i >= 0`.
+
+```javascript
+function urlify(charArr, trueLength) {
+    let numberOfSpaces = 0;
+
+    for (let i = 0; i < trueLength; i++) {
+        if (charArr[i] === ' ') {
+            numberOfSpaces++;
+        }
+    }
+
+    let j = numberOfSpaces * 2 + trueLength - 1;
+    for (let i = trueLength - 1; i >= 0; i--) {
+        if (charArr[i] !== ' ') {
+            charArr[j] = charArr[i];
+            j--;
+        } else {
+            charArr[j] = '0';
+            charArr[j - 1] = '2';
+            charArr[j - 2] = '%';
+            j = j - 3;
+        }
+    }
+
+    return charArr;
+}
+
+module.exports = {
+    urlify
+};
+```
