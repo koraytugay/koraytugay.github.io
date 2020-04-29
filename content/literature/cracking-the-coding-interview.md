@@ -128,7 +128,7 @@ module.exports = {
 
 ### Palindrome Permutation
 
-#### Clarification Questions Before Jumping into the Solution
+**Clarification Questions Before Jumping into the Solution**
 
 - Is the characterset limited?
 - Are all characters lowercase or not? 
