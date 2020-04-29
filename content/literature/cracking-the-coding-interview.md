@@ -153,9 +153,4 @@ function palindromePermutation(string) {
 
     return chars.size < 2;
 }
-
-module.exports = {
-    palindromePermutation
-};
-
 ```
