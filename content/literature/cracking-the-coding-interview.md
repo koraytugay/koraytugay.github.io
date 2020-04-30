@@ -154,3 +154,53 @@ function palindromePermutation(string) {
     return chars.size < 2;
 }
 ```
+
+### One Away
+
+```javascript
+function oneAway(/* String */ aString, /* String */ anotherString) {
+    // a cannot be one away from aaa
+    if (Math.abs(aString.length - anotherString.length) > 1) {
+        return false;
+    }
+
+    // If both strings have equal lengths, 
+    // return false if there are 2 different characters
+    if (aString.length === anotherString.length) {
+        let diff = false;
+        for (let i = 0; i < aString.length; i++) {
+            if (aString.charAt(i) !== anotherString.charAt(i)) {
+                if (!diff) {
+                    diff = true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    let shorterString = aString.length < anotherString.length ? 
+      aString : anotherString;
+    let longerString = aString.length > anotherString.length ? 
+      aString : anotherString;
+
+    let i = 0; // tracks the shorter string
+    let j = 0; // tracks the longer string
+
+    let diff = false;
+    for (; i < shorterString.length;) {
+        if (shorterString.charAt(i) !== longerString.charAt(j)) {
+            if (!diff) {
+                diff = true;
+                i--;
+            } else {
+                return false;
+            }
+        }
+        i++;
+        j++;
+    }
+    return true;
+}
+``` 
