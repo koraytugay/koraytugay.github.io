@@ -134,7 +134,7 @@ module.exports = {
 - Are all characters lowercase or not? 
 - Is palindrome calculation case-sensitive or not?
 
-My solution is quite different than the ones in the book since I used a `Set`. The trick here is to be able to realise all you need actually is to determine whether a string has all all characters even number of times except maybe at most one character only once (that will go the the very middle).
+My solution is quite different than the ones in the book since I used a `Set`. The trick here is to be able to realise all you need actually is to determine whether a string has all characters even number of times except maybe at most one character only once (that will go the the very middle).
 
 ```javascript
 function palindromePermutation(string) {
