@@ -32,12 +32,12 @@ title:  "Koray Tugay"
 - [1984](content/literature/1984.md)
 - [Algorithms To Live By](content/literature/algorithms-to-live-by.md)
 - [Be the Parent Please](content/literature/be-the-parent-please.md)
+- [Core Java SE 9 for the Impatient](content/literature/core-java-se9-for-the-impatient.md)
 - [Fathers And Sons](content/literature/fathers-and-sons.md)
 - [Feeling Good](content/literature/feeling-good.md)
 - [How to Talk so Kids Will Listen](content/literature/how-to-talk.md)
 - [Raising Cain](content/literature/raising-cain.md)
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
-- [Core Java SE 9 for the Impatient](content/literature/core-java-se9-for-the-impatient.md)
 
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
