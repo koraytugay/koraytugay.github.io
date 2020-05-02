@@ -37,6 +37,7 @@ title:  "Koray Tugay"
 - [How to Talk so Kids Will Listen](content/literature/how-to-talk.md)
 - [Raising Cain](content/literature/raising-cain.md)
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
+- [Core Java SE 9 for the Impatient](content/literature/core-java-se9-for-the-impatient.md)
 
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
