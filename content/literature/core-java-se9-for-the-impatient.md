@@ -33,7 +33,7 @@ executorService.shutdown();
 executorService.awaitTermination(1, TimeUnit.MINUTES);
 ```
 
-### Callables and Futures
+### Callables
 `Callable`s are `Runnable`s on steroids that return `Future`s which wraps the returning value of the task. `Callable`s are `submit`ted:
 
 ```java
@@ -64,4 +64,16 @@ System.out.println(future.get());  // Print the result
 
 es.shutdown();
 es.awaitTermination(1, TimeUnit.MINUTES);
+```
+
+### CompletableFutures
+`CompletableFuture`s are `Future`s on steroids that accept callbacks instead of returning a wrapped result. 
+
+```java
+ExecutorService es = Executors.newFixedThreadPool(2);
+
+CompletableFuture.supplyAsync(() -> {
+    try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
+    return 42;
+}, es).whenComplete((integer, throwable) -> System.out.println(integer));
 ```
