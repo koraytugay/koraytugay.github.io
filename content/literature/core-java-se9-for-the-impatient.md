@@ -145,3 +145,7 @@ private static void sleepOneMilliSecond() {
     catch (InterruptedException ignored) {}
 }
 ```
+
+Will the printed value be `2000`? Or will it be greater or lesser? 
+
+#### Preventing 
