@@ -105,7 +105,7 @@ public static void main(String[] args) throws Exception {
     es.awaitTermination(1, TimeUnit.MINUTES);
 }
 
-private static void sleepOneMilliSecond() {
+static void sleepOneMilliSecond() {
     try { Thread.sleep(1); } 
     catch (InterruptedException ignored) {}
 }
@@ -140,12 +140,10 @@ public static void main(String[] args) throws Exception {
     System.out.println(count);
 }
 
-private static void sleepOneMilliSecond() {
+static void sleepOneMilliSecond() {
     try { Thread.sleep(1); } 
     catch (InterruptedException ignored) {}
 }
 ```
 
 Will the printed value be `2000`? Or will it be greater or lesser? 
-
-#### Preventing 
