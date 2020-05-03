@@ -146,4 +146,4 @@ static void sleepOneMilliSecond() {
 }
 ```
 
-Will the printed value be `2000`? Or will it be greater or lesser? 
+Will the printed value be `2000`?
