@@ -40,3 +40,28 @@ executorService.awaitTermination(1, TimeUnit.MINUTES);
 Future<MyCallableReturnType> future = executorService.submit(myCallable);
 MyCallableReturnType val = future.get();  // blocks current thread
 ```
+
+It is also possible to gracefully wait on a `Future` by making use of the `isDone` method:
+
+```java
+ExecutorService es = Executors.newFixedThreadPool(2);
+
+Callable<Integer> callable = () -> {
+    // Long running task..
+    Thread.sleep(4000);
+    return 42;
+};
+
+Future<Integer> future = es.submit(callable);
+
+System.out.print("Processing..");
+while (!future.isDone()) {
+    Thread.sleep(1000);
+    System.out.print(".");  // Feedback to user application did not freeze
+}
+
+System.out.println(future.get());  // Print the result
+
+es.shutdown();
+es.awaitTermination(1, TimeUnit.MINUTES);
+```
