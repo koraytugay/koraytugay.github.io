@@ -77,3 +77,71 @@ CompletableFuture.supplyAsync(() -> {
     return 42;
 }, es).whenComplete((integer, throwable) -> System.out.println(integer));
 ```
+
+### Thread Safety
+#### Visibility
+What happens when you run the program below? How do you make it actually complete instead of running forever?
+
+```java
+static boolean done = false;
+
+public static void main(String[] args) throws Exception {
+    ExecutorService es = Executors.newCachedThreadPool();
+
+    es.execute(() -> {
+        for (int i = 0; i < 100; i++) {
+            sleepOneMilliSecond();
+        }
+        System.out.println("Finished.");
+        done = true;
+    });
+
+    es.execute(() -> {
+        while (!done) {}
+        System.out.println("I can continue.");
+    });
+
+    es.shutdown();
+    es.awaitTermination(1, TimeUnit.MINUTES);
+}
+
+private static void sleepOneMilliSecond() {
+    try { Thread.sleep(1); } 
+    catch (InterruptedException ignored) {}
+}
+```
+
+#### Race Conditions
+Race conditions happen whenever a value is shared between threads. Here is an example:
+
+```java
+static volatile int count = 0;
+
+public static void main(String[] args) throws Exception {
+    ExecutorService es = Executors.newCachedThreadPool();
+
+    es.execute(() -> {
+        for (int i = 0; i < 1000; i++) {
+            sleepOneMilliSecond();
+            count++;
+        }
+    });
+
+    es.execute(() -> {
+        for (int i = 0; i < 1000; i++) {
+            sleepOneMilliSecond();
+            count++;
+        }
+    });
+
+    es.shutdown();
+    es.awaitTermination(1, TimeUnit.MINUTES);
+
+    System.out.println(count);
+}
+
+private static void sleepOneMilliSecond() {
+    try { Thread.sleep(1); } 
+    catch (InterruptedException ignored) {}
+}
+```
