@@ -356,7 +356,7 @@ openssl aes-256-cbc -d -in hello-world.enc.txt -out hello-world.dec.txt
 
 ## Things to Remember
 ```markdown
-- Tool Long Did Not Read, alternative to man: `brew install tldr`.
+- Too Long Did Not Read, alternative to man: `brew install tldr`.
   - Try: `tldr ls` in your shell.
 - Using `htop`..
   - `brew install htop` then `htop`. 
