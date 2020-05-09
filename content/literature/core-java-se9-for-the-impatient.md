@@ -237,3 +237,5 @@ Every thread can call the following safely:
 ```java
 currencyFormat.get().format(aNumber);
 ```
+
+The first time you call `get` in a given thread, the lambda expression in the constructor is called to create the instance for the thread. From then on, the `get` method returns the instance belonging to the current thread.
