@@ -200,3 +200,40 @@ a.join();
 b.join();
 System.out.println("Goodbye!");
 ```
+
+### Threads
+#### ThreadLocal
+`ThreadLocal<T>` helper class can be used to keep data scope to a single thread only. Here is an example:
+
+```java
+public class UserContext {
+    private static ThreadLocal<String> currentUserId = new ThreadLocal<>();
+
+    public static String getCurrentUserId() {
+        return currentUserId.get();
+    }
+
+    public static void setCurrentUserId(String currentUserId) {
+        UserContext.currentUserId.set(currentUserId);
+    }
+}
+```
+
+`currentUserId` can safely be used among different threads by:
+```java
+UserContext.setCurrentUserId(userId);
+UserContext.getCurrentUserId();
+```
+
+Another example can be presented using `NumberFormat` class, which is not thread safe. `NumberFormat` instances can be shared between threads as follows then:
+
+```java
+static ThreadLocal<NumberFormat> currencyFormat
+    = ThreadLocal.withInitial(NumberFormat::getCurrencyInstance);
+```
+
+Every thread can call the following safely:
+
+```java
+currencyFormat.get().format(aNumber);
+```
