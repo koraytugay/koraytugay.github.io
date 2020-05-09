@@ -147,3 +147,58 @@ static void sleepOneMilliSecond() {
 ```
 
 Will the printed value be `2000`?
+
+### Locks and Conditions
+
+#### notifyAll Example
+Example below makes use of the `notifyAll` method. 2 threads, `a` and `b` both acquire the `lock`, and start `wait`ing on them. Main thread acquires the same `lock`, `sleep`s for 2 seconds and then calls `notifyAll`. We can observe both threads waiting on the `lock`s, and both proceeding after main thread makes a call to `notifyAll`.
+
+```java
+Object lock = new Object();
+CountDownLatch countDownLatch = new CountDownLatch(2);
+
+Thread a = new Thread(() -> {
+    synchronized (lock) {
+        try {
+            countDownLatch.countDown();
+            System.out.println("First thread is sleeping.");
+            lock.wait();
+            System.out.println("First thread continue.");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+});
+
+Thread b = new Thread(() -> {
+    synchronized (lock) {
+        try {
+            countDownLatch.countDown();
+            System.out.println("Second thread is sleeping.");
+            lock.wait();
+            System.out.println("Second thread continue.");
+            lock.notifyAll();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+});
+
+a.start();
+b.start();
+
+// Do not continue unless threads a and b start
+countDownLatch.await();
+
+synchronized (lock) {
+    System.out.println("Main thread is sleeping.");
+    Thread.sleep(2000);
+    System.out.println("Notifying all.");
+    lock.notifyAll();
+}
+
+// Wait for both threads to complete
+a.join();
+b.join();
+System.out.println("Goodbye!");
+```
