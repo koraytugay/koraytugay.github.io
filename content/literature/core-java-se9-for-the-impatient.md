@@ -63,7 +63,6 @@ while (!future.isDone()) {
 System.out.println(future.get());  // Print the result
 
 es.shutdown();
-es.awaitTermination(1, TimeUnit.MINUTES);
 ```
 
 ### CompletableFutures
@@ -102,7 +101,6 @@ public static void main(String[] args) throws Exception {
     });
 
     es.shutdown();
-    es.awaitTermination(1, TimeUnit.MINUTES);
 }
 
 static void sleepOneMilliSecond() {
@@ -135,7 +133,7 @@ public static void main(String[] args) throws Exception {
     });
 
     es.shutdown();
-    es.awaitTermination(1, TimeUnit.MINUTES);
+    es.awaitTermination(1, TimeUnit.MINUTES);  // wait for tasks to complete
 
     System.out.println(count);
 }
