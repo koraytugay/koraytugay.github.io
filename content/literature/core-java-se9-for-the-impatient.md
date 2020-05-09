@@ -239,3 +239,6 @@ currencyFormat.get().format(aNumber);
 ```
 
 The first time you call `get` in a given thread, the lambda expression in the constructor is called to create the instance for the thread. From then on, the `get` method returns the instance belonging to the current thread.
+
+### Chapter Notes
+- A task that wants to be interruptible must periodically check for interruption requests. This is required for any tasks that you would like to cancel when some other task has succeeded.
