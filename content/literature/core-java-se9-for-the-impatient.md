@@ -151,7 +151,7 @@ Will the printed value be `2000`?
 ### Locks and Conditions
 
 #### notifyAll Example
-Example below makes use of the `notifyAll` method. 2 threads, `a` and `b` both acquire the `lock`, and start `wait`ing on them. Main thread acquires the same `lock`, `sleep`s for 2 seconds and then calls `notifyAll`. We can observe both threads waiting on the `lock`s, and both proceeding after main thread makes a call to `notifyAll`.
+Example below makes use of the `notifyAll` method. 2 threads, `a` and `b` both acquire the `lock`, and start `wait`ing on them. Main thread acquires the same `lock`, `sleep`s for 2 seconds and then calls `notifyAll`. We can observe both threads waiting on the `lock`s proceeding after main thread calls `notifyAll`.
 
 ```java
 Object lock = new Object();
