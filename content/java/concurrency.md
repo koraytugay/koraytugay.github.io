@@ -209,6 +209,7 @@ An [Executor](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Exe
 - Not starting a new thread
 - Starting a brand new thread for each task
 - Running the task in a separate but a thread existing in a pool
+
 [Executors](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html) is a factory class for returning built-in `Executor`s. The `Executor`s returned by `Executors` are of type [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) which extends `Executor`.
 
 ### Different Types of ExecutorServices
