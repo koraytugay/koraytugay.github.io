@@ -249,7 +249,7 @@ The first time you call `get` in a given thread, the lambda expression in the co
 In order to solve this problem I created 10 _lorem ipsum_ files and dumped them in `/Users/kt/lorem`. Here is my solution:
 
 ```java
-ConcurrentHashMap<String, Set<File>> wordFileMap = new ConcurrentHashMap<>();
+Map<String, Set<File>> wordFileMap = new ConcurrentHashMap<>();
 List<Path> loremFiles = 
     Files.list(Paths.get("/Users/kt/lorem")).collect(toList());
 
