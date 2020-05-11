@@ -253,7 +253,7 @@ ConcurrentHashMap<String, Set<File>> wordFileMap = new ConcurrentHashMap<>();
 List<Path> loremFiles = 
     Files.list(Paths.get("/Users/kt/lorem")).collect(toList());
 
-ExecutorService es = Executors.newFixedThreadPool(20);
+ExecutorService es = Executors.newFixedThreadPool(10);
 loremFiles.forEach(path -> es.submit(() -> {
     try {
         File file = path.toFile();
