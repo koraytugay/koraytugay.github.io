@@ -242,3 +242,55 @@ The first time you call `get` in a given thread, the lambda expression in the co
 
 ### Chapter Notes
 - A task that wants to be interruptible must periodically check for interruption requests. This is required for any tasks that you would like to cancel when some other task has succeeded.
+
+### Exercises
+> Write an application in which multiple threads read all words from a collection of files. Use a `ConcurrentHashMap<String, Set<File>>` to track in which foles each word occurs. Use the `merge` method to update the map.
+
+In order to solve this problem I created 10 _lorem ipsum_ files and dumped them in `/Users/kt/lorem`. Here is my solution:
+
+```java
+ConcurrentHashMap<String, Set<File>> wordFileMap = new ConcurrentHashMap<>();
+List<Path> loremFiles = 
+    Files.list(Paths.get("/Users/kt/lorem")).collect(toList());
+
+ExecutorService es = Executors.newFixedThreadPool(20);
+loremFiles.forEach(path -> es.submit(() -> {
+    try {
+        File file = path.toFile();
+        Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name());
+        scanner.useDelimiter("\\W+");
+        while (scanner.hasNext()) {
+            String word = scanner.next();
+            word = word.trim();
+            wordFileMap.merge(word,
+                    new HashSet<>(singletonList(file)),
+                    (existing, found) -> {
+                existing.addAll(found);
+                return existing;
+            });
+        }
+        scanner.close();
+    } catch (IOException e) {
+        throw new UncheckedIOException(e);
+    }
+}));
+es.shutdown();
+es.awaitTermination(1, TimeUnit.MINUTES);
+
+// Checksum to be used when trying for different approaches
+// Calculate checksum by sorted keys and sorted values
+StringBuilder sb = new StringBuilder();
+wordFileMap.keySet().stream().sorted().forEach(s -> {
+    String files = wordFileMap.get(s).stream()
+            .map(File::toString)
+            .sorted().collect(Collectors.joining());
+    sb.append(s);
+    sb.append(files);
+});
+
+MessageDigest digest = MessageDigest.getInstance("MD5");
+byte[] md5 = digest.digest(sb.toString().getBytes(StandardCharsets.UTF_8));
+System.out.println(DatatypeConverter.printHexBinary(md5).toLowerCase());
+```
+
+This approach seems to be thread safe, making use of the `merge` method. I also tried making use of `putIfAbsent` but turned out to be not thread safe. See [this](https://stackoverflow.com/questions/61718067) discussion for details.
