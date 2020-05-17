@@ -244,7 +244,7 @@ The first time you call `get` in a given thread, the lambda expression in the co
 - A task that wants to be interruptible must periodically check for interruption requests. This is required for any tasks that you would like to cancel when some other task has succeeded.
 
 ### Exercises
-> Write an application in which multiple threads read all words from a collection of files. Use a `ConcurrentHashMap<String, Set<File>>` to track in which foles each word occurs. Use the `merge` method to update the map.
+> Write an application in which multiple threads read all words from a collection of files. Use a `ConcurrentHashMap<String, Set<File>>` to track in which files each word occurs. Use the `merge` method to update the map.
 
 In order to solve this problem I created 10 _lorem ipsum_ files and dumped them in `/Users/kt/lorem`. Here is my solution:
 
