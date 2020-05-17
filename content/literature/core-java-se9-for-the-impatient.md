@@ -244,6 +244,45 @@ The first time you call `get` in a given thread, the lambda expression in the co
 - A task that wants to be interruptible must periodically check for interruption requests. This is required for any tasks that you would like to cancel when some other task has succeeded.
 
 ### Exercises
+> How large does an array have to be for `Arrays.parallelSort` to be faster than `Arrays.sort` on your computer?
+
+Hard to tell.. 
+
+```
+Sorting 131072 integers..
+Array Sort:8
+Parallel sort:2
+
+Sorting 65536 integers..
+Array Sort:4
+Parallel sort:1
+
+Sorting 32768 integers..
+Array Sort:2
+Parallel sort:1
+
+Sorting 16384 integers..
+Array Sort:1
+Parallel sort:0
+
+Sorting 8192 integers..
+Array Sort:1
+Parallel sort:0
+
+Sorting 4096 integers..
+Array Sort:0
+Parallel sort:1
+Parallel sort started losing!
+```
+
+When `parallelSort` starts losing, the number of items sorted are so little, benchmark starts making no sense. `parallelSort` starts becoming significantly faster even around 250k items:
+
+```
+Sorting 262144 integers..
+Array Sort:22
+Parallel sort:3
+```
+
 > Write an application in which multiple threads read all words from a collection of files. Use a `ConcurrentHashMap<String, Set<File>>` to track in which files each word occurs. Use the `merge` method to update the map.
 
 In order to solve this problem I created 10 _lorem ipsum_ files and dumped them in `/Users/kt/lorem`. Here is my solution:
