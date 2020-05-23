@@ -11,7 +11,7 @@ title:  "Core Java SE9 for the Impatient"
 
 ## Chapter 5 - Exception Handling
 ### Try-With-Resources, Caused By and Suppressed Exceptions
-What happens if an exception is thrown inside a `try` block, and afterwards again an exception is thrown when `close` is called? `Try-with-Resources` is smart enough to add the exception thrown within `close` as a __suppressed exception__ to the exception thrown within the `try`. Here is an example:
+What happens if an exception is thrown inside a `try` block, and afterwards again an exception is thrown when `close` is called? __Try-with-Resources__ is smart enough to add the exception thrown within `close` as a __suppressed exception__ to the exception thrown within the `try`. Here is an example:
 
 ```java
 public class MyAutoClosable implements AutoCloseable {
@@ -61,6 +61,91 @@ Caused by: java.lang.NumberFormatException: bar failed!
 Exception thrown within `close` call is _suppressed_. Exception passed into the `UnsupportedOperationException` as cause is printed. Not all Exception classes have a constructor that takes a parameter to store the cause. In that case you need to call the `initCause` method.
 
 To learn more about suppressed exceptions, read [this](https://stackoverflow.com/a/7849524) answer.
+
+### Finally Block
+> Sometimes, you need to cleanup a resource that is not `AutoClosable`. In that case use the `finally` block as follows:
+
+```java
+try {
+    // do work...
+} finally {
+    // clean up
+}
+```
+
+Things to keep in mind when using the __try - finally__ pattern:
+
+- Do not throw exceptions in the `finally` block. If the body of the `try` block was terminated due to an exception, it will be masked by the exception thrown in `finally`. The suppression mechanism only works for try-with-resources statements. 
+- Do not have `return` statements in `finally`. If the body of the `try` block has a `return` statement, it will be overridden.
+
+Lets change the example above slightly:
+
+```java
+public class MyAutoClosable implements AutoCloseable {
+
+    public void foo() {
+        try {
+            bar();
+        } catch (NumberFormatException e) {
+            throw new UnsupportedOperationException("foo failed!", e);
+        }
+    }
+
+    private void bar() {
+        throw new NumberFormatException("bar failed!");
+    }
+
+    @Override
+    public void close() {
+        throw new IllegalStateException("close failed!");
+    }
+}
+```
+
+and instead of using _try-with-resources_, lets use _try - finally_ approach:
+
+```java
+MyAutoClosable myAutoClosable = new MyAutoClosable();
+try {
+    myAutoClosable.foo();
+} finally {
+    myAutoClosable.close();
+}
+``` 
+
+And the output will be:
+
+```
+Exception in thread "main" java.lang.IllegalStateException: close failed!
+    at biz.tugay.MyAutoClosable.close(MyAutoClosable.java:19)
+    at MyMainClass.main(MyMainClass.java:9)
+```
+
+__Danger!__ This is not most likely what we want.. We are only made aware of that `close` has failed. The exception thrown in `foo` is lost, gone to nirvana. I think this is one way to solve the problem:
+
+```java
+MyAutoClosable myAutoClosable = new MyAutoClosable();
+Exception exception = null;
+try {
+    myAutoClosable.foo();
+} catch (Exception e) {
+    exception = e;
+} finally {
+    try {
+        myAutoClosable.close();
+    } catch (Exception e) {
+        if (exception != null) {
+            exception.addSuppressed(e);
+        } else {
+            exception = e;
+        }
+    } finally {
+        if (exception != null) {
+            throw exception;
+        }
+    }
+}
+```
 
 ## Chapter 10 - Concurrent Programming
 
