@@ -63,7 +63,7 @@ Exception thrown within `close` call is _suppressed_. Exception passed into the 
 To learn more about suppressed exceptions, read [this](https://stackoverflow.com/a/7849524) answer.
 
 ### Finally Block
-> Sometimes, you need to cleanup a resource that is not `AutoClosable`. In that case use the `finally` block as follows:
+Sometimes, you need to cleanup a resource that is not `AutoClosable`. In that case use the `finally` block as follows:
 
 ```java
 try {
