@@ -58,7 +58,7 @@ Caused by: java.lang.NumberFormatException: bar failed!
     ... 1 more
 ```
 
-Exception thrown in the `finally` block is _suppressed_. Exception passed into the `UnsupportedOperationException` as cause is printed. Not all Exception classes have a constructor that takes a parameter to store the cause. In that case you need to call the `initCause` method.
+Exception thrown within `close` call is _suppressed_. Exception passed into the `UnsupportedOperationException` as cause is printed. Not all Exception classes have a constructor that takes a parameter to store the cause. In that case you need to call the `initCause` method.
 
 To learn more about suppressed exceptions, read [this](https://stackoverflow.com/a/7849524) answer.
 
