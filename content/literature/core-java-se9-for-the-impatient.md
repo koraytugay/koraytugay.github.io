@@ -147,6 +147,70 @@ try {
 }
 ```
 
+### Exercises
+#### Exercise 8
+> If input fails when using a `Scanner`, the `Scanner` class catches the exception and stops reading from the input source. What happens when the scanner is closed, and closing the input source throws an exception? 
+
+It seems like `Scanner` instead of adding a suprressed exception, overrides the exception thrown in reading, and only keeps the exception thrown while closing the resource:
+
+```java
+public void close() {
+    if (closed)
+        return;
+    if (source instanceof Closeable) {
+        try {
+            ((Closeable)source).close();
+        } catch (IOException ioe) {
+            lastException = ioe;
+        }
+    }
+    sourceClosed = true;
+    source = null;
+    closed = true;
+}
+```
+
+Here is how I was able to reproduce this behaviour:
+
+```java
+public class MyReadableClosable implements Closeable, Readable {
+    @Override
+    public int read(CharBuffer cb) throws IOException {
+        throw new IOException("read failed!");
+    }
+
+    @Override
+    public void close() throws IOException {
+        throw new IOException("close failed!");
+    }
+}
+```
+
+and the code to test behaviour:
+
+```java
+Scanner scanner = new Scanner(new MyReadableClosable());
+while (scanner.hasNext()) {
+    scanner.next();
+}
+scanner.close();
+
+if (scanner.ioException() != null) {
+    scanner.ioException().printStackTrace();
+}
+```
+
+Output will be:
+
+```
+java.io.IOException: close failed!
+    at biz.tugay.MyReadableClosable.close(MyReadableClosable.java:15)
+    at java.util.Scanner.close(Scanner.java:1093)
+    at MyMainClass.main(MyMainClass.java:11)
+```
+
+and we did actually lose the important information, that actually read failed.. It is also not cool that `Scanner` is swallowing `IOException` that is declared in `Closable#close` and storing it in `lastException`. Some very strange design this class has!
+
 ## Chapter 10 - Concurrent Programming
 
 ### ExecutorService
