@@ -9,6 +9,59 @@ title:  "Core Java SE9 for the Impatient"
 * TOC
 {:toc}
 
+## Chapter 5 - Exception Handling
+### Try-With-Resources, Caused By and Suppressed Exceptions
+What happens if an exception is thrown inside a `try` block, and afterwards again an exception is thrown when `close` is called? `Try-with-Resources` is smart enough to add the exception thrown within `close` as a __suppressed exception__ to the exception thrown within the `try`. Here is an example:
+
+```java
+public class MyAutoClosable implements AutoCloseable {
+
+    public void foo() {
+        try {
+            bar();
+        } catch (NumberFormatException e) {
+            throw new UnsupportedOperationException("foo failed!", e);
+        }
+    }
+
+    void bar() {
+        throw new NumberFormatException("bar failed!");
+    }
+
+    @Override
+    public void close() {
+        throw new IllegalStateException("close failed!");
+    }
+}
+```
+
+And executing the code above:
+
+```java
+try (MyAutoClosable myAutoClosable = new MyAutoClosable()) {
+    myAutoClosable.foo();
+}
+```
+
+What is printed? What you see below is printed:
+
+```
+Exception in thread "main" java.lang.UnsupportedOperationException: foo failed!
+    at biz.tugay.MyAutoClosable.foo(MyAutoClosable.java:9)
+    at MyMainClass.main(MyMainClass.java:6)
+    Suppressed: java.lang.IllegalStateException: close failed!
+        at biz.tugay.MyAutoClosable.close(MyAutoClosable.java:19)
+        at MyMainClass.main(MyMainClass.java:7)
+Caused by: java.lang.NumberFormatException: bar failed!
+    at biz.tugay.MyAutoClosable.bar(MyAutoClosable.java:14)
+    at biz.tugay.MyAutoClosable.foo(MyAutoClosable.java:7)
+    ... 1 more
+```
+
+Exception thrown in the `finally` block is _suppressed_. Exception passed into the `UnsupportedOperationException` as cause is printed. Not all Exception classes have a constructor that takes a parameter to store the cause. In that case you need to call the `initCause` method.
+
+To learn more about suppressed exceptions, read [this](https://stackoverflow.com/a/7849524) answer.
+
 ## Chapter 10 - Concurrent Programming
 
 ### ExecutorService
