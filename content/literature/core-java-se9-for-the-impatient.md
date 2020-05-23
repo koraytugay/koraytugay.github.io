@@ -43,7 +43,7 @@ try (MyAutoClosable myAutoClosable = new MyAutoClosable()) {
 }
 ```
 
-What is printed? What you see below is printed:
+Output will be:
 
 ```
 Exception in thread "main" java.lang.UnsupportedOperationException: foo failed!
