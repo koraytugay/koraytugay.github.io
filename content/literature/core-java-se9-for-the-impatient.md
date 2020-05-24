@@ -14,9 +14,9 @@ title:  "Core Java SE9 for the Impatient"
 What happens if an exception is thrown inside a `try` block, and afterwards again an exception is thrown when `close` is called? __Try-with-Resources__ is smart enough to add the exception thrown within `close` as a __suppressed exception__ to the exception thrown within the `try`. Here is an example:
 
 ```java
-public class MyAutoClosable implements AutoCloseable {
+class MyAutoClosable implements AutoCloseable {
 
-    public void foo() {
+    void foo() {
         try {
             bar();
         } catch (NumberFormatException e) {
@@ -81,9 +81,9 @@ Things to keep in mind when using the __try - finally__ pattern:
 Lets change the example above slightly:
 
 ```java
-public class MyAutoClosable implements AutoCloseable {
+class MyAutoClosable implements AutoCloseable {
 
-    public void foo() {
+    void foo() {
         try {
             bar();
         } catch (NumberFormatException e) {
@@ -91,7 +91,7 @@ public class MyAutoClosable implements AutoCloseable {
         }
     }
 
-    private void bar() {
+    void bar() {
         throw new NumberFormatException("bar failed!");
     }
 
@@ -173,7 +173,7 @@ public void close() {
 Here is how I was able to reproduce this behaviour:
 
 ```java
-public class MyReadableClosable implements Closeable, Readable {
+class MyReadableClosable implements Closeable, Readable {
     @Override
     public int read(CharBuffer cb) throws IOException {
         throw new IOException("read failed!");
@@ -408,14 +408,14 @@ System.out.println("Goodbye!");
 `ThreadLocal<T>` helper class can be used to keep data scope to a single thread only. Here is an example:
 
 ```java
-public class UserContext {
+class UserContext {
     private static ThreadLocal<String> currentUserId = new ThreadLocal<>();
 
-    public static String getCurrentUserId() {
+    static String getCurrentUserId() {
         return currentUserId.get();
     }
 
-    public static void setCurrentUserId(String currentUserId) {
+    static void setCurrentUserId(String currentUserId) {
         UserContext.currentUserId.set(currentUserId);
     }
 }
