@@ -71,3 +71,10 @@ public class DemoApplication {
 }
 ```
 
+Note that when `spring-boot-starter` was added to dependencies, no version information was added. This is because `spring-boot-starter-parent` has default for core dependencies needed in a Spring Boot application, such as the Spring Framework, Logback for logging and Spring Boot itself.
+
+`@SpringBootApplication` annotation is a combination of the following annotations:
+
+- `@Configuration`
+- `@ComponentScan`
+- `@EnableAutoConfiguration`
