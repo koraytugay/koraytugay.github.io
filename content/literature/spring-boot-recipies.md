@@ -64,7 +64,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
-        ConfigurableApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+        ConfigurableApplicationContext ctx = 
+            SpringApplication.run(DemoApplication.class, args);
         System.out.println(ctx.getBeanDefinitionCount());
     }
 }
