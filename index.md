@@ -37,6 +37,7 @@ title:  "Koray Tugay"
 - [Feeling Good](content/literature/feeling-good.md)
 - [How to Talk so Kids Will Listen](content/literature/how-to-talk.md)
 - [Raising Cain](content/literature/raising-cain.md)
+- [Spring Boot Recipies](content/literature/spring-boot-recipies.md)
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
 
 #### Workspace
