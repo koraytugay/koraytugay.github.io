@@ -174,7 +174,7 @@ We have already used the `application.properties` file above in our examples. Th
 
 Simply having an `application.properties` where you have the `jar` file will override the `application.properties` bundled within the application, for example.
 
-To make use of a specific profile, add `--spring.profile.active=` in command line. 
+To make use of a specific profile, add `--spring.profile.active=` in command line. To override any arbirary propery in command line arguments, pass the desired value with `--propertyName=propertyValue`.
 
 ### Loading Properties from Different Configuration File
 Properties from arbitrary files can be loaded by loading them using another annotation: `@PropertySource`. Here is an example
