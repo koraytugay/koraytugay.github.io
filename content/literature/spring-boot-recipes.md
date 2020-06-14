@@ -182,3 +182,23 @@ Properties from arbitrary files can be loaded by loading them using another anno
 ```java
 @PropertySource("classpath:your-external.properties")
 ```
+
+### Integration Testing with Spring Boot
+`@SpringBootTest` will make the test class load the context fully, and run the tests within the context. This is good for integration testing of beans. Unless a `@MockBean` is used in a class, the loaded context will be re-used. Here is an example to get you started:
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class MyBeanTest {
+
+    @Autowired
+    public MyBean myBean;
+
+    @Test
+    public void valMustBeExpectedValue() {
+        Assertions.assertThat(myBean.val()).isEqualTo(-1);
+    }
+}
+```
+
+Check out [this](https://stackoverflow.com/questions/44200720) answer to refresh your knowledge on the difference between `@Mock` and `@MockBean`. When running integration tests and there needs a requirement to mock a bean, you most likely want the `@MockBean` annotation.
