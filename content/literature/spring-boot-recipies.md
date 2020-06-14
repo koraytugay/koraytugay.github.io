@@ -80,7 +80,7 @@ Note that when `spring-boot-starter` was added to dependencies, no version infor
 - `@EnableAutoConfiguration`
 
 ## Chapter 2 - Spring Boot Basics
-### Configuring a Bean using Component
+### Configuring a Bean using `@Component`
 Any class annotated with the `@Component` annotation will be picked up by and instantiated by Spring Boot.
 
 If we add the following class to our project, we do not need to change anything else, the message will be printed:
@@ -112,7 +112,7 @@ Here, I also added an `application.properties` file in `resources` folder:
 biz.tugay.myCustomProperty=Hello World!
 ```
 
-### Configuring a Bean using Bean Factory Method
+### Configuring a Bean using `@Bean` on a Factory Method
 `@Bean` annotation on methods can be used to create beans from factory methods. Given again we have the same `application.properties` file from above, without using the `@Component` annotation, create a class as follows:
 
 ```java
