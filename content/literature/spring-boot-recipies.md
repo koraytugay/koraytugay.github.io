@@ -106,7 +106,7 @@ public class MyFirstBean {
 }
 ```
 
-Here, I also added an `application.properties` file in `resources` folder:
+Here, I also added `application.properties` file in `resources` folder:
 
 ```properties
 biz.tugay.myCustomProperty=Hello World!
