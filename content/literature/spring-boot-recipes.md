@@ -325,6 +325,8 @@ curl -v localhost:8080
 # * Closing connection 0
 ```
 
+__Heads Up!__ Instead of `@RestController`, one can also use `@Controller` and put `@ResponseBody` on each request handling method. Using `@RestController` will implicitly add `@ResponseBody` to request handling methods.
+
 ### Testing the Web Layer
 Here is how we could test the `HelloController` we have above using `MockMvc`:
 
