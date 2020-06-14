@@ -324,3 +324,39 @@ curl -v localhost:8080
 # {"message":"Hello World!"}
 # * Closing connection 0
 ```
+
+### Testing the Web Layer
+Here is how we could test the `HelloController` we have above using `MockMvc`:
+
+```java
+@RunWith(SpringRunner.class)
+@WebMvcTest(HelloController.class)
+public class HelloControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private HelloService helloService;
+
+    @Before
+    public void before() {
+        Mockito.when(helloService.message()).thenReturn("hello world!");
+    }
+
+    @Test
+    public void testMessage() throws Exception {
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String body = mvcResult.getResponse().getContentAsString();
+        HelloController.ResponseDto responseDto
+            = new Gson().fromJson(body, HelloController.ResponseDto.class);
+        
+        Assertions.assertThat(responseDto.message).isEqualTo("hello world!");
+    }
+}
+```
+
+`@WebMvcTest` instructs the Spring Test framework to set up an application context for testing this specific controller. It will start a minimal Spring Boot application with only web-related beans like `@Controller`. It will also preconfigure the Spring Test Mock MVC support, which can be autowired.
