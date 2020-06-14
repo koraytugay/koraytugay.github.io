@@ -1,9 +1,9 @@
 ---
 layout: default
-title:  "Spring Boot Recipies"
+title:  "Spring Boot Recipes"
 ---
 
-# Spring Boot Recipies
+# Spring Boot Recipes
 {:.no_toc}
 
 * TOC
