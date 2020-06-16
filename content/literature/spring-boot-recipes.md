@@ -204,7 +204,7 @@ public class MyBeanTest {
 }
 ```
 
-Check out [this](https://stackoverflow.com/questions/44200720) answer to refresh your knowledge on the difference between `@Mock` and `@MockBean`. When running integration tests and there needs a requirement to mock a bean, you most likely want the `@MockBean` annotation.
+Check out [this](https://stackoverflow.com/a/44200907) answer to refresh your knowledge on the difference between `@Mock` and `@MockBean`. When running integration tests and there needs a requirement to mock a bean, you most likely want the `@MockBean` annotation.
 
 ## Chapter 3 - Spring MVC
 Simply adding the `spring-boot-starter-web` dependency does a lot of work and changes how the application starts. Following is a simple hello world web application:
