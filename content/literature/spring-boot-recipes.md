@@ -175,6 +175,21 @@ public class DemoApplication {
 
 This gives more power over bean creation, and also allows us to create beans from 3<sup>rd</sup> party libraries. For example, we could have a `RestTemplate` bean configured in a specific way using this approach, if we wanted to.
 
+### Injecting Components
+Using the [Constructor Injection](https://reflectoring.io/constructor-injection/) is the best practice, and the `@Autowired` annotation is not needed, if only a single constructor exists for a `@Component`. In other words, given `FooBaz` is a `Component`, it will already be injected in the following example: 
+
+```java
+@Component
+public class FooBar {
+    
+    private final FooBaz fooBaz;
+
+    public FooBar(FooBaz fooBaz) {
+        this.fooBaz = fooBaz;
+    }
+}
+```
+
 ### Externalize Properties
 We have already used the `application.properties` file above in our examples. The following is a rough hierarchy where the properties are read from:
 
