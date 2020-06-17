@@ -243,7 +243,8 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+        ApplicationContext ctx = 
+            SpringApplication.run(DemoApplication.class, args);
         FooBar fooBar = ctx.getBean(FooBar.class);
         System.out.println(fooBar.getFooBar());
     }
