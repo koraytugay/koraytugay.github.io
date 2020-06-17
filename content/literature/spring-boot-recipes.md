@@ -179,7 +179,98 @@ Simply having an `application.properties` where you have the `jar` file will ove
 
 To make use of a specific profile, add `--spring.profile.active=` in command line. To override any arbirary propery in command line arguments, pass the desired value with `--propertyName=propertyValue`.
 
-### Loading Properties from Different Configuration File
+#### Example Making Use of Profiles
+Given a project with the following directory layout:
+
+```
+.
+├── pom.xml
+└── src
+    └── main
+        ├── java
+        │   └── biz
+        │       └── tugay
+        │           ├── DemoApplication.java
+        │           └── FooBar.java
+        └── resources
+            ├── application-dev.properties
+            ├── application-prod.properties
+            └── application.properties
+```
+
+And the file contents as follows:
+
+pom.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>my-spring-boot-starter</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+DemoApplication.java
+
+```java
+package biz.tugay;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+        FooBar fooBar = ctx.getBean(FooBar.class);
+        System.out.println(fooBar.getFooBar());
+    }
+}
+```
+
+FooBar.java
+
+```java
+package biz.tugay;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class FooBar {
+
+    @Value("${foo.bar}")
+    public String fooBar;
+
+    public String getFooBar() {
+        return fooBar;
+    }
+}
+```
+
+Given all the `.properties` file contain a `foo.bar` key with a different value, application can either be started with the following VM arguments as follows `-Dspring.profiles.active=[dev|prod]` or program arguments using the double dash: `--spring.profiles.active=[dev|prod]` to pick up values from the properties file with the passed in suffix.
+
+### Loading Properties from a Different Configuration File
 Properties from arbitrary files can be loaded by loading them using another annotation: `@PropertySource`. Here is an example
 
 ```java
