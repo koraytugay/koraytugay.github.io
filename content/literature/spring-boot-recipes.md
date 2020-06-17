@@ -82,6 +82,15 @@ Note that when `spring-boot-starter` was added to dependencies, no version infor
 - `@ComponentScan`
 - `@EnableAutoConfiguration`
 
+### Limitting Scanned Packages
+As simple as:
+
+```java
+@SpringBootApplication(scanBasePackages = {"biz.tugay.foo", "biz.tugay.bar"})
+```
+
+This may be needed when there are dependencies in your classpath that you do not want to be picked up.
+
 ## Chapter 2 - Spring Boot Basics
 ### Configuring a Bean using `@Component`
 Any class annotated with the `@Component` annotation will be picked up by and instantiated by Spring Boot.
