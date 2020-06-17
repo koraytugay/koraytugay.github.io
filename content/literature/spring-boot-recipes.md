@@ -470,3 +470,6 @@ public class HelloControllerTest {
 ```
 
 `@WebMvcTest` instructs the Spring Test framework to set up an application context for testing this specific controller. It will start a minimal Spring Boot application with only web-related beans like `@Controller`. It will also preconfigure the Spring Test Mock MVC support, which can be autowired.
+
+## References
+- [Spring Boot Official Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
