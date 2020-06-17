@@ -279,7 +279,7 @@ Properties from arbitrary files can be loaded by loading them using another anno
 @PropertySource("classpath:your-external.properties")
 ```
 
-__Heads Up!__ Give [Profiles with Spring Boot](https://reflectoring.io/spring-boot-profiles/) a read to refresh your knowledge!
+__Heads Up!__ Give [Setting Custom Properties in Tests](https://reflectoring.io/spring-boot-test/#setting-custom-configuration-properties) a read to refresh your knowledge!
 
 ### Setting a Custom Property Value in a `SpringBootTest`
 Did you know that you can do the following?
@@ -289,6 +289,8 @@ Did you know that you can do the following?
 @RunWith(SpringRunner.class)
 public class FooBarTest {
 ```
+
+__Heads Up!__ Give [Profiles with Spring Boot](https://reflectoring.io/spring-boot-test/) a read to refresh your knowledge!
 
 ### Integration Testing with Spring Boot
 `@SpringBootTest` will make the test class load the context fully, and run the tests within the context. This is good for integration testing of beans. Unless a `@MockBean` is used in a class, the loaded context will be re-used. Here is an example to get you started:
