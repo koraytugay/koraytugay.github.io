@@ -167,7 +167,7 @@ public class DemoApplication {
 This gives more power over bean creation, and also allows us to create beans from 3<sup>rd</sup> party libraries. For example, we could have a `RestTemplate` bean configured in a specific way using this approach, if we wanted to.
 
 ### Externalize Properties
-We have already used the `application.properties` file above in our examples. The following is the hierarchy where the properties are read from:
+We have already used the `application.properties` file above in our examples. The following is a rough hierarchy where the properties are read from:
 
 1. Command line arguments
 1. `application-{profile}.properties` outside the packaged application
@@ -178,6 +178,8 @@ We have already used the `application.properties` file above in our examples. Th
 Simply having an `application.properties` where you have the `jar` file will override the `application.properties` bundled within the application, for example.
 
 To make use of a specific profile, add `--spring.profile.active=` in command line. To override any arbirary propery in command line arguments, pass the desired value with `--propertyName=propertyValue`.
+
+[Here](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config) is the full hierarchy if you are interested.
 
 #### Example Making Use of Profiles
 Given a project with the following directory layout:
