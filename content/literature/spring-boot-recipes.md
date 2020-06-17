@@ -325,7 +325,9 @@ curl -v localhost:8080
 # * Closing connection 0
 ```
 
-__Heads Up!__ Instead of `@RestController`, one can also use `@Controller` and put `@ResponseBody` on each request handling method. Using `@RestController` will implicitly add `@ResponseBody` to request handling methods.
+__Heads Up!__ Instead of `@RestController`, one can also use `@Controller` and put `@ResponseBody` on each request handling method. Using `@RestController` will implicitly add `@ResponseBody` to request handling methods. To refresh your knowledge on what `@ResponseBody` does, see [this](https://stackoverflow.com/a/28647129) answer, but in a nutshell:
+
+> ..what the annotation means is that the returned value of the method will constitute the body of the HTTP response.
 
 ### Testing the Web Layer
 Here is how we could test the `HelloController` we have above using `MockMvc`:
