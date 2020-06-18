@@ -165,3 +165,13 @@ public class DemoApplicationTest {
 - The `@RestController` annotation is known as a _stereotype_ annotation. It provides hints for people reading the code and for Spring that class plays a specific role. 
 - To gracefully exit the application, press `ctrl + c`. `ctrl + z` will not work.
 - `spring-boot-maven-plugin` handles the creation of the uber-jar.
+- I did use `Gson` in the above example, but according to [this](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-json) the preferred library is Jackson, so another possibility here can be (without including Gson):
+
+```java
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@Autowired
+private ObjectMapper objectMapper;
+
+DemoDto demoDto = objectMapper.readValue(responseBody, DemoDto.class);
+```
