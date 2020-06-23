@@ -410,7 +410,7 @@ The default behaviour for `spring-boot-starter-web` is as follows:
 1. Setup basic error handling features.
 1. Configure the `DispatcherServlet`
 
-An example to create a Controller and return json is as follows:
+An example to create a Controller and return JSON would be as follows:
 
 ```java
 package biz.tugay;
