@@ -499,3 +499,4 @@ public class HelloControllerTest {
 ## References
 - [Spring Framework Official Documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/index.html)
 - [Spring Boot Official Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
+- [One-Stop Guide to Profiles with Spring Boot](https://reflectoring.io/spring-boot-profiles/) 
