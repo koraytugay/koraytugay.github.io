@@ -281,3 +281,17 @@ dbMeta0: conn0: url=jdbc:h2:mem:testdb user=SA
 ```
 
 Spring Boot is doing a lot of work behind the curtains for us!
+
+## Spring Beans and Dependency Injection
+The suggested way to configure and start using beans is making use of the annotation `@ComponentScan` and using `@Autowired` in constructors. 
+
+If you locate your application class in a root package (`biz.tugay.myApp` in my case..), you can add `@ComponentScan` without any arguments. All of your application components (`@Component`, `@Service`, `@Repository` etc..) are automatically registered as Spring Beans.
+
+If there is only a single constructor in a component, `@Autowired` can be omitted. 
+
+## Running Spring Boot Applications
+The following Maven plugin can be used to run (or debug) a Spring Boot application:
+
+```bash
+mvn spring-boot:run
+```
