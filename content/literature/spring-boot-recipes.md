@@ -649,8 +649,6 @@ public PasswordEncoder getPasswordEncoder() {
 ```
 
 ```java
-package biz.tugay;
-
 @EnableWebSecurity
 public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
