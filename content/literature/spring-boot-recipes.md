@@ -673,6 +673,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
+The above will invalidate the default username:password, and user will require to provide `koraytugay:password` when logging in.
+
 ### Configuring Authenticated Paths And Required Authorization
 Authorization can be configured by overriding yet another method found in the same class: `void configure(HttpSecurity http)`:
 
@@ -689,6 +691,8 @@ protected void configure(HttpSecurity http) throws Exception {
         .and().httpBasic();
 }
 ```
+
+No login will be required when accessing `/anon` but authentication (together with required authorization) will be required when accessing `/foo`.
 
 ## References
 - [Spring Framework Official Documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/index.html)
