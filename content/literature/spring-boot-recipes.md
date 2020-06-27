@@ -663,7 +663,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         throws Exception {
             auth
                 .inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder)
+                .passwordEncoder(passwordEncoder)  // this can be omitted
+                                                   // spring will use the defined bean
                 .withUser("koraytugay")
                 .password(passwordEncoder.encode("password"))
                 .roles("USER");
