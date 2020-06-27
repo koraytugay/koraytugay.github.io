@@ -634,7 +634,7 @@ curl --cookie "JSESSIONID=4FE3C238BF46F14CF978CD9D34CEF083" -v -H 'Connection:cl
 A login form will also be made available in `http://localhost:8080/login` by Spring, by default.
 
 ### WebSecurityConfigurerAdapter
-Spring Boot enables the default security settings when no explicit configuration through `WebSecurityConfigurerAdapter` class exists.
+Spring Boot enables the default security settings when no explicit configuration through `WebSecurityConfigurerAdapter` exists.
 
 ### Configuring Authentication - In Memory
 The following is an example of configuring in memory authentication. The first requirement is to define a `PasswordEncoder` in our main configuration class:
