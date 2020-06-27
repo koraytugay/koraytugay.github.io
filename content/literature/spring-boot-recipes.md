@@ -676,7 +676,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 The above will invalidate the default username:password, and user will require to provide `koraytugay:password` when logging in.
 
 ### Configuring Authenticated Paths And Required Authorization
-Authorization can be configured by overriding yet another method found in the same class: `void configure(HttpSecurity http)`:
+Authorization can be configured by overriding yet another method found in the same class:
 
 ```java
 @Override
