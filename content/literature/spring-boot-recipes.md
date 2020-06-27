@@ -496,6 +496,207 @@ public class HelloControllerTest {
 
 `@WebMvcTest` instructs the Spring Test framework to set up an application context for testing this specific controller. It will start a minimal Spring Boot application with only web-related beans like `@Controller`. It will also preconfigure the Spring Test Mock MVC support, which can be autowired.
 
+## Spring Security
+Adding the `spring-boot-starter-security` as a dependency automatically configures a basic security in a Spring Boot application. Default username and password can be overridden in `application.properties` file as follows:
+
+```properties
+spring.security.user.name=username
+spring.security.user.password=password
+```
+
+### Hello World Example
+pom.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>biz.tugay</groupId>
+    <artifactId>my-spring-boot-starter</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+DemoApplication.java
+
+```java
+package biz.tugay;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+```
+
+FooResource.java
+
+```java
+package biz.tugay;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RestController
+@RequestMapping("foo")
+public class FooResource {
+
+    static class FooDto {
+        public String message = "Hello from Foo";
+    }
+
+    @GetMapping
+    public FooDto getFoo() {
+        return new FooDto();
+    }
+}
+```
+
+Using `curl` with authentication:
+
+```bash
+curl -u username:password -v -H 'Connection:close' localhost:8080
+# *   Trying ::1...
+# * TCP_NODELAY set
+# * Connected to localhost (::1) port 8080 (#0)
+# * Server auth using Basic with user 'username'
+# > GET / HTTP/1.1
+# > Host: localhost:8080
+# > Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+# > User-Agent: curl/7.64.1
+# > Accept: */*
+# > Connection:close
+# > 
+# < HTTP/1.1 200 
+# < Set-Cookie: JSESSIONID=4FE3C238BF46F14CF978CD9D34CEF083; Path=/; HttpOnly
+# < X-Content-Type-Options: nosniff
+# < X-XSS-Protection: 1; mode=block
+# < Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+# < Pragma: no-cache
+# < Expires: 0
+# < X-Frame-Options: DENY
+# < Content-Type: application/json;charset=UTF-8
+# < Transfer-Encoding: chunked
+# < Date: Sat, 27 Jun 2020 15:37:29 GMT
+# < Connection: close
+# < 
+# * Closing connection 0
+# {"message":"Hello from Foo"}
+```
+
+And a subsequent request as follows will also work in bash:
+
+```bash
+curl --cookie "JSESSIONID=4FE3C238BF46F14CF978CD9D34CEF083" -v -H 'Connection:close' localhost:8080
+```
+
+A login form will also be made available in `http://localhost:8080/login` by Spring, by default.
+
+## WebSecurityConfigurerAdapter
+Spring Boot enables the default security settings when no explicit configuration through `WebSecurityConfigurerAdapter` class exists.
+
+### Configuring Authentication - In Memory
+The following is an example of configuring in memory authentication. The first requirement is to define a `PasswordEncoder` in our main configuration class:
+
+```java
+// This is our @SpringBootApplication class
+
+@Bean
+public PasswordEncoder getPasswordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+```
+
+```java
+package biz.tugay;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@EnableWebSecurity
+public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final PasswordEncoder passwordEncoder;
+
+    public DemoSecurityConfig(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) 
+        throws Exception {
+            auth
+                .inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder)
+                .withUser("koraytugay")
+                .password(passwordEncoder.encode("password"))
+                .roles("USER");
+    }
+}
+```
+
+### Configuring Authenticated Paths And Required Authorization
+Authorization can be configured by overriding yet another method found in the same class: `void configure(HttpSecurity http)`:
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    // go from most restrictive to least restrictive
+    http
+        .authorizeRequests()
+        .antMatchers("/foo").hasRole("USER")
+        .antMatchers("/anon").permitAll()
+        .antMatchers("static/css", "static/js").permitAll()
+        .and().formLogin()
+        .and().httpBasic();
+}
+```
+
 ## References
 - [Spring Framework Official Documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/index.html)
 - [Spring Boot Official Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
