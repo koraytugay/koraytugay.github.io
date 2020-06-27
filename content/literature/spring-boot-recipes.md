@@ -694,6 +694,19 @@ protected void configure(HttpSecurity http) throws Exception {
 
 No login will be required when accessing `/anon` but authentication (together with required authorization) will be required when accessing `/foo`.
 
+### Spring Security Details - AuthenticationProvider
+When Spring Security performs authentication, it keeps track of the input and the output information in an `Authentication` object. The input is usually credentials and the output is a `Principal` object. 
+
+Spring Security comes with a concept called `AuthenticationProvider`, which is responsible for the main authentication being made. [Here](https://docs.spring.io/spring-security/site/docs/5.3.3.BUILD-SNAPSHOT/api/org/springframework/security/authentication/AuthenticationProvider.html) is the docs for this class, check it out. Both the method parameter and the return type is `Authentication`. This is like a data transfer object for Spring Security. 
+
+Typically a single application will have multiple authentication ways, such as form login and LDAP login and so on. Application will have multiple `AuthenticationProvider`s in such a case. 
+
+There is a special type in Spring Security - the `AuthenticationManager`, that coordinates all these providers. It too also takes an `Authentication` object and coordinates with the providers. 
+
+Spring Security also has a concept called `UserDetailsService`. This service returns all the information if the user is enabled or locked or expired and so on. This service returns an object of type `User`, to the `AuthenticationProvider`. Usually, the `User` returned from the `UserService` becomes directly the `Principal` of the `Authentication` object. Watch [this](https://youtu.be/caCJAJC41Rk?t=955) part to refresh your memory.
+
+Finally, Spring Security saves the Authentication in ThreadLocal. In order to refresh how you can retrieve current user, read [this](https://dzone.com/articles/how-to-get-current-logged-in-username-in-spring-se) article.
+
 ## References
 - [Spring Framework Official Documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/index.html)
 - [Spring Boot Official Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
