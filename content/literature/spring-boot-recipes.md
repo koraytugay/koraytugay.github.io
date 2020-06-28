@@ -770,21 +770,6 @@ DemoSecurityConfig.java
 ```java
 @EnableWebSecurity
 public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private final UserDetailsService userDetailsService;
-
-    public DemoSecurityConfig(
-            @Qualifier(value = "demoUserDetailsService")
-                    UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .userDetailsService(userDetailsService);
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // go from most restrictive to least restrictive
@@ -799,7 +784,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-With this configuration, when `/foo` is accessed, any login will work as long as the provided password in form is `pass`. We did not define any `AuthenticationProvider`s. Also note, we had to appen `ROLE_` in `getAuthorities`, although we call `hasRole("USER")` without the prefix.
+With this configuration, when `/foo` is accessed, any login will work as long as the provided password in form is `pass`. We did not define any `AuthenticationProvider`s. Also note, we had to appen `ROLE_` in `getAuthorities`, although we call `hasRole("USER")` without the prefix. By simply implementing our own `UserDetailsService` we configured how Spring Security loads users. This class for example can hit a `Repository` class and query for entities.. A good resource I found was [this](https://www.marcobehler.com/guides/spring-security#_introduction).
 
 To see how to configure multiple `AuthenticationProvider`s, see [this](https://www.baeldung.com/spring-security-multiple-auth-providers) page.
 
