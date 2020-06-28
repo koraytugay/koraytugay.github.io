@@ -715,7 +715,8 @@ DemoUserDetails.java
 public class DemoUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority("ROLE_USER");
+        SimpleGrantedAuthority simpleGrantedAuthority 
+            = new SimpleGrantedAuthority("ROLE_USER");
         return Collections.singletonList(simpleGrantedAuthority);
     }
 
