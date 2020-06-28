@@ -706,6 +706,103 @@ Spring Security also has a concept called `UserDetailsService`. This service ret
 
 Finally, Spring Security saves the Authentication in ThreadLocal. In order to refresh how you can retrieve current user, read [this](https://dzone.com/articles/how-to-get-current-logged-in-username-in-spring-se) article.
 
+### Default and Hardcoded UserDetailsService Example
+It seems like we can bypass configuring any `AuthenticationProvider`s and simply define a single `UserDetailsService` which will become the service to be used by the one and only (and default) `AuthenticationProvider` we have. Here is an example:
+
+DemoUserDetails.java
+
+```java
+public class DemoUserDetails implements UserDetails {
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority("ROLE_USER");
+        return Collections.singletonList(simpleGrantedAuthority);
+    }
+
+    @Override
+    public String getPassword() {
+        // password encoded with BCryptPasswordEncoder
+        return "$2a$10$Y2Y82gMirzVZ9y04iHeeJuTfjqRVSFwXJkiheQ2nAE0GrzFpwNmZW";
+    }
+
+    @Override
+    public String getUsername() {
+        return "hardcoded-username";
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}
+```
+
+DemoUserDetailsService.java
+
+```java
+@Service
+public class DemoUserDetailsService implements UserDetailsService {
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
+        return new DemoUserDetails();
+    }
+}
+```
+
+DemoSecurityConfig.java
+
+```java
+@EnableWebSecurity
+public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final UserDetailsService userDetailsService;
+
+    public DemoSecurityConfig(
+            @Qualifier(value = "demoUserDetailsService")
+                    UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .userDetailsService(userDetailsService);
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // go from most restrictive to least restrictive
+        http
+            .authorizeRequests()
+            .antMatchers("/foo").hasRole("USER")
+            .antMatchers("/anon").permitAll()
+            .antMatchers("static/css", "static/js").permitAll()
+            .and().formLogin()
+            .and().httpBasic();
+    }
+}
+```
+
+With this configuration, when `/foo` is accessed, any login will work as long as the provided password in form is `pass`. We did not define any `AuthenticationProvider`s. Also note, we had to appen `ROLE_` in `getAuthorities`, although we call `hasRole("USER")` without the prefix.
+
+To see how to configure multiple `AuthenticationProvider`s, see [this](https://www.baeldung.com/spring-security-multiple-auth-providers) page.
+
 ## References
 - [Spring Framework Official Documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/index.html)
 - [Spring Boot Official Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
