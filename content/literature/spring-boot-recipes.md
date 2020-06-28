@@ -792,3 +792,4 @@ To see how to configure multiple `AuthenticationProvider`s, see [this](https://w
 - [Spring Framework Official Documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/index.html)
 - [Spring Boot Official Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
 - [One-Stop Guide to Profiles with Spring Boot](https://reflectoring.io/spring-boot-profiles/) 
+- [CSRF Explanation](https://www.marcobehler.com/guides/spring-security#_common_exploit_protections)
