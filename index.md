@@ -37,9 +37,12 @@ title:  "Koray Tugay"
 - [Feeling Good](content/literature/feeling-good.md)
 - [How to Talk so Kids Will Listen](content/literature/how-to-talk.md)
 - [Raising Cain](content/literature/raising-cain.md)
+- [The Phoenix Project](content/literature/the-phoenix-project.md)
+
+#### Spring Framework
 - [Spring Boot Recipes](content/literature/spring-boot-recipes.md)
 - [Spring Boot Reference Documentation](content/literature/spring-boot-reference-doc.md)
-- [The Phoenix Project](content/literature/the-phoenix-project.md)
+- [Spring Data](content/spring/spring-data.md)
 
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
