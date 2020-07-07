@@ -40,8 +40,8 @@ title:  "Koray Tugay"
 - [The Phoenix Project](content/literature/the-phoenix-project.md)
 
 #### Spring Framework
-- [Spring Boot Recipes](content/literature/spring-boot-recipes.md)
-- [Spring Boot Reference Documentation](content/literature/spring-boot-reference-doc.md)
+- [Spring Boot Recipes](content/spring/spring-boot-recipes.md)
+- [Spring Boot Reference Documentation](content/spring/spring-boot-reference-doc.md)
 - [Spring Data](content/spring/spring-data.md)
 
 #### Workspace
