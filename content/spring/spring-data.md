@@ -10,10 +10,10 @@ title:  "Spring Data"
 {:toc}
 
 ## Overview
-I am running `MySQL Ver 14.14 Distrib 5.6.47` in my local with [sakila](https://dev.mysql.com/doc/sakila/en/) database loaded in my local. Related documentation can be found [here](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/data-access.html#jdbc) and the api docs for `JdbcTemplate` can be found [here](https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html).
+I am running `MySQL Ver 14.14 Distrib 5.6.47` in my local with [sakila](https://dev.mysql.com/doc/sakila/en/) database loaded. Related documentation can be found [here](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/data-access.html#jdbc). 
 
 ## JdbcTemplate Hello World
-This is a hello world with Spring Boot and Spring Data.
+The API docs for `JdbcTemplate` can be found [here](https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html).
 
 pom.xml
 
@@ -101,9 +101,11 @@ public class ActorDao {
     }
 
     public void printActors() {
-        List<Actor> actors = jdbcTemplate.query("SELECT * FROM Actor LIMIT 10", actorRowMapper);
+        List<Actor> actors = 
+          jdbcTemplate.query("SELECT * FROM Actor LIMIT 10", actorRowMapper);
         actors.forEach(actor -> 
-          System.out.println(String.format("%s %s", actor.first_name, actor.last_name)));
+          System.out.println(
+            String.format("%s %s", actor.first_name, actor.last_name)));
     }
 }
 ```
