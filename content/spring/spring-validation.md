@@ -153,7 +153,8 @@ public void helloWorld(@Valid RequestDto requestDto,
     if (bindingResult.hasErrors()) {
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
         for (FieldError error : fieldErrors) {
-            throw new BadRequestException(error.getRejectedValue() + " not valid value for:" + error.getField());
+            throw new BadRequestException(error.getRejectedValue() 
+                + " not valid value for:" + error.getField());
         }
     }
 }
