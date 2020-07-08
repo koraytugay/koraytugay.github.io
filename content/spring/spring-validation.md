@@ -175,7 +175,7 @@ Sample response:
 We could also simply map all `ConstraintViolationException` to return a `400` instead of a `500`. In order to learn how to do that, check out [this](https://reflectoring.io/bean-validation-with-spring-boot/#validating-path-variables-and-request-parameters) article.
 
 ## Notes
-This example implicitly shows how arbitrary number of parameters can also be serialzed into a dto object. Note how this is a `GET` request with a query parameter, but we are treating it as a data transfer object. 
+This example implicitly shows how arbitrary number of parameters can also be serialzed into a data transfer object. Note how this is a `GET` request with a query parameter, but we are treating it as a data transfer object. 
 
 ## References
 - [Validation Annotations](https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/javax/validation/constraints/package-summary.html)
