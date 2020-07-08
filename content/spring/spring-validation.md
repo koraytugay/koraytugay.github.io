@@ -70,7 +70,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 @RestController
-@RequestMapping(value = "/validation", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/validation", 
+    produces = MediaType.APPLICATION_JSON_VALUE)
 public class ValidationController {
 
     static class RequestDto {
