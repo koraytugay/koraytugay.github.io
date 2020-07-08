@@ -43,6 +43,7 @@ title:  "Koray Tugay"
 - [Spring Boot Recipes](content/spring/spring-boot-recipes.md)
 - [Spring Boot Reference Documentation](content/spring/spring-boot-reference-doc.md)
 - [Spring Data](content/spring/spring-data.md)
+- [Spring Validation](content/spring/spring-validation.md)
 
 #### Workspace
 - [One on One Meetings](content/workspace/one-on-one-meetings.md)
