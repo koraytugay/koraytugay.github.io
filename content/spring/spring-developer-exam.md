@@ -63,7 +63,86 @@ class MyComponent {
 }
 ```
 
-Note that `classpath` is a common prefix used in Spring. Paths starting with `classpath` are relative to `src/main/resources`. Other possibilites are using `file:` for an absoulte location or `http:` for a resource, which will be of type `UrlResource`. No prefix mean the root directory where the class reating the context is executed.
+Note that `classpath` is a common prefix used in Spring. Paths starting with `classpath` are relative to `src/main/resources`. Other possibilites are using `file:` for an absoulte location or `http:` for a resource, which will be of type `UrlResource`.
+
+#### Using Multiple Configuration Classes
+Multiple configuration classes can be used to create a Spring Application Context while running tests by using `@ContextConfiguration`. Here is an example:
+
+```java
+public class Foo {
+}
+
+public class Bar {
+
+    int val;
+
+    public Bar(int val) {
+        this.val = val;
+    }
+}
+
+@Configuration
+public class ConfigurationOne {
+
+    @Bean
+    public Foo foo() {
+        return new Foo();
+    }
+
+    @Bean
+    public Bar bar() {
+        return new Bar(42);
+    }
+}
+
+@Configuration
+public class ConfigurationTwo {
+
+    @Bean
+    public Bar bar() {
+        return new Bar(-1);
+    }
+}
+
+
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {
+        ConfigurationOne.class,
+        ConfigurationTwo.class
+})
+public class MyTest {
+
+    @Autowired
+    Foo foo;
+
+    @Autowired
+    Bar bar;
+
+    @Test
+    public void testBeans() {
+        Assert.assertNotNull(foo);
+        Assert.assertNotNull(bar);
+        System.out.println(bar.val);
+    }
+}
+```
+
+The above example required me to add the following dependencies:
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>5.2.8.RELEASE</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13</version>
+    <scope>test</scope>
+</dependency>
+```
 
 ### Environment
 Spring provides a way to access the environment in which the current application is using with a bean of type `org.springframework.core.env.Environment`. This bean models two key aspects of an application environment: __properties__ and __profiles__. 
@@ -147,7 +226,22 @@ public MyBean myFirstBean() {
 }
 ```
 
-## Value Injection
+#### @Autowire on methods
+`@Autowire` works on any method as long as Spring can figure out what bean to autowire. Given a bean of type `MyBean` exists, it will be injected in the snippet below:
+
+```java
+@Component
+public class Foo {
+    @Autowired
+    public void gibberishMethodName(MyBean myBean) {
+        System.out.println("My Bean:" + myBean);
+    }
+}
+```
+
+This is useful for development of special Spring configuration classes that have methods that are called by Spring directly and have parameters that have to be configured.
+
+### Value Injection
 For injecting primitive values, the `@Value` annotation is used. 
 
 ```java
@@ -179,3 +273,6 @@ The value of the `isTrue` property in `application.properties` will be used.
 
 ### Bean Scopes
 Default scope for beans in Spring is singleton. Unless otherwise declared, all beans are by default singletons. A singleton bean is created when the application is bootstrapped, and is managed by Spring until the application is shutdown.
+
+### Profiles
+A profile is a logical group of bean definitions that is registered within the Spring container when the profile is active. Profiles can also group property files or property values that are supposed to be active only when the profile is active.
