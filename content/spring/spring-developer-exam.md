@@ -21,7 +21,7 @@ To get started with working with Spring Framework, the only dependency required 
 ```
 
 ### Configuration classes
-`@Configuration` is mostly used for classes to define beans. Such classes can also be further configured by adding extra annotations such as `@Profile` or `@PropertySource`. Any Spring application has at its core one or more configuration classes. These classes either have bean declarations, or are configured to tell Spring where to look for bean declarations.
+`@Configuration` is mostly used for classes to define beans. Any Spring application has at its core one or more configuration classes. These classes either have bean declarations, or are configured to tell Spring where to look for bean declarations.
 
 Here is a sample `@Configuration` annotated class:
 
@@ -47,32 +47,6 @@ class MyConfiguration {
 Every bean in a Spring application is a singleton by default, unless explicitly configured otherwise. 
 
 Bean declarations that are not a part of the configuration classes are identified using a process named "component scanning" which can be enabled using the `@ComponentScan` annotation. 
-
-`@PropertySource` annotation can be used to tell Spring where to look for property values, which can be injected using placeholders `${}`. Here is a full example which also includes `@ComponentScan`:
-
-```java
-@Configuration
-@ComponentScan(basePackages = {"biz.tugay"})
-@PropertySource(value = "classpath:application.properties")
-class MyConfiguration {
-}
-
-@Component
-class MyComponent {
-
-    String foo;
-
-    MyComponent(@Value("${foo}") String foo) {
-        this.foo = foo;
-    }
-
-    String getFoo() {
-        return foo;
-    }
-}
-```
-
-Note that `classpath` is a common prefix used in Spring. Paths starting with `classpath` are relative to `src/main/resources`. Other possibilites are using `file:` for an absoulte location or `http:` for a resource, which will be of type `UrlResource`.
 
 #### Using Multiple Configuration Classes
 Multiple configuration classes can be used to create a Spring Application Context while running tests by using `@ContextConfiguration`. Here is an example:
@@ -151,6 +125,75 @@ The above example required me to add the following dependencies:
     <version>4.13</version>
     <scope>test</scope>
 </dependency>
+```
+
+### Properties
+`@PropertySource` annotation can be used to tell Spring where to look for property values, which can be injected using placeholders `${}`. Here is a full example which also includes `@ComponentScan`:
+
+```java
+@Configuration
+@ComponentScan(basePackages = {"biz.tugay"})
+@PropertySource(value = "classpath:application.properties")
+class MyConfiguration {
+}
+
+@Component
+class MyComponent {
+
+    String foo;
+
+    MyComponent(@Value("${foo}") String foo) {
+        this.foo = foo;
+    }
+
+    String getFoo() {
+        return foo;
+    }
+}
+```
+
+Note that `classpath` is a common prefix used in Spring. Paths starting with `classpath` are relative to `src/main/resources`. Other possibilites are using `file:` for an absoulte location or `http:` for a resource, which will be of type `UrlResource`.
+
+#### Overriding Properties in Tests
+Here is a full example on how a property can be overridden in a test class. Given the following production files:
+
+```java
+@Component
+public class Foo {
+    public String foo;
+
+    public Foo(@Value("${foo}") String foo) {
+        this.foo = foo;
+    }
+}
+
+@Configuration
+@ComponentScan(basePackages = {"biz.tugay"})
+@PropertySource(value = "classpath:application.properties")
+public class Config {
+}
+```
+
+```properties
+foo=foo-prod
+```
+
+`foo` can be overriden in a test class as follows:
+
+```java
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {Config.class})
+@TestPropertySource(properties = {"foo:foo-test"})
+public class MyTest {
+
+    @Autowired
+    Foo foo;
+
+    @Test
+    public void testBeans() {
+        Assert.assertEquals("foo-test", foo.foo);
+    }
+}
 ```
 
 ### Environment

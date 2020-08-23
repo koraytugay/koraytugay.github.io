@@ -21,9 +21,9 @@ A Hello World in Spring Boot can be done as follows. Directory Layout:
 └── src
     └── main
         └── java
-            └── biz
-                └── tugay
-                    └── DemoApplication.java
+               └── biz
+                      └── tugay
+                           └── DemoApplication.java
 ```
 
 pom.xml
@@ -315,7 +315,7 @@ Did you know that you can do the following?
 public class FooBarTest {
 ```
 
-__Heads Up!__ Give [Profiles with Spring Boot](https://reflectoring.io/spring-boot-test/) a read to refresh your knowledge!
+__Heads Up!__ Give [Profiles with Spring Boot](https://reflectoring.io/spring-boot-profiles/) a read to refresh your knowledge!
 
 ### Integration Testing with Spring Boot
 `@SpringBootTest` will make the test class load the context fully, and run the tests within the context. This is good for integration testing of beans. Unless a `@MockBean` is used in a class, the loaded context will be re-used. Here is an example to get you started:
