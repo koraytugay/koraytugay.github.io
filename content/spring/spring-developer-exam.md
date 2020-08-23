@@ -10,6 +10,15 @@ title:  "Spring Developer Exam"
 {:toc}
 
 ## Chapter 2
+To get started with working with Spring Framework, the only dependency required is:
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.2.8.RELEASE</version>
+</dependency>
+```
 
 ### Configuration classes
 `@Configuration` is mostly used for classes to define beans. Such classes can also be further configured by adding extra annotations such as `@Profile` or `@PropertySource`. Any Spring application has at its core one or more configuration classes. These classes either have bean declarations, or are configured to tell Spring where to look for bean declarations.
@@ -147,6 +156,20 @@ The above example required me to add the following dependencies:
 ### Environment
 Spring provides a way to access the environment in which the current application is using with a bean of type `org.springframework.core.env.Environment`. This bean models two key aspects of an application environment: __properties__ and __profiles__. 
 
+Environment can be injected as simple as follows: 
+
+```java
+@Component
+public class MyComponent {
+    
+    Environment environment;
+
+    public MyComponent(Environment environment) {
+        this.environment = environment;
+    }
+}
+```
+
 ### Bean Injection
 `@Autowired` is the annotation to use inject beans to other beans. When there is only a single type of bean, injection is straightforward. When there are multiple types of a certain interface or multiple `@Bean` declarations of a certain class, things get interesting. This is one way how bean injection can work based on bean name:
 
@@ -276,3 +299,4 @@ Default scope for beans in Spring is singleton. Unless otherwise declared, all b
 
 ### Profiles
 A profile is a logical group of bean definitions that is registered within the Spring container when the profile is active. Profiles can also group property files or property values that are supposed to be active only when the profile is active.
+
