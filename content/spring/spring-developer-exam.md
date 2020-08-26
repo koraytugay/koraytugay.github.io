@@ -31,7 +31,7 @@ class MyConfiguration {
 }
 ```
 
-Configuration classes can have bean definitions inside them. A bean declaration inside a configuration class is any method annotated with `@Bean` that returns an instance. 
+Configuration classes can have bean definitions inside them. A bean declaration inside a configuration class is any method annotated with the `@Bean` annotation. Such methods are called factory methods and Spring creates bean instances calling these factory methods. 
 
 ```java
 @Configuration
@@ -128,7 +128,7 @@ The above example required me to add the following dependencies:
 ```
 
 ### Properties
-`@PropertySource` annotation can be used to tell Spring where to look for property values, which can be injected using placeholders `${}`. Here is a full example which also includes `@ComponentScan`:
+`@PropertySource` annotation can be used to tell Spring where to look for property values. These property values  can be injected using the `@Value` annotation together with placeholders `${}` later on in managed beans. Here is a full example which also demonstrates using the `@ComponentScan` annotation:
 
 ```java
 @Configuration
@@ -199,7 +199,7 @@ public class MyTest {
 ### Environment
 Spring provides a way to access the environment in which the current application is using with a bean of type `org.springframework.core.env.Environment`. This bean models two key aspects of an application environment: __properties__ and __profiles__. 
 
-Environment can be injected as simple as follows: 
+The `Environment` instance can be injected as simple as follows: 
 
 ```java
 @Component
@@ -305,7 +305,26 @@ public class Foo {
 }
 ```
 
-This is useful for development of special Spring configuration classes that have methods that are called by Spring directly and have parameters that have to be configured.
+This is useful for development of special Spring configuration classes that have methods that are called by Spring directly and have parameters that have to be configured. This is why you can inject `HttpServletRequest` to a `@GetMapping` method in a `@RestController` class.. The argument does not need to be single, the following works just fine:
+
+```java
+@Component
+public class Foo {
+}
+
+@Component
+public class Bar {
+}
+
+@Component
+public class Baz {
+    @Autowired
+    public void gibberish(Foo foo, Bar bar) {
+        System.out.println(foo);
+        System.out.println(bar);
+    }
+}
+```
 
 ### Value Injection
 For injecting primitive values, the `@Value` annotation is used. 
@@ -343,3 +362,4 @@ Default scope for beans in Spring is singleton. Unless otherwise declared, all b
 ### Profiles
 A profile is a logical group of bean definitions that is registered within the Spring container when the profile is active. Profiles can also group property files or property values that are supposed to be active only when the profile is active.
 
+Read the [official documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/core.html#beans-environment) on profiles to gain a better understanding. 
