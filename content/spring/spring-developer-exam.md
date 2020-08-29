@@ -9,7 +9,7 @@ title:  "Spring Developer Exam"
 * TOC
 {:toc}
 
-## Chapter 2
+## Spring Bean Lifecycle and Configuration
 To get started with working with Spring Framework, the only dependency required is:
 
 ```xml
@@ -363,3 +363,20 @@ Default scope for beans in Spring is singleton. Unless otherwise declared, all b
 A profile is a logical group of bean definitions that is registered within the Spring container when the profile is active. Profiles can also group property files or property values that are supposed to be active only when the profile is active.
 
 Read the [official documentation](https://docs.spring.io/spring/docs/5.2.7.RELEASE/spring-framework-reference/core.html#beans-environment) on profiles to gain a better understanding. 
+
+### Spring Boot
+Spring Boot is a preconfigured set of frameworks designed to reduce boilerplate configuration and provide a quick way to have a Spring web application up and running.
+
+## Testing Spring Applications
+`SpringJunit4ClassRunner` also known as `SpringRunner` is the core class for working with JUnit 4 in Spring applications. This annotations caches `ApplicationContext` across Junit 4 test methods.
+
+To be able to use Junit 5 instead of 4, `@RunWith(SpringRunner.class)` must be dropped and must be replaced with `@ExtendWith(SpringExtension.class)`, which integrates the Spring test context into the Junit 5 test context. `@ContextConfiguration` is Spring-test specific, so it will work with JUnit 5 as well. 
+
+`@SpringJunitConfiguration` is a composition of `@ExtendWith(SpringExtension.class)` and `@ContextConfiguration` annotations.
+
+The `@ActiveProfiles` annotation can be used in tests to activate desired profiles in tests. This includes picking up certaion configuration classes or beans, since the `@Profile` annotation can be used on method level as well.
+
+### Spring Boot Testing
+Adding the library `spring-boot-starter-test` as a dependency adds multiple testing libraries to the classpath: JUnit4, JUnit 5, Hamcrest, Mockito and AssertJ. 
+
+By default, any test class annotated with `@SpringBootTest` looks for an application class annotated with `@SpringBootApplication` to use for bootstrapping a test context. The test context can be customized either by specific annotations configurations of the boot test class or by properties declared in specific test properties files such as `src/test/resources/application.properties`. By default, `@SpringBootTest` uses JUnit 5.
