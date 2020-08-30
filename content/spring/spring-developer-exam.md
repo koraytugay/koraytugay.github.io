@@ -374,7 +374,7 @@ To be able to use Junit 5 instead of 4, `@RunWith(SpringRunner.class)` must be d
 
 `@SpringJunitConfiguration` is a composition of `@ExtendWith(SpringExtension.class)` and `@ContextConfiguration` annotations.
 
-The `@ActiveProfiles` annotation can be used in tests to activate desired profiles in tests. This includes picking up certaion configuration classes or beans, since the `@Profile` annotation can be used on method level as well.
+The `@ActiveProfiles` annotation can be used in tests to activate desired profiles in tests. This includes picking up certain configuration classes or beans, since the `@Profile` annotation can be used on method level as well.
 
 ### Spring Boot Testing
 Adding the library `spring-boot-starter-test` as a dependency adds multiple testing libraries to the classpath: JUnit4, JUnit 5, Hamcrest, Mockito and AssertJ. 
