@@ -10,7 +10,6 @@ title:  "Koray Tugay"
 - [Sending a Signed Message](content/cryptography/sending-a-signed-message.md)
 
 #### Git
-- [Git Cheat Sheet](content/cheat-sheets/git-cheat-sheet.md)
 - [Merge vs Rebase](content/git/merge-vs-rebase.md)
 
 #### Java
