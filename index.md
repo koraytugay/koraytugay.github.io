@@ -46,9 +46,6 @@ title:  "Koray Tugay"
 - [Spring Developer Exam](content/spring/spring-developer-exam.md)
 - [Spring Validation](content/spring/spring-validation.md)
 
-#### Workspace
-- [One on One Meetings](content/workspace/one-on-one-meetings.md)
-
 #### Various
 - [Docker](content/various/docker.md)
 - [Design Patterns](content/various/design-patterns.md)
