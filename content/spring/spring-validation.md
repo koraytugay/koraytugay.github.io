@@ -154,7 +154,7 @@ public void helloWorld(@Valid RequestDto requestDto,
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
         for (FieldError error : fieldErrors) {
             throw new BadRequestException(error.getRejectedValue() 
-                + " not valid value for:" + error.getField());
+                + " not valid value for: " + error.getField());
         }
     }
 }
@@ -167,7 +167,7 @@ Sample response:
   "timestamp": "2020-07-07T23:54:25.748+0000",
   "status": 400,
   "error": "Bad Request",
-  "message": "koraytttt not valid value forname",
+  "message": "koraytttt not valid value for: name",
   "path": "/validation"
 }
 ```

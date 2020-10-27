@@ -400,5 +400,5 @@ I have examples to above topics in JAX-RS Playground listed in the References se
 - [API docs](https://jax-rs.github.io/apidocs/2.1/)
 - [Jersey Official Documentation](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
 - Youtube Playlist - [Developing RESTful APIs with JAX-RS](https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZh5U8RbdXq0WaYvZBz2rbn)
-- Stackoverflow - [What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?](https://stackoverflow.com/a/36033943)
+- StackOverflow - [What is the relationship between Jersey, JAXB, JAX-RS, Moxy, Jackson, EclipseLink Moxy, json and xml?](https://stackoverflow.com/a/36033943)
 - [JAX-RS Playground](https://github.com/koraytugay/pg-jaxrs)
