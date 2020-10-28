@@ -13,7 +13,7 @@ title:  "Spring - Angular - Authentication"
 `sprangseccli` stands for _spring - angular - security - client_ and the other folder is the _server_.
 This post is a summary of the important pieces in the flow. Runnable code can be found [here](https://github.com/koraytugay/spr-ang-sec), make sure to check different branches. 
 
-## HttpBasic Authentication
+## Basic HTTP authentication
 Runnable code is at branch `http-basic` in [here](https://github.com/koraytugay/spr-ang-sec/tree/http-basic). 
 
 [data.service.ts](https://github.com/koraytugay/spr-ang-sec/blob/http-basic/sprangseccli/src/app/data.service.ts) houses the method that sends Basic Authentication headers to `/validate` endpoint.
