@@ -30,3 +30,17 @@ The required configuration on the backend is at [SecurityConfiguration](https://
 headers.append("X-Requested-With", "XMLHttpRequest")
 ```
 - Any REST client (such as Insomnia) can be used to send requests to backend with Basic Authentication. 
+- Session in back-end holds the 
+
+## JWT Authentication
+This approach can be found in [jwt](https://github.com/koraytugay/spr-ang-sec/tree/jwt) branch. It is definetly a beast and not easy to digest. 
+
+The heart of the logic is found at [JwtService](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangsecsrvr/src/main/java/biz/tugay/sprangsec/service/JwtService.java). This service is used by [JwtFilter](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangsecsrvr/src/main/java/biz/tugay/sprangsec/filter/JwtFilter.java). There is a lot of manual and hacky work done here to set authentication in Spring Security. [SecurityConfiguration](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangsecsrvr/src/main/java/biz/tugay/sprangsec/configuration/SecurityConfiguration.java) is slightly different.
+
+The idea is to send basic authentication to to `/validate` endpoint, but instead of acquiring a session (and keeping a session in backend), we get a Json Web Token. This token holds the information we would otherwise hold in session. Our username, and our role. 
+
+This iteration stores the token in-memory in the browser. This can be observed in [auth.service.ts](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangseccli/src/app/auth.service.ts). Requests to back-end now needs to send this token with every request. An example can be seen in [foo.component.ts](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangseccli/src/app/foo/foo.component.ts).
+
+### Notes
+- This approach does not survive browser refreshes. This is because the client application is re-loaded after a refresh, and the token stored in client is lost.
+- This approach is good for multiple instances since there is no session in the server. All the information is sent from client in every request, which contains the username and the role user has.
