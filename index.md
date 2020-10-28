@@ -51,6 +51,7 @@ title:  "Koray Tugay"
 - [HTTP](content/various/http.md)
 - [Maven](content/various/maven.md)
 - [Quartz](content/various/quartz.md)
+- [Spring - Angular - Authentication](content/spring-angular-authentication.md)
 - [Terminology](content/various/terminology.md)
 - [The Missing Semester of Your CS Education](/content/various/missing-semester.md)
 - [vs](content/various/vs.md)
