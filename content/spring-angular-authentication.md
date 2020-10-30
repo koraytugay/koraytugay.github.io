@@ -30,7 +30,7 @@ The required configuration on the backend is at [SecurityConfiguration](https://
 headers.append("X-Requested-With", "XMLHttpRequest")
 ```
 - Any REST client (such as Insomnia) can be used to send requests to backend with Basic Authentication. 
-- Session in back-end holds the 
+- Session in back-end holds the user information such as username and the role in memory. This means if the server restarts, the session dies. 
 
 ## JWT Authentication
 This approach can be found in [jwt](https://github.com/koraytugay/spr-ang-sec/tree/jwt) branch. It is definetly a beast and not easy to digest. 
@@ -42,5 +42,6 @@ The idea is to send basic authentication to to `/validate` endpoint (which is ha
 This iteration stores the token in-memory in the browser. This can be observed in [auth.service.ts](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangseccli/src/app/auth.service.ts). Requests to back-end now needs to send this token with every request. An example can be seen in [foo.component.ts](https://github.com/koraytugay/spr-ang-sec/blob/jwt/sprangseccli/src/app/foo/foo.component.ts).
 
 ### Notes
-- This approach does not survive browser refreshes. This is because the client application is re-loaded after a refresh, and the token stored in client is lost.
+- This approach does not survive browser refreshes. This is because the client application is re-loaded after a refresh, and the token stored in client-side, in memory is lost.
 - This approach is good for multiple instances since there is no session in the server. All the information is sent from client in every request, which contains the username and the role user has.
+- This approach would have survived a service restart if we did not initate the key everytime, and instead used a static key for signing and validating.
