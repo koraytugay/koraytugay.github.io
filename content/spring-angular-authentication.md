@@ -45,3 +45,10 @@ This iteration stores the token in-memory in the browser. This can be observed i
 - This approach does not survive browser refreshes. This is because the client application is re-loaded after a refresh, and the token stored in client-side, in memory is lost.
 - This approach is good for multiple instances since there is no session in the server. All the information is sent from client in every request, which contains the username and the role user has.
 - This approach would have survived a service restart if we did not initate the key everytime, and instead used a static key for signing and validating.
+
+## JWT Authentication - Storing the Token in a Cookie
+Storing the JWT in-memory is not secure, neither is storing it in Local Storage. The safest way to send the token as an _http only_ cookie, so that browser restricts accessing the JWT information from JavaScript, but still sends the cookie with every request - just like the session cookie we had.
+
+This approach can be found in [this](https://github.com/koraytugay/spr-ang-sec/tree/jwt-with-cookie) branch. 
+
+This is as far as I am concerned no different compared to using a session cookie, and it is more cumbersome. 
