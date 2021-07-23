@@ -311,3 +311,4 @@ Servers (instead of the clients) can be behind proxy servers for again, whatever
 - [curl](https://curl.haxx.se/) and [wget](https://www.gnu.org/software/wget/) are useful tools for playing with HTTP APIs.
 - [netcat](http://netcat.sourceforge.net/) is very useful for listening TCP ports.
 - [howhttps.works](https://howhttps.works/) is fun to go through.
+- List open ports: `lsof -Pn -i4`
