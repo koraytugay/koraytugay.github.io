@@ -24,6 +24,8 @@ title: "Koray Tugay"
     <a class="kt-card kt-card--interactive kt-card--padded" href="/dungeons-dice-and-danger/"><strong>Dungeons Dice and Danger!</strong></a>
     <a class="kt-card kt-card--interactive kt-card--padded" href="/ns-london/"><strong>Next Station London</strong><br><span class="kt-text-muted">AI playing</span></a>
     <a class="kt-card kt-card--interactive kt-card--padded" href="/folding-dice/"><strong>Folding Dice</strong></a>
+    <a class="kt-card kt-card--interactive kt-card--padded" href="/kt-gems/"><strong>kt-gems</strong><br><span class="kt-text-muted">A modern classic</span></a>
+    <a class="kt-card kt-card--interactive kt-card--padded" href="/blocks/"><strong>Blocks</strong></a>
 </div>
 
 <h2 class="kt-section-title">Other</h2>
