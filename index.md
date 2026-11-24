@@ -25,4 +25,4 @@ title: "Koray Tugay"
     <a class="kt-card kt-card--interactive kt-card--padded" href="/rove-online-claude/"><strong>Rove Online</strong><br><span class="kt-text-muted">A module board for the solo card game ROVE, which only offers moves the rules allow.</span></a>
 </div>
 
-<p><a href="/content/about.html">Notes</a> · <a href="https://github.com/koraytugay">GitHub</a></p>
+<p><a href="https://github.com/koraytugay">GitHub</a></p>
