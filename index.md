@@ -23,6 +23,7 @@ title: "Koray Tugay"
     <a class="kt-card kt-card--interactive kt-card--padded kt-link-plain" href="/ns-berlin-helper/"><strong>Next Station Berlin Helper</strong><br><span class="kt-text-muted">A destination card deck companion for the board game Next Station: Berlin.</span></a>
     <a class="kt-card kt-card--interactive kt-card--padded kt-link-plain" href="/ns-london/"><strong>Next Station London</strong><br><span class="kt-text-muted">An AI playing the board game Next Station London.</span></a>
     <a class="kt-card kt-card--interactive kt-card--padded kt-link-plain" href="/next-station-london/"><strong>Next Station London Helper</strong><br><span class="kt-text-muted">A destination card deck companion for the board game Next Station: London.</span></a>
+    <a class="kt-card kt-card--interactive kt-card--padded kt-link-plain" href="/next-station-paris/"><strong>Next Station Paris</strong><br><span class="kt-text-muted">A companion app for the board game Next Station: Paris.</span></a>
     <a class="kt-card kt-card--interactive kt-card--padded kt-link-plain" href="/rove-online-claude/"><strong>Rove Online</strong><br><span class="kt-text-muted">A module board for the solo card game ROVE, which only offers moves the rules allow.</span></a>
 </div>
 
